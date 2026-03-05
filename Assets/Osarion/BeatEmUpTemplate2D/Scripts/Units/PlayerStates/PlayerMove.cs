@@ -85,7 +85,7 @@ namespace BeatEmUpTemplate2D {
     // Purpose: Executes a short directional dash with optional invulnerability and ghost trail.
     public class PlayerDash : State {
 
-        private const string DASH_ANIMATION = "Run";
+        private const string DASH_ANIMATION = "Dash";
 
         private DIRECTION _dashDirection;
         private float _dashDuration;
