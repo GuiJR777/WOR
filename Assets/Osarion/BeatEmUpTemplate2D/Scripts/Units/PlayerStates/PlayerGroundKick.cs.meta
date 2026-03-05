@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 702bf160ed3562a458d79194cae1c42f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scripts/Units/PlayerStates/PlayerGroundKick.cs
+  uploadId: 777172

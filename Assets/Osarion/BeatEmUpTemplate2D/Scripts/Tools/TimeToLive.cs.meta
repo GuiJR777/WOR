@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2ea7110efe7ecf746a21a89142d2acbb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scripts/Tools/TimeToLive.cs
+  uploadId: 777172

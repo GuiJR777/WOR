@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 14bd6c88371f17b45aace25b41bb3f5d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: -50
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scripts/Input/InputManager.cs
+  uploadId: 777172

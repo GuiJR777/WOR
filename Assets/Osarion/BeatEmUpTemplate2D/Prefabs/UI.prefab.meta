@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 517f341eecf1a5e408de490f92bd9f5a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Prefabs/UI.prefab
+  uploadId: 777172

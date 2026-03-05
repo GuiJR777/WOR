@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 11c3bb2ee810dea4e99cc116affe63c3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Animation/PunchingBag.controller
+  uploadId: 777172

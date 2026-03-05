@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 74e280c4aa290b64b9dd081bb17a3603
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Animation/PunchingBagIdle.anim
+  uploadId: 777172

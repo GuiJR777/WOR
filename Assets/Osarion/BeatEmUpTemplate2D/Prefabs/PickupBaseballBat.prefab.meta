@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d11ce5a16f0115d4c8f8b0bff5f02ac7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Prefabs/PickupBaseballBat.prefab
+  uploadId: 777172

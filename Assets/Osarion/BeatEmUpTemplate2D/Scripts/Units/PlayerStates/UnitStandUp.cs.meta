@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 3b53dceab3a9ee543920c0bcc810d3eb
+timeCreated: 1690999799
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scripts/Units/PlayerStates/UnitStandUp.cs
+  uploadId: 777172

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 350fd9f1dd36c214ba761a61c167c956
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Animation/PlayerGrab.anim
+  uploadId: 777172

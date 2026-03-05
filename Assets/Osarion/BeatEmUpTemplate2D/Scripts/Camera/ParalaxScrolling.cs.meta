@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c0d4edd5fa02d1347896861ef6111a15
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scripts/Camera/ParalaxScrolling.cs
+  uploadId: 777172

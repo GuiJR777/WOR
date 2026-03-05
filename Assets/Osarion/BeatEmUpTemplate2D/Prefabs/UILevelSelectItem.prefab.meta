@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 774b92efbb8921e4da6744c65fc98619
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Prefabs/UILevelSelectItem.prefab
+  uploadId: 777172

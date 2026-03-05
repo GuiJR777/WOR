@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5fd829a4b0db63349b2de17fe4248d6c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Prefabs/Resources/DummyHitEffect.prefab
+  uploadId: 777172

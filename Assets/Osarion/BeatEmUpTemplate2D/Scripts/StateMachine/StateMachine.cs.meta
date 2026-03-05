@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 76577f289d2b4a045a7f191f3794e3eb
+timeCreated: 1690997472
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scripts/StateMachine/StateMachine.cs
+  uploadId: 777172

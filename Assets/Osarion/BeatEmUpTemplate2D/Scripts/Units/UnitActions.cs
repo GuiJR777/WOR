@@ -1,0 +1,1433 @@
+// Purpose: Provides reusable runtime actions for units (movement, combat, sensing and effects) in 2.5D.
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace BeatEmUpTemplate2D {
+
+    public enum DEFENSERESULT {
+        NONE = 0,
+        BLOCKED = 1,
+        PARRIED = 2,
+    }
+
+    public class UnitActions : MonoBehaviour {
+
+        private const float INPUT_DEADZONE = 0.05f;
+        private const float DASH_INPUT_THRESHOLD = 0.75f;
+        private const float DOUBLE_TAP_WINDOW = 0.25f;
+        private const float FOOTSTEP_OVERLAP_RADIUS = 0.2f;
+        private const float DEFAULT_WALL_CHECK_DISTANCE = 0.35f;
+        private const float DEFAULT_KNOCKBACK_DURATION = 0.1f;
+        private const float DEFAULT_GHOST_LIFETIME = 0.18f;
+        private const float DEFAULT_CAPSULE_RADIUS = 0.3f;
+        private const float DEFAULT_CAPSULE_HEIGHT = 0.6f;
+        private const float CAPSULE_CAST_SKIN = 0.02f;
+        private const float GROUNDED_CHECK_DISTANCE = 0.08f;
+        private const float GROUND_NORMAL_THRESHOLD = 0.5f;
+        private const float GROUND_STICK_MAX_UPWARD = 0.05f;
+        private const float MIN_JUMP_VELOCITY = 0.5f;
+        private const float LEGACY_PROXY_HEIGHT = 4f;
+        private const float LEGACY_PROXY_MIN_SIZE = 0.05f;
+        private const string LEGACY_PROXY_NAME = "__Legacy2DTo3DProxy";
+        private const float AUTO_GRAB_DIRECTION_THRESHOLD = 0.2f;
+        private const float AUTO_GRAB_DEPTH_RANGE = 0.7f;
+        private const float DEFAULT_STEP_HEIGHT = 0.45f;
+
+        [HideInInspector] public GameObject target;
+        [HideInInspector] public float groundPos;
+        [HideInInspector] public float baseHeight;
+        [HideInInspector] public Vector2 currentPosition => new Vector2(transform.position.x, groundPos);
+        [HideInInspector] public float lastAttackTime;
+        [HideInInspector] public ATTACKTYPE lastAttackType;
+        [HideInInspector] public float yForce;
+        [HideInInspector] public bool isGrounded = true;
+        [HideInInspector] public WeaponPickup weapon;
+        [HideInInspector] public bool targetSpotted;
+        [HideInInspector] public List<ATTACKTYPE> attackList = new List<ATTACKTYPE>();
+
+        public Animator animator => GetComponent<Animator>();
+        public StateMachine stateMachine => GetComponent<StateMachine>();
+        public UnitSettings settings => GetComponent<UnitSettings>();
+        public bool isPlayer => settings != null && settings.unitType == UNITTYPE.PLAYER;
+        public bool isEnemy => settings != null && settings.unitType == UNITTYPE.ENEMY;
+        public DIRECTION dir {
+            get {
+                float yRotation = Mathf.Repeat(transform.localEulerAngles.y, 360f);
+                bool facingLeft = yRotation > 90f && yRotation < 270f;
+                return facingLeft ? DIRECTION.LEFT : DIRECTION.RIGHT;
+            }
+        }
+        public DIRECTION invertedDir => (DIRECTION)((int)dir * -1);
+        public bool IsDashAvailable => settings != null && settings.canDash && Time.time - _lastDashTime >= settings.dashCooldown;
+
+        public delegate void OnUnitDealDamage(GameObject recipient, AttackData attackData);
+        public static event OnUnitDealDamage onUnitDealDamage;
+
+        private SpriteRenderer _spriteRenderer;
+        private bool _onApplicationQuit;
+        private float _currentSpeed;
+        private float _animDuration;
+        private Vector3 _lastGroundMoveDirection = Vector3.right;
+        private bool _dashInputWasPressed;
+        private float _lastHorizontalTapSign;
+        private float _lastHorizontalTapTime;
+        private float _lastDashTime = -999f;
+        private bool _knockbackActive;
+        private Vector3 _knockbackVelocity;
+        private float _knockbackEndTime;
+        private Coroutine _ghostTrailRoutine;
+        private Rigidbody _rigidbody;
+        private CapsuleCollider _capsuleCollider;
+        private static int _legacy2DProxySceneHandle = int.MinValue;
+        private GameObject _touchedEnemyCandidate;
+
+        private void Awake() {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            EnsureLegacy2DColliderProxies();
+            Ensure3DUnitPhysicsSetup();
+
+            Vector3 position = transform.position;
+            bool needsLegacyDepthConversion = Mathf.Approximately(position.z, 0f) && Mathf.Abs(position.y) > 0.001f;
+            if(needsLegacyDepthConversion) {
+                // Legacy template scenes used Y as depth. Move that depth to Z for 2.5D runtime.
+                Vector3 convertedPosition = new Vector3(position.x, 0f, position.y);
+                transform.position = convertedPosition;
+                if(_rigidbody != null) {
+                    _rigidbody.position = convertedPosition;
+                }
+            }
+
+            Vector3 currentPosition = GetUnitPosition();
+            groundPos = currentPosition.z;
+            baseHeight = currentPosition.y;
+        }
+
+        private void Ensure3DUnitPhysicsSetup() {
+            EnsureRigidbody3D();
+            EnsureCapsuleCollider3D();
+            DisableLegacy2DPhysicsComponents();
+        }
+
+        private void EnsureRigidbody3D() {
+            Rigidbody body = GetComponent<Rigidbody>();
+            if(body == null) {
+                body = gameObject.AddComponent<Rigidbody>();
+            }
+
+            body.useGravity = true;
+            body.isKinematic = false;
+            body.interpolation = RigidbodyInterpolation.Interpolate;
+            body.constraints = RigidbodyConstraints.FreezeRotation;
+            body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            _rigidbody = body;
+        }
+
+        private int GetGroundPhysicsMask() {
+            int mask = LayerMask.GetMask("Environment", "Surface", "Default");
+            return mask != 0 ? mask : Physics.DefaultRaycastLayers;
+        }
+
+        private void EnsureCapsuleCollider3D() {
+            CapsuleCollider collider3D = GetComponent<CapsuleCollider>();
+            CapsuleCollider2D collider2D = GetComponent<CapsuleCollider2D>();
+
+            if(collider3D == null) {
+                collider3D = gameObject.AddComponent<CapsuleCollider>();
+                ConfigureCapsuleCollider3D(collider3D, collider2D);
+            }
+
+            if(collider3D != null && collider3D.radius <= 0f) {
+                collider3D.radius = DEFAULT_CAPSULE_RADIUS;
+                collider3D.height = DEFAULT_CAPSULE_HEIGHT;
+                collider3D.direction = 1;
+            }
+
+            _capsuleCollider = collider3D;
+        }
+
+        private void ConfigureCapsuleCollider3D(CapsuleCollider collider3D, CapsuleCollider2D collider2D) {
+            if(collider2D == null) {
+                collider3D.center = Vector3.zero;
+                collider3D.radius = DEFAULT_CAPSULE_RADIUS;
+                collider3D.height = DEFAULT_CAPSULE_HEIGHT;
+                collider3D.direction = 1;
+                collider3D.isTrigger = false;
+                return;
+            }
+
+            float radius = Mathf.Max(0.05f, collider2D.size.x * 0.5f);
+            float height = Mathf.Max(radius * 2f, collider2D.size.y);
+            collider3D.center = new Vector3(collider2D.offset.x, 0f, collider2D.offset.y);
+            collider3D.radius = radius;
+            collider3D.height = height;
+            collider3D.direction = 1;
+            collider3D.isTrigger = collider2D.isTrigger;
+        }
+
+        private void DisableLegacy2DPhysicsComponents() {
+            Rigidbody2D body2D = GetComponent<Rigidbody2D>();
+            if(body2D != null) {
+                body2D.bodyType = RigidbodyType2D.Kinematic;
+                body2D.simulated = false;
+            }
+
+            CapsuleCollider2D collider2D = GetComponent<CapsuleCollider2D>();
+            if(collider2D != null) {
+                collider2D.enabled = false;
+            }
+        }
+
+        private static void EnsureLegacy2DColliderProxies() {
+            Scene activeScene = SceneManager.GetActiveScene();
+            if(_legacy2DProxySceneHandle == activeScene.handle) {
+                return;
+            }
+            _legacy2DProxySceneHandle = activeScene.handle;
+
+            int environmentLayer = LayerMask.NameToLayer("Environment");
+            int surfaceLayer = LayerMask.NameToLayer("Surface");
+            Collider2D[] legacyColliders = Object.FindObjectsByType<Collider2D>(FindObjectsSortMode.None);
+
+            for(int i = 0; i < legacyColliders.Length; i++) {
+                Collider2D legacyCollider = legacyColliders[i];
+                if(legacyCollider == null || !legacyCollider.enabled) {
+                    continue;
+                }
+
+                GameObject owner = legacyCollider.gameObject;
+                bool supportedLayer = owner.layer == environmentLayer || owner.layer == surfaceLayer;
+                bool hasExitSign = owner.GetComponent<UIExitSign>() != null;
+                if(!supportedLayer && !hasExitSign) {
+                    continue;
+                }
+
+                if(owner.GetComponent<UnitActions>() != null || owner.GetComponent<UnitSettings>() != null) {
+                    continue;
+                }
+
+                if(owner.transform.Find(LEGACY_PROXY_NAME) != null) {
+                    continue;
+                }
+
+                bool owns3DCollider = owner.GetComponent<Collider>() != null;
+                if(owns3DCollider) {
+                    continue;
+                }
+
+                CreateLegacy3DProxy(owner, legacyCollider);
+            }
+        }
+
+        private static void CreateLegacy3DProxy(GameObject owner, Collider2D sourceCollider2D) {
+            Bounds bounds2D = sourceCollider2D.bounds;
+            if(bounds2D.size.sqrMagnitude <= 0f) {
+                return;
+            }
+
+            GameObject proxyObject = new GameObject(LEGACY_PROXY_NAME);
+            proxyObject.layer = owner.layer;
+            proxyObject.transform.SetParent(owner.transform, false);
+            proxyObject.transform.position = new Vector3(bounds2D.center.x, 0f, bounds2D.center.y);
+            proxyObject.transform.rotation = Quaternion.identity;
+            proxyObject.transform.localScale = Vector3.one;
+
+            BoxCollider proxyCollider = proxyObject.AddComponent<BoxCollider>();
+            proxyCollider.isTrigger = sourceCollider2D.isTrigger;
+            proxyCollider.size = new Vector3(
+                Mathf.Max(LEGACY_PROXY_MIN_SIZE, bounds2D.size.x),
+                LEGACY_PROXY_HEIGHT,
+                Mathf.Max(LEGACY_PROXY_MIN_SIZE, bounds2D.size.y));
+        }
+
+        private void OnDestroy() {
+            if(settings != null && settings.shadow != null && !_onApplicationQuit) {
+                Destroy(settings.shadow);
+            }
+        }
+
+        // SECTION: TARGETING, DIRECTION AND COMBAT
+
+        public GameObject findClosestPlayer() {
+            GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+            GameObject closest = null;
+            float closestDistance = float.MaxValue;
+
+            for(int i = 0; i < allPlayers.Length; i++) {
+                GameObject player = allPlayers[i];
+                if(player == null) {
+                    continue;
+                }
+
+                float distance = Vector3.Distance(transform.position, player.transform.position);
+                if(distance < closestDistance) {
+                    closestDistance = distance;
+                    closest = player;
+                }
+            }
+            return closest;
+        }
+
+        public Vector2 distanceToTarget() {
+            if(target == null) {
+                return Vector2.positiveInfinity;
+            }
+
+            float depth = GetGroundDepth(target);
+            return new Vector2(
+                Mathf.Abs(target.transform.position.x - transform.position.x),
+                Mathf.Abs(depth - groundPos)
+            );
+        }
+
+        public void TurnToTarget() {
+            if(target == null) {
+                return;
+            }
+            transform.localRotation = target.transform.position.x < transform.position.x
+                ? Quaternion.Euler(0f, 180f, 0f)
+                : Quaternion.identity;
+        }
+
+        public void TurnToDir(DIRECTION lookDirection) {
+            transform.localRotation = lookDirection == DIRECTION.LEFT
+                ? Quaternion.Euler(0f, 180f, 0f)
+                : Quaternion.identity;
+        }
+
+        public void TurnToFloatDir(float x) {
+            if(Mathf.Abs(x) <= INPUT_DEADZONE) {
+                return;
+            }
+            TurnToDir(x > 0f ? DIRECTION.RIGHT : DIRECTION.LEFT);
+        }
+
+        public bool CheckForHit(AttackData attackData) {
+            if(attackData == null || !HitBoxActive()) {
+                return false;
+            }
+
+            bool damageDealt = false;
+            if(attackData.inflictor == null) {
+                attackData.inflictor = gameObject;
+            }
+
+            List<GameObject> objectsHit = GetObjectsHit(attackData);
+            for(int i = 0; i < objectsHit.Count; i++) {
+                GameObject obj = objectsHit[i];
+                if(obj == null) {
+                    continue;
+                }
+
+                UnitActions targetUnit = obj.GetComponent<UnitActions>();
+                DEFENSERESULT defenseResult = targetUnit != null
+                    ? targetUnit.ResolveIncomingAttack(invertedDir, this, attackData)
+                    : DEFENSERESULT.NONE;
+
+                if(defenseResult == DEFENSERESULT.BLOCKED || defenseResult == DEFENSERESULT.PARRIED) {
+                    damageDealt = true;
+                    continue;
+                }
+
+                bool unitKnockdownInProgress = obj.GetComponent<StateMachine>()?.GetCurrentState() is UnitKnockDown;
+                if(unitKnockdownInProgress) {
+                    continue;
+                }
+
+                ShowHitEffectAtPosition(settings != null && settings.hitBox != null
+                    ? settings.hitBox.transform.position + (Vector3.right * Random.Range(0f, 0.5f))
+                    : transform.position);
+
+                HealthSystem targetHealthSystem = obj.GetComponent<HealthSystem>();
+                targetHealthSystem?.SubstractHealth(attackData.damage);
+
+                if(!string.IsNullOrEmpty(attackData.sfx)) {
+                    AudioController.PlaySFX(attackData.sfx);
+                }
+
+                onUnitDealDamage?.Invoke(obj, attackData);
+
+                if(targetUnit != null && targetUnit.isGrounded) {
+                    if(targetHealthSystem != null && targetHealthSystem.isDead) {
+                        obj.GetComponent<StateMachine>()?.SetState(new UnitDeath(true));
+                    } else {
+                        bool doKnockdown = attackData.knockdown && targetUnit.settings != null && targetUnit.settings.canBeKnockedDown;
+
+                        if(doKnockdown) {
+                            Vector2 knockDownForce = new Vector2(targetUnit.settings.knockDownDistance, targetUnit.settings.knockDownHeight);
+                            targetUnit.stateMachine?.SetState(new UnitKnockDown(attackData, knockDownForce.x, knockDownForce.y));
+                        } else {
+                            targetUnit.ApplyRegularHitKnockback(attackData, dir);
+                            targetUnit.stateMachine?.SetState(new UnitHit());
+                        }
+                    }
+                }
+                damageDealt = true;
+            }
+            return damageDealt;
+        }
+
+        public DEFENSERESULT ResolveIncomingAttack(DIRECTION attackDir, UnitActions attacker, AttackData attackData) {
+            if(isEnemy && settings != null && settings.defendChance > 0f && !(stateMachine.GetCurrentState() is UnitDefend)) {
+                if(Random.Range(0f, 100f) < settings.defendChance) {
+                    stateMachine.SetState(new UnitDefend());
+                }
+            }
+
+            UnitDefend defendState = stateMachine.GetCurrentState() as UnitDefend;
+            if(defendState == null) {
+                return DEFENSERESULT.NONE;
+            }
+
+            bool canDefendFromThisDirection = settings != null && (settings.rearDefenseEnabled || dir == attackDir);
+            if(!canDefendFromThisDirection) {
+                return DEFENSERESULT.NONE;
+            }
+
+            if(defendState.TryParry(attacker, attackData)) {
+                return DEFENSERESULT.PARRIED;
+            }
+
+            defendState.Hit();
+            return DEFENSERESULT.BLOCKED;
+        }
+
+        public void OnParried(UnitActions defender) {
+            if(defender == null || settings == null) {
+                return;
+            }
+
+            float force = Mathf.Max(0f, defender.settings != null ? defender.settings.parryKnockbackForce : settings.hitKnockbackForce);
+            float duration = Mathf.Max(
+                DEFAULT_KNOCKBACK_DURATION,
+                defender.settings != null ? defender.settings.parryKnockbackDuration : settings.hitKnockbackDuration);
+
+            ApplyGroundKnockback(defender.dir, force, duration);
+
+            float stunDuration = defender.settings != null ? defender.settings.parryStunDuration : 0.35f;
+            stateMachine?.SetState(new UnitStunned(stunDuration));
+        }
+
+        public void ApplyRegularHitKnockback(AttackData attackData, DIRECTION attackerDirection) {
+            if(settings == null || attackData == null || !attackData.applyKnockback) {
+                return;
+            }
+
+            float force = attackData.knockbackForce > 0f ? attackData.knockbackForce : settings.hitKnockbackForce;
+            float duration = attackData.knockbackDuration > 0f ? attackData.knockbackDuration : settings.hitKnockbackDuration;
+            ApplyGroundKnockback(attackerDirection, force, duration);
+        }
+
+        public void ApplyGroundKnockback(DIRECTION moveDirection, float force, float duration) {
+            if(force <= 0f || duration <= 0f) {
+                return;
+            }
+
+            float speed = force / duration;
+            _knockbackVelocity = new Vector3((int)moveDirection * speed, 0f, 0f);
+            _knockbackEndTime = Time.time + duration;
+            _knockbackActive = true;
+        }
+
+        public void TickExternalForces() {
+            TickGroundingAndGravity();
+
+            if(!_knockbackActive) {
+                return;
+            }
+
+            if(Time.time >= _knockbackEndTime) {
+                _knockbackActive = false;
+                _knockbackVelocity = Vector3.zero;
+                return;
+            }
+
+            Vector3 velocity = GetLinearVelocity();
+            velocity.x = _knockbackVelocity.x;
+            velocity.z = _knockbackVelocity.z;
+            SetLinearVelocity(velocity);
+        }
+
+        public List<GameObject> GetObjectsHit(AttackData attackData) {
+            List<GameObject> hittableObjects = new List<GameObject>();
+            List<GameObject> objectsHit = new List<GameObject>();
+
+            if(isPlayer) {
+                AppendObjectsWithTag(hittableObjects, "Enemy");
+                AppendObjectsWithTag(hittableObjects, "Object");
+            }
+
+            if(isEnemy) {
+                bool enemyIsBeingThrown = attackData.attackType == ATTACKTYPE.GRABTHROW;
+                bool enemyDoesFallDamage = settings != null && settings.hitOtherEnemiesWhenFalling;
+
+                if(!enemyIsBeingThrown) {
+                    AppendObjectsWithTag(hittableObjects, "Player");
+                }
+
+                if(enemyIsBeingThrown || enemyDoesFallDamage) {
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    for(int i = 0; i < enemies.Length; i++) {
+                        GameObject enemy = enemies[i];
+                        if(enemy == null || enemy == gameObject) {
+                            continue;
+                        }
+
+                        StateMachine state = enemy.GetComponent<StateMachine>();
+                        bool enemyIsKnockedDown = state != null && (state.GetCurrentState() is UnitKnockDown || state.GetCurrentState() is UnitKnockDownGrounded);
+                        if(!enemyIsKnockedDown) {
+                            hittableObjects.Add(enemy);
+                        }
+                    }
+                }
+            }
+
+            for(int i = hittableObjects.Count - 1; i >= 0; i--) {
+                GameObject candidate = hittableObjects[i];
+                if(candidate == null) {
+                    hittableObjects.RemoveAt(i);
+                    continue;
+                }
+
+                HealthSystem healthSystem = candidate.GetComponent<HealthSystem>();
+                if(healthSystem != null && healthSystem.isDead) {
+                    hittableObjects.RemoveAt(i);
+                    continue;
+                }
+
+                StateMachine candidateStateMachine = candidate.GetComponent<StateMachine>();
+                if(candidateStateMachine != null && candidateStateMachine.GetCurrentState() is UnitHit) {
+                    hittableObjects.RemoveAt(i);
+                }
+            }
+
+            SortByDistance(hittableObjects);
+
+            for(int i = 0; i < hittableObjects.Count; i++) {
+                GameObject candidate = hittableObjects[i];
+                SpriteRenderer candidateSpriteRenderer = candidate.GetComponent<SpriteRenderer>();
+                if(candidateSpriteRenderer == null || settings == null || settings.hitBox == null) {
+                    continue;
+                }
+
+                bool hitboxIntersects = settings.hitBox.bounds.Intersects(candidateSpriteRenderer.bounds);
+                if(hitboxIntersects && targetInZRange(candidate, 0.5f)) {
+                    objectsHit.Add(candidateSpriteRenderer.gameObject);
+                }
+            }
+            return objectsHit;
+        }
+
+        public GameObject GetClosestPickup(Vector2 pickupRange) {
+            GameObject[] allPickups = GameObject.FindGameObjectsWithTag("Pickup");
+            float closestDistance = float.MaxValue;
+            GameObject closestPickup = null;
+
+            for(int i = 0; i < allPickups.Length; i++) {
+                GameObject pickup = allPickups[i];
+                if(pickup == null) {
+                    continue;
+                }
+
+                float xDistance = Mathf.Abs(transform.position.x - pickup.transform.position.x);
+                float depthDistance = Mathf.Abs(groundPos - GetGroundDepth(pickup));
+                float maxDistance = pickupRange.magnitude;
+                float distance = Mathf.Sqrt((xDistance * xDistance) + (depthDistance * depthDistance));
+
+                if(distance <= maxDistance && distance < closestDistance) {
+                    closestDistance = distance;
+                    closestPickup = pickup;
+                }
+            }
+            return closestPickup;
+        }
+
+        public bool TryAutoGrabEnemyFromStep(Vector2 moveInput, out GameObject enemyToGrab) {
+            enemyToGrab = null;
+            if(!isPlayer || weapon != null || stateMachine == null || settings == null || !isGrounded) {
+                _touchedEnemyCandidate = null;
+                return false;
+            }
+
+            if(moveInput.sqrMagnitude <= INPUT_DEADZONE * INPUT_DEADZONE) {
+                return false;
+            }
+
+            GameObject touchingEnemy = GetTouchingEnemyCandidate();
+            if(touchingEnemy == null) {
+                _touchedEnemyCandidate = null;
+                return false;
+            }
+
+            bool touchingSameEnemyAsPreviousStep = touchingEnemy == _touchedEnemyCandidate;
+            _touchedEnemyCandidate = touchingEnemy;
+            if(!touchingSameEnemyAsPreviousStep) {
+                return false;
+            }
+
+            UnitActions enemyActions = touchingEnemy.GetComponent<UnitActions>();
+            float enemyDepth = enemyActions != null ? enemyActions.groundPos : touchingEnemy.transform.position.z;
+            Vector2 toEnemy = new Vector2(
+                touchingEnemy.transform.position.x - transform.position.x,
+                enemyDepth - groundPos);
+
+            if(toEnemy.sqrMagnitude <= INPUT_DEADZONE * INPUT_DEADZONE) {
+                toEnemy = new Vector2((int)dir, 0f);
+            }
+
+            Vector2 moveDirection = moveInput.normalized;
+            float moveTowardEnemy = Vector2.Dot(moveDirection, toEnemy.normalized);
+            if(moveTowardEnemy < AUTO_GRAB_DIRECTION_THRESHOLD) {
+                return false;
+            }
+
+            enemyToGrab = touchingEnemy;
+            _touchedEnemyCandidate = null;
+            return true;
+        }
+
+        public GameObject NearbyEnemyDown() {
+            if(EnemyManager.enemyList.Count == 0) {
+                return null;
+            }
+
+            const float range = 1f;
+            for(int i = 0; i < EnemyManager.enemyList.Count; i++) {
+                GameObject enemy = EnemyManager.enemyList[i];
+                if(enemy == null) {
+                    continue;
+                }
+
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                if(distance >= range) {
+                    continue;
+                }
+
+                if(enemy.GetComponent<HealthSystem>()?.isDead == true) {
+                    continue;
+                }
+
+                StateMachine targetStateMachine = enemy.GetComponent<StateMachine>();
+                if(targetStateMachine != null && targetStateMachine.GetCurrentState() is UnitKnockDownGrounded) {
+                    return enemy;
+                }
+            }
+            return null;
+        }
+
+        public bool targetInZRange(GameObject targetGameObject, float zRange) {
+            if(targetGameObject == null) {
+                return false;
+            }
+
+            float targetDepth = GetGroundDepth(targetGameObject);
+            return Mathf.Abs(targetDepth - groundPos) < zRange;
+        }
+
+        // SECTION: MOVEMENT, JUMP AND COLLISION
+
+        private Vector3 GetUnitPosition() {
+            if(_rigidbody != null) {
+                return _rigidbody.position;
+            }
+            return transform.position;
+        }
+
+        private void MoveUnit(Vector3 desiredDelta, bool resolveEnvironmentCollision = true) {
+            if(desiredDelta.sqrMagnitude <= Mathf.Epsilon) {
+                return;
+            }
+
+            Vector3 currentPosition = GetUnitPosition();
+            Vector3 resolvedDelta = resolveEnvironmentCollision
+                ? ResolveEnvironmentCollisionDelta(currentPosition, desiredDelta)
+                : desiredDelta;
+            Vector3 nextPosition = currentPosition + resolvedDelta;
+
+            if(_rigidbody != null) {
+                _rigidbody.MovePosition(nextPosition);
+            }
+            transform.position = nextPosition;
+            groundPos = nextPosition.z;
+            if(isGrounded) {
+                baseHeight = nextPosition.y;
+            }
+        }
+
+        private void SetUnitPosition(Vector3 desiredPosition, bool resolveEnvironmentCollision = true) {
+            Vector3 currentPosition = GetUnitPosition();
+            MoveUnit(desiredPosition - currentPosition, resolveEnvironmentCollision);
+        }
+
+        private Vector3 ResolveEnvironmentCollisionDelta(Vector3 currentPosition, Vector3 desiredDelta) {
+            if(_capsuleCollider == null || desiredDelta.sqrMagnitude <= Mathf.Epsilon) {
+                return desiredDelta;
+            }
+
+            int environmentMask = LayerMask.GetMask("Environment");
+            if(environmentMask == 0) {
+                return desiredDelta;
+            }
+
+            float distance = desiredDelta.magnitude;
+            Vector3 direction = desiredDelta / distance;
+            GetCapsuleWorldPoints(currentPosition, out Vector3 point1, out Vector3 point2);
+
+            bool blocked = Physics.CapsuleCast(
+                point1,
+                point2,
+                Mathf.Max(0.01f, _capsuleCollider.radius - CAPSULE_CAST_SKIN),
+                direction,
+                out RaycastHit hit,
+                distance + CAPSULE_CAST_SKIN,
+                environmentMask,
+                QueryTriggerInteraction.Ignore);
+
+            if(!blocked) {
+                return desiredDelta;
+            }
+
+            if(TryResolveStepUpDelta(currentPosition, desiredDelta, direction, distance, hit, out Vector3 stepUpDelta)) {
+                return stepUpDelta;
+            }
+
+            float allowedDistance = Mathf.Max(0f, hit.distance - CAPSULE_CAST_SKIN);
+            return direction * Mathf.Min(distance, allowedDistance);
+        }
+
+        private void GetCapsuleWorldPoints(Vector3 position, out Vector3 point1, out Vector3 point2) {
+            if(_capsuleCollider == null) {
+                point1 = position;
+                point2 = position;
+                return;
+            }
+
+            Vector3 center = position + _capsuleCollider.center;
+            float radius = Mathf.Max(0.01f, _capsuleCollider.radius);
+            float halfHeight = Mathf.Max(radius, _capsuleCollider.height * 0.5f);
+            float sideOffset = Mathf.Max(0f, halfHeight - radius);
+            point1 = center + Vector3.up * sideOffset;
+            point2 = center - Vector3.up * sideOffset;
+        }
+
+        private bool TryResolveStepUpDelta(Vector3 currentPosition, Vector3 desiredDelta, Vector3 direction, float distance, RaycastHit hit, out Vector3 stepUpDelta) {
+            stepUpDelta = Vector3.zero;
+
+            if(!isGrounded || _capsuleCollider == null) {
+                return false;
+            }
+
+            if(Mathf.Abs(desiredDelta.y) > INPUT_DEADZONE) {
+                return false;
+            }
+
+            float obstacleTop = hit.collider != null ? hit.collider.bounds.max.y : currentPosition.y;
+            float requiredStepHeight = obstacleTop - currentPosition.y;
+            if(requiredStepHeight <= CAPSULE_CAST_SKIN || requiredStepHeight > DEFAULT_STEP_HEIGHT) {
+                return false;
+            }
+
+            Vector3 raisedPosition = currentPosition + Vector3.up * (requiredStepHeight + CAPSULE_CAST_SKIN);
+            GetCapsuleWorldPoints(raisedPosition, out Vector3 raisedPoint1, out Vector3 raisedPoint2);
+
+            int environmentMask = LayerMask.GetMask("Environment");
+            bool blockedAtRaisedPosition = Physics.CapsuleCast(
+                raisedPoint1,
+                raisedPoint2,
+                Mathf.Max(0.01f, _capsuleCollider.radius - CAPSULE_CAST_SKIN),
+                direction,
+                distance + CAPSULE_CAST_SKIN,
+                environmentMask,
+                QueryTriggerInteraction.Ignore);
+
+            if(blockedAtRaisedPosition) {
+                return false;
+            }
+
+            stepUpDelta = desiredDelta + Vector3.up * (requiredStepHeight + CAPSULE_CAST_SKIN);
+            return true;
+        }
+
+        private bool TryGetGroundContact(out RaycastHit groundHit) {
+            groundHit = default;
+            if(_capsuleCollider == null) {
+                return false;
+            }
+
+            Vector3 position = GetUnitPosition();
+            GetCapsuleWorldPoints(position, out Vector3 point1, out Vector3 point2);
+            float castRadius = Mathf.Max(0.01f, _capsuleCollider.radius - CAPSULE_CAST_SKIN);
+            float castDistance = GROUNDED_CHECK_DISTANCE + CAPSULE_CAST_SKIN;
+            int groundMask = GetGroundPhysicsMask();
+
+            bool foundGround = Physics.CapsuleCast(
+                point1,
+                point2,
+                castRadius,
+                Vector3.down,
+                out RaycastHit hitInfo,
+                castDistance,
+                groundMask,
+                QueryTriggerInteraction.Ignore);
+
+            if(!foundGround) {
+                return false;
+            }
+
+            float groundDot = Vector3.Dot(hitInfo.normal, Vector3.up);
+            if(groundDot < GROUND_NORMAL_THRESHOLD) {
+                return false;
+            }
+
+            groundHit = hitInfo;
+            return true;
+        }
+
+        private void ApplyAdditionalAirGravity() {
+            if(_rigidbody == null || !_rigidbody.useGravity || settings == null) {
+                return;
+            }
+
+            float desiredGravity = Mathf.Max(0f, settings.jumpGravity * settings.jumpSpeed);
+            float worldGravity = Mathf.Abs(Physics.gravity.y);
+            float extraGravity = desiredGravity - worldGravity;
+            if(extraGravity <= 0f) {
+                return;
+            }
+
+            _rigidbody.AddForce(Vector3.down * extraGravity, ForceMode.Acceleration);
+        }
+
+        private void TickGroundingAndGravity() {
+            if(settings == null) {
+                return;
+            }
+
+            if(_rigidbody == null) {
+                groundPos = transform.position.z;
+                if(isGrounded) {
+                    baseHeight = transform.position.y;
+                }
+                return;
+            }
+
+            Vector3 velocity = GetLinearVelocity();
+            bool isMovingUp = velocity.y > GROUND_STICK_MAX_UPWARD;
+            bool groundedByContact = TryGetGroundContact(out RaycastHit groundHit);
+            bool groundedThisFrame = groundedByContact && !isMovingUp;
+
+            if(groundedThisFrame) {
+                isGrounded = true;
+                float halfHeight = Mathf.Max(_capsuleCollider.radius, _capsuleCollider.height * 0.5f);
+                baseHeight = groundHit.point.y + halfHeight - _capsuleCollider.center.y;
+                yForce = 0f;
+
+                if(velocity.y < 0f) {
+                    velocity.y = 0f;
+                    SetLinearVelocity(velocity);
+                }
+            } else {
+                isGrounded = false;
+                yForce = velocity.y;
+                ApplyAdditionalAirGravity();
+            }
+
+            groundPos = GetUnitPosition().z;
+        }
+
+        public void MoveToVector(Vector2 moveDir, float moveSpeed) {
+            if(settings == null) {
+                return;
+            }
+
+            if(isGrounded) {
+                groundPos = transform.position.z;
+                baseHeight = transform.position.y;
+            }
+
+            if(_knockbackActive) {
+                return;
+            }
+
+            if(settings.useAcceleration) {
+                if(moveDir.magnitude > INPUT_DEADZONE) {
+                    _currentSpeed = Mathf.Min(_currentSpeed + settings.moveAcceleration * Time.fixedDeltaTime, moveSpeed);
+                }
+            } else if(moveDir.magnitude > INPUT_DEADZONE) {
+                _currentSpeed = moveSpeed;
+            }
+
+            Vector3 moveDirection3D = new Vector3(moveDir.x, 0f, moveDir.y);
+            if(moveDirection3D.sqrMagnitude <= INPUT_DEADZONE * INPUT_DEADZONE) {
+                return;
+            }
+
+            moveDirection3D.Normalize();
+            _lastGroundMoveDirection = moveDirection3D;
+
+            Vector3 velocity = GetLinearVelocity();
+            velocity.x = moveDirection3D.x * _currentSpeed;
+            velocity.z = moveDirection3D.z * _currentSpeed;
+            if(isGrounded && velocity.y < 0f) {
+                velocity.y = 0f;
+            }
+            SetLinearVelocity(velocity);
+
+            if(Mathf.Abs(moveDir.x) > INPUT_DEADZONE) {
+                TurnToDir(moveDir.x > 0f ? DIRECTION.RIGHT : DIRECTION.LEFT);
+            }
+        }
+
+        public bool WallDetected(Vector2 dir) {
+            Vector3 direction3D = new Vector3(dir.x, 0f, dir.y).normalized;
+            if(direction3D.sqrMagnitude <= INPUT_DEADZONE * INPUT_DEADZONE) {
+                return false;
+            }
+
+            Vector3 currentUnitPosition = GetUnitPosition();
+            float checkDistance = Mathf.Max(DEFAULT_WALL_CHECK_DISTANCE, dir.magnitude);
+            int environmentMask = GetGroundPhysicsMask();
+
+            if(_capsuleCollider == null) {
+                Vector3 rayOrigin = currentUnitPosition + Vector3.up * 0.1f;
+                bool rayHit = Physics.Raycast(rayOrigin, direction3D, out RaycastHit rayHitInfo, checkDistance, environmentMask, QueryTriggerInteraction.Ignore);
+                if(!rayHit) {
+                    return false;
+                }
+
+                float wallSlope = Vector3.Dot(rayHitInfo.normal, Vector3.up);
+                return wallSlope < GROUND_NORMAL_THRESHOLD;
+            }
+
+            GetCapsuleWorldPoints(currentUnitPosition, out Vector3 point1, out Vector3 point2);
+            float castRadius = Mathf.Max(0.01f, _capsuleCollider.radius - CAPSULE_CAST_SKIN);
+
+            bool blocked = Physics.CapsuleCast(
+                point1,
+                point2,
+                castRadius,
+                direction3D,
+                out RaycastHit hitInfo,
+                checkDistance,
+                environmentMask,
+                QueryTriggerInteraction.Ignore);
+
+            if(!blocked) {
+                return false;
+            }
+
+            float obstacleTop = hitInfo.collider != null ? hitInfo.collider.bounds.max.y : currentUnitPosition.y;
+            float stepHeight = obstacleTop - currentUnitPosition.y;
+            bool obstacleCanBeStepped = isGrounded && stepHeight > CAPSULE_CAST_SKIN && stepHeight <= DEFAULT_STEP_HEIGHT;
+            if(obstacleCanBeStepped) {
+                return false;
+            }
+
+            float slopeDot = Vector3.Dot(hitInfo.normal, Vector3.up);
+            return slopeDot < GROUND_NORMAL_THRESHOLD;
+        }
+
+        public Vector2 GetWallCheckDistance() {
+            float xDistance = DEFAULT_WALL_CHECK_DISTANCE;
+            float zDistance = DEFAULT_WALL_CHECK_DISTANCE;
+
+            if(settings != null && settings.hitBox != null) {
+                Bounds bounds = settings.hitBox.bounds;
+                xDistance = Mathf.Max(xDistance, bounds.extents.x);
+                zDistance = Mathf.Max(zDistance, 0.3f);
+            }
+            return new Vector2(xDistance, zDistance);
+        }
+
+        public void AddForce(float force) {
+            StartCoroutine(AddForceRoutine(force, 0.25f));
+        }
+
+        private IEnumerator AddForceRoutine(float force, float duration) {
+            Vector3 startPosition = GetUnitPosition();
+            Vector3 endPosition = startPosition + Vector3.right * (int)dir * force;
+            float t = 0f;
+
+            while(t < 1f) {
+                Vector3 targetPosition = Vector3.Lerp(startPosition, endPosition, MathUtilities.Sinerp(t));
+                SetUnitPosition(targetPosition, true);
+                t += Time.deltaTime / duration;
+                yield return null;
+            }
+            SetUnitPosition(endPosition, true);
+        }
+
+        public void JumpSequence() {
+            if(settings == null) {
+                return;
+            }
+
+            Vector2 inputVector = InputManager.GetInputVector(settings.playerId);
+
+            if(Mathf.Abs(inputVector.x) > INPUT_DEADZONE) {
+                TurnToDir(inputVector.x > 0f ? DIRECTION.RIGHT : DIRECTION.LEFT);
+            }
+
+            Vector3 velocity = GetLinearVelocity();
+            velocity.x = inputVector.x * settings.moveSpeedAir;
+            velocity.z = inputVector.y * settings.moveSpeedAir * settings.depthMoveMultiplier;
+            SetLinearVelocity(velocity);
+            yForce = velocity.y;
+        }
+
+        public void StartPhysicalJump() {
+            if(settings == null) {
+                return;
+            }
+
+            SetGravityEnabled(true);
+            Vector3 velocity = GetLinearVelocity();
+            float desiredGravity = Mathf.Max(0.01f, settings.jumpGravity * settings.jumpSpeed);
+            float jumpVelocity = Mathf.Sqrt(2f * desiredGravity * Mathf.Max(0.01f, settings.jumpHeight));
+            jumpVelocity = Mathf.Max(MIN_JUMP_VELOCITY, jumpVelocity);
+            velocity.y = jumpVelocity;
+            SetLinearVelocity(velocity);
+
+            yForce = jumpVelocity;
+            isGrounded = false;
+            groundPos = transform.position.z;
+            baseHeight = transform.position.y;
+        }
+
+        public float GetAnimDuration(string animName) {
+            if(animator == null || string.IsNullOrEmpty(animName)) {
+                return _animDuration;
+            }
+
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if(stateInfo.IsName(animName) && stateInfo.length > 0f) {
+                _animDuration = stateInfo.length;
+            }
+            return _animDuration;
+        }
+
+        public void StopMoving(bool stopInstantly = true) {
+            if(settings == null) {
+                return;
+            }
+
+            if(isGrounded) {
+                groundPos = transform.position.z;
+                baseHeight = transform.position.y;
+            }
+
+            if(!settings.useAcceleration) {
+                stopInstantly = true;
+            }
+
+            Vector3 velocity = GetLinearVelocity();
+
+            if(stopInstantly) {
+                _currentSpeed = 0f;
+                velocity.x = 0f;
+                velocity.z = 0f;
+                if(isGrounded && velocity.y < 0f) {
+                    velocity.y = 0f;
+                }
+                SetLinearVelocity(velocity);
+                return;
+            }
+
+            _currentSpeed = Mathf.Max(_currentSpeed - settings.moveDeceleration * Time.fixedDeltaTime, 0f);
+            velocity.x = _lastGroundMoveDirection.x * _currentSpeed;
+            velocity.z = _lastGroundMoveDirection.z * _currentSpeed;
+            if(isGrounded && velocity.y < 0f) {
+                velocity.y = 0f;
+            }
+            SetLinearVelocity(velocity);
+        }
+
+        public void SetGravityEnabled(bool enabled) {
+            if(_rigidbody == null) {
+                return;
+            }
+            _rigidbody.useGravity = enabled;
+        }
+
+        public bool IsDefending(DIRECTION attackDir) {
+            DEFENSERESULT defenseResult = ResolveIncomingAttack(attackDir, null, null);
+            return defenseResult == DEFENSERESULT.BLOCKED || defenseResult == DEFENSERESULT.PARRIED;
+        }
+
+        public bool HitBoxActive() {
+            return settings != null && settings.hitBox != null && settings.hitBox.gameObject.activeSelf;
+        }
+
+        // SECTION: VISUALS, AUDIO, EFFECTS
+
+        public void ShowHitEffectAtPosition(Vector3 pos) {
+            if(settings == null || settings.hitEffect == null) {
+                return;
+            }
+
+            Instantiate(settings.hitEffect, pos, Quaternion.identity);
+        }
+
+        public void PlaySFX(string sfx) {
+            AudioController.PlaySFX(sfx, transform.position);
+        }
+
+        public void Footstep() {
+            Vector3 origin = new Vector3(transform.position.x, baseHeight + 0.1f, groundPos);
+            Collider[] overlappedColliders = Physics.OverlapSphere(origin, FOOTSTEP_OVERLAP_RADIUS);
+
+            for(int i = 0; i < overlappedColliders.Length; i++) {
+                Surface surface = overlappedColliders[i].GetComponent<Surface>();
+                if(surface != null && !string.IsNullOrEmpty(surface.footstepSFX)) {
+                    AudioController.PlaySFX(surface.footstepSFX, transform.position);
+                    return;
+                }
+            }
+
+            Collider2D[] overlappedColliders2D = Physics2D.OverlapPointAll(new Vector2(transform.position.x, groundPos));
+            for(int i = 0; i < overlappedColliders2D.Length; i++) {
+                Surface surface = overlappedColliders2D[i].GetComponent<Surface>();
+                if(surface != null && !string.IsNullOrEmpty(surface.footstepSFX)) {
+                    AudioController.PlaySFX(surface.footstepSFX, transform.position);
+                    return;
+                }
+            }
+
+            AudioController.PlaySFX("FootstepDefault", transform.position);
+        }
+
+        public void ShowEffect(string effectName) {
+            if(string.IsNullOrEmpty(effectName)) {
+                return;
+            }
+
+            GameObject effect = Instantiate(Resources.Load(effectName), transform.position, Quaternion.identity) as GameObject;
+            if(effect == null) {
+                return;
+            }
+
+            Destroy(effect, 3f);
+        }
+
+        public void SpawnProjectile(string objName) {
+            if(string.IsNullOrEmpty(objName)) {
+                return;
+            }
+
+            WeaponAttachment weaponAttachment = GetComponentInChildren<WeaponAttachment>();
+            Vector3 spawnPos = weaponAttachment != null ? weaponAttachment.transform.position : transform.position;
+
+            GameObject projectile = Instantiate(Resources.Load(objName), spawnPos, Quaternion.identity) as GameObject;
+            if(projectile == null) {
+                return;
+            }
+
+            Projectile projectileComponent = projectile.GetComponent<Projectile>();
+            if(projectileComponent == null) {
+                return;
+            }
+            projectileComponent.dir = dir;
+        }
+
+        public void CamShake() {
+            Camera.main?.GetComponent<CameraShake>()?.ShowCamShake();
+        }
+
+        // SECTION: FOV, DASH AND HELPERS
+
+        public bool targetInSight() {
+            if(target == null || settings == null) {
+                return false;
+            }
+
+            if(!settings.enableFOV) {
+                targetSpotted = true;
+                return true;
+            }
+
+            Vector3 origin = GetFovOrigin();
+            Vector3 targetGroundPosition = new Vector3(target.transform.position.x, origin.y, GetGroundDepth(target));
+            Vector3 directionToTarget = targetGroundPosition - origin;
+            directionToTarget.y = 0f;
+
+            float distanceToTarget = directionToTarget.magnitude;
+            if(distanceToTarget > settings.viewDistance) {
+                return false;
+            }
+
+            Vector3 facingDirection = dir == DIRECTION.RIGHT ? Vector3.right : Vector3.left;
+            float angleToTarget = Vector3.Angle(facingDirection, directionToTarget);
+            bool inSight = angleToTarget <= settings.viewAngle * 0.5f;
+            if(inSight) {
+                targetSpotted = true;
+            }
+            return inSight;
+        }
+
+        private void OnDrawGizmos() {
+            if(settings == null || !settings.showFOVCone || settings.viewDistance <= 0f) {
+                return;
+            }
+
+            int lineSegments = settings.viewAngle > 180f ? 40 : 20;
+            Gizmos.color = Color.red;
+            Vector3 origin = GetFovOrigin();
+            Vector3 forward = dir == DIRECTION.RIGHT ? Vector3.right : Vector3.left;
+
+            float halfAngle = settings.viewAngle * 0.5f;
+            Vector3 previousPoint = origin + Quaternion.Euler(0f, -halfAngle, 0f) * forward * settings.viewDistance;
+
+            for(int i = 0; i <= lineSegments; i++) {
+                float angle = -halfAngle + (settings.viewAngle / lineSegments) * i;
+                Vector3 nextPoint = origin + Quaternion.Euler(0f, angle, 0f) * forward * settings.viewDistance;
+                Gizmos.DrawLine(previousPoint, nextPoint);
+                previousPoint = nextPoint;
+            }
+
+            Vector3 leftBoundary = origin + Quaternion.Euler(0f, halfAngle, 0f) * forward * settings.viewDistance;
+            Vector3 rightBoundary = origin + Quaternion.Euler(0f, -halfAngle, 0f) * forward * settings.viewDistance;
+            Gizmos.DrawLine(origin, leftBoundary);
+            Gizmos.DrawLine(origin, rightBoundary);
+        }
+
+        public bool DashInputDetected(int playerId) {
+            if(settings == null || !settings.canDash) {
+                return false;
+            }
+
+            float horizontal = InputManager.GetInputVector(playerId).x;
+            bool isPressed = Mathf.Abs(horizontal) >= DASH_INPUT_THRESHOLD;
+            bool pressedThisFrame = isPressed && !_dashInputWasPressed;
+            _dashInputWasPressed = isPressed;
+
+            if(!pressedThisFrame) {
+                return false;
+            }
+
+            float currentTapSign = Mathf.Sign(horizontal);
+            bool sameDirectionTap = Mathf.Abs(currentTapSign - _lastHorizontalTapSign) <= Mathf.Epsilon;
+            bool withinTapWindow = Time.time - _lastHorizontalTapTime <= DOUBLE_TAP_WINDOW;
+
+            _lastHorizontalTapSign = currentTapSign;
+            _lastHorizontalTapTime = Time.time;
+
+            if(!sameDirectionTap || !withinTapWindow) {
+                return false;
+            }
+            return IsDashAvailable;
+        }
+
+        public void MarkDashUsed() {
+            _lastDashTime = Time.time;
+        }
+
+        public DIRECTION GetDashDirectionFromInput(int playerId) {
+            float x = InputManager.GetInputVector(playerId).x;
+            if(Mathf.Abs(x) <= INPUT_DEADZONE) {
+                return dir;
+            }
+            return x > 0f ? DIRECTION.RIGHT : DIRECTION.LEFT;
+        }
+
+        public void StartGhostTrail(float duration, float interval) {
+            StopGhostTrail();
+            _ghostTrailRoutine = StartCoroutine(GhostTrailRoutine(duration, interval));
+        }
+
+        public void StopGhostTrail() {
+            if(_ghostTrailRoutine == null) {
+                return;
+            }
+            StopCoroutine(_ghostTrailRoutine);
+            _ghostTrailRoutine = null;
+        }
+
+        private IEnumerator GhostTrailRoutine(float duration, float interval) {
+            if(_spriteRenderer == null || interval <= 0f) {
+                yield break;
+            }
+
+            float endTime = Time.time + duration;
+            while(Time.time <= endTime) {
+                SpawnGhostFrame();
+                yield return new WaitForSeconds(interval);
+            }
+            _ghostTrailRoutine = null;
+        }
+
+        private void SpawnGhostFrame() {
+            if(_spriteRenderer == null || _spriteRenderer.sprite == null) {
+                return;
+            }
+
+            GameObject ghostObject = new GameObject($"{name}_DashGhost");
+            ghostObject.transform.position = _spriteRenderer.transform.position;
+            ghostObject.transform.rotation = _spriteRenderer.transform.rotation;
+            ghostObject.transform.localScale = _spriteRenderer.transform.lossyScale;
+
+            SpriteRenderer ghostRenderer = ghostObject.AddComponent<SpriteRenderer>();
+            ghostRenderer.sprite = _spriteRenderer.sprite;
+            ghostRenderer.flipX = _spriteRenderer.flipX;
+            ghostRenderer.flipY = _spriteRenderer.flipY;
+            ghostRenderer.color = new Color(1f, 1f, 1f, 0.45f);
+
+            Camera mainCamera = Camera.main;
+            if(mainCamera != null) {
+                ghostObject.transform.position -= mainCamera.transform.forward * 0.01f;
+            }
+
+            Destroy(ghostObject, DEFAULT_GHOST_LIFETIME);
+        }
+
+        private Vector3 GetLinearVelocity() {
+            if(_rigidbody == null) {
+                return Vector3.zero;
+            }
+
+            #if UNITY_6000_0_OR_NEWER
+                return _rigidbody.linearVelocity;
+            #else
+                return _rigidbody.velocity;
+            #endif
+        }
+
+        private void SetLinearVelocity(Vector3 velocity) {
+            if(_rigidbody == null) {
+                return;
+            }
+
+            #if UNITY_6000_0_OR_NEWER
+                _rigidbody.linearVelocity = velocity;
+            #else
+                _rigidbody.velocity = velocity;
+            #endif
+        }
+
+        private void OnApplicationQuit() {
+            _onApplicationQuit = true;
+        }
+
+        private float GetGroundDepth(GameObject obj) {
+            UnitActions unitActions = obj.GetComponent<UnitActions>();
+            if(unitActions != null) {
+                return unitActions.groundPos;
+            }
+
+            float zDepth = obj.transform.position.z;
+            if(Mathf.Abs(zDepth) > 0.001f) {
+                return zDepth;
+            }
+
+            return obj.transform.position.y;
+        }
+
+        private GameObject GetTouchingEnemyCandidate() {
+            if(_capsuleCollider == null) {
+                return null;
+            }
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject nearestEnemy = null;
+            float nearestDistanceSqr = float.MaxValue;
+
+            for(int i = 0; i < enemies.Length; i++) {
+                GameObject enemy = enemies[i];
+                if(!CanAutoGrabEnemy(enemy)) {
+                    continue;
+                }
+
+                UnitActions enemyActions = enemy.GetComponent<UnitActions>();
+                float enemyDepth = enemyActions != null ? enemyActions.groundPos : enemy.transform.position.z;
+                if(Mathf.Abs(enemyDepth - groundPos) > AUTO_GRAB_DEPTH_RANGE) {
+                    continue;
+                }
+
+                Collider enemyCollider = enemy.GetComponent<Collider>();
+                if(enemyCollider == null || !_capsuleCollider.bounds.Intersects(enemyCollider.bounds)) {
+                    continue;
+                }
+
+                Vector2 distanceVector = new Vector2(
+                    enemy.transform.position.x - transform.position.x,
+                    enemyDepth - groundPos);
+                float distanceSqr = distanceVector.sqrMagnitude;
+                if(distanceSqr < nearestDistanceSqr) {
+                    nearestDistanceSqr = distanceSqr;
+                    nearestEnemy = enemy;
+                }
+            }
+
+            return nearestEnemy;
+        }
+
+        private bool CanAutoGrabEnemy(GameObject enemy) {
+            if(enemy == null || enemy == gameObject || !enemy.activeInHierarchy) {
+                return false;
+            }
+
+            HealthSystem healthSystem = enemy.GetComponent<HealthSystem>();
+            if(healthSystem != null && healthSystem.isDead) {
+                return false;
+            }
+
+            UnitSettings enemySettings = enemy.GetComponent<UnitSettings>();
+            if(enemySettings == null || !enemySettings.canBeGrabbed) {
+                return false;
+            }
+
+            StateMachine enemyStateMachine = enemy.GetComponent<StateMachine>();
+            State enemyState = enemyStateMachine != null ? enemyStateMachine.GetCurrentState() : null;
+            if(enemyState == null || !enemyState.canGrab) {
+                return false;
+            }
+
+            UnitActions enemyActions = enemy.GetComponent<UnitActions>();
+            if(enemyActions == null || !enemyActions.isGrounded) {
+                return false;
+            }
+
+            return true;
+        }
+
+        private Vector3 GetFovOrigin() {
+            if(settings == null) {
+                return transform.position;
+            }
+
+            float xOffset = settings.viewPosOffset.x * (int)dir;
+            float zOffset = settings.viewPosOffset.y;
+            return new Vector3(
+                transform.position.x + xOffset,
+                transform.position.y + settings.viewHeightOffset,
+                groundPos + zOffset
+            );
+        }
+
+        private static void AppendObjectsWithTag(List<GameObject> targetList, string tag) {
+            GameObject[] found = GameObject.FindGameObjectsWithTag(tag);
+            for(int i = 0; i < found.Length; i++) {
+                if(found[i] != null) {
+                    targetList.Add(found[i]);
+                }
+            }
+        }
+
+        private void SortByDistance(List<GameObject> objectsToSort) {
+            objectsToSort.Sort((a, b) => {
+                if(a == null || b == null) {
+                    return 0;
+                }
+
+                float distanceA = Vector2.Distance(currentPosition, new Vector2(a.transform.position.x, GetGroundDepth(a)));
+                float distanceB = Vector2.Distance(currentPosition, new Vector2(b.transform.position.x, GetGroundDepth(b)));
+                return distanceA.CompareTo(distanceB);
+            });
+        }
+    }
+
+    public enum DIRECTION {
+        LEFT = -1,
+        RIGHT = 1,
+    }
+}

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4276c3392e7209f4ca075a14102883ec
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Animation/PlayerGroundPunch.anim
+  uploadId: 777172

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a27cd78405a9bdd44bcdb8f468626b5a
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scenes/00_MainMenu.unity
+  uploadId: 777172

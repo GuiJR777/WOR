@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bd22f0cbfdad0a0409ad336e57c368ca
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Prefabs/Resources/HitEffect.prefab
+  uploadId: 777172

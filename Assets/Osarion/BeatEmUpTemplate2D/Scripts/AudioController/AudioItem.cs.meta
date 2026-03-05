@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: a58ab071c6c99dc4e93e7ca80e284b3d
+timeCreated: 1470519281
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scripts/AudioController/AudioItem.cs
+  uploadId: 777172

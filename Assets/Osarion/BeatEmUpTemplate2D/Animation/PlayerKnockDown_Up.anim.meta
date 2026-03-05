@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 34f68f8e1ba6f67428c3000112eb03f0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Animation/PlayerKnockDown_Up.anim
+  uploadId: 777172

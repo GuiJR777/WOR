@@ -1,0 +1,403 @@
+// Purpose: Custom inspector for UnitSettings with grouped foldouts and full combat tuning fields.
+using System.Collections.Generic;
+
+using UnityEditor;
+using UnityEngine;
+
+namespace BeatEmUpTemplate2D {
+
+    [CanEditMultipleObjects]
+    [CustomEditor(typeof(UnitSettings))]
+    public class UnitSettingsEditor : Editor {
+
+        private static readonly Dictionary<string, bool> FOLDOUTS = new Dictionary<string, bool> {
+            { "linked", false },
+            { "movement", false },
+            { "dash", false },
+            { "jump", false },
+            { "attack", false },
+            { "combo", false },
+            { "knockdown", false },
+            { "throw", false },
+            { "defence", false },
+            { "grab", false },
+            { "weapon", false },
+            { "name", false },
+            { "fov", false },
+        };
+
+        private const string CAN_BE_KNOCKED_DOWN = "canBeKnockedDown";
+        private const string LOAD_RANDOM_NAME_FROM_LIST = "loadRandomNameFromList";
+        private const string ENABLE_FOV = "enableFOV";
+        private const string CAN_DASH = "canDash";
+
+        public override void OnInspectorGUI() {
+            serializedObject.Update();
+
+            DrawProperty("unitType");
+            UNITTYPE unitType = (UNITTYPE)GetProperty("unitType").enumValueIndex;
+
+            DrawSection("linked", "Linked Components", DrawLinkedComponents);
+            DrawSection("movement", "Movement Settings", DrawMovementSettings);
+
+            if(unitType == UNITTYPE.PLAYER) {
+                DrawSection("dash", "Dash Settings", DrawDashSettings);
+            }
+
+            DrawSection("jump", "Jump Settings", DrawJumpSettings);
+            DrawSection("attack", "Attack Data", () => DrawAttackData(unitType));
+
+            if(unitType == UNITTYPE.PLAYER) {
+                DrawSection("combo", "Combo Data", DrawComboData);
+            }
+
+            DrawSection("knockdown", "Knockdown Settings", DrawKnockdownSettings);
+            DrawSection("throw", "Throw Settings", DrawThrowSettings);
+            DrawSection("defence", "Defence Settings", () => DrawDefenceSettings(unitType));
+            DrawSection("grab", "Grab Settings", () => DrawGrabSettings(unitType));
+
+            if(unitType == UNITTYPE.PLAYER) {
+                DrawSection("weapon", "Weapon Settings", DrawWeaponSettings);
+            }
+
+            DrawSection("name", "Unit Name & Portrait", () => DrawNameSettings(unitType));
+
+            if(unitType == UNITTYPE.ENEMY) {
+                DrawSection("fov", "Field Of View Settings", DrawFovSettings);
+            }
+
+            serializedObject.ApplyModifiedProperties();
+        }
+
+        private void DrawSection(string key, string label, System.Action drawContent) {
+            FOLDOUTS[key] = EditorGUILayout.Foldout(FOLDOUTS[key], label, true, EditorStyles.foldoutHeader);
+            if(!FOLDOUTS[key]) {
+                return;
+            }
+
+            EditorGUI.indentLevel++;
+            drawContent?.Invoke();
+            EditorGUI.indentLevel--;
+            EditorGUILayout.Space(4f);
+        }
+
+        private void DrawLinkedComponents() {
+            DrawProperties(
+                "shadowPrefab",
+                "weaponBone",
+                "hitEffect",
+                "hitBox",
+                "spriteRenderer");
+        }
+
+        private void DrawMovementSettings() {
+            DrawProperties(
+                "startDirection",
+                "moveSpeed",
+                "moveSpeedAir",
+                "depthMoveMultiplier",
+                "useAcceleration");
+
+            SerializedProperty useAccelerationProperty = GetProperty("useAcceleration");
+            if(useAccelerationProperty != null && useAccelerationProperty.boolValue) {
+                DrawProperties("moveAcceleration", "moveDeceleration");
+            }
+        }
+
+        private void DrawDashSettings() {
+            DrawProperty(CAN_DASH);
+            SerializedProperty canDashProperty = GetProperty(CAN_DASH);
+            if(canDashProperty != null && canDashProperty.boolValue) {
+                DrawProperties(
+                    "dashSpeed",
+                    "dashDuration",
+                    "dashCooldown",
+                    "dashGhostInterval",
+                    "dashInvulnerable");
+            }
+        }
+
+        private void DrawJumpSettings() {
+            DrawProperties("jumpHeight", "jumpSpeed", "jumpGravity");
+        }
+
+        private void DrawAttackData(UNITTYPE unitType) {
+            if(unitType == UNITTYPE.PLAYER) {
+                DrawAttackDataProperty("jumpPunch", "Jump Punch", false);
+                DrawAttackDataProperty("jumpKick", "Jump Kick", false);
+                DrawAttackDataProperty("grabPunch", "Grab Punch", false);
+                DrawAttackDataProperty("grabKick", "Grab Kick", false);
+                DrawAttackDataProperty("grabThrow", "Grab Throw", false);
+                DrawAttackDataProperty("groundPunch", "Ground Punch", false);
+                DrawAttackDataProperty("groundKick", "Ground Kick", false);
+                return;
+            }
+
+            DrawProperty("enemyPauseBeforeAttack");
+            DrawAttackDataArray("enemyAttackList", "Enemy Attack");
+        }
+
+        private void DrawComboData() {
+            DrawProperties("comboResetTime", "continueComboOnHit");
+            DrawAttackComboArray("comboData");
+        }
+
+        private void DrawKnockdownSettings() {
+            DrawProperty(CAN_BE_KNOCKED_DOWN);
+            SerializedProperty canKnockdownProperty = GetProperty(CAN_BE_KNOCKED_DOWN);
+            if(canKnockdownProperty == null || !canKnockdownProperty.boolValue) {
+                return;
+            }
+
+            DrawProperties(
+                "knockDownHeight",
+                "knockDownDistance",
+                "knockDownSpeed",
+                "knockDownFloorTime",
+                "hitOtherEnemiesWhenFalling");
+        }
+
+        private void DrawThrowSettings() {
+            DrawProperties("throwHeight", "throwDistance", "hitOtherEnemiesWhenThrown");
+        }
+
+        private void DrawDefenceSettings(UNITTYPE unitType) {
+            if(unitType == UNITTYPE.ENEMY) {
+                DrawProperties("defendChance", "defendDuration");
+            } else {
+                DrawProperty("canChangeDirWhileDefending");
+            }
+
+            DrawProperties(
+                "rearDefenseEnabled",
+                "parryWindow",
+                "parryStunDuration",
+                "parryKnockbackForce",
+                "parryKnockbackDuration",
+                "hitKnockbackForce",
+                "hitKnockbackDuration");
+        }
+
+        private void DrawGrabSettings(UNITTYPE unitType) {
+            if(unitType == UNITTYPE.PLAYER) {
+                DrawProperties("grabAnimation", "grabPosition", "grabDuration");
+                return;
+            }
+
+            DrawProperty("canBeGrabbed");
+        }
+
+        private void DrawWeaponSettings() {
+            DrawProperties("loseWeaponWhenHit", "loseWeaponWhenKnockedDown");
+        }
+
+        private void DrawNameSettings(UNITTYPE unitType) {
+            if(unitType == UNITTYPE.PLAYER) {
+                DrawProperties("playerId", "unitName", "showNameInAllCaps", "unitPortrait");
+                return;
+            }
+
+            DrawProperties("unitName", "showNameInAllCaps", "unitPortrait", LOAD_RANDOM_NAME_FROM_LIST);
+            SerializedProperty randomNameProperty = GetProperty(LOAD_RANDOM_NAME_FROM_LIST);
+            if(randomNameProperty != null && randomNameProperty.boolValue) {
+                DrawProperty("unitNamesList");
+            }
+        }
+
+        private void DrawFovSettings() {
+            DrawProperty(ENABLE_FOV);
+            SerializedProperty enableFovProperty = GetProperty(ENABLE_FOV);
+            if(enableFovProperty != null && enableFovProperty.boolValue) {
+                DrawProperties("viewDistance", "viewAngle", "viewPosOffset", "viewHeightOffset", "showFOVCone");
+            }
+
+            SerializedProperty targetInSight = GetProperty("targetInSight");
+            if(targetInSight != null) {
+                GUI.enabled = false;
+                EditorGUILayout.PropertyField(targetInSight);
+                GUI.enabled = true;
+            }
+        }
+
+        private void DrawAttackDataArray(string propertyName, string itemPrefix) {
+            SerializedProperty attackArray = GetProperty(propertyName);
+            if(attackArray == null || !attackArray.isArray) {
+                return;
+            }
+
+            if(attackArray.arraySize == 0) {
+                EditorGUILayout.HelpBox("No attacks configured.", MessageType.Info);
+            }
+
+            for(int i = 0; i < attackArray.arraySize; i++) {
+                SerializedProperty attackProperty = attackArray.GetArrayElementAtIndex(i);
+                DrawAttackDataProperty(attackProperty, $"{itemPrefix} {i + 1}", true);
+            }
+
+            EditorGUILayout.BeginHorizontal();
+            if(GUILayout.Button("Add Attack")) {
+                attackArray.InsertArrayElementAtIndex(attackArray.arraySize);
+            }
+            GUI.enabled = attackArray.arraySize > 0;
+            if(GUILayout.Button("Remove Last")) {
+                attackArray.DeleteArrayElementAtIndex(attackArray.arraySize - 1);
+            }
+            GUI.enabled = true;
+            EditorGUILayout.EndHorizontal();
+        }
+
+        private void DrawAttackComboArray(string propertyName) {
+            SerializedProperty comboArray = GetProperty(propertyName);
+            if(comboArray == null || !comboArray.isArray) {
+                return;
+            }
+
+            if(comboArray.arraySize == 0) {
+                EditorGUILayout.HelpBox("No combos configured.", MessageType.Info);
+            }
+
+            for(int i = 0; i < comboArray.arraySize; i++) {
+                SerializedProperty comboProperty = comboArray.GetArrayElementAtIndex(i);
+                SerializedProperty comboName = comboProperty.FindPropertyRelative("comboName");
+                SerializedProperty comboFoldout = comboProperty.FindPropertyRelative("foldout");
+                SerializedProperty attackSequence = comboProperty.FindPropertyRelative("attackSequence");
+
+                string comboLabel = comboName != null && !string.IsNullOrEmpty(comboName.stringValue)
+                    ? comboName.stringValue
+                    : $"Combo {i + 1}";
+
+                if(comboFoldout != null) {
+                    comboFoldout.boolValue = EditorGUILayout.Foldout(comboFoldout.boolValue, comboLabel, true);
+                    if(!comboFoldout.boolValue) {
+                        continue;
+                    }
+                }
+
+                EditorGUI.indentLevel++;
+                if(comboName != null) {
+                    EditorGUILayout.PropertyField(comboName, new GUIContent("Combo Name"));
+                }
+
+                if(attackSequence != null && attackSequence.isArray) {
+                    for(int attackIndex = 0; attackIndex < attackSequence.arraySize; attackIndex++) {
+                        SerializedProperty attackProperty = attackSequence.GetArrayElementAtIndex(attackIndex);
+                        DrawAttackDataProperty(attackProperty, $"Combo Attack {attackIndex + 1}", true);
+                    }
+
+                    EditorGUILayout.BeginHorizontal();
+                    if(GUILayout.Button("Add Combo Attack")) {
+                        attackSequence.InsertArrayElementAtIndex(attackSequence.arraySize);
+                    }
+                    GUI.enabled = attackSequence.arraySize > 0;
+                    if(GUILayout.Button("Remove Last Combo Attack")) {
+                        attackSequence.DeleteArrayElementAtIndex(attackSequence.arraySize - 1);
+                    }
+                    GUI.enabled = true;
+                    EditorGUILayout.EndHorizontal();
+                }
+
+                EditorGUI.indentLevel--;
+                EditorGUILayout.Space(4f);
+            }
+
+            EditorGUILayout.BeginHorizontal();
+            if(GUILayout.Button("Add Combo")) {
+                comboArray.InsertArrayElementAtIndex(comboArray.arraySize);
+            }
+            GUI.enabled = comboArray.arraySize > 0;
+            if(GUILayout.Button("Remove Last Combo")) {
+                comboArray.DeleteArrayElementAtIndex(comboArray.arraySize - 1);
+            }
+            GUI.enabled = true;
+            EditorGUILayout.EndHorizontal();
+        }
+
+        private void DrawAttackDataProperty(string propertyName, string label, bool showNameField) {
+            SerializedProperty property = GetProperty(propertyName);
+            DrawAttackDataProperty(property, label, showNameField);
+        }
+
+        private void DrawAttackDataProperty(SerializedProperty property, string label, bool showNameField) {
+            if(property == null) {
+                return;
+            }
+
+            SerializedProperty foldoutProperty = property.FindPropertyRelative("foldout");
+            SerializedProperty nameProperty = property.FindPropertyRelative("name");
+            SerializedProperty damageProperty = property.FindPropertyRelative("damage");
+            SerializedProperty animationStateProperty = property.FindPropertyRelative("animationState");
+            SerializedProperty sfxProperty = property.FindPropertyRelative("sfx");
+            SerializedProperty attackTypeProperty = property.FindPropertyRelative("attackType");
+            SerializedProperty knockdownProperty = property.FindPropertyRelative("knockdown");
+            SerializedProperty applyKnockbackProperty = property.FindPropertyRelative("applyKnockback");
+            SerializedProperty knockbackForceProperty = property.FindPropertyRelative("knockbackForce");
+            SerializedProperty knockbackDurationProperty = property.FindPropertyRelative("knockbackDuration");
+
+            string foldoutLabel = label;
+            if(nameProperty != null && !string.IsNullOrEmpty(nameProperty.stringValue)) {
+                foldoutLabel = nameProperty.stringValue;
+            }
+
+            bool expanded = foldoutProperty == null || foldoutProperty.boolValue;
+            expanded = EditorGUILayout.Foldout(expanded, foldoutLabel, true);
+            if(foldoutProperty != null) {
+                foldoutProperty.boolValue = expanded;
+            }
+            if(!expanded) {
+                return;
+            }
+
+            EditorGUI.indentLevel++;
+            if(showNameField && nameProperty != null) {
+                EditorGUILayout.PropertyField(nameProperty, new GUIContent("Attack Name"));
+            }
+            if(damageProperty != null) {
+                EditorGUILayout.PropertyField(damageProperty, new GUIContent("Damage"));
+            }
+            if(animationStateProperty != null) {
+                EditorGUILayout.PropertyField(animationStateProperty, new GUIContent("Animation State"));
+            }
+            if(sfxProperty != null) {
+                EditorGUILayout.PropertyField(sfxProperty, new GUIContent("SFX"));
+            }
+            if(attackTypeProperty != null) {
+                EditorGUILayout.PropertyField(attackTypeProperty, new GUIContent("Attack Type"));
+            }
+            if(knockdownProperty != null) {
+                EditorGUILayout.PropertyField(knockdownProperty, new GUIContent("Knockdown"));
+            }
+            if(applyKnockbackProperty != null) {
+                EditorGUILayout.PropertyField(applyKnockbackProperty, new GUIContent("Apply Knockback"));
+                if(applyKnockbackProperty.boolValue) {
+                    if(knockbackForceProperty != null) {
+                        EditorGUILayout.PropertyField(knockbackForceProperty, new GUIContent("Knockback Force"));
+                    }
+                    if(knockbackDurationProperty != null) {
+                        EditorGUILayout.PropertyField(knockbackDurationProperty, new GUIContent("Knockback Duration"));
+                    }
+                }
+            }
+            EditorGUI.indentLevel--;
+            EditorGUILayout.Space(2f);
+        }
+
+        private SerializedProperty GetProperty(string propertyName) {
+            return serializedObject.FindProperty(propertyName);
+        }
+
+        private void DrawProperty(string propertyName) {
+            SerializedProperty property = GetProperty(propertyName);
+            if(property == null) {
+                return;
+            }
+            EditorGUILayout.PropertyField(property);
+        }
+
+        private void DrawProperties(params string[] propertyNames) {
+            for(int i = 0; i < propertyNames.Length; i++) {
+                DrawProperty(propertyNames[i]);
+            }
+        }
+    }
+}
+

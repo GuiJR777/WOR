@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 03e8864bb0f59f64f9e1364959f5d816
+timeCreated: 1691012750
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Scripts/Units/EnemyStates/EnemyKeepDistance.cs
+  uploadId: 777172

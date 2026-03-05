@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 74460398d97cb954da688135da791321
+timeCreated: 1470560271
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Audio/AudioMixer/AudioMixer.mixer
+  uploadId: 777172

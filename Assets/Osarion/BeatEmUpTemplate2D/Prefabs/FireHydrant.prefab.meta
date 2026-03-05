@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d5257c2e662fef443b80e57d7d1b7221
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Prefabs/FireHydrant.prefab
+  uploadId: 777172

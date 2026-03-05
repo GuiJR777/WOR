@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 61d12c9382fa5c84f8bc4af2ac40c783
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294649
+  packageName: Beat 'Em Up - Game Template 2D
+  packageVersion: 1.0
+  assetPath: Assets/Osarion/BeatEmUpTemplate2D/Prefabs/Resources/SmokePuffJump.prefab
+  uploadId: 777172
