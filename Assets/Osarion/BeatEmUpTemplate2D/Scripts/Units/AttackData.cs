@@ -19,6 +19,8 @@ namespace BeatEmUpTemplate2D {
         public string sfx = ""; //the name of the sfx to be played on hit
         public ATTACKTYPE attackType = ATTACKTYPE.PUNCH;
         public bool knockdown; //if this attack causes a knockDown or not
+        public float knockdownLaunchHorizontalForce; //horizontal launch force used for knockdown
+        public float knockdownLaunchVerticalForce; //vertical launch force used for knockdown
         public bool applyKnockback = true; //if true, apply a short horizontal knockback on regular hits
         public float knockbackForce = DEFAULT_KNOCKBACK_FORCE; //horizontal pushback force
         public float knockbackVerticalForce; //vertical launch velocity applied on regular hit

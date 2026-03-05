@@ -352,16 +352,22 @@ namespace BeatEmUpTemplate2D {
 
                 onUnitDealDamage?.Invoke(obj, attackData);
 
-                if(targetUnit != null && targetUnit.isGrounded) {
+                if(targetUnit != null) {
                     if(targetHealthSystem != null && targetHealthSystem.isDead) {
                         obj.GetComponent<StateMachine>()?.SetState(new UnitDeath(true));
                     } else {
                         bool doKnockdown = attackData.knockdown && targetUnit.settings != null && targetUnit.settings.canBeKnockedDown;
 
                         if(doKnockdown) {
-                            Vector2 knockDownForce = new Vector2(targetUnit.settings.knockDownDistance, targetUnit.settings.knockDownHeight);
+                            float knockdownHorizontalForce = attackData.knockdownLaunchHorizontalForce > 0f
+                                ? attackData.knockdownLaunchHorizontalForce
+                                : targetUnit.settings.knockDownDistance;
+                            float knockdownVerticalForce = attackData.knockdownLaunchVerticalForce > 0f
+                                ? attackData.knockdownLaunchVerticalForce
+                                : targetUnit.settings.knockDownHeight;
+                            Vector2 knockDownForce = new Vector2(knockdownHorizontalForce, knockdownVerticalForce);
                             targetUnit.stateMachine?.SetState(new UnitKnockDown(attackData, knockDownForce.x, knockDownForce.y));
-                        } else {
+                        } else if(targetUnit.isGrounded) {
                             targetUnit.ApplyRegularHitKnockback(attackData, dir);
                             targetUnit.stateMachine?.SetState(new UnitHit());
                         }
@@ -472,6 +478,11 @@ namespace BeatEmUpTemplate2D {
         }
 
         public void TickExternalForces() {
+            State currentState = stateMachine != null ? stateMachine.GetCurrentState() : null;
+            if(currentState is UnitKnockDown) {
+                return;
+            }
+
             TickGroundingAndGravity();
 
             if(_knockbackActive) {
@@ -858,6 +869,11 @@ namespace BeatEmUpTemplate2D {
 
         private void TickGroundingAndGravity() {
             if(settings == null) {
+                return;
+            }
+
+            State currentState = stateMachine != null ? stateMachine.GetCurrentState() : null;
+            if(currentState is UnitKnockDown) {
                 return;
             }
 

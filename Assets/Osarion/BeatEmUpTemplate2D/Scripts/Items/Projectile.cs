@@ -48,7 +48,15 @@ namespace BeatEmUpTemplate2D {
                 UnitSettings us = enemyHit.GetComponent<UnitSettings>();
 
                 //if this attack is a knockdown, go to knockdown state
-                if(attackData.knockdown == true && ua?.settings.canBeKnockedDown == true && ua?.isGrounded == true) enemyHit.GetComponent<StateMachine>().SetState(new UnitKnockDown(attackData, us.knockDownDistance, us.knockDownHeight));
+                if(attackData.knockdown == true && ua?.settings.canBeKnockedDown == true) {
+                    float knockdownHorizontalForce = attackData.knockdownLaunchHorizontalForce > 0f
+                        ? attackData.knockdownLaunchHorizontalForce
+                        : us.knockDownDistance;
+                    float knockdownVerticalForce = attackData.knockdownLaunchVerticalForce > 0f
+                        ? attackData.knockdownLaunchVerticalForce
+                        : us.knockDownHeight;
+                    enemyHit.GetComponent<StateMachine>().SetState(new UnitKnockDown(attackData, knockdownHorizontalForce, knockdownVerticalForce));
+                }
 
                 //show hit effect
                 if(hitEffect) GameObject.Instantiate(hitEffect, transform.position, Quaternion.identity);

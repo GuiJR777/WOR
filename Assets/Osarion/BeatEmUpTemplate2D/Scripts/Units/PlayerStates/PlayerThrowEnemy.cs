@@ -34,7 +34,14 @@ namespace BeatEmUpTemplate2D {
 
             //use knockdown state for throw
             UnitSettings enemySettings = enemy.GetComponent<UnitSettings>();
-            enemy.GetComponent<StateMachine>()?.SetState(new UnitKnockDown(unit.settings.grabThrow, enemySettings.throwDistance, enemySettings.throwHeight));
+            AttackData throwAttackData = unit.settings.grabThrow;
+            float knockdownHorizontalForce = throwAttackData.knockdownLaunchHorizontalForce > 0f
+                ? throwAttackData.knockdownLaunchHorizontalForce
+                : enemySettings.throwDistance;
+            float knockdownVerticalForce = throwAttackData.knockdownLaunchVerticalForce > 0f
+                ? throwAttackData.knockdownLaunchVerticalForce
+                : enemySettings.throwHeight;
+            enemy.GetComponent<StateMachine>()?.SetState(new UnitKnockDown(throwAttackData, knockdownHorizontalForce, knockdownVerticalForce));
         }
 
         public override void Update(){

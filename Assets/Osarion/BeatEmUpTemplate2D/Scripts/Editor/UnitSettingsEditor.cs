@@ -329,6 +329,8 @@ namespace BeatEmUpTemplate2D {
             SerializedProperty sfxProperty = property.FindPropertyRelative("sfx");
             SerializedProperty attackTypeProperty = property.FindPropertyRelative("attackType");
             SerializedProperty knockdownProperty = property.FindPropertyRelative("knockdown");
+            SerializedProperty knockdownLaunchHorizontalForceProperty = property.FindPropertyRelative("knockdownLaunchHorizontalForce");
+            SerializedProperty knockdownLaunchVerticalForceProperty = property.FindPropertyRelative("knockdownLaunchVerticalForce");
             SerializedProperty applyKnockbackProperty = property.FindPropertyRelative("applyKnockback");
             SerializedProperty knockbackForceProperty = property.FindPropertyRelative("knockbackForce");
             SerializedProperty knockbackVerticalForceProperty = property.FindPropertyRelative("knockbackVerticalForce");
@@ -368,6 +370,14 @@ namespace BeatEmUpTemplate2D {
             }
             if(knockdownProperty != null) {
                 EditorGUILayout.PropertyField(knockdownProperty, new GUIContent("Knockdown"));
+                if(knockdownProperty.boolValue) {
+                    if(knockdownLaunchHorizontalForceProperty != null) {
+                        EditorGUILayout.PropertyField(knockdownLaunchHorizontalForceProperty, new GUIContent("Knockdown Launch Horizontal"));
+                    }
+                    if(knockdownLaunchVerticalForceProperty != null) {
+                        EditorGUILayout.PropertyField(knockdownLaunchVerticalForceProperty, new GUIContent("Knockdown Launch Vertical"));
+                    }
+                }
             }
             if(applyKnockbackProperty != null) {
                 EditorGUILayout.PropertyField(applyKnockbackProperty, new GUIContent("Apply Knockback"));

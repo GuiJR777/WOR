@@ -13,6 +13,7 @@ namespace BeatEmUpTemplate2D {
         private int bounceNum = 1;    
         private float xForce;
         private float yForce;
+        private float initialVerticalForce;
         private bool fallDamageApplied; //set to true when this unit takes damage upon hitting the floor
         private bool hasHitFloor; //set to true when this unit has hit the the floor once
 
@@ -20,6 +21,7 @@ namespace BeatEmUpTemplate2D {
             attackData = _attackData;
             this.xForce = xForce;
             this.yForce = yForce;
+            initialVerticalForce = yForce;
         }
    
         public override void Enter(){
@@ -63,7 +65,7 @@ namespace BeatEmUpTemplate2D {
                 //keep bouncing until there are no more bounces left
                 if(bounceNum>0){
                     unit.transform.position = new Vector3(unit.transform.position.x, unit.baseHeight, unit.transform.position.z); //position this unit on the floor 
-                    yForce = unit.settings.knockDownHeight/2f; //add force but make the next bounce less high
+                    yForce = initialVerticalForce * 0.5f; //add force but make the next bounce less high
                     unit.CamShake();
                     bounceNum --;
                     return;
