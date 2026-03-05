@@ -48,6 +48,7 @@ namespace BeatEmUpTemplate2D {
 
             //get attack Data
             attackData = currentCombo?.attackSequence[comboProgress];
+            unit.ApplyAttackForwardMovement(attackData);
             
             //play animation
             if(attackData?.animationState.Length == 0) Debug.Log("Please enter animation state for combo: " + currentCombo.comboName + " - Attack: "+ (comboProgress+1));

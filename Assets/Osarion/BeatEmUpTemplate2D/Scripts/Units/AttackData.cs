@@ -11,6 +11,7 @@ namespace BeatEmUpTemplate2D {
 
         private const float DEFAULT_KNOCKBACK_FORCE = 1f;
         private const float DEFAULT_KNOCKBACK_DURATION = 0.12f;
+        private const float DEFAULT_ATTACKER_FORWARD_DURATION = 0.08f;
 
         public string name; //optional
         public int damage; //the amount of hp damage
@@ -20,7 +21,10 @@ namespace BeatEmUpTemplate2D {
         public bool knockdown; //if this attack causes a knockDown or not
         public bool applyKnockback = true; //if true, apply a short horizontal knockback on regular hits
         public float knockbackForce = DEFAULT_KNOCKBACK_FORCE; //horizontal pushback force
+        public float knockbackVerticalForce; //vertical launch velocity applied on regular hit
         public float knockbackDuration = DEFAULT_KNOCKBACK_DURATION; //duration of the pushback
+        public float attackerForwardDistance; //how far the attacker advances at attack start
+        public float attackerForwardDuration = DEFAULT_ATTACKER_FORWARD_DURATION; //duration of attacker forward advance
         [HideInInspector] public bool foldout;
         [HideInInspector] public GameObject inflictor; //the gameobject inflicting the damage
     

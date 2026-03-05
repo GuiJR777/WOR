@@ -331,7 +331,10 @@ namespace BeatEmUpTemplate2D {
             SerializedProperty knockdownProperty = property.FindPropertyRelative("knockdown");
             SerializedProperty applyKnockbackProperty = property.FindPropertyRelative("applyKnockback");
             SerializedProperty knockbackForceProperty = property.FindPropertyRelative("knockbackForce");
+            SerializedProperty knockbackVerticalForceProperty = property.FindPropertyRelative("knockbackVerticalForce");
             SerializedProperty knockbackDurationProperty = property.FindPropertyRelative("knockbackDuration");
+            SerializedProperty attackerForwardDistanceProperty = property.FindPropertyRelative("attackerForwardDistance");
+            SerializedProperty attackerForwardDurationProperty = property.FindPropertyRelative("attackerForwardDuration");
 
             string foldoutLabel = label;
             if(nameProperty != null && !string.IsNullOrEmpty(nameProperty.stringValue)) {
@@ -372,9 +375,18 @@ namespace BeatEmUpTemplate2D {
                     if(knockbackForceProperty != null) {
                         EditorGUILayout.PropertyField(knockbackForceProperty, new GUIContent("Knockback Force"));
                     }
+                    if(knockbackVerticalForceProperty != null) {
+                        EditorGUILayout.PropertyField(knockbackVerticalForceProperty, new GUIContent("Knockback Vertical Force"));
+                    }
                     if(knockbackDurationProperty != null) {
                         EditorGUILayout.PropertyField(knockbackDurationProperty, new GUIContent("Knockback Duration"));
                     }
+                }
+            }
+            if(attackerForwardDistanceProperty != null) {
+                EditorGUILayout.PropertyField(attackerForwardDistanceProperty, new GUIContent("Attacker Forward Distance"));
+                if(attackerForwardDistanceProperty.floatValue > 0f && attackerForwardDurationProperty != null) {
+                    EditorGUILayout.PropertyField(attackerForwardDurationProperty, new GUIContent("Attacker Forward Duration"));
                 }
             }
             EditorGUI.indentLevel--;
@@ -400,4 +412,3 @@ namespace BeatEmUpTemplate2D {
         }
     }
 }
-

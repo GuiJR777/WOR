@@ -20,6 +20,7 @@ namespace BeatEmUpTemplate2D {
         private const float FOOTSTEP_OVERLAP_RADIUS = 0.2f;
         private const float DEFAULT_WALL_CHECK_DISTANCE = 0.35f;
         private const float DEFAULT_KNOCKBACK_DURATION = 0.1f;
+        private const float DEFAULT_ATTACK_ADVANCE_DURATION = 0.08f;
         private const float DEFAULT_GHOST_LIFETIME = 0.18f;
         private const float DEFAULT_CAPSULE_RADIUS = 0.3f;
         private const float DEFAULT_CAPSULE_HEIGHT = 0.6f;
@@ -77,6 +78,9 @@ namespace BeatEmUpTemplate2D {
         private bool _knockbackActive;
         private Vector3 _knockbackVelocity;
         private float _knockbackEndTime;
+        private bool _attackAdvanceActive;
+        private Vector3 _attackAdvanceVelocity;
+        private float _attackAdvanceEndTime;
         private Coroutine _ghostTrailRoutine;
         private Rigidbody _rigidbody;
         private CapsuleCollider _capsuleCollider;
@@ -417,6 +421,7 @@ namespace BeatEmUpTemplate2D {
             float force = attackData.knockbackForce > 0f ? attackData.knockbackForce : settings.hitKnockbackForce;
             float duration = attackData.knockbackDuration > 0f ? attackData.knockbackDuration : settings.hitKnockbackDuration;
             ApplyGroundKnockback(attackerDirection, force, duration);
+            ApplyVerticalKnockback(attackData.knockbackVerticalForce);
         }
 
         public void ApplyGroundKnockback(DIRECTION moveDirection, float force, float duration) {
@@ -430,23 +435,75 @@ namespace BeatEmUpTemplate2D {
             _knockbackActive = true;
         }
 
-        public void TickExternalForces() {
-            TickGroundingAndGravity();
-
-            if(!_knockbackActive) {
+        public void ApplyAttackForwardMovement(AttackData attackData) {
+            if(attackData == null) {
                 return;
             }
 
-            if(Time.time >= _knockbackEndTime) {
-                _knockbackActive = false;
-                _knockbackVelocity = Vector3.zero;
+            float forwardDistance = Mathf.Max(0f, attackData.attackerForwardDistance);
+            if(forwardDistance <= 0f) {
+                return;
+            }
+
+            float duration = attackData.attackerForwardDuration > 0f
+                ? attackData.attackerForwardDuration
+                : DEFAULT_ATTACK_ADVANCE_DURATION;
+
+            float clampedDuration = Mathf.Max(0.01f, duration);
+            float speed = forwardDistance / clampedDuration;
+            _attackAdvanceVelocity = new Vector3((int)dir * speed, 0f, 0f);
+            _attackAdvanceEndTime = Time.time + clampedDuration;
+            _attackAdvanceActive = true;
+        }
+
+        private void ApplyVerticalKnockback(float verticalForce) {
+            if(Mathf.Abs(verticalForce) <= INPUT_DEADZONE) {
                 return;
             }
 
             Vector3 velocity = GetLinearVelocity();
-            velocity.x = _knockbackVelocity.x;
-            velocity.z = _knockbackVelocity.z;
+            velocity.y = verticalForce;
             SetLinearVelocity(velocity);
+            yForce = velocity.y;
+
+            if(verticalForce > 0f) {
+                isGrounded = false;
+            }
+        }
+
+        public void TickExternalForces() {
+            TickGroundingAndGravity();
+
+            if(_knockbackActive) {
+                if(Time.time >= _knockbackEndTime) {
+                    _knockbackActive = false;
+                    _knockbackVelocity = Vector3.zero;
+                } else {
+                    Vector3 knockbackVelocity = GetLinearVelocity();
+                    knockbackVelocity.x = _knockbackVelocity.x;
+                    knockbackVelocity.z = _knockbackVelocity.z;
+                    SetLinearVelocity(knockbackVelocity);
+                    return;
+                }
+            }
+
+            if(!_attackAdvanceActive) {
+                return;
+            }
+
+            if(Time.time >= _attackAdvanceEndTime) {
+                _attackAdvanceActive = false;
+                _attackAdvanceVelocity = Vector3.zero;
+                return;
+            }
+
+            Vector3 attackAdvanceVelocity = GetLinearVelocity();
+            attackAdvanceVelocity.x = _attackAdvanceVelocity.x;
+            attackAdvanceVelocity.z = _attackAdvanceVelocity.z;
+            if(isGrounded && attackAdvanceVelocity.y < 0f) {
+                attackAdvanceVelocity.y = 0f;
+            }
+            SetLinearVelocity(attackAdvanceVelocity);
         }
 
         public List<GameObject> GetObjectsHit(AttackData attackData) {
@@ -1025,6 +1082,8 @@ namespace BeatEmUpTemplate2D {
 
             if(stopInstantly) {
                 _currentSpeed = 0f;
+                _attackAdvanceActive = false;
+                _attackAdvanceVelocity = Vector3.zero;
                 velocity.x = 0f;
                 velocity.z = 0f;
                 if(isGrounded && velocity.y < 0f) {

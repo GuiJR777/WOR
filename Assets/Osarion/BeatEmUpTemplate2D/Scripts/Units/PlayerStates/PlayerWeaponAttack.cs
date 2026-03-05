@@ -18,6 +18,7 @@ namespace BeatEmUpTemplate2D {
             unit.lastAttackType = attackData.attackType;
 
             unit.StopMoving();
+            unit.ApplyAttackForwardMovement(attackData);
             unit.animator.Play(animationName);
 
             timesToUse = unit.weapon.timesToUse;

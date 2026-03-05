@@ -11,6 +11,7 @@ namespace BeatEmUpTemplate2D {
     
         public override void Enter(){
             unit.StopMoving();
+            unit.ApplyAttackForwardMovement(attackData);
 
             //play animation
             unit.animator.Play(animationName);
