@@ -23,6 +23,9 @@ namespace WOR.Gameplay {
             //parent weapon sprite to the unit
             weapon.transform.parent = transform;
             weaponRenderer.flipX = false; //remove any flipped axis
+            Vector3 attachedScale = weapon.transform.localScale;
+            attachedScale.x = Mathf.Abs(attachedScale.x);
+            weapon.transform.localScale = attachedScale;
             weapon.transform.localPosition = weapon.spritePosOffset;
 
             //save values
@@ -48,7 +51,17 @@ namespace WOR.Gameplay {
             if(weaponRenderer != null && originalSprite != null) weaponRenderer.sprite = originalSprite; //switch back to original sprite
             unit.weapon.transform.SetParent(null); //reparent weapon to hierarchy root
             unit.weapon.transform.position = unit.transform.position; //put weapon at the position of this unit
-            unit.weapon.transform.localRotation = unit.dir == DIRECTION.RIGHT? Quaternion.Euler(0,0,0) : Quaternion.Euler(0,180,0); //rotate sprite to current direction of the unit
+            unit.weapon.transform.localRotation = Quaternion.identity;
+            Vector3 droppedScale = unit.weapon.transform.localScale;
+            float absScaleX = Mathf.Abs(droppedScale.x);
+            if(absScaleX <= Mathf.Epsilon) {
+                absScaleX = 1f;
+            }
+            droppedScale.x = unit.dir == DIRECTION.LEFT ? -absScaleX : absScaleX;
+            unit.weapon.transform.localScale = droppedScale;
+            if(weaponRenderer != null) {
+                weaponRenderer.flipX = false;
+            }
             unit.weapon = null;
         }
 

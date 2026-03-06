@@ -27,7 +27,21 @@ namespace WOR.Gameplay {
     
         void Start(){
             projectileSprite = GetComponentInChildren<SpriteRenderer>();
-            transform.localRotation = Quaternion.Euler(0, dir == DIRECTION.LEFT? 180 : 0, 0); //rotate sprite to face left or right depending on travel direction
+            Vector3 localScale = transform.localScale;
+            float absScaleX = Mathf.Abs(localScale.x);
+            if(absScaleX <= Mathf.Epsilon) {
+                absScaleX = 1f;
+            }
+            localScale.x = dir == DIRECTION.LEFT ? -absScaleX : absScaleX;
+            transform.localScale = localScale;
+
+            Vector3 localEuler = transform.localEulerAngles;
+            localEuler.y = 0f;
+            transform.localEulerAngles = localEuler;
+
+            if(projectileSprite != null) {
+                projectileSprite.flipX = false;
+            }
             startTime = Time.time;
         }
 

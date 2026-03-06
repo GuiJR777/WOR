@@ -349,6 +349,7 @@ namespace WOR.Gameplay {
 
             //check sprite renderer
             if(spriteRenderer == null) Debug.Log("Please assign a SpriteRenderer to GameObject " + gameObject.name + " in UnitSettings/Linked Components");
+            else spriteRenderer.flipX = false;
 
             //load name
             if(loadRandomNameFromList) unitName = GetRandomName();
@@ -398,7 +399,18 @@ namespace WOR.Gameplay {
         private void OnValidate() {
             ClampStatConfiguration();
             SyncStatsModelFromSerializedData();
-            transform.localRotation = (startDirection == DIRECTION.LEFT) ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+
+            Vector3 localScale = transform.localScale;
+            float absScaleX = Mathf.Abs(localScale.x);
+            if(absScaleX <= Mathf.Epsilon) {
+                absScaleX = 1f;
+            }
+            localScale.x = startDirection == DIRECTION.LEFT ? -absScaleX : absScaleX;
+            transform.localScale = localScale;
+
+            if(spriteRenderer != null) {
+                spriteRenderer.flipX = false;
+            }
 
             if(Application.isPlaying) {
                 NotifyStatsChanged();

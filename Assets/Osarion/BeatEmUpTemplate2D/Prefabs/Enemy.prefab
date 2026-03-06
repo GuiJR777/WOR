@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 6831651101224142191}
   - component: {fileID: 6004775595121963008}
   - component: {fileID: 4718332081022883108}
+  - component: {fileID: 2459967620849209273}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -125,12 +126,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.072, y: -1.287, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1791594993636452230}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!54 &3678981344441314270
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,13 +166,13 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4955587178937794416}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c5b94365555874449af008af5f4a8e1f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -190,9 +191,9 @@ SpriteRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4955587178937794416}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -207,7 +208,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: be1ae02cbc9804447982011c45b870ec, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -231,7 +232,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2026213997, guid: f60d6a887f9283a42ab1385b4ff77afe, type: 3}
-  m_Color: {r: 1, g: 0.15566039, b: 0.15566039, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -274,16 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76577f289d2b4a045a7f191f3794e3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  groundPos: 0
-  baseHeight: 0
-  lastAttackTime: 0
-  lastAttackType: 0
-  yForce: 0
-  isGrounded: 1
-  weapon: {fileID: 0}
-  targetSpotted: 0
-  attackList: 
   showStateInGame: 0
   currentState: 
 --- !u!114 &6831651101224142191
@@ -344,6 +335,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 10
+  faction: 20
+  unitLevel: 1
+  unitRole: 
+  canDetect: 1
+  canBeDetected: 1
+  constitution: 6
+  constitutionMultiplier: 1
+  chakra: 0
+  chakraMultiplier: 1
+  strength: 3
+  strengthMultiplier: 1
+  defense: 0
+  defenseMultiplier: 1
+  agility: 4
+  agilityMultiplier: 1
+  luck: 0
+  luckMultiplier: 1
   shadowPrefab: {fileID: 7064653722739863417, guid: d464de87f8d55fd49bde925ac20a3c56, type: 3}
   shadow: {fileID: 0}
   weaponBone: {fileID: 0}
@@ -351,8 +359,6 @@ MonoBehaviour:
   hitBox: {fileID: 4630185741366830119}
   spriteRenderer: {fileID: 4110879382849021568}
   startDirection: -1
-  moveSpeed: 3.5
-  moveSpeedAir: 4
   depthMoveMultiplier: 0.8
   useAcceleration: 0
   moveAcceleration: 25
@@ -366,138 +372,204 @@ MonoBehaviour:
   jumpPunch:
     name: 
     damage: 0
+    strengthDamageScale: 0
     animationState: 
     sfx: 
     attackType: 0
     knockdown: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
     applyKnockback: 0
     knockbackForce: 0
+    knockbackVerticalForce: 0
     knockbackDuration: 0
+    attackerForwardDistance: 0
+    attackerForwardDuration: 0
     foldout: 0
     inflictor: {fileID: 0}
   jumpKick:
     name: 
     damage: 0
+    strengthDamageScale: 0
     animationState: 
     sfx: 
     attackType: 0
     knockdown: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
     applyKnockback: 0
     knockbackForce: 0
+    knockbackVerticalForce: 0
     knockbackDuration: 0
+    attackerForwardDistance: 0
+    attackerForwardDuration: 0
     foldout: 0
     inflictor: {fileID: 0}
   grabPunch:
     name: 
     damage: 0
+    strengthDamageScale: 0
     animationState: 
     sfx: 
     attackType: 0
     knockdown: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
     applyKnockback: 0
     knockbackForce: 0
+    knockbackVerticalForce: 0
     knockbackDuration: 0
+    attackerForwardDistance: 0
+    attackerForwardDuration: 0
     foldout: 0
     inflictor: {fileID: 0}
   grabKick:
     name: 
     damage: 0
+    strengthDamageScale: 0
     animationState: 
     sfx: 
     attackType: 0
     knockdown: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
     applyKnockback: 0
     knockbackForce: 0
+    knockbackVerticalForce: 0
     knockbackDuration: 0
+    attackerForwardDistance: 0
+    attackerForwardDuration: 0
     foldout: 0
     inflictor: {fileID: 0}
   grabThrow:
     name: 
     damage: 0
+    strengthDamageScale: 0
     animationState: 
     sfx: 
     attackType: 0
     knockdown: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
     applyKnockback: 0
     knockbackForce: 0
+    knockbackVerticalForce: 0
     knockbackDuration: 0
+    attackerForwardDistance: 0
+    attackerForwardDuration: 0
     foldout: 0
     inflictor: {fileID: 0}
   groundPunch:
     name: 
     damage: 0
+    strengthDamageScale: 0
     animationState: 
     sfx: 
     attackType: 0
     knockdown: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
     applyKnockback: 0
     knockbackForce: 0
+    knockbackVerticalForce: 0
     knockbackDuration: 0
+    attackerForwardDistance: 0
+    attackerForwardDuration: 0
     foldout: 0
     inflictor: {fileID: 0}
   groundKick:
     name: 
     damage: 0
+    strengthDamageScale: 0
     animationState: 
     sfx: 
     attackType: 0
     knockdown: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
     applyKnockback: 0
     knockbackForce: 0
+    knockbackVerticalForce: 0
     knockbackDuration: 0
+    attackerForwardDistance: 0
+    attackerForwardDuration: 0
     foldout: 0
     inflictor: {fileID: 0}
   enemyAttackList:
   - name: Punch1
     damage: 1
+    strengthDamageScale: 0.8
     animationState: Punch1
     sfx: HitSfx
     attackType: 1
     knockdown: 0
-    applyKnockback: 0
-    knockbackForce: 0
-    knockbackDuration: 0
-    foldout: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
+    applyKnockback: 1
+    knockbackForce: 0.1
+    knockbackVerticalForce: 0
+    knockbackDuration: 0.1
+    attackerForwardDistance: 0
+    attackerForwardDuration: 0
+    foldout: 1
     inflictor: {fileID: 0}
   - name: Punch2
     damage: 1
+    strengthDamageScale: 1
     animationState: Punch2
     sfx: HitSfx
     attackType: 1
     knockdown: 0
-    applyKnockback: 0
-    knockbackForce: 0
-    knockbackDuration: 0
-    foldout: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
+    applyKnockback: 1
+    knockbackForce: 0.1
+    knockbackVerticalForce: 0
+    knockbackDuration: 0.1
+    attackerForwardDistance: 0.1
+    attackerForwardDuration: 0.1
+    foldout: 1
     inflictor: {fileID: 0}
   - name: Kick1
     damage: 1
+    strengthDamageScale: 1
     animationState: Kick1
     sfx: HitSfx
     attackType: 2
     knockdown: 0
-    applyKnockback: 0
-    knockbackForce: 0
-    knockbackDuration: 0
-    foldout: 0
+    knockdownLaunchHorizontalForce: 0
+    knockdownLaunchVerticalForce: 0
+    applyKnockback: 1
+    knockbackForce: 0.3
+    knockbackVerticalForce: 0
+    knockbackDuration: 0.1
+    attackerForwardDistance: 0.1
+    attackerForwardDuration: 0.1
+    foldout: 1
     inflictor: {fileID: 0}
   - name: Kick3
     damage: 1
+    strengthDamageScale: 1.4
     animationState: Kick3
     sfx: HitSfx
     attackType: 2
-    knockdown: 0
+    knockdown: 1
+    knockdownLaunchHorizontalForce: 4
+    knockdownLaunchVerticalForce: 0
     applyKnockback: 0
     knockbackForce: 0
+    knockbackVerticalForce: 0
     knockbackDuration: 0
-    foldout: 0
+    attackerForwardDistance: 0.3
+    attackerForwardDuration: 0.1
+    foldout: 1
     inflictor: {fileID: 0}
   canBeKnockedDown: 1
   knockDownHeight: 3
   knockDownDistance: 3
   knockDownSpeed: 3
   knockDownFloorTime: 1
-  hitOtherEnemiesWhenFalling: 0
+  hitOtherEnemiesWhenFalling: 1
   throwHeight: 3
   throwDistance: 5
   hitOtherEnemiesWhenThrown: 1
@@ -537,3 +609,25 @@ MonoBehaviour:
   viewHeightOffset: 0
   showFOVCone: 0
   targetInSight: 0
+--- !u!114 &2459967620849209273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955587178937794416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d3cef1020ef924c8e256c784314196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WOR.Gameplay.UnitActions
+  target: {fileID: 0}
+  groundPos: 0
+  baseHeight: 0
+  lastAttackTime: 0
+  lastAttackType: 0
+  yForce: 0
+  isGrounded: 1
+  weapon: {fileID: 0}
+  targetSpotted: 0
+  attackList: 

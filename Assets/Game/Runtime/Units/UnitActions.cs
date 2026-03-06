@@ -56,9 +56,7 @@ namespace WOR.Gameplay {
         public bool isEnemy => settings != null && settings.unitType == UNITTYPE.ENEMY;
         public DIRECTION dir {
             get {
-                float yRotation = Mathf.Repeat(transform.localEulerAngles.y, 360f);
-                bool facingLeft = yRotation > 90f && yRotation < 270f;
-                return facingLeft ? DIRECTION.LEFT : DIRECTION.RIGHT;
+                return transform.localScale.x < 0f ? DIRECTION.LEFT : DIRECTION.RIGHT;
             }
         }
         public DIRECTION invertedDir => (DIRECTION)((int)dir * -1);
@@ -97,6 +95,20 @@ namespace WOR.Gameplay {
 
         private void Awake() {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+
+            // Keep legacy scenes compatible: convert facing from Y-rotation to X-scale.
+            float yRotation = Mathf.Repeat(transform.localEulerAngles.y, 360f);
+            if(settings != null) {
+                TurnToDir(settings.startDirection);
+            } else {
+                DIRECTION inferredDirection = yRotation > 90f && yRotation < 270f ? DIRECTION.LEFT : DIRECTION.RIGHT;
+                TurnToDir(inferredDirection);
+            }
+
+            Vector3 localEuler = transform.localEulerAngles;
+            localEuler.y = 0f;
+            transform.localEulerAngles = localEuler;
+
             Ensure3DUnitPhysicsSetup();
 
             Vector3 currentPosition = GetUnitPosition();
@@ -215,15 +227,25 @@ namespace WOR.Gameplay {
             if(target == null) {
                 return;
             }
-            transform.localRotation = target.transform.position.x < transform.position.x
-                ? Quaternion.Euler(0f, 180f, 0f)
-                : Quaternion.identity;
+
+            TurnToDir(target.transform.position.x < transform.position.x ? DIRECTION.LEFT : DIRECTION.RIGHT);
         }
 
         public void TurnToDir(DIRECTION lookDirection) {
-            transform.localRotation = lookDirection == DIRECTION.LEFT
-                ? Quaternion.Euler(0f, 180f, 0f)
-                : Quaternion.identity;
+            Vector3 localScale = transform.localScale;
+            float absScaleX = Mathf.Abs(localScale.x);
+            if(absScaleX <= Mathf.Epsilon) {
+                absScaleX = 1f;
+            }
+            localScale.x = lookDirection == DIRECTION.LEFT ? -absScaleX : absScaleX;
+            transform.localScale = localScale;
+
+            if(_spriteRenderer != null) {
+                _spriteRenderer.flipX = false;
+            }
+            if(settings != null && settings.spriteRenderer != null) {
+                settings.spriteRenderer.flipX = false;
+            }
         }
 
         public void TurnToFloatDir(float x) {
