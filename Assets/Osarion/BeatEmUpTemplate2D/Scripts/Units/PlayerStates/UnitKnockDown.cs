@@ -58,7 +58,15 @@ namespace BeatEmUpTemplate2D {
 
                 //if this is a GRABTHROW attack, apply fall damage when this unit hits the floor
                 if(!fallDamageApplied && attackData.attackType == ATTACKTYPE.GRABTHROW) {
-                    unit.GetComponent<HealthSystem>()?.SubstractHealth(attackData.damage);
+                    int fallDamage = CombatDamageCalculator.CalculateDamageFromInflictor(
+                        attackData,
+                        attackData != null ? attackData.inflictor : null,
+                        unit.settings,
+                        out bool _);
+
+                    if(fallDamage > 0) {
+                        unit.GetComponent<HealthSystem>()?.SubstractHealth(fallDamage);
+                    }
                     fallDamageApplied = true;
                 }
 

@@ -10,8 +10,23 @@ namespace BeatEmUpTemplate2D {
         string newLine = "\n\n"; //using double lines for better readability
 
         public override void OnInspectorGUI() {
+            serializedObject.Update();
 
-            DrawDefaultInspector();
+            HealthSystem healthSystem = target as HealthSystem;
+            UnitSettings unitSettings = healthSystem != null ? healthSystem.GetComponent<UnitSettings>() : null;
+
+            GUI.enabled = false;
+            if(healthSystem != null) {
+                EditorGUILayout.IntField("Max Hp (Runtime)", healthSystem.maxHp);
+                EditorGUILayout.IntField("Current Hp (Runtime)", healthSystem.currentHp);
+            }
+            if(unitSettings != null) {
+                EditorGUILayout.LabelField("Max Hp Source", "Constituicao x 10");
+            }
+            GUI.enabled = true;
+
+            DrawPropertiesExcluding(serializedObject, "m_Script", "maxHp", "currentHp");
+            serializedObject.ApplyModifiedProperties();
 
             GUILayout.Space(10);
 
@@ -21,8 +36,8 @@ namespace BeatEmUpTemplate2D {
                 string content = "The Health System is utilized by various units, including both Player and Enemy units, as well as objects like wooden crates and drum barrels. It tracks the maximum and current health of each unit or object." + newLine;
                 
                 content += highlightItem("Settings Overview" + newLine);
-                content += highlightItem("Max Hp: ") + "The maximum number of health points that this unit/object has." + newLine;
-                content += highlightItem("Current Hp: ") + "The current number of health points that this unit/object has. The object/unit is destroyed when it reaches 0." + newLine;
+                content += highlightItem("Max Hp: ") + "Calculated automatically from UnitStats (Constitution x 10)." + newLine;
+                content += highlightItem("Current Hp: ") + "Runtime value clamped to Max Hp. The object/unit is destroyed when it reaches 0." + newLine;
                 content += highlightItem("Invulnerable: ") + "A unit/object cannot be destroyed or receive damage when it is invulneable." + newLine;
                 content += highlightItem("Show Small Health Bar: ") + "An option to show a small healthbar near this unit in the game." + newLine;
                 content += highlightItem("Small Health Bar Offset: ") + "The position of the small healthbar." + newLine;

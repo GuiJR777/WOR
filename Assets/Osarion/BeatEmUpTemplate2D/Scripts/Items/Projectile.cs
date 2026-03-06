@@ -37,18 +37,27 @@ namespace BeatEmUpTemplate2D {
             GameObject enemyHit = CheckForHit();
             if(enemyHit){
 
-                //apply damage to enemy
-                enemyHit.GetComponent<HealthSystem>()?.SubstractHealth(attackData.damage);
+                UnitSettings targetSettings = enemyHit.GetComponent<UnitSettings>();
+                HealthSystem targetHealth = enemyHit.GetComponent<HealthSystem>();
+                int finalDamage = CombatDamageCalculator.CalculateDamageFromInflictor(
+                    attackData,
+                    attackData != null ? attackData.inflictor : null,
+                    targetSettings,
+                    out bool _);
+
+                if(targetHealth != null && finalDamage > 0) {
+                    targetHealth.SubstractHealth(finalDamage);
+                }
 
                 //play sfx
-                if(attackData.sfx.Length > 0) AudioController.PlaySFX(attackData.sfx);
+                if(attackData != null && attackData.sfx.Length > 0) AudioController.PlaySFX(attackData.sfx);
 
                 //get components
                 UnitActions ua = enemyHit.GetComponent<UnitActions>();
-                UnitSettings us = enemyHit.GetComponent<UnitSettings>();
+                UnitSettings us = targetSettings;
 
                 //if this attack is a knockdown, go to knockdown state
-                if(attackData.knockdown == true && ua?.settings.canBeKnockedDown == true) {
+                if(attackData != null && us != null && attackData.knockdown == true && ua?.settings.canBeKnockedDown == true) {
                     float knockdownHorizontalForce = attackData.knockdownLaunchHorizontalForce > 0f
                         ? attackData.knockdownLaunchHorizontalForce
                         : us.knockDownDistance;

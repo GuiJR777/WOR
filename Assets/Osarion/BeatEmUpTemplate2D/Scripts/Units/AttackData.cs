@@ -12,9 +12,14 @@ namespace BeatEmUpTemplate2D {
         private const float DEFAULT_KNOCKBACK_FORCE = 1f;
         private const float DEFAULT_KNOCKBACK_DURATION = 0.12f;
         private const float DEFAULT_ATTACKER_FORWARD_DURATION = 0.08f;
+        private const float DEFAULT_STRENGTH_DAMAGE_SCALE = 1f;
+        private const float MIN_STRENGTH_DAMAGE_SCALE = 0f;
+        private const float MAX_STRENGTH_DAMAGE_SCALE = 2f;
 
         public string name; //optional
-        public int damage; //the amount of hp damage
+        [HideInInspector] public int damage; //legacy fallback damage (kept for backwards compatibility)
+        [Range(MIN_STRENGTH_DAMAGE_SCALE, MAX_STRENGTH_DAMAGE_SCALE)]
+        public float strengthDamageScale = DEFAULT_STRENGTH_DAMAGE_SCALE; //0..2 percentage of strength converted into damage
         public string animationState = ""; //the animation state, as defined in the Animator component
         public string sfx = ""; //the name of the sfx to be played on hit
         public ATTACKTYPE attackType = ATTACKTYPE.PUNCH;
@@ -33,10 +38,15 @@ namespace BeatEmUpTemplate2D {
         public AttackData(string name, int damage, GameObject inflictor, ATTACKTYPE attackType, bool knockdown, string sfx = ""){
             this.name = name;
             this.damage = damage;
+            strengthDamageScale = Mathf.Clamp(DEFAULT_STRENGTH_DAMAGE_SCALE, MIN_STRENGTH_DAMAGE_SCALE, MAX_STRENGTH_DAMAGE_SCALE);
             this.inflictor = inflictor;
             this.attackType = attackType;
             this.knockdown = knockdown;
             this.sfx = sfx;
+        }
+
+        public float GetStrengthDamageScale() {
+            return Mathf.Clamp(strengthDamageScale, MIN_STRENGTH_DAMAGE_SCALE, MAX_STRENGTH_DAMAGE_SCALE);
         }
     }
 

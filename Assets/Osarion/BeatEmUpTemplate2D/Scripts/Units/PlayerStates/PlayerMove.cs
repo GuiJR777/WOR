@@ -75,7 +75,7 @@ namespace BeatEmUpTemplate2D {
             inputVector.y *= unit.settings.depthMoveMultiplier; 
                 
             //move
-            unit.MoveToVector(inputVector, unit.settings.moveSpeed);
+            unit.MoveToVector(inputVector, unit.settings.MoveSpeedFromStats);
 
             //play run anim
             unit.animator.Play(animationName);
@@ -109,7 +109,7 @@ namespace BeatEmUpTemplate2D {
 
             _dashDirection = unit.GetDashDirectionFromInput(_playerId);
             _dashDuration = Mathf.Max(0.05f, unit.settings.dashDuration);
-            _dashSpeed = Mathf.Max(unit.settings.moveSpeed, unit.settings.dashSpeed);
+            _dashSpeed = Mathf.Max(unit.settings.MoveSpeedFromStats, unit.settings.dashSpeed);
 
             unit.MarkDashUsed();
             unit.TurnToDir(_dashDirection);

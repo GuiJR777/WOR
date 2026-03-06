@@ -714,16 +714,132 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
-      propertyPath: comboData.Array.data[0].foldout
+      propertyPath: faction
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: strength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: constitution
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabKick.foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: jumpKick.foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabPunch.foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabThrow.foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: jumpPunch.foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: continueComboOnHit
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
-      propertyPath: comboData.Array.data[1].foldout
+      propertyPath: groundKick.foldout
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
-      propertyPath: comboData.Array.data[2].foldout
+      propertyPath: grabPunch.knockdown
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: groundPunch.foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: jumpPunch.knockdown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabPunch.applyKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabPunch.knockbackForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: jumpPunch.applyKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: jumpPunch.knockbackForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabKick.strengthDamageScale
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: jumpKick.strengthDamageScale
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabPunch.strengthDamageScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabThrow.strengthDamageScale
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: jumpPunch.strengthDamageScale
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: groundKick.strengthDamageScale
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[0].foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].foldout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].foldout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: groundPunch.strengthDamageScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabThrow.knockdownLaunchVerticalForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabKick.knockdownLaunchHorizontalForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: jumpKick.knockdownLaunchHorizontalForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: grabThrow.knockdownLaunchHorizontalForce
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[0].foldout
@@ -735,6 +851,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[2].foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[0].foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[1].foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[2].foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[0].foldout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[1].foldout
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
@@ -758,6 +894,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[0].applyKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[0].knockbackForce
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[1].applyKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[1].knockbackForce
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[0].applyKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[0].knockbackForce
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[0].knockbackDuration
       value: 0.1
       objectReference: {fileID: 0}
@@ -768,6 +928,50 @@ PrefabInstance:
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[2].knockbackDuration
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[0].knockbackDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[1].knockbackDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[0].knockbackDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[0].attackSequence.Array.data[0].strengthDamageScale
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[0].attackSequence.Array.data[1].strengthDamageScale
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[0].attackSequence.Array.data[2].strengthDamageScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[0].strengthDamageScale
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[1].strengthDamageScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[2].strengthDamageScale
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[0].strengthDamageScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[1].strengthDamageScale
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[1].knockbackVerticalForce
@@ -786,12 +990,48 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[1].attackerForwardDistance
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[1].attackerForwardDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[0].attackerForwardDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[0].attackerForwardDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[1].attackerForwardDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[1].attackerForwardDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[2].knockdownLaunchVerticalForce
-      value: 8
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[2].knockdownLaunchVerticalForce
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[2].knockdownLaunchHorizontalForce
-      value: 3
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[1].attackSequence.Array.data[2].knockdownLaunchHorizontalForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: comboData.Array.data[2].attackSequence.Array.data[1].knockdownLaunchHorizontalForce
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2375,8 +2615,112 @@ PrefabInstance:
     m_TransformParent: {fileID: 312973289}
     m_Modifications:
     - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: faction
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
       propertyPath: hitOtherEnemiesWhenFalling
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[0].foldout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[1].foldout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[2].foldout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[3].foldout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[3].knockdown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[0].applyKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[0].knockbackForce
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[1].applyKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[1].knockbackForce
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[2].applyKnockback
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[2].knockbackForce
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[0].knockbackDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[1].knockbackDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[2].knockbackDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[0].strengthDamageScale
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[1].strengthDamageScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[2].strengthDamageScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[3].strengthDamageScale
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[1].attackerForwardDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[1].attackerForwardDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[2].attackerForwardDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[2].attackerForwardDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[3].attackerForwardDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[3].attackerForwardDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: enemyAttackList.Array.data[3].knockdownLaunchHorizontalForce
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4955587178937794416, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
       propertyPath: m_Name

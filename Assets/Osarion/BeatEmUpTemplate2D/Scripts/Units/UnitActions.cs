@@ -344,7 +344,17 @@ namespace BeatEmUpTemplate2D {
                     : transform.position);
 
                 HealthSystem targetHealthSystem = obj.GetComponent<HealthSystem>();
-                targetHealthSystem?.SubstractHealth(attackData.damage);
+                if(targetHealthSystem != null) {
+                    int finalDamage = CombatDamageCalculator.CalculateDamage(
+                        attackData,
+                        settings,
+                        targetUnit != null ? targetUnit.settings : null,
+                        out bool _);
+
+                    if(finalDamage > 0) {
+                        targetHealthSystem.SubstractHealth(finalDamage);
+                    }
+                }
 
                 if(!string.IsNullOrEmpty(attackData.sfx)) {
                     AudioController.PlaySFX(attackData.sfx);
@@ -1043,8 +1053,8 @@ namespace BeatEmUpTemplate2D {
             }
 
             Vector3 velocity = GetLinearVelocity();
-            velocity.x = inputVector.x * settings.moveSpeedAir;
-            velocity.z = inputVector.y * settings.moveSpeedAir * settings.depthMoveMultiplier;
+            velocity.x = inputVector.x * settings.MoveSpeedAirFromStats;
+            velocity.z = inputVector.y * settings.MoveSpeedAirFromStats * settings.depthMoveMultiplier;
             SetLinearVelocity(velocity);
             yForce = velocity.y;
         }
@@ -1203,6 +1213,9 @@ namespace BeatEmUpTemplate2D {
                 return;
             }
             projectileComponent.dir = dir;
+            if(projectileComponent.attackData != null) {
+                projectileComponent.attackData.inflictor = gameObject;
+            }
         }
 
         public void CamShake() {

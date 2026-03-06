@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+// Purpose: Tracks health, death flow and health-bar visuals while syncing max HP from unit stats.
 using System.Collections;
+using UnityEngine;
 
 namespace BeatEmUpTemplate2D {
 
@@ -10,29 +11,30 @@ namespace BeatEmUpTemplate2D {
 	    public int currentHp = 1;
 	    public bool invulnerable;
         public bool isDead => (currentHp == 0);
-        public float healthPercentage => (float)currentHp / (float)maxHp;
+        public float healthPercentage => maxHp > 0 ? (float)currentHp / (float)maxHp : 0f;
 
-        [Header ("HealthBar Settings")]
+        [Header("HealthBar Settings")]
         public bool showSmallHealthBar; //small healthbar above the unit
         public Vector2 smallHealthBarOffset = Vector2.zero;
         public bool showLargeHealthBar;//shows a large healthbar, at the bottom of the screen
         private GameObject healthBar;
+        private UnitSettings unitSettings;
 
-        [Header ("SFX")]
+        [Header("SFX")]
         public string playSFXOnHit = "";
         public string playSFXOnDestroy = "";
 
-        [Header ("Effects")]
+        [Header("Effects")]
         public bool showHitFlash = true;
         public float hitFlashDuration = .15f;
         private bool hitflashInProgress;
-    
+
         [Space(10)]
         public bool showShakeEffect;
         public float shakeIntensity = .08f;
         public float shakeDuration = .5f;
         public float shakeSpeed = 50;
-    
+
         [Space(10)]
         public GameObject showEffectOnHit;
         public GameObject showEffectOnDestroy;
@@ -45,39 +47,48 @@ namespace BeatEmUpTemplate2D {
         public delegate void OnUnitDeath(GameObject Unit);
 	    public static event OnUnitDeath onUnitDeath;
 
-        void OnEnable() {
+        private void OnEnable() {
+            unitSettings = GetComponent<UnitSettings>();
+            if(unitSettings != null) {
+                unitSettings.OnStatsChanged += HandleStatsChanged;
+            }
 
             //add enemies to enemyList
             if(isEnemy) EnemyManager.AddEnemyToList(gameObject);
         }
 
-        void OnDisable() {
+        private void OnDisable() {
+            if(unitSettings != null) {
+                unitSettings.OnStatsChanged -= HandleStatsChanged;
+            }
+
             //remove enemies from enemyList
             if(isEnemy) EnemyManager.RemoveEnemyFromList(gameObject);
         }
 
-        void Start(){
+        private void Start() {
+            SyncHealthFromStats(false);
 
             //if true, create a small health bar above this unit
             if(showSmallHealthBar) CreateSmallHealthbar();
 
             //initialize player healthbar
             if(isPlayer && onHealthChange != null) onHealthChange(this);
-         }
+        }
 
         //create healthbar gameobject and set it into position
-        void CreateSmallHealthbar(){
-            if(!healthBar){ 
+        private void CreateSmallHealthbar() {
+            if(!healthBar) {
                 healthBar = GameObject.Instantiate(Resources.Load("HealthBar")) as GameObject;
                 if(healthBar == null) return;
                 healthBar.transform.parent = transform;
                 healthBar.transform.position = transform.position + (Vector3)smallHealthBarOffset;
-                healthBar.transform.GetChild(0).transform.localScale = new Vector3((float)currentHp/(float)maxHp,1,1); //set hp bar to current hp
+                UpdateSmallHealthBarScale();
             }
         }
 
         //substract health
-        public void SubstractHealth(int damage){
+        public void SubstractHealth(int damage) {
 
 		    //reduce hp
 		    if(!invulnerable) currentHp = Mathf.Clamp(currentHp -= damage, 0, maxHp);
@@ -86,29 +97,28 @@ namespace BeatEmUpTemplate2D {
 		    SendEvent();
 
             //update HealthBar
-            if(!invulnerable && healthBar) healthBar.transform.GetChild(0).transform.localScale = new Vector3((float)currentHp/(float)maxHp,1,1);
-            
+            if(!invulnerable && healthBar) UpdateSmallHealthBarScale();
+
             //play sfx
-            if(currentHp>0) BeatEmUpTemplate2D.AudioController.PlaySFX(playSFXOnHit, transform.position);
+            if(currentHp > 0) BeatEmUpTemplate2D.AudioController.PlaySFX(playSFXOnHit, transform.position);
             else BeatEmUpTemplate2D.AudioController.PlaySFX(playSFXOnDestroy, transform.position);
 
             //show hitflash
-            if(showHitFlash){
+            if(showHitFlash) {
                 StartCoroutine(HitFlashRoutine());
             }
 
             //shake this object
-            if(showShakeEffect && !isDead){
+            if(showShakeEffect && !isDead) {
                 StopCoroutine(ShakeRoutine());
                 StartCoroutine(ShakeRoutine());
             }
 
             //unit/object health has reached 0
-            if(isDead){
+            if(isDead) {
 
                 //show effect on destroy
                 if(showEffectOnDestroy) CreateEffect(showEffectOnDestroy);
-                 
 
                 if(isEnemy || isPlayer) {
 
@@ -129,19 +139,65 @@ namespace BeatEmUpTemplate2D {
 	    }
 
 	    //add health
-	    public void AddHealth(int amount){
+	    public void AddHealth(int amount) {
 		    currentHp = Mathf.Clamp(currentHp += amount, 0, maxHp);
+            UpdateSmallHealthBarScale();
 		    SendEvent();
 	    }
 
 	    //health update event
-	    private void SendEvent(){
-		    float CurrentHealthPercentage = 1f/maxHp * currentHp;
+	    private void SendEvent() {
 		    if(onHealthChange != null) onHealthChange(this);
 	    }
 
+        private void HandleStatsChanged() {
+            SyncHealthFromStats(true);
+        }
+
+        private void SyncHealthFromStats(bool preserveHealthPercentage) {
+            if(unitSettings == null) {
+                EnsureValidHealth();
+                return;
+            }
+
+            int newMaxHp = Mathf.Max(1, unitSettings.MaxHpFromStats);
+            float healthRatio = preserveHealthPercentage ? GetHealthRatio() : 1f;
+
+            maxHp = newMaxHp;
+            if(preserveHealthPercentage) {
+                currentHp = Mathf.Clamp(Mathf.RoundToInt(maxHp * healthRatio), 0, maxHp);
+            } else {
+                currentHp = Mathf.Clamp(currentHp <= 0 ? maxHp : currentHp, 0, maxHp);
+            }
+
+            UpdateSmallHealthBarScale();
+            SendEvent();
+        }
+
+        private float GetHealthRatio() {
+            if(maxHp <= 0) {
+                return 1f;
+            }
+            return Mathf.Clamp01((float)currentHp / (float)maxHp);
+        }
+
+        private void EnsureValidHealth() {
+            maxHp = Mathf.Max(1, maxHp);
+            currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+            UpdateSmallHealthBarScale();
+        }
+
+        private void UpdateSmallHealthBarScale() {
+            if(healthBar == null) {
+                return;
+            }
+
+            Transform fillBar = healthBar.transform.GetChild(0);
+            fillBar.localScale = new Vector3(GetHealthRatio(), 1f, 1f);
+        }
+
         //flash white
-        private IEnumerator HitFlashRoutine(){     
+        private IEnumerator HitFlashRoutine() {
             if(hitflashInProgress) yield break;
             hitflashInProgress = true;
             SpriteRenderer sr = GetComponent<SpriteRenderer>();
@@ -158,20 +214,22 @@ namespace BeatEmUpTemplate2D {
         }
 
         //shake this object horizontally
-        private IEnumerator ShakeRoutine(){
+        private IEnumerator ShakeRoutine() {
             Vector3 startPos = transform.position;
-            float t=0;
-            while(t<1){
-                transform.position = Vector3.Lerp(startPos + (Vector3.left * shakeIntensity/2), startPos + (Vector3.right * shakeIntensity/2), Mathf.Sin(t*shakeSpeed));
-                t += Time.deltaTime/shakeDuration;
+            float t = 0;
+            while(t < 1) {
+                transform.position = Vector3.Lerp(startPos + (Vector3.left * shakeIntensity / 2), startPos + (Vector3.right * shakeIntensity / 2), Mathf.Sin(t * shakeSpeed));
+                t += Time.deltaTime / shakeDuration;
                 yield return 0;
             }
             transform.position = startPos;
         }
-    
+
         //adjust healthbar positon
         private void OnValidate() {
-            if(Application.isPlaying){
+            EnsureValidHealth();
+
+            if(Application.isPlaying) {
                 if(showSmallHealthBar && !healthBar) CreateSmallHealthbar(); //create healthbar if it does not exist
                 if(healthBar) healthBar.transform.position = transform.position + (Vector3)smallHealthBarOffset; //update healthbar position
                 if(healthBar && !showSmallHealthBar) Destroy(healthBar);
@@ -179,13 +237,14 @@ namespace BeatEmUpTemplate2D {
         }
 
         //show an effect on Destroy
-        public void CreateEffect(GameObject effectPrefab){
+        public void CreateEffect(GameObject effectPrefab) {
 
             //nothing to show
-            if(effectPrefab == null) return; 
-            
+            if(effectPrefab == null) return;
+
             //create effect
             Instantiate(effectPrefab, transform.position, Quaternion.identity);
         }
     }
 }
+

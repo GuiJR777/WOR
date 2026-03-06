@@ -59,7 +59,7 @@ namespace BeatEmUpTemplate2D {
                 }
 
                 //move and play 'Run' anim
-                unit.MoveToVector(dirToPos, unit.settings.moveSpeed);
+                unit.MoveToVector(dirToPos, unit.settings.MoveSpeedFromStats);
                 unit.animator.Play(animationName); 
             }
         }
