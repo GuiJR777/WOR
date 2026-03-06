@@ -24,10 +24,25 @@ namespace BeatEmUpTemplate2D {
 
             //delay before start
             if(Time.time - startTime < delayBeforeStart) return;
+            if(statemachine == null) return;
+
+            //re-evaluate target continuously and always prefer the closest hostile unit
+            GameObject closestTarget = statemachine.findClosestPlayer();
+            if(statemachine.target != closestTarget) {
+                statemachine.target = closestTarget;
+                targetSpotted = false;
+            }
+
+            if(statemachine.target == null) {
+                targetSpotted = false;
+                return;
+            }
 
             //the target has been spotted
-            if(!targetSpotted){
+            if(!targetSpotted) {
                 if(statemachine.targetInSight()) targetSpotted = true;
+            } else if(!statemachine.targetInSight()) {
+                targetSpotted = false;
             }
 
             //decision time
@@ -45,13 +60,13 @@ namespace BeatEmUpTemplate2D {
             //get a random attack from Unit Settings
             GetRandomAttack();
 
-            //75% chance to attack if nobody is attacking the player
+            //75% chance to attack if nobody is attacking an opponent
             if(EnemyManager.GetEnemyAttackerCount() == 0 && Random.Range(0, 100) < 75) {
                 AttackData attack = GetRandomAttack(); //get a random attack
                 statemachine?.SetState(new EnemyMoveToTargetAndAttack(attack)); 
                 return; 
 
-            //25% change that this enemy attacks when 2 or less enemies are attacking the player
+            //25% chance that this enemy attacks when 2 or less enemies are already attacking an opponent
             } else if(EnemyManager.GetEnemyAttackerCount() <= 2 && Random.Range(0, 100) < 25) {
                 AttackData attack = GetRandomAttack(); //get a random attack
                 statemachine?.SetState(new EnemyMoveToTargetAndAttack(attack)); 

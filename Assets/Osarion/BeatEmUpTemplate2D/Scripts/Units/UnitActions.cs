@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
 
 namespace BeatEmUpTemplate2D {
@@ -22,6 +23,8 @@ namespace BeatEmUpTemplate2D {
         private const float DEFAULT_KNOCKBACK_DURATION = 0.1f;
         private const float DEFAULT_ATTACK_ADVANCE_DURATION = 0.08f;
         private const float DEFAULT_GHOST_LIFETIME = 0.18f;
+        private const int GHOST_POOL_DEFAULT_CAPACITY = 8;
+        private const int GHOST_POOL_MAX_SIZE = 48;
         private const float DEFAULT_CAPSULE_RADIUS = 0.3f;
         private const float DEFAULT_CAPSULE_HEIGHT = 0.6f;
         private const float CAPSULE_CAST_SKIN = 0.02f;
@@ -66,6 +69,12 @@ namespace BeatEmUpTemplate2D {
         public delegate void OnUnitDealDamage(GameObject recipient, AttackData attackData);
         public static event OnUnitDealDamage onUnitDealDamage;
 
+        private sealed class GhostFrame {
+            public GameObject gameObject;
+            public SpriteRenderer renderer;
+            public float releaseTime;
+        }
+
         private SpriteRenderer _spriteRenderer;
         private bool _onApplicationQuit;
         private float _currentSpeed;
@@ -84,6 +93,8 @@ namespace BeatEmUpTemplate2D {
         private Coroutine _ghostTrailRoutine;
         private Rigidbody _rigidbody;
         private CapsuleCollider _capsuleCollider;
+        private ObjectPool<GhostFrame> _ghostFramePool;
+        private readonly List<GhostFrame> _activeGhostFrames = new List<GhostFrame>();
         private static int _legacy2DProxySceneHandle = int.MinValue;
         private GameObject _touchedEnemyCandidate;
 
@@ -249,28 +260,70 @@ namespace BeatEmUpTemplate2D {
             if(settings != null && settings.shadow != null && !_onApplicationQuit) {
                 Destroy(settings.shadow);
             }
+
+            CleanupGhostPool();
         }
 
         // SECTION: TARGETING, DIRECTION AND COMBAT
 
         public GameObject findClosestPlayer() {
-            GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
-            GameObject closest = null;
-            float closestDistance = float.MaxValue;
+            if(settings == null || !settings.canDetect) {
+                return null;
+            }
 
-            for(int i = 0; i < allPlayers.Length; i++) {
-                GameObject player = allPlayers[i];
-                if(player == null) {
+            UnitSettings[] allUnits = Object.FindObjectsByType<UnitSettings>(FindObjectsSortMode.InstanceID);
+            GameObject closestTarget = null;
+            float closestSqrDistance = float.MaxValue;
+
+            for(int i = 0; i < allUnits.Length; i++) {
+                UnitSettings candidateSettings = allUnits[i];
+                if(candidateSettings == null || candidateSettings == settings) {
                     continue;
                 }
 
-                float distance = Vector3.Distance(transform.position, player.transform.position);
-                if(distance < closestDistance) {
-                    closestDistance = distance;
-                    closest = player;
+                UnitActions candidateActions = candidateSettings.GetComponent<UnitActions>();
+                if(!IsValidTargetForCombat(candidateActions)) {
+                    continue;
+                }
+
+                float depth = GetGroundDepth(candidateSettings.gameObject);
+                float deltaX = candidateSettings.transform.position.x - transform.position.x;
+                float deltaZ = depth - groundPos;
+                float sqrDistance = deltaX * deltaX + deltaZ * deltaZ;
+
+                if(sqrDistance < closestSqrDistance) {
+                    closestSqrDistance = sqrDistance;
+                    closestTarget = candidateSettings.gameObject;
                 }
             }
-            return closest;
+            return closestTarget;
+        }
+
+        public bool IsValidTargetForCombat(GameObject candidate) {
+            UnitActions candidateActions = candidate != null ? candidate.GetComponent<UnitActions>() : null;
+            return IsValidTargetForCombat(candidateActions);
+        }
+
+        private bool IsValidTargetForCombat(UnitActions candidateActions) {
+            if(settings == null || !settings.canDetect || candidateActions == null || candidateActions == this) {
+                return false;
+            }
+
+            UnitSettings candidateSettings = candidateActions.settings;
+            if(candidateSettings == null || !candidateSettings.canBeDetected) {
+                return false;
+            }
+
+            if(candidateSettings.faction == settings.faction) {
+                return false;
+            }
+
+            HealthSystem healthSystem = candidateActions.GetComponent<HealthSystem>();
+            if(healthSystem != null && healthSystem.isDead) {
+                return false;
+            }
+
+            return true;
         }
 
         public Vector2 distanceToTarget() {
@@ -344,7 +397,17 @@ namespace BeatEmUpTemplate2D {
                     : transform.position);
 
                 HealthSystem targetHealthSystem = obj.GetComponent<HealthSystem>();
-                targetHealthSystem?.SubstractHealth(attackData.damage);
+                if(targetHealthSystem != null) {
+                    int finalDamage = CombatDamageCalculator.CalculateDamage(
+                        attackData,
+                        settings,
+                        targetUnit != null ? targetUnit.settings : null,
+                        out bool _);
+
+                    if(finalDamage > 0) {
+                        targetHealthSystem.SubstractHealth(finalDamage);
+                    }
+                }
 
                 if(!string.IsNullOrEmpty(attackData.sfx)) {
                     AudioController.PlaySFX(attackData.sfx);
@@ -478,6 +541,8 @@ namespace BeatEmUpTemplate2D {
         }
 
         public void TickExternalForces() {
+            TickGhostFrames();
+
             State currentState = stateMachine != null ? stateMachine.GetCurrentState() : null;
             if(currentState is UnitKnockDown) {
                 return;
@@ -1043,8 +1108,8 @@ namespace BeatEmUpTemplate2D {
             }
 
             Vector3 velocity = GetLinearVelocity();
-            velocity.x = inputVector.x * settings.moveSpeedAir;
-            velocity.z = inputVector.y * settings.moveSpeedAir * settings.depthMoveMultiplier;
+            velocity.x = inputVector.x * settings.MoveSpeedAirFromStats;
+            velocity.z = inputVector.y * settings.MoveSpeedAirFromStats * settings.depthMoveMultiplier;
             SetLinearVelocity(velocity);
             yForce = velocity.y;
         }
@@ -1116,6 +1181,35 @@ namespace BeatEmUpTemplate2D {
                 velocity.y = 0f;
             }
             SetLinearVelocity(velocity);
+        }
+
+        public void MoveDashToVector(Vector2 moveDir, float moveSpeed) {
+            if(settings == null) {
+                return;
+            }
+
+            Vector2 dashVector = moveDir;
+            if(dashVector.sqrMagnitude <= INPUT_DEADZONE * INPUT_DEADZONE) {
+                dashVector = new Vector2((int)dir, 0f);
+            } else {
+                dashVector.Normalize();
+            }
+
+            Vector3 velocity = GetLinearVelocity();
+            velocity.x = dashVector.x * moveSpeed;
+            velocity.z = dashVector.y * moveSpeed * settings.depthMoveMultiplier;
+            if(isGrounded && velocity.y < 0f) {
+                velocity.y = 0f;
+            }
+
+            SetLinearVelocity(velocity);
+        }
+
+        public void SetVerticalVelocity(float verticalVelocity) {
+            Vector3 velocity = GetLinearVelocity();
+            velocity.y = verticalVelocity;
+            SetLinearVelocity(velocity);
+            yForce = verticalVelocity;
         }
 
         public void SetGravityEnabled(bool enabled) {
@@ -1203,6 +1297,9 @@ namespace BeatEmUpTemplate2D {
                 return;
             }
             projectileComponent.dir = dir;
+            if(projectileComponent.attackData != null) {
+                projectileComponent.attackData.inflictor = gameObject;
+            }
         }
 
         public void CamShake() {
@@ -1213,6 +1310,12 @@ namespace BeatEmUpTemplate2D {
 
         public bool targetInSight() {
             if(target == null || settings == null) {
+                return false;
+            }
+
+            if(!IsValidTargetForCombat(target)) {
+                target = null;
+                targetSpotted = false;
                 return false;
             }
 
@@ -1336,23 +1439,124 @@ namespace BeatEmUpTemplate2D {
                 return;
             }
 
-            GameObject ghostObject = new GameObject($"{name}_DashGhost");
-            ghostObject.transform.position = _spriteRenderer.transform.position;
-            ghostObject.transform.rotation = _spriteRenderer.transform.rotation;
-            ghostObject.transform.localScale = _spriteRenderer.transform.lossyScale;
+            EnsureGhostPoolInitialized();
+            if(_ghostFramePool == null) {
+                return;
+            }
 
-            SpriteRenderer ghostRenderer = ghostObject.AddComponent<SpriteRenderer>();
-            ghostRenderer.sprite = _spriteRenderer.sprite;
-            ghostRenderer.flipX = _spriteRenderer.flipX;
-            ghostRenderer.flipY = _spriteRenderer.flipY;
-            ghostRenderer.color = new Color(1f, 1f, 1f, 0.45f);
+            GhostFrame ghostFrame = _ghostFramePool.Get();
+            if(ghostFrame == null || ghostFrame.gameObject == null || ghostFrame.renderer == null) {
+                return;
+            }
+
+            ghostFrame.gameObject.transform.position = _spriteRenderer.transform.position;
+            ghostFrame.gameObject.transform.rotation = _spriteRenderer.transform.rotation;
+            ghostFrame.gameObject.transform.localScale = _spriteRenderer.transform.lossyScale;
+
+            ghostFrame.renderer.sprite = _spriteRenderer.sprite;
+            ghostFrame.renderer.flipX = _spriteRenderer.flipX;
+            ghostFrame.renderer.flipY = _spriteRenderer.flipY;
+            ghostFrame.renderer.color = new Color(1f, 1f, 1f, 0.45f);
 
             Camera mainCamera = Camera.main;
             if(mainCamera != null) {
-                ghostObject.transform.position -= mainCamera.transform.forward * 0.01f;
+                ghostFrame.gameObject.transform.position -= mainCamera.transform.forward * 0.01f;
             }
 
-            Destroy(ghostObject, DEFAULT_GHOST_LIFETIME);
+            ghostFrame.releaseTime = Time.time + DEFAULT_GHOST_LIFETIME;
+            _activeGhostFrames.Add(ghostFrame);
+        }
+
+        private void EnsureGhostPoolInitialized() {
+            if(_ghostFramePool != null) {
+                return;
+            }
+
+            _ghostFramePool = new ObjectPool<GhostFrame>(
+                CreateGhostFrame,
+                OnGetGhostFrame,
+                OnReleaseGhostFrame,
+                OnDestroyGhostFrame,
+                false,
+                GHOST_POOL_DEFAULT_CAPACITY,
+                GHOST_POOL_MAX_SIZE);
+        }
+
+        private GhostFrame CreateGhostFrame() {
+            GameObject ghostObject = new GameObject($"{name}_DashGhost");
+            SpriteRenderer ghostRenderer = ghostObject.AddComponent<SpriteRenderer>();
+            ghostObject.SetActive(false);
+
+            GhostFrame frame = new GhostFrame();
+            frame.gameObject = ghostObject;
+            frame.renderer = ghostRenderer;
+            frame.releaseTime = 0f;
+            return frame;
+        }
+
+        private void OnGetGhostFrame(GhostFrame frame) {
+            if(frame == null || frame.gameObject == null) {
+                return;
+            }
+            frame.gameObject.SetActive(true);
+        }
+
+        private void OnReleaseGhostFrame(GhostFrame frame) {
+            if(frame == null || frame.gameObject == null) {
+                return;
+            }
+            frame.gameObject.SetActive(false);
+        }
+
+        private void OnDestroyGhostFrame(GhostFrame frame) {
+            if(frame == null || frame.gameObject == null) {
+                return;
+            }
+            Destroy(frame.gameObject);
+        }
+
+        private void TickGhostFrames() {
+            if(_activeGhostFrames.Count == 0 || _ghostFramePool == null) {
+                return;
+            }
+
+            float now = Time.time;
+            for(int i = _activeGhostFrames.Count - 1; i >= 0; i--) {
+                GhostFrame frame = _activeGhostFrames[i];
+                if(frame == null || frame.gameObject == null || now < frame.releaseTime) {
+                    continue;
+                }
+
+                _activeGhostFrames.RemoveAt(i);
+                _ghostFramePool.Release(frame);
+            }
+        }
+
+        private void ReleaseAllActiveGhostFrames() {
+            if(_ghostFramePool == null) {
+                _activeGhostFrames.Clear();
+                return;
+            }
+
+            for(int i = _activeGhostFrames.Count - 1; i >= 0; i--) {
+                GhostFrame frame = _activeGhostFrames[i];
+                if(frame != null && frame.gameObject != null) {
+                    _ghostFramePool.Release(frame);
+                }
+            }
+            _activeGhostFrames.Clear();
+        }
+
+        private void CleanupGhostPool() {
+            StopGhostTrail();
+            ReleaseAllActiveGhostFrames();
+
+            if(_ghostFramePool == null) {
+                return;
+            }
+
+            _ghostFramePool.Clear();
+            _ghostFramePool = null;
         }
 
         private Vector3 GetLinearVelocity() {

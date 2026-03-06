@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+// Purpose: Stores unit configuration and centralizes all runtime stat calculations and modifiers.
 using System.Collections.Generic;
-// Purpose: Stores all tuning data and linked runtime references for combat units.
+using UnityEngine;
 
 namespace BeatEmUpTemplate2D {
 
     public enum UNITTYPE { PLAYER = 0, ENEMY = 10, NPC = 20 }
+    public enum UNITFACTION { NEUTRAL = 0, HERO = 10, ENEMY = 20, ALLY = 30, BOSS = 40 }
+    public enum UNITSTATTYPE { CONSTITUTION = 0, CHAKRA = 10, STRENGTH = 20, DEFENSE = 30, AGILITY = 40, LUCK = 50 }
 
     [System.Serializable]
     public class UnitSettings : MonoBehaviour {
@@ -20,8 +22,48 @@ namespace BeatEmUpTemplate2D {
         private const float DEFAULT_DASH_DURATION = 0.2f;
         private const float DEFAULT_DASH_COOLDOWN = 0.4f;
         private const float DEFAULT_DASH_GHOST_INTERVAL = 0.04f;
+        private const float DEFAULT_STAT_MULTIPLIER = 1f;
+        private const float DEFAULT_CONSTITUTION = 10f;
+        private const float DEFAULT_CHAKRA = 0f;
+        private const float DEFAULT_STRENGTH = 10f;
+        private const float DEFAULT_DEFENSE = 0f;
+        private const float DEFAULT_AGILITY = 4f;
+        private const float DEFAULT_LUCK = 0f;
+        private const float HEALTH_PER_CONSTITUTION = 10f;
+        private const float AIR_MOVE_SPEED_FACTOR = 0.8f;
+        private const float MIN_STAT_VALUE = 0f;
+        private const float MIN_STAT_MULTIPLIER = 0f;
+
+        private sealed class RuntimeStatModifier {
+            public string sourceId;
+            public float additive;
+            public float multiplier = DEFAULT_STAT_MULTIPLIER;
+        }
+
+        public event System.Action OnStatsChanged;
 
         public UNITTYPE unitType = UNITTYPE.PLAYER;
+
+        //UNIT PROFILE
+        public UNITFACTION faction = UNITFACTION.NEUTRAL;
+        public int unitLevel = 1;
+        public string unitRole = "";
+        public bool canDetect = true;
+        public bool canBeDetected = true;
+
+        //CORE STATS
+        public float constitution = DEFAULT_CONSTITUTION;
+        public float constitutionMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float chakra = DEFAULT_CHAKRA;
+        public float chakraMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float strength = DEFAULT_STRENGTH;
+        public float strengthMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float defense = DEFAULT_DEFENSE;
+        public float defenseMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float agility = DEFAULT_AGILITY;
+        public float agilityMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float luck = DEFAULT_LUCK;
+        public float luckMultiplier = DEFAULT_STAT_MULTIPLIER;
 
         //LINKED OBJECTS
         public GameObject shadowPrefab; //shadow prefab
@@ -33,8 +75,6 @@ namespace BeatEmUpTemplate2D {
 
         //MOVEMENT SETTINGS
         public DIRECTION startDirection = DIRECTION.RIGHT; //start direction
-        public float moveSpeed = 4; //move speed while on the ground
-        public float moveSpeedAir = 4; //moving speed while in the air
         public float depthMoveMultiplier = DEFAULT_DEPTH_MULTIPLIER; //z-axis movement multiplier for depth feel
         public bool useAcceleration = false; //use acceleration over time if true, or move instantly when false
 
@@ -91,7 +131,7 @@ namespace BeatEmUpTemplate2D {
         public float parryKnockbackDuration = DEFAULT_PARRY_KNOCKBACK_DURATION; //pushback duration applied to attacker on successful parry
         public float hitKnockbackForce = DEFAULT_HIT_KNOCKBACK_FORCE; //default pushback force on regular hit
         public float hitKnockbackDuration = DEFAULT_HIT_KNOCKBACK_DURATION; //default pushback duration on regular hit
-    
+
         //GRAB SETTINGS
         public bool canBeGrabbed = true;
         public string grabAnimation = "Grab";
@@ -129,42 +169,252 @@ namespace BeatEmUpTemplate2D {
         public float viewHeightOffset; //the view cone height offset on y axis
         public bool showFOVCone; //show the FOV cone in the Unity Editor
         [ReadOnlyProperty] public bool targetInSight; //true if the target is in the field of view of this enemy
+
+        private readonly Dictionary<UNITSTATTYPE, List<RuntimeStatModifier>> _runtimeStatModifiers =
+            new Dictionary<UNITSTATTYPE, List<RuntimeStatModifier>>();
+
         private UnitActions unitActions => GetComponent<UnitActions>();
 
-        void Start() {
+        public float MoveSpeedFromStats {
+            get {
+                return Mathf.Max(0f, GetAgility());
+            }
+        }
+
+        public float MoveSpeedAirFromStats {
+            get {
+                return MoveSpeedFromStats * AIR_MOVE_SPEED_FACTOR;
+            }
+        }
+
+        public int MaxHpFromStats => Mathf.Max(1, Mathf.RoundToInt(GetConstitution() * HEALTH_PER_CONSTITUTION));
+
+        public float GetConstitution() {
+            return GetStatValue(UNITSTATTYPE.CONSTITUTION);
+        }
+
+        public float GetChakra() {
+            return GetStatValue(UNITSTATTYPE.CHAKRA);
+        }
+
+        public float GetStrength() {
+            return GetStatValue(UNITSTATTYPE.STRENGTH);
+        }
+
+        public float GetDefense() {
+            return GetStatValue(UNITSTATTYPE.DEFENSE);
+        }
+
+        public float GetAgility() {
+            return GetStatValue(UNITSTATTYPE.AGILITY);
+        }
+
+        public float GetLuck() {
+            return GetStatValue(UNITSTATTYPE.LUCK);
+        }
+
+        public float GetCriticalChance() {
+            return Mathf.Clamp01(GetLuck() / 100f);
+        }
+
+        public float GetStatValue(UNITSTATTYPE statType) {
+            float baseValue = Mathf.Max(MIN_STAT_VALUE, GetBaseStatValue(statType));
+            float configuredMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, GetBaseStatMultiplier(statType));
+
+            float additiveBonus = 0f;
+            float runtimeMultiplier = 1f;
+
+            if(_runtimeStatModifiers.TryGetValue(statType, out List<RuntimeStatModifier> modifiers)) {
+                for(int i = 0; i < modifiers.Count; i++) {
+                    RuntimeStatModifier modifier = modifiers[i];
+                    if(modifier == null) {
+                        continue;
+                    }
+                    additiveBonus += modifier.additive;
+                    runtimeMultiplier *= Mathf.Max(0f, modifier.multiplier);
+                }
+            }
+
+            float configuredValue = baseValue * configuredMultiplier;
+            float finalValue = (configuredValue + additiveBonus) * runtimeMultiplier;
+            return Mathf.Max(0f, finalValue);
+        }
+
+        public void SetStatModifier(UNITSTATTYPE statType, string sourceId, float additive, float multiplier = 1f) {
+            if(string.IsNullOrEmpty(sourceId)) {
+                Debug.LogWarning("SetStatModifier ignored because sourceId is empty.", this);
+                return;
+            }
+
+            if(!_runtimeStatModifiers.TryGetValue(statType, out List<RuntimeStatModifier> modifiers)) {
+                modifiers = new List<RuntimeStatModifier>();
+                _runtimeStatModifiers.Add(statType, modifiers);
+            }
+
+            RuntimeStatModifier existingModifier = null;
+            for(int i = 0; i < modifiers.Count; i++) {
+                RuntimeStatModifier modifier = modifiers[i];
+                if(modifier != null && modifier.sourceId == sourceId) {
+                    existingModifier = modifier;
+                    break;
+                }
+            }
+
+            if(existingModifier == null) {
+                existingModifier = new RuntimeStatModifier();
+                existingModifier.sourceId = sourceId;
+                modifiers.Add(existingModifier);
+            }
+
+            existingModifier.additive = additive;
+            existingModifier.multiplier = Mathf.Max(0f, multiplier);
+            NotifyStatsChanged();
+        }
+
+        public bool RemoveStatModifier(UNITSTATTYPE statType, string sourceId) {
+            if(string.IsNullOrEmpty(sourceId)) {
+                return false;
+            }
+
+            if(!_runtimeStatModifiers.TryGetValue(statType, out List<RuntimeStatModifier> modifiers)) {
+                return false;
+            }
+
+            for(int i = modifiers.Count - 1; i >= 0; i--) {
+                RuntimeStatModifier modifier = modifiers[i];
+                if(modifier != null && modifier.sourceId == sourceId) {
+                    modifiers.RemoveAt(i);
+                    NotifyStatsChanged();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public int RemoveAllStatModifiersFromSource(string sourceId) {
+            if(string.IsNullOrEmpty(sourceId)) {
+                return 0;
+            }
+
+            int removedCount = 0;
+            foreach(KeyValuePair<UNITSTATTYPE, List<RuntimeStatModifier>> pair in _runtimeStatModifiers) {
+                List<RuntimeStatModifier> modifiers = pair.Value;
+                for(int i = modifiers.Count - 1; i >= 0; i--) {
+                    RuntimeStatModifier modifier = modifiers[i];
+                    if(modifier != null && modifier.sourceId == sourceId) {
+                        modifiers.RemoveAt(i);
+                        removedCount++;
+                    }
+                }
+            }
+
+            if(removedCount > 0) {
+                NotifyStatsChanged();
+            }
+            return removedCount;
+        }
+
+        public void ClearStatModifiers() {
+            _runtimeStatModifiers.Clear();
+            NotifyStatsChanged();
+        }
+
+        private float GetBaseStatValue(UNITSTATTYPE statType) {
+            switch(statType) {
+                case UNITSTATTYPE.CONSTITUTION:
+                    return constitution;
+                case UNITSTATTYPE.CHAKRA:
+                    return chakra;
+                case UNITSTATTYPE.STRENGTH:
+                    return strength;
+                case UNITSTATTYPE.DEFENSE:
+                    return defense;
+                case UNITSTATTYPE.AGILITY:
+                    return agility;
+                case UNITSTATTYPE.LUCK:
+                    return luck;
+                default:
+                    return 0f;
+            }
+        }
+
+        private float GetBaseStatMultiplier(UNITSTATTYPE statType) {
+            switch(statType) {
+                case UNITSTATTYPE.CONSTITUTION:
+                    return constitutionMultiplier;
+                case UNITSTATTYPE.CHAKRA:
+                    return chakraMultiplier;
+                case UNITSTATTYPE.STRENGTH:
+                    return strengthMultiplier;
+                case UNITSTATTYPE.DEFENSE:
+                    return defenseMultiplier;
+                case UNITSTATTYPE.AGILITY:
+                    return agilityMultiplier;
+                case UNITSTATTYPE.LUCK:
+                    return luckMultiplier;
+                default:
+                    return DEFAULT_STAT_MULTIPLIER;
+            }
+        }
+
+        private void NotifyStatsChanged() {
+            OnStatsChanged?.Invoke();
+        }
+
+        private void ClampStatConfiguration() {
+            unitLevel = Mathf.Max(1, unitLevel);
+
+            constitution = Mathf.Max(MIN_STAT_VALUE, constitution);
+            chakra = Mathf.Max(MIN_STAT_VALUE, chakra);
+            strength = Mathf.Max(MIN_STAT_VALUE, strength);
+            defense = Mathf.Max(MIN_STAT_VALUE, defense);
+            agility = Mathf.Max(MIN_STAT_VALUE, agility);
+            luck = Mathf.Max(MIN_STAT_VALUE, luck);
+
+            constitutionMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, constitutionMultiplier);
+            chakraMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, chakraMultiplier);
+            strengthMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, strengthMultiplier);
+            defenseMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, defenseMultiplier);
+            agilityMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, agilityMultiplier);
+            luckMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, luckMultiplier);
+        }
+
+        private void Start() {
+
+            ClampStatConfiguration();
 
             //create shadow
             if(!shadow && shadowPrefab) shadow = GameObject.Instantiate(shadowPrefab, transform.parent) as GameObject;
 
             //hide hitbox at start
             if(hitBox) hitBox.color = Color.clear;
-            else Debug.LogError("Please assign a HitBox to GameObject "+ gameObject.name + " in UnitSettings/Linked Components");
-            
+            else Debug.LogError("Please assign a HitBox to GameObject " + gameObject.name + " in UnitSettings/Linked Components");
+
             //check sprite renderer
-            if(spriteRenderer == null) Debug.Log("Please assign a SpriteRenderer to GameObject "+ gameObject.name + " in UnitSettings/Linked Components");
+            if(spriteRenderer == null) Debug.Log("Please assign a SpriteRenderer to GameObject " + gameObject.name + " in UnitSettings/Linked Components");
 
             //load name
             if(loadRandomNameFromList) unitName = GetRandomName();
         }
 
-        void Update() {
+        private void Update() {
 
             //Show hitbox debug info in Unity Editor
             #if UNITY_EDITOR
                 if(hitBox && hitBox.gameObject.activeSelf) MathUtilities.DrawRectGizmo(hitBox.bounds.center, hitBox.bounds.size, Color.red, Time.deltaTime);
             #endif
-        
+
             //let blobshadow follow this unit
-            if(shadow){
+            if(shadow && unitActions != null) {
                 shadow.transform.position = new Vector3(transform.position.x, unitActions.baseHeight, unitActions.groundPos);
             }
 
             //target in FOV
-            targetInSight = unitActions != null? unitActions.targetInSight() : false;
+            targetInSight = unitActions != null ? unitActions.targetInSight() : false;
         }
 
         //returns a random name
-	    string GetRandomName(){
+	    private string GetRandomName() {
 
 		    if(unitNamesList == null) {
 			    Debug.Log("no list of unit names was found, please create a .txt file with names on each line, and link it in the unitSettings component.");
@@ -173,13 +423,13 @@ namespace BeatEmUpTemplate2D {
 
 		    //convert the lines of the txt file to an array
 		    string data = unitNamesList.ToString();
-		    string cReturns = System.Environment.NewLine + "\n" + "\r"; 
+		    string cReturns = System.Environment.NewLine + "\n" + "\r";
 		    string[] lines = data.Split(cReturns.ToCharArray());
 
 		    //pick a random name from the list
 		    string name = "";
 		    int cnt = 0;
-		    while(name.Length == 0 && cnt < 100){
+		    while(name.Length == 0 && cnt < 100) {
 			    int rand = Random.Range(0, lines.Length);
 			    name = lines[rand];
 			    cnt += 1;
@@ -189,7 +439,58 @@ namespace BeatEmUpTemplate2D {
 
         //show start direction in Unity Editor
         private void OnValidate() {
-             transform.localRotation = (startDirection == DIRECTION.LEFT)? Quaternion.Euler(0,180,0) : Quaternion.identity;
+            ClampStatConfiguration();
+            transform.localRotation = (startDirection == DIRECTION.LEFT) ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+
+            if(Application.isPlaying) {
+                NotifyStatsChanged();
+            }
+        }
+    }
+
+    public static class CombatDamageCalculator {
+
+        private const float DAMAGE_CRITICAL_MULTIPLIER = 3f;
+
+        public static int CalculateDamage(
+            AttackData attackData,
+            UnitSettings attackerSettings,
+            UnitSettings defenderSettings,
+            out bool criticalHit) {
+            criticalHit = false;
+
+            if(attackData == null) {
+                return 0;
+            }
+
+            //fallback to legacy flat damage when attacker has no stats source
+            if(attackerSettings == null) {
+                return Mathf.Max(0, attackData.damage);
+            }
+
+            float attackScale = attackData.GetStrengthDamageScale();
+            float attackerStrength = attackerSettings.GetStrength();
+            float rawDamage = Mathf.Max(0f, attackerStrength * attackScale);
+
+            float defenderDefense = defenderSettings != null ? defenderSettings.GetDefense() : 0f;
+            float reducedDamage = Mathf.Max(0f, rawDamage - defenderDefense);
+
+            float criticalChance = attackerSettings.GetCriticalChance();
+            if(criticalChance > 0f && Random.value <= criticalChance) {
+                criticalHit = true;
+            }
+
+            float finalDamage = criticalHit ? reducedDamage * DAMAGE_CRITICAL_MULTIPLIER : reducedDamage;
+            return Mathf.Max(0, Mathf.RoundToInt(finalDamage));
+        }
+
+        public static int CalculateDamageFromInflictor(
+            AttackData attackData,
+            GameObject inflictor,
+            UnitSettings defenderSettings,
+            out bool criticalHit) {
+            UnitSettings attackerSettings = inflictor != null ? inflictor.GetComponent<UnitSettings>() : null;
+            return CalculateDamage(attackData, attackerSettings, defenderSettings, out criticalHit);
         }
     }
 }

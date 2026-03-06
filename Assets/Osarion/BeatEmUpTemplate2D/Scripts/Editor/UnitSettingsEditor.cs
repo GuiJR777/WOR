@@ -13,6 +13,7 @@ namespace BeatEmUpTemplate2D {
         private static readonly Dictionary<string, bool> FOLDOUTS = new Dictionary<string, bool> {
             { "linked", false },
             { "movement", false },
+            { "stats", false },
             { "dash", false },
             { "jump", false },
             { "attack", false },
@@ -37,6 +38,7 @@ namespace BeatEmUpTemplate2D {
             DrawProperty("unitType");
             UNITTYPE unitType = (UNITTYPE)GetProperty("unitType").enumValueIndex;
 
+            DrawSection("stats", "Core Stats", DrawStatsSettings);
             DrawSection("linked", "Linked Components", DrawLinkedComponents);
             DrawSection("movement", "Movement Settings", DrawMovementSettings);
 
@@ -60,7 +62,7 @@ namespace BeatEmUpTemplate2D {
                 DrawSection("weapon", "Weapon Settings", DrawWeaponSettings);
             }
 
-            DrawSection("name", "Unit Name & Portrait", () => DrawNameSettings(unitType));
+            DrawSection("name", "Unit Profile", () => DrawNameSettings(unitType));
 
             if(unitType == UNITTYPE.ENEMY) {
                 DrawSection("fov", "Field Of View Settings", DrawFovSettings);
@@ -91,10 +93,9 @@ namespace BeatEmUpTemplate2D {
         }
 
         private void DrawMovementSettings() {
+            EditorGUILayout.HelpBox("Move Speed = Agilidade. Move Speed Air = 80% da Agilidade.", MessageType.None);
             DrawProperties(
                 "startDirection",
-                "moveSpeed",
-                "moveSpeedAir",
                 "depthMoveMultiplier",
                 "useAcceleration");
 
@@ -102,6 +103,38 @@ namespace BeatEmUpTemplate2D {
             if(useAccelerationProperty != null && useAccelerationProperty.boolValue) {
                 DrawProperties("moveAcceleration", "moveDeceleration");
             }
+        }
+
+        private void DrawStatsSettings() {
+            DrawStatWithMultiplier("constitution", "constitutionMultiplier", "Constituicao");
+            DrawStatWithMultiplier("chakra", "chakraMultiplier", "Chakra");
+            DrawStatWithMultiplier("strength", "strengthMultiplier", "Forca");
+            DrawStatWithMultiplier("defense", "defenseMultiplier", "Defesa");
+            DrawStatWithMultiplier("agility", "agilityMultiplier", "Agilidade");
+            DrawStatWithMultiplier("luck", "luckMultiplier", "Sorte");
+
+            if(serializedObject.isEditingMultipleObjects) {
+                return;
+            }
+
+            UnitSettings settings = target as UnitSettings;
+            if(settings == null) {
+                return;
+            }
+
+            GUI.enabled = false;
+            EditorGUILayout.Space(3f);
+            EditorGUILayout.FloatField("Constituicao Final", settings.GetConstitution());
+            EditorGUILayout.FloatField("Chakra Final", settings.GetChakra());
+            EditorGUILayout.FloatField("Forca Final", settings.GetStrength());
+            EditorGUILayout.FloatField("Defesa Final", settings.GetDefense());
+            EditorGUILayout.FloatField("Agilidade Final", settings.GetAgility());
+            EditorGUILayout.FloatField("Sorte Final", settings.GetLuck());
+            EditorGUILayout.IntField("Max HP (Constituicao x 10)", settings.MaxHpFromStats);
+            EditorGUILayout.FloatField("Crit Chance (%)", settings.GetCriticalChance() * 100f);
+            EditorGUILayout.FloatField("Move Speed", settings.MoveSpeedFromStats);
+            EditorGUILayout.FloatField("Move Speed Air", settings.MoveSpeedAirFromStats);
+            GUI.enabled = true;
         }
 
         private void DrawDashSettings() {
@@ -192,6 +225,8 @@ namespace BeatEmUpTemplate2D {
         }
 
         private void DrawNameSettings(UNITTYPE unitType) {
+            DrawProperties("faction", "unitLevel", "unitRole", "canDetect", "canBeDetected");
+
             if(unitType == UNITTYPE.PLAYER) {
                 DrawProperties("playerId", "unitName", "showNameInAllCaps", "unitPortrait");
                 return;
@@ -324,7 +359,7 @@ namespace BeatEmUpTemplate2D {
 
             SerializedProperty foldoutProperty = property.FindPropertyRelative("foldout");
             SerializedProperty nameProperty = property.FindPropertyRelative("name");
-            SerializedProperty damageProperty = property.FindPropertyRelative("damage");
+            SerializedProperty strengthDamageScaleProperty = property.FindPropertyRelative("strengthDamageScale");
             SerializedProperty animationStateProperty = property.FindPropertyRelative("animationState");
             SerializedProperty sfxProperty = property.FindPropertyRelative("sfx");
             SerializedProperty attackTypeProperty = property.FindPropertyRelative("attackType");
@@ -356,8 +391,8 @@ namespace BeatEmUpTemplate2D {
             if(showNameField && nameProperty != null) {
                 EditorGUILayout.PropertyField(nameProperty, new GUIContent("Attack Name"));
             }
-            if(damageProperty != null) {
-                EditorGUILayout.PropertyField(damageProperty, new GUIContent("Damage"));
+            if(strengthDamageScaleProperty != null) {
+                EditorGUILayout.PropertyField(strengthDamageScaleProperty, new GUIContent("Strength Damage Scale (0-2)"));
             }
             if(animationStateProperty != null) {
                 EditorGUILayout.PropertyField(animationStateProperty, new GUIContent("Animation State"));
@@ -401,6 +436,19 @@ namespace BeatEmUpTemplate2D {
             }
             EditorGUI.indentLevel--;
             EditorGUILayout.Space(2f);
+        }
+
+        private void DrawStatWithMultiplier(string valuePropertyName, string multiplierPropertyName, string label) {
+            SerializedProperty valueProperty = GetProperty(valuePropertyName);
+            SerializedProperty multiplierProperty = GetProperty(multiplierPropertyName);
+            if(valueProperty == null || multiplierProperty == null) {
+                return;
+            }
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PropertyField(valueProperty, new GUIContent(label));
+            EditorGUILayout.PropertyField(multiplierProperty, new GUIContent("x"), GUILayout.MaxWidth(120f));
+            EditorGUILayout.EndHorizontal();
         }
 
         private SerializedProperty GetProperty(string propertyName) {

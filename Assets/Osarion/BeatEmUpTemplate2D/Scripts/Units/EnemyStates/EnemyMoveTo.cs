@@ -25,7 +25,7 @@ namespace BeatEmUpTemplate2D {
             }
 
             //move and play 'Run' anim
-            unit.MoveToVector(moveDir, unit.settings.moveSpeed);
+            unit.MoveToVector(moveDir, unit.settings.MoveSpeedFromStats);
             unit.animator.Play(animationName);
             
             //if we've reached our destination, go to Idle
