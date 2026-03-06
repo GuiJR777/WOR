@@ -86,11 +86,13 @@ namespace BeatEmUpTemplate2D {
     public class PlayerDash : State {
 
         private const string DASH_ANIMATION = "Dash";
+        private const float INPUT_DEADZONE = 0.05f;
 
-        private DIRECTION _dashDirection;
+        private Vector2 _dashVector;
         private float _dashDuration;
         private float _dashSpeed;
         private bool _invulnerabilityEnabled;
+        private bool _gravityDisabledForAirDash;
         private HealthSystem _healthSystem;
         private int _playerId => unit.settings.playerId;
 
@@ -107,14 +109,28 @@ namespace BeatEmUpTemplate2D {
                 return;
             }
 
-            _dashDirection = unit.GetDashDirectionFromInput(_playerId);
+            _dashVector = InputManager.GetInputVector(_playerId);
+            if(_dashVector.sqrMagnitude <= INPUT_DEADZONE * INPUT_DEADZONE) {
+                _dashVector = new Vector2((int)unit.dir, 0f);
+            } else {
+                _dashVector.Normalize();
+            }
+
             _dashDuration = Mathf.Max(0.05f, unit.settings.dashDuration);
             _dashSpeed = Mathf.Max(unit.settings.MoveSpeedFromStats, unit.settings.dashSpeed);
 
             unit.MarkDashUsed();
-            unit.TurnToDir(_dashDirection);
+            if(Mathf.Abs(_dashVector.x) > INPUT_DEADZONE) {
+                unit.TurnToDir(_dashVector.x > 0f ? DIRECTION.RIGHT : DIRECTION.LEFT);
+            }
             unit.animator.Play(DASH_ANIMATION);
             unit.StartGhostTrail(_dashDuration, Mathf.Max(0.01f, unit.settings.dashGhostInterval));
+
+            if(!unit.isGrounded) {
+                unit.SetGravityEnabled(false);
+                unit.SetVerticalVelocity(0f);
+                _gravityDisabledForAirDash = true;
+            }
 
             _healthSystem = unit.GetComponent<HealthSystem>();
             if(_healthSystem != null && unit.settings.dashInvulnerable) {
@@ -130,19 +146,24 @@ namespace BeatEmUpTemplate2D {
         }
 
         public override void FixedUpdate() {
-            Vector2 dashVector = new Vector2((int)_dashDirection, 0f);
             Vector2 wallDistanceCheck = unit.GetWallCheckDistance();
+            Vector2 wallCheckDirection = new Vector2(_dashVector.x, _dashVector.y * unit.settings.depthMoveMultiplier);
 
-            if(unit.WallDetected(dashVector * wallDistanceCheck)) {
+            if(unit.WallDetected(wallCheckDirection * wallDistanceCheck)) {
                 unit.stateMachine.SetState(new PlayerIdle());
                 return;
             }
 
-            unit.MoveToVector(dashVector, _dashSpeed);
+            unit.MoveDashToVector(_dashVector, _dashSpeed);
         }
 
         public override void Exit() {
             unit.StopGhostTrail();
+
+            if(_gravityDisabledForAirDash) {
+                unit.SetGravityEnabled(true);
+            }
+
             unit.StopMoving(true);
 
             if(_invulnerabilityEnabled && _healthSystem != null) {

@@ -11,6 +11,7 @@ namespace BeatEmUpTemplate2D {
         private AttackData attackData;
         private bool damageDealt;
         private bool hasLanded;
+        private int playerId => unit.settings.playerId;
     
         public PlayerJumpAttack(AttackData attackData){
             this.attackData = attackData;
@@ -22,6 +23,11 @@ namespace BeatEmUpTemplate2D {
         }
 
         public override void Update(){
+            //dash in air
+            if(InputManager.DashKeyDown(playerId) && unit.IsDashAvailable) {
+                unit.stateMachine.SetState(new PlayerDash());
+                return;
+            }
 
             //go to landed state
             if(hasLanded) unit.stateMachine.SetState(new PlayerLand());

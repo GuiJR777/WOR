@@ -21,6 +21,11 @@ namespace BeatEmUpTemplate2D {
          }
 
         public override void Update(){
+            //dash in air
+            if(InputManager.DashKeyDown(playerId) && unit.IsDashAvailable) {
+                unit.stateMachine.SetState(new PlayerDash());
+                return;
+            }
 
             //perform jump punch attack
             if(InputManager.PunchKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerJumpAttack(unit.settings.jumpPunch)); return; }
