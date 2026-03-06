@@ -48,6 +48,8 @@ namespace BeatEmUpTemplate2D {
         public UNITFACTION faction = UNITFACTION.NEUTRAL;
         public int unitLevel = 1;
         public string unitRole = "";
+        public bool canDetect = true;
+        public bool canBeDetected = true;
 
         //CORE STATS
         public float constitution = DEFAULT_CONSTITUTION;

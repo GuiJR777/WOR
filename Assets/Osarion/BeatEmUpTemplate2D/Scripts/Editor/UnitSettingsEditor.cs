@@ -225,7 +225,7 @@ namespace BeatEmUpTemplate2D {
         }
 
         private void DrawNameSettings(UNITTYPE unitType) {
-            DrawProperties("faction", "unitLevel", "unitRole");
+            DrawProperties("faction", "unitLevel", "unitRole", "canDetect", "canBeDetected");
 
             if(unitType == UNITTYPE.PLAYER) {
                 DrawProperties("playerId", "unitName", "showNameInAllCaps", "unitPortrait");

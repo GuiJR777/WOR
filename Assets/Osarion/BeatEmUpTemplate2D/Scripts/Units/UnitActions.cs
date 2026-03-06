@@ -254,23 +254,63 @@ namespace BeatEmUpTemplate2D {
         // SECTION: TARGETING, DIRECTION AND COMBAT
 
         public GameObject findClosestPlayer() {
-            GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
-            GameObject closest = null;
-            float closestDistance = float.MaxValue;
+            if(settings == null || !settings.canDetect) {
+                return null;
+            }
 
-            for(int i = 0; i < allPlayers.Length; i++) {
-                GameObject player = allPlayers[i];
-                if(player == null) {
+            UnitSettings[] allUnits = Object.FindObjectsByType<UnitSettings>(FindObjectsSortMode.InstanceID);
+            GameObject closestTarget = null;
+            float closestSqrDistance = float.MaxValue;
+
+            for(int i = 0; i < allUnits.Length; i++) {
+                UnitSettings candidateSettings = allUnits[i];
+                if(candidateSettings == null || candidateSettings == settings) {
                     continue;
                 }
 
-                float distance = Vector3.Distance(transform.position, player.transform.position);
-                if(distance < closestDistance) {
-                    closestDistance = distance;
-                    closest = player;
+                UnitActions candidateActions = candidateSettings.GetComponent<UnitActions>();
+                if(!IsValidTargetForCombat(candidateActions)) {
+                    continue;
+                }
+
+                float depth = GetGroundDepth(candidateSettings.gameObject);
+                float deltaX = candidateSettings.transform.position.x - transform.position.x;
+                float deltaZ = depth - groundPos;
+                float sqrDistance = deltaX * deltaX + deltaZ * deltaZ;
+
+                if(sqrDistance < closestSqrDistance) {
+                    closestSqrDistance = sqrDistance;
+                    closestTarget = candidateSettings.gameObject;
                 }
             }
-            return closest;
+            return closestTarget;
+        }
+
+        public bool IsValidTargetForCombat(GameObject candidate) {
+            UnitActions candidateActions = candidate != null ? candidate.GetComponent<UnitActions>() : null;
+            return IsValidTargetForCombat(candidateActions);
+        }
+
+        private bool IsValidTargetForCombat(UnitActions candidateActions) {
+            if(settings == null || !settings.canDetect || candidateActions == null || candidateActions == this) {
+                return false;
+            }
+
+            UnitSettings candidateSettings = candidateActions.settings;
+            if(candidateSettings == null || !candidateSettings.canBeDetected) {
+                return false;
+            }
+
+            if(candidateSettings.faction == settings.faction) {
+                return false;
+            }
+
+            HealthSystem healthSystem = candidateActions.GetComponent<HealthSystem>();
+            if(healthSystem != null && healthSystem.isDead) {
+                return false;
+            }
+
+            return true;
         }
 
         public Vector2 distanceToTarget() {
@@ -1226,6 +1266,12 @@ namespace BeatEmUpTemplate2D {
 
         public bool targetInSight() {
             if(target == null || settings == null) {
+                return false;
+            }
+
+            if(!IsValidTargetForCombat(target)) {
+                target = null;
+                targetSpotted = false;
                 return false;
             }
 
