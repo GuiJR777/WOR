@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
-using UnityEngine.SceneManagement;
 
 namespace BeatEmUpTemplate2D {
 
@@ -32,9 +31,6 @@ namespace BeatEmUpTemplate2D {
         private const float GROUND_NORMAL_THRESHOLD = 0.5f;
         private const float GROUND_STICK_MAX_UPWARD = 0.05f;
         private const float MIN_JUMP_VELOCITY = 0.5f;
-        private const float LEGACY_PROXY_HEIGHT = 4f;
-        private const float LEGACY_PROXY_MIN_SIZE = 0.05f;
-        private const string LEGACY_PROXY_NAME = "__Legacy2DTo3DProxy";
         private const float AUTO_GRAB_DIRECTION_THRESHOLD = 0.2f;
         private const float AUTO_GRAB_DEPTH_RANGE = 0.7f;
         private const float DEFAULT_STEP_HEIGHT = 0.45f;
@@ -95,24 +91,11 @@ namespace BeatEmUpTemplate2D {
         private CapsuleCollider _capsuleCollider;
         private ObjectPool<GhostFrame> _ghostFramePool;
         private readonly List<GhostFrame> _activeGhostFrames = new List<GhostFrame>();
-        private static int _legacy2DProxySceneHandle = int.MinValue;
         private GameObject _touchedEnemyCandidate;
 
         private void Awake() {
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            EnsureLegacy2DColliderProxies();
             Ensure3DUnitPhysicsSetup();
-
-            Vector3 position = transform.position;
-            bool needsLegacyDepthConversion = Mathf.Approximately(position.z, 0f) && Mathf.Abs(position.y) > 0.001f;
-            if(needsLegacyDepthConversion) {
-                // Legacy template scenes used Y as depth. Move that depth to Z for 2.5D runtime.
-                Vector3 convertedPosition = new Vector3(position.x, 0f, position.y);
-                transform.position = convertedPosition;
-                if(_rigidbody != null) {
-                    _rigidbody.position = convertedPosition;
-                }
-            }
 
             Vector3 currentPosition = GetUnitPosition();
             groundPos = currentPosition.z;
@@ -162,23 +145,12 @@ namespace BeatEmUpTemplate2D {
             _capsuleCollider = collider3D;
         }
 
-        private void ConfigureCapsuleCollider3D(CapsuleCollider collider3D, CapsuleCollider2D collider2D) {
-            if(collider2D == null) {
-                collider3D.center = Vector3.zero;
-                collider3D.radius = DEFAULT_CAPSULE_RADIUS;
-                collider3D.height = DEFAULT_CAPSULE_HEIGHT;
-                collider3D.direction = 1;
-                collider3D.isTrigger = false;
-                return;
-            }
-
-            float radius = Mathf.Max(0.05f, collider2D.size.x * 0.5f);
-            float height = Mathf.Max(radius * 2f, collider2D.size.y);
-            collider3D.center = new Vector3(collider2D.offset.x, 0f, collider2D.offset.y);
-            collider3D.radius = radius;
-            collider3D.height = height;
+        private static void ConfigureCapsuleCollider3D(CapsuleCollider collider3D, CapsuleCollider2D collider2D) {
+            collider3D.center = Vector3.zero;
+            collider3D.radius = DEFAULT_CAPSULE_RADIUS;
+            collider3D.height = DEFAULT_CAPSULE_HEIGHT;
             collider3D.direction = 1;
-            collider3D.isTrigger = collider2D.isTrigger;
+            collider3D.isTrigger = collider2D != null && collider2D.isTrigger;
         }
 
         private void DisableLegacy2DPhysicsComponents() {
@@ -192,68 +164,6 @@ namespace BeatEmUpTemplate2D {
             if(collider2D != null) {
                 collider2D.enabled = false;
             }
-        }
-
-        private static void EnsureLegacy2DColliderProxies() {
-            Scene activeScene = SceneManager.GetActiveScene();
-            if(_legacy2DProxySceneHandle == activeScene.handle) {
-                return;
-            }
-            _legacy2DProxySceneHandle = activeScene.handle;
-
-            int environmentLayer = LayerMask.NameToLayer("Environment");
-            int surfaceLayer = LayerMask.NameToLayer("Surface");
-            Collider2D[] legacyColliders = Object.FindObjectsByType<Collider2D>(FindObjectsSortMode.None);
-
-            for(int i = 0; i < legacyColliders.Length; i++) {
-                Collider2D legacyCollider = legacyColliders[i];
-                if(legacyCollider == null || !legacyCollider.enabled) {
-                    continue;
-                }
-
-                GameObject owner = legacyCollider.gameObject;
-                bool supportedLayer = owner.layer == environmentLayer || owner.layer == surfaceLayer;
-                bool hasExitSign = owner.GetComponent<UIExitSign>() != null;
-                if(!supportedLayer && !hasExitSign) {
-                    continue;
-                }
-
-                if(owner.GetComponent<UnitActions>() != null || owner.GetComponent<UnitSettings>() != null) {
-                    continue;
-                }
-
-                if(owner.transform.Find(LEGACY_PROXY_NAME) != null) {
-                    continue;
-                }
-
-                bool owns3DCollider = owner.GetComponent<Collider>() != null;
-                if(owns3DCollider) {
-                    continue;
-                }
-
-                CreateLegacy3DProxy(owner, legacyCollider);
-            }
-        }
-
-        private static void CreateLegacy3DProxy(GameObject owner, Collider2D sourceCollider2D) {
-            Bounds bounds2D = sourceCollider2D.bounds;
-            if(bounds2D.size.sqrMagnitude <= 0f) {
-                return;
-            }
-
-            GameObject proxyObject = new GameObject(LEGACY_PROXY_NAME);
-            proxyObject.layer = owner.layer;
-            proxyObject.transform.SetParent(owner.transform, false);
-            proxyObject.transform.position = new Vector3(bounds2D.center.x, 0f, bounds2D.center.y);
-            proxyObject.transform.rotation = Quaternion.identity;
-            proxyObject.transform.localScale = Vector3.one;
-
-            BoxCollider proxyCollider = proxyObject.AddComponent<BoxCollider>();
-            proxyCollider.isTrigger = sourceCollider2D.isTrigger;
-            proxyCollider.size = new Vector3(
-                Mathf.Max(LEGACY_PROXY_MIN_SIZE, bounds2D.size.x),
-                LEGACY_PROXY_HEIGHT,
-                Mathf.Max(LEGACY_PROXY_MIN_SIZE, bounds2D.size.y));
         }
 
         private void OnDestroy() {
@@ -542,13 +452,12 @@ namespace BeatEmUpTemplate2D {
 
         public void TickExternalForces() {
             TickGhostFrames();
+            TickGroundingAndGravity();
 
             State currentState = stateMachine != null ? stateMachine.GetCurrentState() : null;
             if(currentState is UnitKnockDown) {
                 return;
             }
-
-            TickGroundingAndGravity();
 
             if(_knockbackActive) {
                 if(Time.time >= _knockbackEndTime) {
@@ -937,11 +846,6 @@ namespace BeatEmUpTemplate2D {
                 return;
             }
 
-            State currentState = stateMachine != null ? stateMachine.GetCurrentState() : null;
-            if(currentState is UnitKnockDown) {
-                return;
-            }
-
             if(_rigidbody == null) {
                 groundPos = transform.position.z;
                 if(isGrounded) {
@@ -1212,6 +1116,25 @@ namespace BeatEmUpTemplate2D {
             yForce = verticalVelocity;
         }
 
+        public Vector3 GetCurrentVelocity() {
+            return GetLinearVelocity();
+        }
+
+        public void SetCurrentVelocity(Vector3 velocity) {
+            SetLinearVelocity(velocity);
+            yForce = velocity.y;
+        }
+
+        public void SetHorizontalVelocity(float xVelocity, float zVelocity) {
+            Vector3 velocity = GetLinearVelocity();
+            velocity.x = xVelocity;
+            velocity.z = zVelocity;
+            if(isGrounded && velocity.y < 0f) {
+                velocity.y = 0f;
+            }
+            SetCurrentVelocity(velocity);
+        }
+
         public void SetGravityEnabled(bool enabled) {
             if(_rigidbody == null) {
                 return;
@@ -1248,15 +1171,6 @@ namespace BeatEmUpTemplate2D {
 
             for(int i = 0; i < overlappedColliders.Length; i++) {
                 Surface surface = overlappedColliders[i].GetComponent<Surface>();
-                if(surface != null && !string.IsNullOrEmpty(surface.footstepSFX)) {
-                    AudioController.PlaySFX(surface.footstepSFX, transform.position);
-                    return;
-                }
-            }
-
-            Collider2D[] overlappedColliders2D = Physics2D.OverlapPointAll(new Vector2(transform.position.x, groundPos));
-            for(int i = 0; i < overlappedColliders2D.Length; i++) {
-                Surface surface = overlappedColliders2D[i].GetComponent<Surface>();
                 if(surface != null && !string.IsNullOrEmpty(surface.footstepSFX)) {
                     AudioController.PlaySFX(surface.footstepSFX, transform.position);
                     return;
@@ -1592,13 +1506,7 @@ namespace BeatEmUpTemplate2D {
             if(unitActions != null) {
                 return unitActions.groundPos;
             }
-
-            float zDepth = obj.transform.position.z;
-            if(Mathf.Abs(zDepth) > 0.001f) {
-                return zDepth;
-            }
-
-            return obj.transform.position.y;
+            return obj.transform.position.z;
         }
 
         private GameObject GetTouchingEnemyCandidate() {

@@ -27,15 +27,6 @@ namespace BeatEmUpTemplate2D {
             if(coll.CompareTag("Player")) playerInRange = false;
         }
 
-        //fallback for scenes still using 2D triggers
-        void OnTriggerEnter2D(Collider2D coll) {
-            if(coll.CompareTag("Player")) playerInRange = true;
-        }
-
-        void OnTriggerExit2D(Collider2D coll) {
-            if(coll.CompareTag("Player")) playerInRange = false;
-        }
-
         void Update(){
             if(exitInProgress) return;
 

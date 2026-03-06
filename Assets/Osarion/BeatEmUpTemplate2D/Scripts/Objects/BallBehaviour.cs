@@ -91,11 +91,6 @@ namespace BeatEmUpTemplate2D {
             Vector3 from = new Vector3(transform.position.x, startPos.y, startPos.z);
             Vector3 direction = Vector3.right * attackDir;
             bool hit = Physics.Raycast(from, direction, spriteSizeX, 1 << LayerMask.NameToLayer("Environment")); //check if we've hit environment layer
-            if(!hit){
-                Vector2 from2D = new Vector2(transform.position.x, startPos.z);
-                Vector2 to2D = from2D + Vector2.right * attackDir * spriteSizeX;
-                hit = Physics2D.Linecast(from2D, to2D, 1 << LayerMask.NameToLayer("Environment"));
-            }
             Debug.DrawLine(from, from + direction * spriteSizeX, Color.yellow, Time.deltaTime); //show debug line in editor
             return hit;
         }
