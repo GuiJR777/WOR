@@ -409,8 +409,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Color: {r: 1, g: 0.9972057, b: 0.8537736, a: 1}
+  m_Intensity: 1.25
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -669,6 +669,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 312973289}
     m_Modifications:
+    - target: {fileID: 1065984491119379941, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065984491119379941, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065984491119379941, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065984491119379941, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065984491119379941, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e70829d7b2b28c5408e5a67a42982b48, type: 2}
     - target: {fileID: 1531925402066734776, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -687,11 +707,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4514951462575134685, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9659258
       objectReference: {fileID: 0}
     - target: {fileID: 4514951462575134685, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.2588191
       objectReference: {fileID: 0}
     - target: {fileID: 4514951462575134685, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: m_LocalRotation.y
@@ -703,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4514951462575134685, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4514951462575134685, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -712,6 +732,10 @@ PrefabInstance:
     - target: {fileID: 4514951462575134685, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650958779204035057, guid: c0f71cab69f3c07448c3e170932688eb, type: 3}
+      propertyPath: dashCooldown
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2273,6 +2297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 312973289}
     m_Modifications:
+    - target: {fileID: 4110879382849021568, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e70829d7b2b28c5408e5a67a42982b48, type: 2}
     - target: {fileID: 4955587178937794416, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
       propertyPath: m_Name
       value: Enemy

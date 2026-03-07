@@ -1,19 +1,55 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Universal.2D.Runtime", "Unity.RenderPipelines.Universal.2D.Runtime.csproj", "{02ac6ccc-7840-e306-76ce-db2deeff41ce}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Universal.Editor", "Unity.RenderPipelines.Universal.Editor.csproj", "{28620244-feed-9890-b7be-4b32191d9915}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{dd7e36ad-da00-6eb4-c758-cd872395ac71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPv2URPConverters", "PPv2URPConverters.csproj", "{1fadcfb3-7f02-e82e-ac8e-b4c03dcf0574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Universal.Editor.Tests", "Unity.RenderPipelines.Universal.Editor.Tests.csproj", "{c8dc8e60-4b76-80bf-6a1d-926bbb07f817}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Universal.Runtime.csproj", "{b349202f-5d58-e155-1fed-769ba89a3f4c}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{504c4cac-2927-0ddc-c069-ac054d6ac61f}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Universal.2D.Editor.Overrides", "Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj", "{78f217a4-64ff-1995-af64-6c501265ee9f}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Universal.Runtime.Tests", "Unity.RenderPipelines.Universal.Runtime.Tests.csproj", "{96c2db83-ca24-716d-89fd-c233bb0a9019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipeline.Universal.ShaderLibrary", "Unity.RenderPipeline.Universal.ShaderLibrary.csproj", "{6043f8c1-8e8b-6025-876a-4540308d0e09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Universal.Shaders", "Unity.RenderPipelines.Universal.Shaders.csproj", "{1f339a73-e1aa-2117-a57e-ed8bc346c1e1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02ac6ccc-7840-e306-76ce-db2deeff41ce}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02ac6ccc-7840-e306-76ce-db2deeff41ce}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28620244-feed-9890-b7be-4b32191d9915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28620244-feed-9890-b7be-4b32191d9915}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{dd7e36ad-da00-6eb4-c758-cd872395ac71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{dd7e36ad-da00-6eb4-c758-cd872395ac71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1fadcfb3-7f02-e82e-ac8e-b4c03dcf0574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1fadcfb3-7f02-e82e-ac8e-b4c03dcf0574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{c8dc8e60-4b76-80bf-6a1d-926bbb07f817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{c8dc8e60-4b76-80bf-6a1d-926bbb07f817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{b349202f-5d58-e155-1fed-769ba89a3f4c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{b349202f-5d58-e155-1fed-769ba89a3f4c}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{504c4cac-2927-0ddc-c069-ac054d6ac61f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{504c4cac-2927-0ddc-c069-ac054d6ac61f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78f217a4-64ff-1995-af64-6c501265ee9f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78f217a4-64ff-1995-af64-6c501265ee9f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96c2db83-ca24-716d-89fd-c233bb0a9019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96c2db83-ca24-716d-89fd-c233bb0a9019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6043f8c1-8e8b-6025-876a-4540308d0e09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6043f8c1-8e8b-6025-876a-4540308d0e09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1f339a73-e1aa-2117-a57e-ed8bc346c1e1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1f339a73-e1aa-2117-a57e-ed8bc346c1e1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
