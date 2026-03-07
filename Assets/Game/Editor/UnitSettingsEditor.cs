@@ -90,6 +90,12 @@ namespace WOR.Gameplay {
                 "hitEffect",
                 "hitBox",
                 "spriteRenderer");
+
+            DrawProperty("useMaterialTint");
+            SerializedProperty useMaterialTint = GetProperty("useMaterialTint");
+            if(useMaterialTint != null && useMaterialTint.boolValue) {
+                DrawProperty("materialTint");
+            }
         }
 
         private void DrawMovementSettings() {

@@ -2301,6 +2301,22 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e70829d7b2b28c5408e5a67a42982b48, type: 2}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: materialTint.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: materialTint.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: materialTint.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718332081022883108, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
+      propertyPath: useMaterialTint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4955587178937794416, guid: 9b3c06f11fa3aa0438a864ecb939b5ca, type: 3}
       propertyPath: m_Name
       value: Enemy

@@ -65,6 +65,8 @@ namespace WOR.Gameplay {
         public GameObject hitEffect; //effect that gets played when we've hit something
         public SpriteRenderer hitBox; //sprite bounding box used for hit collision
         public SpriteRenderer spriteRenderer; //this unit's sprite renderer
+        public bool useMaterialTint; //tint sprites using material property block (_Color) instead of SpriteRenderer.color
+        public Color materialTint = Color.white;
 
         //MOVEMENT SETTINGS
         public DIRECTION startDirection = DIRECTION.RIGHT; //start direction
@@ -164,6 +166,8 @@ namespace WOR.Gameplay {
         [ReadOnlyProperty] public bool targetInSight; //true if the target is in the field of view of this enemy
 
         private UnitStatsModel _statsModel;
+        private MaterialPropertyBlock _spriteTintPropertyBlock;
+        private static readonly int ShaderColorPropertyId = Shader.PropertyToID("_Color");
 
         private UnitActions unitActions => GetComponent<UnitActions>();
 
@@ -349,7 +353,10 @@ namespace WOR.Gameplay {
 
             //check sprite renderer
             if(spriteRenderer == null) Debug.Log("Please assign a SpriteRenderer to GameObject " + gameObject.name + " in UnitSettings/Linked Components");
-            else spriteRenderer.flipX = false;
+            else {
+                spriteRenderer.flipX = false;
+                ApplyMaterialTintToSpriteRenderer();
+            }
 
             //load name
             if(loadRandomNameFromList) unitName = GetRandomName();
@@ -410,11 +417,30 @@ namespace WOR.Gameplay {
 
             if(spriteRenderer != null) {
                 spriteRenderer.flipX = false;
+                ApplyMaterialTintToSpriteRenderer();
             }
 
             if(Application.isPlaying) {
                 NotifyStatsChanged();
             }
+        }
+
+        private void ApplyMaterialTintToSpriteRenderer() {
+            if(spriteRenderer == null) {
+                return;
+            }
+
+            if(_spriteTintPropertyBlock == null) {
+                _spriteTintPropertyBlock = new MaterialPropertyBlock();
+            }
+
+            if(spriteRenderer.color != Color.white) {
+                spriteRenderer.color = Color.white;
+            }
+
+            spriteRenderer.GetPropertyBlock(_spriteTintPropertyBlock);
+            _spriteTintPropertyBlock.SetColor(ShaderColorPropertyId, useMaterialTint ? materialTint : Color.white);
+            spriteRenderer.SetPropertyBlock(_spriteTintPropertyBlock);
         }
     }
 
