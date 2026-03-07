@@ -19,7 +19,7 @@ namespace WOR.Gameplay {
             if(InputManager.DefendKeyDown(playerId)){ unit.stateMachine.SetState(new UnitDefend()); return; }
 
             //jump
-            if(InputManager.JumpKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerJump()); return; }
+            if(unit.isGrounded && InputManager.JumpKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerJump()); return; }
 
             //use weapon
             if(unit.weapon && InputManager.PunchKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerWeaponAttack()); return; }
@@ -93,6 +93,7 @@ namespace WOR.Gameplay {
         private float _dashSpeed;
         private bool _invulnerabilityEnabled;
         private bool _gravityDisabledForAirDash;
+        private bool _startedInAir;
         private HealthSystem _healthSystem;
         private int _playerId => unit.settings.playerId;
 
@@ -126,7 +127,8 @@ namespace WOR.Gameplay {
             unit.animator.Play(DASH_ANIMATION);
             unit.StartGhostTrail(_dashDuration, Mathf.Max(0.01f, unit.settings.dashGhostInterval));
 
-            if(!unit.isGrounded) {
+            _startedInAir = !unit.isGrounded;
+            if(_startedInAir) {
                 unit.SetGravityEnabled(false);
                 unit.SetVerticalVelocity(0f);
                 _gravityDisabledForAirDash = true;
@@ -141,7 +143,7 @@ namespace WOR.Gameplay {
 
         public override void Update() {
             if(Time.time - stateStartTime >= _dashDuration) {
-                unit.stateMachine.SetState(new PlayerIdle());
+                EndDashState();
             }
         }
 
@@ -150,7 +152,7 @@ namespace WOR.Gameplay {
             Vector2 wallCheckDirection = new Vector2(_dashVector.x, _dashVector.y * unit.settings.depthMoveMultiplier);
 
             if(unit.WallDetected(wallCheckDirection * wallDistanceCheck)) {
-                unit.stateMachine.SetState(new PlayerIdle());
+                EndDashState();
                 return;
             }
 
@@ -169,6 +171,15 @@ namespace WOR.Gameplay {
             if(_invulnerabilityEnabled && _healthSystem != null) {
                 _healthSystem.invulnerable = false;
             }
+        }
+
+        private void EndDashState() {
+            if(_startedInAir) {
+                unit.stateMachine.SetState(new PlayerJump(false));
+                return;
+            }
+
+            unit.stateMachine.SetState(new PlayerIdle());
         }
     }
 }

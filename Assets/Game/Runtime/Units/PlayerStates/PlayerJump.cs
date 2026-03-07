@@ -11,13 +11,22 @@ namespace WOR.Gameplay {
         private string animationName = "Jump";
         private string sfxName = "JumpUp";
         private bool hasLanded;
+        private readonly bool applyJumpImpulse;
         private int playerId => unit.settings.playerId;
+
+        public PlayerJump(bool applyJumpImpulse = true) {
+            this.applyJumpImpulse = applyJumpImpulse;
+        }
         
         public override void Enter(){
-            unit.StopMoving(true);
             unit.animator.Play(animationName);
-            unit.StartPhysicalJump();
-            AudioController.PlaySFX(sfxName, unit.transform.position);
+            if(applyJumpImpulse) {
+                unit.StopMoving(true);
+                unit.StartPhysicalJump();
+                AudioController.PlaySFX(sfxName, unit.transform.position);
+            } else {
+                unit.isGrounded = false;
+            }
          }
 
         public override void Update(){
