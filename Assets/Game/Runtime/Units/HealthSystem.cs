@@ -47,6 +47,8 @@ namespace WOR.Gameplay {
 
         public delegate void OnHealthChange(HealthSystem hs);
 	    public static event OnHealthChange onHealthChange;
+        public delegate void OnUnitDamaged(HealthSystem hs, int damageAmount, bool isConditionDamage, Color damageColor);
+        public static event OnUnitDamaged onUnitDamaged;
         public delegate void OnUnitDeath(GameObject Unit);
 	    public static event OnUnitDeath onUnitDeath;
         private HealthModel _healthModel;
@@ -88,14 +90,24 @@ namespace WOR.Gameplay {
 
         //substract health
         public void SubstractHealth(int damage) {
+            SubstractHealth(damage, false, Color.white);
+        }
+
+        public void SubstractHealth(int damage, bool isConditionDamage, Color damageColor) {
 
             EnsureHealthModel();
+            int healthBeforeDamage = currentHp;
             _healthModel.IsInvulnerable = invulnerable;
             _healthModel.ApplyDamage(damage);
             SyncLegacyFieldsFromModel();
+            int appliedDamage = Mathf.Max(0, healthBeforeDamage - currentHp);
 
             //broadcast Event
 		    SendEvent();
+            if(appliedDamage > 0 && onUnitDamaged != null) {
+                Color popupColor = isConditionDamage ? damageColor : Color.white;
+                onUnitDamaged(this, appliedDamage, isConditionDamage, popupColor);
+            }
 
             //update HealthBar
             if(!invulnerable && healthBar) UpdateSmallHealthBarScale();

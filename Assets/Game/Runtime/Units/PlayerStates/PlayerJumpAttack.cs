@@ -24,7 +24,7 @@ namespace WOR.Gameplay {
 
         public override void Update(){
             //dash in air
-            if(InputManager.DashKeyDown(playerId) && unit.IsDashAvailable) {
+            if(!unit.HasActiveCondition(CONDITIONTYPE.SOAKED) && InputManager.DashKeyDown(playerId) && unit.IsDashAvailable) {
                 unit.stateMachine.SetState(new PlayerDash());
                 return;
             }

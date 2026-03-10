@@ -13,13 +13,13 @@ namespace WOR.Gameplay {
         public override void Update(){
 
             //dash (dash action button)
-            if(InputManager.DashKeyDown(playerId) && unit.IsDashAvailable){ unit.stateMachine.SetState(new PlayerDash()); return; }
+            if(!unit.HasActiveCondition(CONDITIONTYPE.SOAKED) && InputManager.DashKeyDown(playerId) && unit.IsDashAvailable){ unit.stateMachine.SetState(new PlayerDash()); return; }
 
             //defend
             if(InputManager.DefendKeyDown(playerId)){ unit.stateMachine.SetState(new UnitDefend()); return; }
 
             //jump
-            if(unit.isGrounded && InputManager.JumpKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerJump()); return; }
+            if(!unit.HasActiveCondition(CONDITIONTYPE.SOAKED) && unit.isGrounded && InputManager.JumpKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerJump()); return; }
 
             //use weapon
             if(unit.weapon && InputManager.PunchKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerWeaponAttack()); return; }
@@ -100,6 +100,15 @@ namespace WOR.Gameplay {
         public override bool canGrab => false;
 
         public override void Enter() {
+            if(unit.HasActiveCondition(CONDITIONTYPE.SOAKED)) {
+                if(unit.isGrounded) {
+                    unit.stateMachine.SetState(new PlayerIdle());
+                } else {
+                    unit.stateMachine.SetState(new PlayerJump(false));
+                }
+                return;
+            }
+
             if(unit.settings == null || !unit.settings.canDash) {
                 unit.stateMachine.SetState(new PlayerIdle());
                 return;

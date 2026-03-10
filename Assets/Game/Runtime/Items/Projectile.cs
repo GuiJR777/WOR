@@ -64,6 +64,14 @@ namespace WOR.Gameplay {
                     targetHealth.SubstractHealth(finalDamage);
                 }
 
+                ConditionManager targetConditionManager = enemyHit.GetComponent<ConditionManager>();
+                if(targetConditionManager != null && attackData != null && attackData.conditionType != CONDITIONTYPE.NONE) {
+                    targetConditionManager.ApplyConditionCharge(
+                        attackData.conditionType,
+                        attackData.GetConditionCharge(),
+                        attackData.inflictor);
+                }
+
                 //play sfx
                 if(attackData != null && attackData.sfx.Length > 0) AudioController.PlaySFX(attackData.sfx);
 

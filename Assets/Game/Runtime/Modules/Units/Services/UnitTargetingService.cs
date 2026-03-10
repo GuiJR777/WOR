@@ -24,7 +24,8 @@ namespace WOR.Gameplay.Modules.Units.Services {
                 return false;
             }
 
-            if(candidateSettings.faction == seekerSettings.faction) {
+            bool seekerIsConfused = seekerSettings.faction == UNITFACTION.CONFUSED;
+            if(!seekerIsConfused && candidateSettings.faction == seekerSettings.faction) {
                 return false;
             }
 
