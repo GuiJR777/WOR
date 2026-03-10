@@ -118,6 +118,14 @@ namespace WOR.Gameplay {
             DrawStatWithMultiplier("defense", "defenseMultiplier", "Defesa");
             DrawStatWithMultiplier("agility", "agilityMultiplier", "Agilidade");
             DrawStatWithMultiplier("luck", "luckMultiplier", "Sorte");
+            DrawStatWithMultiplier("burningResistance", "burningResistanceMultiplier", "Resistencia Burning");
+            DrawStatWithMultiplier("poisonedResistance", "poisonedResistanceMultiplier", "Resistencia Poisoned");
+            DrawStatWithMultiplier("soakedResistance", "soakedResistanceMultiplier", "Resistencia Soaked");
+            DrawStatWithMultiplier("bleedingResistance", "bleedingResistanceMultiplier", "Resistencia Bleeding");
+            DrawStatWithMultiplier("blindResistance", "blindResistanceMultiplier", "Resistencia Blind");
+            DrawStatWithMultiplier("stunnedResistance", "stunnedResistanceMultiplier", "Resistencia Stunned");
+            DrawStatWithMultiplier("confusedResistance", "confusedResistanceMultiplier", "Resistencia Confused");
+            DrawStatWithMultiplier("electrocutedResistance", "electrocutedResistanceMultiplier", "Resistencia Electrocuted");
 
             if(serializedObject.isEditingMultipleObjects) {
                 return;
@@ -136,6 +144,14 @@ namespace WOR.Gameplay {
             EditorGUILayout.FloatField("Defesa Final", settings.GetDefense());
             EditorGUILayout.FloatField("Agilidade Final", settings.GetAgility());
             EditorGUILayout.FloatField("Sorte Final", settings.GetLuck());
+            EditorGUILayout.FloatField("Resistencia Burning Final", settings.GetBurningResistance());
+            EditorGUILayout.FloatField("Resistencia Poisoned Final", settings.GetPoisonedResistance());
+            EditorGUILayout.FloatField("Resistencia Soaked Final", settings.GetSoakedResistance());
+            EditorGUILayout.FloatField("Resistencia Bleeding Final", settings.GetBleedingResistance());
+            EditorGUILayout.FloatField("Resistencia Blind Final", settings.GetBlindResistance());
+            EditorGUILayout.FloatField("Resistencia Stunned Final", settings.GetStunnedResistance());
+            EditorGUILayout.FloatField("Resistencia Confused Final", settings.GetConfusedResistance());
+            EditorGUILayout.FloatField("Resistencia Electrocuted Final", settings.GetElectrocutedResistance());
             EditorGUILayout.IntField("Max HP (Constituicao x 10)", settings.MaxHpFromStats);
             EditorGUILayout.FloatField("Crit Chance (%)", settings.GetCriticalChance() * 100f);
             EditorGUILayout.FloatField("Move Speed", settings.MoveSpeedFromStats);
@@ -369,6 +385,8 @@ namespace WOR.Gameplay {
             SerializedProperty animationStateProperty = property.FindPropertyRelative("animationState");
             SerializedProperty sfxProperty = property.FindPropertyRelative("sfx");
             SerializedProperty attackTypeProperty = property.FindPropertyRelative("attackType");
+            SerializedProperty conditionTypeProperty = property.FindPropertyRelative("conditionType");
+            SerializedProperty conditionChargeProperty = property.FindPropertyRelative("conditionCharge");
             SerializedProperty knockdownProperty = property.FindPropertyRelative("knockdown");
             SerializedProperty knockdownLaunchHorizontalForceProperty = property.FindPropertyRelative("knockdownLaunchHorizontalForce");
             SerializedProperty knockdownLaunchVerticalForceProperty = property.FindPropertyRelative("knockdownLaunchVerticalForce");
@@ -408,6 +426,12 @@ namespace WOR.Gameplay {
             }
             if(attackTypeProperty != null) {
                 EditorGUILayout.PropertyField(attackTypeProperty, new GUIContent("Attack Type"));
+            }
+            if(conditionTypeProperty != null) {
+                EditorGUILayout.PropertyField(conditionTypeProperty, new GUIContent("Condition Type"));
+            }
+            if(conditionChargeProperty != null) {
+                EditorGUILayout.PropertyField(conditionChargeProperty, new GUIContent("Condition Charge (0-1)"));
             }
             if(knockdownProperty != null) {
                 EditorGUILayout.PropertyField(knockdownProperty, new GUIContent("Knockdown"));

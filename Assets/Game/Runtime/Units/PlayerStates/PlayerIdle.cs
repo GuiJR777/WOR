@@ -20,13 +20,13 @@ namespace WOR.Gameplay {
             unit.StopMoving(false);
 
             //dash (dash action button)
-            if(InputManager.DashKeyDown(playerId) && unit.IsDashAvailable){ unit.stateMachine.SetState(new PlayerDash()); return; }
+            if(!unit.HasActiveCondition(CONDITIONTYPE.SOAKED) && InputManager.DashKeyDown(playerId) && unit.IsDashAvailable){ unit.stateMachine.SetState(new PlayerDash()); return; }
 
             //defend
             if(InputManager.DefendKeyDown(playerId)){ unit.stateMachine.SetState(new UnitDefend()); return; }
 
             //jump
-            if(unit.isGrounded && InputManager.JumpKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerJump()); return; }
+            if(!unit.HasActiveCondition(CONDITIONTYPE.SOAKED) && unit.isGrounded && InputManager.JumpKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerJump()); return; }
 
             //use weapon
             if(unit.weapon && InputManager.PunchKeyDown(playerId)){ unit.stateMachine.SetState(new PlayerWeaponAttack()); return; }

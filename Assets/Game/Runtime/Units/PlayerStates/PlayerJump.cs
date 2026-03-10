@@ -19,6 +19,11 @@ namespace WOR.Gameplay {
         }
         
         public override void Enter(){
+            if(applyJumpImpulse && unit.HasActiveCondition(CONDITIONTYPE.SOAKED)) {
+                unit.stateMachine.SetState(new PlayerIdle());
+                return;
+            }
+
             unit.animator.Play(animationName);
             if(applyJumpImpulse) {
                 unit.StopMoving(true);
@@ -31,7 +36,7 @@ namespace WOR.Gameplay {
 
         public override void Update(){
             //dash in air
-            if(InputManager.DashKeyDown(playerId) && unit.IsDashAvailable) {
+            if(!unit.HasActiveCondition(CONDITIONTYPE.SOAKED) && InputManager.DashKeyDown(playerId) && unit.IsDashAvailable) {
                 unit.stateMachine.SetState(new PlayerDash());
                 return;
             }

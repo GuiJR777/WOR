@@ -15,6 +15,8 @@ namespace WOR.Gameplay {
         private const float DEFAULT_STRENGTH_DAMAGE_SCALE = 1f;
         private const float MIN_STRENGTH_DAMAGE_SCALE = 0f;
         private const float MAX_STRENGTH_DAMAGE_SCALE = 2f;
+        private const float MIN_CONDITION_CHARGE = 0f;
+        private const float MAX_CONDITION_CHARGE = 1f;
 
         public string name; //optional
         [HideInInspector] public int damage; //legacy fallback damage (kept for backwards compatibility)
@@ -32,6 +34,9 @@ namespace WOR.Gameplay {
         public float knockbackDuration = DEFAULT_KNOCKBACK_DURATION; //duration of the pushback
         public float attackerForwardDistance; //how far the attacker advances at attack start
         public float attackerForwardDuration = DEFAULT_ATTACKER_FORWARD_DURATION; //duration of attacker forward advance
+        public CONDITIONTYPE conditionType = CONDITIONTYPE.NONE; //condition type applied by this attack
+        [Range(MIN_CONDITION_CHARGE, MAX_CONDITION_CHARGE)]
+        public float conditionCharge = MIN_CONDITION_CHARGE; //0..1 percentage of condition charge applied on hit
         [HideInInspector] public bool foldout;
         [HideInInspector] public GameObject inflictor; //the gameobject inflicting the damage
     
@@ -43,10 +48,16 @@ namespace WOR.Gameplay {
             this.attackType = attackType;
             this.knockdown = knockdown;
             this.sfx = sfx;
+            conditionType = CONDITIONTYPE.NONE;
+            conditionCharge = MIN_CONDITION_CHARGE;
         }
 
         public float GetStrengthDamageScale() {
             return Mathf.Clamp(strengthDamageScale, MIN_STRENGTH_DAMAGE_SCALE, MAX_STRENGTH_DAMAGE_SCALE);
+        }
+
+        public float GetConditionCharge() {
+            return Mathf.Clamp(conditionCharge, MIN_CONDITION_CHARGE, MAX_CONDITION_CHARGE);
         }
     }
 

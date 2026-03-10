@@ -14,6 +14,7 @@ namespace WOR.Gameplay {
         PARRIED = 2,
     }
 
+    [RequireComponent(typeof(ConditionManager))]
     public class UnitActions : MonoBehaviour {
 
         private const float INPUT_DEADZONE = 0.05f;
@@ -72,6 +73,7 @@ namespace WOR.Gameplay {
         }
 
         private SpriteRenderer _spriteRenderer;
+        private ConditionManager _conditionManager;
         private bool _onApplicationQuit;
         private float _currentSpeed;
         private float _animDuration;
@@ -95,6 +97,7 @@ namespace WOR.Gameplay {
 
         private void Awake() {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _conditionManager = GetComponent<ConditionManager>();
 
             // Keep legacy scenes compatible: convert facing from Y-rotation to X-scale.
             float yRotation = Mathf.Repeat(transform.localEulerAngles.y, 360f);
@@ -114,6 +117,18 @@ namespace WOR.Gameplay {
             Vector3 currentPosition = GetUnitPosition();
             groundPos = currentPosition.z;
             baseHeight = currentPosition.y;
+        }
+
+        public bool HasActiveCondition(CONDITIONTYPE conditionType) {
+            if(conditionType == CONDITIONTYPE.NONE) {
+                return false;
+            }
+
+            if(_conditionManager == null) {
+                _conditionManager = GetComponent<ConditionManager>();
+            }
+
+            return _conditionManager != null && _conditionManager.IsConditionActive(conditionType);
         }
 
         private void OnEnable() {
@@ -302,6 +317,14 @@ namespace WOR.Gameplay {
                     if(finalDamage > 0) {
                         targetHealthSystem.SubstractHealth(finalDamage);
                     }
+                }
+
+                ConditionManager targetConditionManager = obj.GetComponent<ConditionManager>();
+                if(targetConditionManager != null && attackData != null && attackData.conditionType != CONDITIONTYPE.NONE) {
+                    targetConditionManager.ApplyConditionCharge(
+                        attackData.conditionType,
+                        attackData.GetConditionCharge(),
+                        gameObject);
                 }
 
                 if(!string.IsNullOrEmpty(attackData.sfx)) {

@@ -6,8 +6,23 @@ using WOR.Gameplay.Modules.Units.Models;
 namespace WOR.Gameplay {
 
     public enum UNITTYPE { PLAYER = 0, ENEMY = 10, NPC = 20 }
-    public enum UNITFACTION { NEUTRAL = 0, HERO = 10, ENEMY = 20, ALLY = 30, BOSS = 40 }
-    public enum UNITSTATTYPE { CONSTITUTION = 0, CHAKRA = 10, STRENGTH = 20, DEFENSE = 30, AGILITY = 40, LUCK = 50 }
+    public enum UNITFACTION { NEUTRAL = 0, HERO = 10, ENEMY = 20, ALLY = 30, BOSS = 40, CONFUSED = 50 }
+    public enum UNITSTATTYPE {
+        CONSTITUTION = 0,
+        CHAKRA = 10,
+        STRENGTH = 20,
+        DEFENSE = 30,
+        AGILITY = 40,
+        LUCK = 50,
+        BURNING_RESISTANCE = 60,
+        POISONED_RESISTANCE = 70,
+        SOAKED_RESISTANCE = 80,
+        BLEEDING_RESISTANCE = 90,
+        BLIND_RESISTANCE = 100,
+        STUNNED_RESISTANCE = 110,
+        CONFUSED_RESISTANCE = 120,
+        ELECTROCUTED_RESISTANCE = 130,
+    }
 
     [System.Serializable]
     public class UnitSettings : MonoBehaviour {
@@ -30,6 +45,7 @@ namespace WOR.Gameplay {
         private const float DEFAULT_DEFENSE = 0f;
         private const float DEFAULT_AGILITY = 4f;
         private const float DEFAULT_LUCK = 0f;
+        private const float DEFAULT_CONDITION_RESISTANCE = 0f;
         private const float MIN_STAT_VALUE = 0f;
         private const float MIN_STAT_MULTIPLIER = 0f;
 
@@ -57,6 +73,22 @@ namespace WOR.Gameplay {
         public float agilityMultiplier = DEFAULT_STAT_MULTIPLIER;
         public float luck = DEFAULT_LUCK;
         public float luckMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float burningResistance = DEFAULT_CONDITION_RESISTANCE;
+        public float burningResistanceMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float poisonedResistance = DEFAULT_CONDITION_RESISTANCE;
+        public float poisonedResistanceMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float soakedResistance = DEFAULT_CONDITION_RESISTANCE;
+        public float soakedResistanceMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float bleedingResistance = DEFAULT_CONDITION_RESISTANCE;
+        public float bleedingResistanceMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float blindResistance = DEFAULT_CONDITION_RESISTANCE;
+        public float blindResistanceMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float stunnedResistance = DEFAULT_CONDITION_RESISTANCE;
+        public float stunnedResistanceMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float confusedResistance = DEFAULT_CONDITION_RESISTANCE;
+        public float confusedResistanceMultiplier = DEFAULT_STAT_MULTIPLIER;
+        public float electrocutedResistance = DEFAULT_CONDITION_RESISTANCE;
+        public float electrocutedResistanceMultiplier = DEFAULT_STAT_MULTIPLIER;
 
         //LINKED OBJECTS
         public GameObject shadowPrefab; //shadow prefab
@@ -215,6 +247,61 @@ namespace WOR.Gameplay {
             return GetStatValue(UNITSTATTYPE.LUCK);
         }
 
+        public float GetBurningResistance() {
+            return GetStatValue(UNITSTATTYPE.BURNING_RESISTANCE);
+        }
+
+        public float GetPoisonedResistance() {
+            return GetStatValue(UNITSTATTYPE.POISONED_RESISTANCE);
+        }
+
+        public float GetSoakedResistance() {
+            return GetStatValue(UNITSTATTYPE.SOAKED_RESISTANCE);
+        }
+
+        public float GetBleedingResistance() {
+            return GetStatValue(UNITSTATTYPE.BLEEDING_RESISTANCE);
+        }
+
+        public float GetBlindResistance() {
+            return GetStatValue(UNITSTATTYPE.BLIND_RESISTANCE);
+        }
+
+        public float GetStunnedResistance() {
+            return GetStatValue(UNITSTATTYPE.STUNNED_RESISTANCE);
+        }
+
+        public float GetConfusedResistance() {
+            return GetStatValue(UNITSTATTYPE.CONFUSED_RESISTANCE);
+        }
+
+        public float GetElectrocutedResistance() {
+            return GetStatValue(UNITSTATTYPE.ELECTROCUTED_RESISTANCE);
+        }
+
+        public float GetConditionResistance(CONDITIONTYPE conditionType) {
+            switch(conditionType) {
+                case CONDITIONTYPE.BURNING:
+                    return GetBurningResistance();
+                case CONDITIONTYPE.POISONED:
+                    return GetPoisonedResistance();
+                case CONDITIONTYPE.SOAKED:
+                    return GetSoakedResistance();
+                case CONDITIONTYPE.BLEEDING:
+                    return GetBleedingResistance();
+                case CONDITIONTYPE.BLIND:
+                    return GetBlindResistance();
+                case CONDITIONTYPE.STUNNED:
+                    return GetStunnedResistance();
+                case CONDITIONTYPE.CONFUSED:
+                    return GetConfusedResistance();
+                case CONDITIONTYPE.ELECTROCUTED:
+                    return GetElectrocutedResistance();
+                default:
+                    return 0f;
+            }
+        }
+
         public float GetCriticalChance() {
             SyncStatsModelFromSerializedData();
             return StatsModel.GetCriticalChance();
@@ -296,6 +383,30 @@ namespace WOR.Gameplay {
 
             model.SetBaseValue(UnitStatType.Luck, luck);
             model.SetConfiguredMultiplier(UnitStatType.Luck, luckMultiplier);
+
+            model.SetBaseValue(UnitStatType.BurningResistance, burningResistance);
+            model.SetConfiguredMultiplier(UnitStatType.BurningResistance, burningResistanceMultiplier);
+
+            model.SetBaseValue(UnitStatType.PoisonedResistance, poisonedResistance);
+            model.SetConfiguredMultiplier(UnitStatType.PoisonedResistance, poisonedResistanceMultiplier);
+
+            model.SetBaseValue(UnitStatType.SoakedResistance, soakedResistance);
+            model.SetConfiguredMultiplier(UnitStatType.SoakedResistance, soakedResistanceMultiplier);
+
+            model.SetBaseValue(UnitStatType.BleedingResistance, bleedingResistance);
+            model.SetConfiguredMultiplier(UnitStatType.BleedingResistance, bleedingResistanceMultiplier);
+
+            model.SetBaseValue(UnitStatType.BlindResistance, blindResistance);
+            model.SetConfiguredMultiplier(UnitStatType.BlindResistance, blindResistanceMultiplier);
+
+            model.SetBaseValue(UnitStatType.StunnedResistance, stunnedResistance);
+            model.SetConfiguredMultiplier(UnitStatType.StunnedResistance, stunnedResistanceMultiplier);
+
+            model.SetBaseValue(UnitStatType.ConfusedResistance, confusedResistance);
+            model.SetConfiguredMultiplier(UnitStatType.ConfusedResistance, confusedResistanceMultiplier);
+
+            model.SetBaseValue(UnitStatType.ElectrocutedResistance, electrocutedResistance);
+            model.SetConfiguredMultiplier(UnitStatType.ElectrocutedResistance, electrocutedResistanceMultiplier);
         }
 
         private static UnitStatType ToModelStatType(UNITSTATTYPE statType) {
@@ -312,6 +423,22 @@ namespace WOR.Gameplay {
                     return UnitStatType.Agility;
                 case UNITSTATTYPE.LUCK:
                     return UnitStatType.Luck;
+                case UNITSTATTYPE.BURNING_RESISTANCE:
+                    return UnitStatType.BurningResistance;
+                case UNITSTATTYPE.POISONED_RESISTANCE:
+                    return UnitStatType.PoisonedResistance;
+                case UNITSTATTYPE.SOAKED_RESISTANCE:
+                    return UnitStatType.SoakedResistance;
+                case UNITSTATTYPE.BLEEDING_RESISTANCE:
+                    return UnitStatType.BleedingResistance;
+                case UNITSTATTYPE.BLIND_RESISTANCE:
+                    return UnitStatType.BlindResistance;
+                case UNITSTATTYPE.STUNNED_RESISTANCE:
+                    return UnitStatType.StunnedResistance;
+                case UNITSTATTYPE.CONFUSED_RESISTANCE:
+                    return UnitStatType.ConfusedResistance;
+                case UNITSTATTYPE.ELECTROCUTED_RESISTANCE:
+                    return UnitStatType.ElectrocutedResistance;
                 default:
                     return UnitStatType.Constitution;
             }
@@ -330,6 +457,14 @@ namespace WOR.Gameplay {
             defense = Mathf.Max(MIN_STAT_VALUE, defense);
             agility = Mathf.Max(MIN_STAT_VALUE, agility);
             luck = Mathf.Max(MIN_STAT_VALUE, luck);
+            burningResistance = Mathf.Max(MIN_STAT_VALUE, burningResistance);
+            poisonedResistance = Mathf.Max(MIN_STAT_VALUE, poisonedResistance);
+            soakedResistance = Mathf.Max(MIN_STAT_VALUE, soakedResistance);
+            bleedingResistance = Mathf.Max(MIN_STAT_VALUE, bleedingResistance);
+            blindResistance = Mathf.Max(MIN_STAT_VALUE, blindResistance);
+            stunnedResistance = Mathf.Max(MIN_STAT_VALUE, stunnedResistance);
+            confusedResistance = Mathf.Max(MIN_STAT_VALUE, confusedResistance);
+            electrocutedResistance = Mathf.Max(MIN_STAT_VALUE, electrocutedResistance);
 
             constitutionMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, constitutionMultiplier);
             chakraMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, chakraMultiplier);
@@ -337,6 +472,14 @@ namespace WOR.Gameplay {
             defenseMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, defenseMultiplier);
             agilityMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, agilityMultiplier);
             luckMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, luckMultiplier);
+            burningResistanceMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, burningResistanceMultiplier);
+            poisonedResistanceMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, poisonedResistanceMultiplier);
+            soakedResistanceMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, soakedResistanceMultiplier);
+            bleedingResistanceMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, bleedingResistanceMultiplier);
+            blindResistanceMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, blindResistanceMultiplier);
+            stunnedResistanceMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, stunnedResistanceMultiplier);
+            confusedResistanceMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, confusedResistanceMultiplier);
+            electrocutedResistanceMultiplier = Mathf.Max(MIN_STAT_MULTIPLIER, electrocutedResistanceMultiplier);
         }
 
         private void Start() {

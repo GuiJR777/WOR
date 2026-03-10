@@ -12,6 +12,14 @@ namespace WOR.Gameplay.Modules.Units.Models {
         Defense = 30,
         Agility = 40,
         Luck = 50,
+        BurningResistance = 60,
+        PoisonedResistance = 70,
+        SoakedResistance = 80,
+        BleedingResistance = 90,
+        BlindResistance = 100,
+        StunnedResistance = 110,
+        ConfusedResistance = 120,
+        ElectrocutedResistance = 130,
     }
 
     public sealed class UnitStatsModel : IModel {
@@ -40,6 +48,14 @@ namespace WOR.Gameplay.Modules.Units.Models {
             SetBaseValue(UnitStatType.Defense, 0f);
             SetBaseValue(UnitStatType.Agility, 4f);
             SetBaseValue(UnitStatType.Luck, 0f);
+            SetBaseValue(UnitStatType.BurningResistance, 0f);
+            SetBaseValue(UnitStatType.PoisonedResistance, 0f);
+            SetBaseValue(UnitStatType.SoakedResistance, 0f);
+            SetBaseValue(UnitStatType.BleedingResistance, 0f);
+            SetBaseValue(UnitStatType.BlindResistance, 0f);
+            SetBaseValue(UnitStatType.StunnedResistance, 0f);
+            SetBaseValue(UnitStatType.ConfusedResistance, 0f);
+            SetBaseValue(UnitStatType.ElectrocutedResistance, 0f);
 
             SetConfiguredMultiplier(UnitStatType.Constitution, DefaultStatMultiplier);
             SetConfiguredMultiplier(UnitStatType.Chakra, DefaultStatMultiplier);
@@ -47,6 +63,14 @@ namespace WOR.Gameplay.Modules.Units.Models {
             SetConfiguredMultiplier(UnitStatType.Defense, DefaultStatMultiplier);
             SetConfiguredMultiplier(UnitStatType.Agility, DefaultStatMultiplier);
             SetConfiguredMultiplier(UnitStatType.Luck, DefaultStatMultiplier);
+            SetConfiguredMultiplier(UnitStatType.BurningResistance, DefaultStatMultiplier);
+            SetConfiguredMultiplier(UnitStatType.PoisonedResistance, DefaultStatMultiplier);
+            SetConfiguredMultiplier(UnitStatType.SoakedResistance, DefaultStatMultiplier);
+            SetConfiguredMultiplier(UnitStatType.BleedingResistance, DefaultStatMultiplier);
+            SetConfiguredMultiplier(UnitStatType.BlindResistance, DefaultStatMultiplier);
+            SetConfiguredMultiplier(UnitStatType.StunnedResistance, DefaultStatMultiplier);
+            SetConfiguredMultiplier(UnitStatType.ConfusedResistance, DefaultStatMultiplier);
+            SetConfiguredMultiplier(UnitStatType.ElectrocutedResistance, DefaultStatMultiplier);
         }
 
         public void SetBaseValue(UnitStatType statType, float value) {
