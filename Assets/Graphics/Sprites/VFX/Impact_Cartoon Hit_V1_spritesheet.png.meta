@@ -1,0 +1,567 @@
+fileFormatVersion: 2
+guid: 256e2ef8add5d4449a778625e4a908ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1730021012465216237
+    second: Impact_Cartoon Hit_V1_spritesheet_0
+  - first:
+      213: -5242542271966715275
+    second: Impact_Cartoon Hit_V1_spritesheet_1
+  - first:
+      213: 7647263407639263612
+    second: Impact_Cartoon Hit_V1_spritesheet_2
+  - first:
+      213: -2629614185010367175
+    second: Impact_Cartoon Hit_V1_spritesheet_3
+  - first:
+      213: 2022635335169474260
+    second: Impact_Cartoon Hit_V1_spritesheet_4
+  - first:
+      213: -6971923585836920241
+    second: Impact_Cartoon Hit_V1_spritesheet_5
+  - first:
+      213: -7436721459754041199
+    second: Impact_Cartoon Hit_V1_spritesheet_6
+  - first:
+      213: -6627437713446002922
+    second: Impact_Cartoon Hit_V1_spritesheet_7
+  - first:
+      213: -6659217578924824869
+    second: Impact_Cartoon Hit_V1_spritesheet_8
+  - first:
+      213: 7623478770770936018
+    second: Impact_Cartoon Hit_V1_spritesheet_9
+  - first:
+      213: 3411886788483384094
+    second: Impact_Cartoon Hit_V1_spritesheet_10
+  - first:
+      213: -2147749532162683390
+    second: Impact_Cartoon Hit_V1_spritesheet_11
+  - first:
+      213: -7605384712943827524
+    second: Impact_Cartoon Hit_V1_spritesheet_12
+  - first:
+      213: -185224857989562146
+    second: Impact_Cartoon Hit_V1_spritesheet_13
+  - first:
+      213: 7453861559379205074
+    second: Impact_Cartoon Hit_V1_spritesheet_14
+  - first:
+      213: 6652377217797601824
+    second: Impact_Cartoon Hit_V1_spritesheet_15
+  - first:
+      213: 7881343485672057934
+    second: Impact_Cartoon Hit_V1_spritesheet_16
+  - first:
+      213: 1307916651804037615
+    second: Impact_Cartoon Hit_V1_spritesheet_17
+  - first:
+      213: 1256822348925616310
+    second: Impact_Cartoon Hit_V1_spritesheet_18
+  - first:
+      213: -8085562276716833443
+    second: Impact_Cartoon Hit_V1_spritesheet_19
+  - first:
+      213: 7885732078313322113
+    second: Impact_Cartoon Hit_V1_spritesheet_20
+  - first:
+      213: 1666534625660152675
+    second: Impact_Cartoon Hit_V1_spritesheet_21
+  - first:
+      213: -4409995567250994068
+    second: Impact_Cartoon Hit_V1_spritesheet_22
+  - first:
+      213: -7216498732541605131
+    second: Impact_Cartoon Hit_V1_spritesheet_23
+  - first:
+      213: -6483705008233032701
+    second: Impact_Cartoon Hit_V1_spritesheet_24
+  - first:
+      213: 405846901859704433
+    second: Impact_Cartoon Hit_V1_spritesheet_25
+  - first:
+      213: 3414206500337135055
+    second: Impact_Cartoon Hit_V1_spritesheet_26
+  - first:
+      213: -619157297066010529
+    second: Impact_Cartoon Hit_V1_spritesheet_27
+  - first:
+      213: 7017772490642288395
+    second: Impact_Cartoon Hit_V1_spritesheet_28
+  - first:
+      213: -8356273706283327669
+    second: Impact_Cartoon Hit_V1_spritesheet_29
+  - first:
+      213: 2625509872092102654
+    second: Impact_Cartoon Hit_V1_spritesheet_30
+  - first:
+      213: -1980595622078526293
+    second: Impact_Cartoon Hit_V1_spritesheet_31
+  - first:
+      213: 3032560680092765790
+    second: Impact_Cartoon Hit_V1_spritesheet_32
+  - first:
+      213: 7441856663695527866
+    second: Impact_Cartoon Hit_V1_spritesheet_33
+  - first:
+      213: 3087575192021321743
+    second: Impact_Cartoon Hit_V1_spritesheet_34
+  - first:
+      213: 5416669968343791418
+    second: Impact_Cartoon Hit_V1_spritesheet_35
+  - first:
+      213: -5908321833604681822
+    second: Impact_Cartoon Hit_V1_spritesheet_36
+  - first:
+      213: 7339739339184110930
+    second: Impact_Cartoon Hit_V1_spritesheet_37
+  - first:
+      213: -1017024343569683264
+    second: Impact_Cartoon Hit_V1_spritesheet_38
+  - first:
+      213: -6446128603368723731
+    second: Impact_Cartoon Hit_V1_spritesheet_39
+  - first:
+      213: -6783469805499270474
+    second: Impact_Cartoon Hit_V1_spritesheet_40
+  - first:
+      213: -4356418961313945332
+    second: Impact_Cartoon Hit_V1_spritesheet_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3159c022e0bbdf7e0800000000000000
+      internalID: -1730021012465216237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 572647f649fbe37b0800000000000000
+      internalID: -5242542271966715275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c797e246d89802a60800000000000000
+      internalID: 7647263407639263612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935f02eb4dbb18bd0800000000000000
+      internalID: -2629614185010367175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4defde6fe18d11c10800000000000000
+      internalID: 2022635335169474260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f42d5010070ce3f90800000000000000
+      internalID: -6971923585836920241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19006d9db357bc890800000000000000
+      internalID: -7436721459754041199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f1607638c9604a0800000000000000
+      internalID: -6627437713446002922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6262ed4e4b593a0800000000000000
+      internalID: -6659217578924824869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d088841d890cc960800000000000000
+      internalID: 7623478770770936018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e13866905f4795f20800000000000000
+      internalID: 3411886788483384094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e8ee40e29a132e0800000000000000
+      internalID: -2147749532162683390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb50ccc06ee347690800000000000000
+      internalID: -7605384712943827524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Cartoon Hit_V1_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0c5f719f2fd6df0800000000000000
+      internalID: -185224857989562146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4fe0d8c28b33e1548ac189ff898b40e9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":512.0,"y":512.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Impact_Cartoon Hit_V1_spritesheet_0: -1730021012465216237
+      Impact_Cartoon Hit_V1_spritesheet_1: -5242542271966715275
+      Impact_Cartoon Hit_V1_spritesheet_10: 3411886788483384094
+      Impact_Cartoon Hit_V1_spritesheet_11: -2147749532162683390
+      Impact_Cartoon Hit_V1_spritesheet_12: -7605384712943827524
+      Impact_Cartoon Hit_V1_spritesheet_13: -185224857989562146
+      Impact_Cartoon Hit_V1_spritesheet_2: 7647263407639263612
+      Impact_Cartoon Hit_V1_spritesheet_3: -2629614185010367175
+      Impact_Cartoon Hit_V1_spritesheet_4: 2022635335169474260
+      Impact_Cartoon Hit_V1_spritesheet_5: -6971923585836920241
+      Impact_Cartoon Hit_V1_spritesheet_6: -7436721459754041199
+      Impact_Cartoon Hit_V1_spritesheet_7: -6627437713446002922
+      Impact_Cartoon Hit_V1_spritesheet_8: -6659217578924824869
+      Impact_Cartoon Hit_V1_spritesheet_9: 7623478770770936018
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

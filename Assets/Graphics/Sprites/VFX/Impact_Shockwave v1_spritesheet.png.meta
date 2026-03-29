@@ -1,0 +1,1963 @@
+fileFormatVersion: 2
+guid: e80ba09b13868684c8dde5587708fbc2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7436549123306162781
+    second: Impact_Shockwave v1_spritesheet_0
+  - first:
+      213: 4152007117786273639
+    second: Impact_Shockwave v1_spritesheet_1
+  - first:
+      213: -3741007776886398378
+    second: Impact_Shockwave v1_spritesheet_2
+  - first:
+      213: -4735081664449178925
+    second: Impact_Shockwave v1_spritesheet_3
+  - first:
+      213: 3547978069744571630
+    second: Impact_Shockwave v1_spritesheet_4
+  - first:
+      213: 6925800781023019481
+    second: Impact_Shockwave v1_spritesheet_5
+  - first:
+      213: 6481588400802626401
+    second: Impact_Shockwave v1_spritesheet_6
+  - first:
+      213: 5933396700512610161
+    second: Impact_Shockwave v1_spritesheet_7
+  - first:
+      213: -273551756551866544
+    second: Impact_Shockwave v1_spritesheet_8
+  - first:
+      213: 4537950798403047197
+    second: Impact_Shockwave v1_spritesheet_9
+  - first:
+      213: -2270343360098213136
+    second: Impact_Shockwave v1_spritesheet_10
+  - first:
+      213: -2686008738572039760
+    second: Impact_Shockwave v1_spritesheet_11
+  - first:
+      213: 2427722108943065171
+    second: Impact_Shockwave v1_spritesheet_12
+  - first:
+      213: -2607282573102350918
+    second: Impact_Shockwave v1_spritesheet_13
+  - first:
+      213: 3311517143683342786
+    second: Impact_Shockwave v1_spritesheet_14
+  - first:
+      213: -605387145745726497
+    second: Impact_Shockwave v1_spritesheet_15
+  - first:
+      213: -3482849155067012280
+    second: Impact_Shockwave v1_spritesheet_16
+  - first:
+      213: -4184797387243911236
+    second: Impact_Shockwave v1_spritesheet_17
+  - first:
+      213: 8336072513328385482
+    second: Impact_Shockwave v1_spritesheet_18
+  - first:
+      213: 1515024531909418890
+    second: Impact_Shockwave v1_spritesheet_19
+  - first:
+      213: -5226943147824580083
+    second: Impact_Shockwave v1_spritesheet_20
+  - first:
+      213: -6346685867439154230
+    second: Impact_Shockwave v1_spritesheet_21
+  - first:
+      213: 1332056472824596630
+    second: Impact_Shockwave v1_spritesheet_22
+  - first:
+      213: 482177648235347355
+    second: Impact_Shockwave v1_spritesheet_23
+  - first:
+      213: -128920373136226833
+    second: Impact_Shockwave v1_spritesheet_24
+  - first:
+      213: -4063055725849771931
+    second: Impact_Shockwave v1_spritesheet_25
+  - first:
+      213: 8309923760986012110
+    second: Impact_Shockwave v1_spritesheet_26
+  - first:
+      213: -1963631040086442435
+    second: Impact_Shockwave v1_spritesheet_27
+  - first:
+      213: 93809467443324603
+    second: Impact_Shockwave v1_spritesheet_28
+  - first:
+      213: 2238621960501198803
+    second: Impact_Shockwave v1_spritesheet_29
+  - first:
+      213: -45976229275655871
+    second: Impact_Shockwave v1_spritesheet_30
+  - first:
+      213: 854518129545317478
+    second: Impact_Shockwave v1_spritesheet_31
+  - first:
+      213: 3830225093133712604
+    second: Impact_Shockwave v1_spritesheet_32
+  - first:
+      213: -4567482764296052861
+    second: Impact_Shockwave v1_spritesheet_33
+  - first:
+      213: 703731466829896795
+    second: Impact_Shockwave v1_spritesheet_34
+  - first:
+      213: -5692018413741895247
+    second: Impact_Shockwave v1_spritesheet_35
+  - first:
+      213: -6298556836131923857
+    second: Impact_Shockwave v1_spritesheet_36
+  - first:
+      213: -7004057558364657806
+    second: Impact_Shockwave v1_spritesheet_37
+  - first:
+      213: 1410605062864804578
+    second: Impact_Shockwave v1_spritesheet_38
+  - first:
+      213: -6729635671179863472
+    second: Impact_Shockwave v1_spritesheet_39
+  - first:
+      213: 8455953761078113274
+    second: Impact_Shockwave v1_spritesheet_40
+  - first:
+      213: 2144589265005678271
+    second: Impact_Shockwave v1_spritesheet_41
+  - first:
+      213: 5778741102930225846
+    second: Impact_Shockwave v1_spritesheet_42
+  - first:
+      213: 318121782889901415
+    second: Impact_Shockwave v1_spritesheet_43
+  - first:
+      213: 8572928877681490706
+    second: Impact_Shockwave v1_spritesheet_44
+  - first:
+      213: 2227657288087245719
+    second: Impact_Shockwave v1_spritesheet_45
+  - first:
+      213: -2978515430056879986
+    second: Impact_Shockwave v1_spritesheet_46
+  - first:
+      213: 1515488072792177419
+    second: Impact_Shockwave v1_spritesheet_47
+  - first:
+      213: 3533315562473379707
+    second: Impact_Shockwave v1_spritesheet_48
+  - first:
+      213: -5466640710736248544
+    second: Impact_Shockwave v1_spritesheet_49
+  - first:
+      213: 7971627709787890073
+    second: Impact_Shockwave v1_spritesheet_50
+  - first:
+      213: 4270606039356646513
+    second: Impact_Shockwave v1_spritesheet_51
+  - first:
+      213: 1999918866025334652
+    second: Impact_Shockwave v1_spritesheet_52
+  - first:
+      213: 7567001359601785166
+    second: Impact_Shockwave v1_spritesheet_53
+  - first:
+      213: -8804606938918222
+    second: Impact_Shockwave v1_spritesheet_54
+  - first:
+      213: -6699934412258977553
+    second: Impact_Shockwave v1_spritesheet_55
+  - first:
+      213: 7403935965256925485
+    second: Impact_Shockwave v1_spritesheet_56
+  - first:
+      213: -2992558682227524062
+    second: Impact_Shockwave v1_spritesheet_57
+  - first:
+      213: 2214775794314965028
+    second: Impact_Shockwave v1_spritesheet_58
+  - first:
+      213: 5859779166248255324
+    second: Impact_Shockwave v1_spritesheet_59
+  - first:
+      213: -7105411641188787866
+    second: Impact_Shockwave v1_spritesheet_60
+  - first:
+      213: 1415940477582147493
+    second: Impact_Shockwave v1_spritesheet_61
+  - first:
+      213: -3482091595192782234
+    second: Impact_Shockwave v1_spritesheet_62
+  - first:
+      213: -4911057673708892249
+    second: Impact_Shockwave v1_spritesheet_63
+  - first:
+      213: -2503397926183497395
+    second: Impact_Shockwave v1_spritesheet_64
+  - first:
+      213: 295563998171884144
+    second: Impact_Shockwave v1_spritesheet_65
+  - first:
+      213: -8678226383876705921
+    second: Impact_Shockwave v1_spritesheet_66
+  - first:
+      213: 6755460321225034008
+    second: Impact_Shockwave v1_spritesheet_67
+  - first:
+      213: 7830876324412288625
+    second: Impact_Shockwave v1_spritesheet_68
+  - first:
+      213: 9089782485145516828
+    second: Impact_Shockwave v1_spritesheet_69
+  - first:
+      213: 2960080959868082048
+    second: Impact_Shockwave v1_spritesheet_70
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 1850
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5f79e09f11cc890800000000000000
+      internalID: -7436549123306162781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 1874
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7675b80b974ee9930800000000000000
+      internalID: 4152007117786273639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 1765
+        width: 102
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65266b46f35451cc0800000000000000
+      internalID: -3741007776886398378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1827
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d29a00505c994eb0800000000000000
+      internalID: -4735081664449178925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1779
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee45006a143fc3130800000000000000
+      internalID: 3547978069744571630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 1829
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d1000aad136d1060800000000000000
+      internalID: 6925800781023019481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1779
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16bf1224f4a33f950800000000000000
+      internalID: 6481588400802626401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 1772
+        width: 77
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1776785dcd8a75250800000000000000
+      internalID: 5933396700512610161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1822
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 057ba037026243cf0800000000000000
+      internalID: -273551756551866544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1734
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f8303453a0afe30800000000000000
+      internalID: 4537950798403047197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1740
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2ed272ebe1e70e0800000000000000
+      internalID: -2270343360098213136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1734
+        width: 40
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b981d9884169bad0800000000000000
+      internalID: -2686008738572039760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1740
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350e9ec356001b120800000000000000
+      internalID: 2427722108943065171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 1702
+        width: 61
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abdfa21505211dbd0800000000000000
+      internalID: -2607282573102350918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1711
+        width: 68
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c1acd80c4fd4fd20800000000000000
+      internalID: 3311517143683342786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1683
+        width: 93
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd30d32399b3997f0800000000000000
+      internalID: -605387145745726497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 1686
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b16f9752f6aafc0800000000000000
+      internalID: -3482849155067012280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 1671
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb70854c2fc9ce5c0800000000000000
+      internalID: -4184797387243911236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 1403
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd06d2d8cdafa370800000000000000
+      internalID: 8336072513328385482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 1246
+        width: 125
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f967ae8c2760510800000000000000
+      internalID: 1515024531909418890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 1241
+        width: 146
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0af0cc86ea2677b0800000000000000
+      internalID: -5226943147824580083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 1836
+        y: 1241
+        width: 143
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb1c4a64da0ce7a0800000000000000
+      internalID: -6346685867439154230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1370
+        width: 8
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6984873fd4a6c7210800000000000000
+      internalID: 1332056472824596630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 1368
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d73b1340a01b600800000000000000
+      internalID: 482177648235347355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1253
+        width: 101
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe587ea8a9bf53ef0800000000000000
+      internalID: -128920373136226833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1175
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5608b1628502d97c0800000000000000
+      internalID: -4063055725849771931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1183
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec9362cf1a7c25370800000000000000
+      internalID: 8309923760986012110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1159
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e77b909f7cfb4e0800000000000000
+      internalID: -1963631040086442435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 1171
+        width: 92
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6278fa6374d4100800000000000000
+      internalID: 93809467443324603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 1142
+        width: 114
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dfff06ffce211f10800000000000000
+      internalID: 2238621960501198803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 1114
+        width: 137
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 141a9e1fcd8ac5ff0800000000000000
+      internalID: -45976229275655871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 1798
+        y: 1114
+        width: 135
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c0ead16bbdbdb00800000000000000
+      internalID: 854518129545317478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 1150
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdcb506cd61b72530800000000000000
+      internalID: 3830225093133712604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1127
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f1a6c10aa0d90c0800000000000000
+      internalID: -4567482764296052861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 1096
+        width: 30
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c19a16a0824c900800000000000000
+      internalID: 703731466829896795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 1096
+        width: 25
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b19ee90963e101b0800000000000000
+      internalID: -5692018413741895247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1127
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f689fb0cde70798a0800000000000000
+      internalID: -6298556836131923857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 727
+        width: 148
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277e84f72c69cce90800000000000000
+      internalID: -7004057558364657806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 728
+        width: 142
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea9c6ab4d9739310800000000000000
+      internalID: 1410605062864804578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 729
+        width: 136
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ad68f13088b92a0800000000000000
+      internalID: -6729635671179863472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 910
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af37036e425995570800000000000000
+      internalID: 8455953761078113274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 732
+        width: 122
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe87c1f29c13cd10800000000000000
+      internalID: 2144589265005678271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 571
+        width: 23
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6baea118a66323050800000000000000
+      internalID: 5778741102930225846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 591
+        width: 143
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d677873123a6400800000000000000
+      internalID: 318121782889901415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 572
+        width: 10
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21bb4e6946929f670800000000000000
+      internalID: 8572928877681490706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 591
+        width: 142
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79310c9308a3aee10800000000000000
+      internalID: 2227657288087245719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 572
+        width: 189
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8890794fff2aa6d0800000000000000
+      internalID: -2978515430056879986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 575
+        width: 188
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b7e107f58180510800000000000000
+      internalID: 1515488072792177419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 406
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77d594a8cbd80130800000000000000
+      internalID: 3533315562473379707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 223
+        width: 114
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02180e1bc379224b0800000000000000
+      internalID: -5466640710736248544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 398
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9916193aa29e0ae60800000000000000
+      internalID: 7971627709787890073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 253
+        width: 93
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 174ad7fe09d344b30800000000000000
+      internalID: 4270606039356646513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 380
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c77ca05dc9321cb10800000000000000
+      internalID: 1999918866025334652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 393
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4956f515a3630960800000000000000
+      internalID: 7567001359601785166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 357
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2d403b148b0eff0800000000000000
+      internalID: -8804606938918222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 319
+        width: 47
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe853ea562d0503a0800000000000000
+      internalID: -6699934412258977553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 341
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d21c0ec588010c660800000000000000
+      internalID: 7403935965256925485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 262
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e3158dbbb4876d0800000000000000
+      internalID: -2992558682227524062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 275
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 420f64db9d67cbe10800000000000000
+      internalID: 2214775794314965028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 269
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f3672fa1e125150800000000000000
+      internalID: 5859779166248255324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 226
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669540822c1846d90800000000000000
+      internalID: -7105411641188787866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 230
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af7165cc5e66a310800000000000000
+      internalID: 1415940477582147493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 79
+        width: 129
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6623921a4202dafc0800000000000000
+      internalID: -3482091595192782234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 80
+        width: 118
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af002fc01b68dbb0800000000000000
+      internalID: -4911057673708892249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 81
+        width: 75
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41126689d4224dd0800000000000000
+      internalID: -2503397926183497395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 140
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07aed6fe3ed0a1400800000000000000
+      internalID: 295563998171884144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 143
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f713b94451fb09780800000000000000
+      internalID: -8678226383876705921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 82
+        width: 47
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8194dd4ce5730cd50800000000000000
+      internalID: 6755460321225034008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 81
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e6c9cf68cdcac60800000000000000
+      internalID: 7830876324412288625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 84
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1b7aa0b205652e70800000000000000
+      internalID: 9089782485145516828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Shockwave v1_spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 85
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 087955723f1541920800000000000000
+      internalID: 2960080959868082048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Impact_Shockwave v1_spritesheet_0: -7436549123306162781
+      Impact_Shockwave v1_spritesheet_1: 4152007117786273639
+      Impact_Shockwave v1_spritesheet_10: -2270343360098213136
+      Impact_Shockwave v1_spritesheet_11: -2686008738572039760
+      Impact_Shockwave v1_spritesheet_12: 2427722108943065171
+      Impact_Shockwave v1_spritesheet_13: -2607282573102350918
+      Impact_Shockwave v1_spritesheet_14: 3311517143683342786
+      Impact_Shockwave v1_spritesheet_15: -605387145745726497
+      Impact_Shockwave v1_spritesheet_16: -3482849155067012280
+      Impact_Shockwave v1_spritesheet_17: -4184797387243911236
+      Impact_Shockwave v1_spritesheet_18: 8336072513328385482
+      Impact_Shockwave v1_spritesheet_19: 1515024531909418890
+      Impact_Shockwave v1_spritesheet_2: -3741007776886398378
+      Impact_Shockwave v1_spritesheet_20: -5226943147824580083
+      Impact_Shockwave v1_spritesheet_21: -6346685867439154230
+      Impact_Shockwave v1_spritesheet_22: 1332056472824596630
+      Impact_Shockwave v1_spritesheet_23: 482177648235347355
+      Impact_Shockwave v1_spritesheet_24: -128920373136226833
+      Impact_Shockwave v1_spritesheet_25: -4063055725849771931
+      Impact_Shockwave v1_spritesheet_26: 8309923760986012110
+      Impact_Shockwave v1_spritesheet_27: -1963631040086442435
+      Impact_Shockwave v1_spritesheet_28: 93809467443324603
+      Impact_Shockwave v1_spritesheet_29: 2238621960501198803
+      Impact_Shockwave v1_spritesheet_3: -4735081664449178925
+      Impact_Shockwave v1_spritesheet_30: -45976229275655871
+      Impact_Shockwave v1_spritesheet_31: 854518129545317478
+      Impact_Shockwave v1_spritesheet_32: 3830225093133712604
+      Impact_Shockwave v1_spritesheet_33: -4567482764296052861
+      Impact_Shockwave v1_spritesheet_34: 703731466829896795
+      Impact_Shockwave v1_spritesheet_35: -5692018413741895247
+      Impact_Shockwave v1_spritesheet_36: -6298556836131923857
+      Impact_Shockwave v1_spritesheet_37: -7004057558364657806
+      Impact_Shockwave v1_spritesheet_38: 1410605062864804578
+      Impact_Shockwave v1_spritesheet_39: -6729635671179863472
+      Impact_Shockwave v1_spritesheet_4: 3547978069744571630
+      Impact_Shockwave v1_spritesheet_40: 8455953761078113274
+      Impact_Shockwave v1_spritesheet_41: 2144589265005678271
+      Impact_Shockwave v1_spritesheet_42: 5778741102930225846
+      Impact_Shockwave v1_spritesheet_43: 318121782889901415
+      Impact_Shockwave v1_spritesheet_44: 8572928877681490706
+      Impact_Shockwave v1_spritesheet_45: 2227657288087245719
+      Impact_Shockwave v1_spritesheet_46: -2978515430056879986
+      Impact_Shockwave v1_spritesheet_47: 1515488072792177419
+      Impact_Shockwave v1_spritesheet_48: 3533315562473379707
+      Impact_Shockwave v1_spritesheet_49: -5466640710736248544
+      Impact_Shockwave v1_spritesheet_5: 6925800781023019481
+      Impact_Shockwave v1_spritesheet_50: 7971627709787890073
+      Impact_Shockwave v1_spritesheet_51: 4270606039356646513
+      Impact_Shockwave v1_spritesheet_52: 1999918866025334652
+      Impact_Shockwave v1_spritesheet_53: 7567001359601785166
+      Impact_Shockwave v1_spritesheet_54: -8804606938918222
+      Impact_Shockwave v1_spritesheet_55: -6699934412258977553
+      Impact_Shockwave v1_spritesheet_56: 7403935965256925485
+      Impact_Shockwave v1_spritesheet_57: -2992558682227524062
+      Impact_Shockwave v1_spritesheet_58: 2214775794314965028
+      Impact_Shockwave v1_spritesheet_59: 5859779166248255324
+      Impact_Shockwave v1_spritesheet_6: 6481588400802626401
+      Impact_Shockwave v1_spritesheet_60: -7105411641188787866
+      Impact_Shockwave v1_spritesheet_61: 1415940477582147493
+      Impact_Shockwave v1_spritesheet_62: -3482091595192782234
+      Impact_Shockwave v1_spritesheet_63: -4911057673708892249
+      Impact_Shockwave v1_spritesheet_64: -2503397926183497395
+      Impact_Shockwave v1_spritesheet_65: 295563998171884144
+      Impact_Shockwave v1_spritesheet_66: -8678226383876705921
+      Impact_Shockwave v1_spritesheet_67: 6755460321225034008
+      Impact_Shockwave v1_spritesheet_68: 7830876324412288625
+      Impact_Shockwave v1_spritesheet_69: 9089782485145516828
+      Impact_Shockwave v1_spritesheet_7: 5933396700512610161
+      Impact_Shockwave v1_spritesheet_70: 2960080959868082048
+      Impact_Shockwave v1_spritesheet_8: -273551756551866544
+      Impact_Shockwave v1_spritesheet_9: 4537950798403047197
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

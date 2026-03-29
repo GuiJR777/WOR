@@ -10,6 +10,7 @@ namespace WOR.Gameplay {
 
         private string animationName = "Jump";
         private string sfxName = "JumpUp";
+        private string effectName = "JumpSmoke";
         private bool hasLanded;
         private readonly bool applyJumpImpulse;
         private int playerId => unit.settings.playerId;
@@ -25,6 +26,7 @@ namespace WOR.Gameplay {
             }
 
             unit.animator.Play(animationName);
+            unit.ShowEffect(effectName);
             if(applyJumpImpulse) {
                 unit.StopMoving(true);
                 unit.StartPhysicalJump();
