@@ -1,6 +1,6 @@
 ﻿// Purpose: Defines serializable combat data used by attacks and combos.
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace WOR.Gameplay {
 
@@ -12,6 +12,8 @@ namespace WOR.Gameplay {
         private const float DEFAULT_KNOCKBACK_FORCE = 1f;
         private const float DEFAULT_KNOCKBACK_DURATION = 0.12f;
         private const float DEFAULT_ATTACKER_FORWARD_DURATION = 0.08f;
+        private const float DEFAULT_ATTACKER_HOP_VERTICAL_FORCE = 0f;
+        private const float MIN_ATTACKER_HOP_VERTICAL_FORCE = 0f;
         private const float DEFAULT_STRENGTH_DAMAGE_SCALE = 1f;
         private const float MIN_STRENGTH_DAMAGE_SCALE = 0f;
         private const float MAX_STRENGTH_DAMAGE_SCALE = 2f;
@@ -34,6 +36,9 @@ namespace WOR.Gameplay {
         public float knockbackDuration = DEFAULT_KNOCKBACK_DURATION; //duration of the pushback
         public float attackerForwardDistance; //how far the attacker advances at attack start
         public float attackerForwardDuration = DEFAULT_ATTACKER_FORWARD_DURATION; //duration of attacker forward advance
+        [Min(MIN_ATTACKER_HOP_VERTICAL_FORCE)]
+        public float attackerHopVerticalForce = DEFAULT_ATTACKER_HOP_VERTICAL_FORCE; //vertical launch velocity applied to attacker at attack start
+        public bool attackerHopOnlyWhenGrounded = true; //when true, hop only triggers if attacker is grounded
         public CONDITIONTYPE conditionType = CONDITIONTYPE.NONE; //condition type applied by this attack
         [Range(MIN_CONDITION_CHARGE, MAX_CONDITION_CHARGE)]
         public float conditionCharge = MIN_CONDITION_CHARGE; //0..1 percentage of condition charge applied on hit
@@ -58,6 +63,10 @@ namespace WOR.Gameplay {
 
         public float GetConditionCharge() {
             return Mathf.Clamp(conditionCharge, MIN_CONDITION_CHARGE, MAX_CONDITION_CHARGE);
+        }
+
+        public float GetAttackerHopVerticalForce() {
+            return Mathf.Max(MIN_ATTACKER_HOP_VERTICAL_FORCE, attackerHopVerticalForce);
         }
     }
 

@@ -18,7 +18,11 @@ namespace WOR.Gameplay {
             unit.TurnToTarget();
 
             //don't attack when target is dead
-            if(unit.target && unit.target.GetComponent<HealthSystem>().isDead) unit.stateMachine.SetState(new EnemyIdle());
+            if(unit.target && unit.target.GetComponent<HealthSystem>().isDead) {
+                unit.stateMachine.SetState(new EnemyIdle());
+                return;
+            }
+            unit.ApplyAttackForwardMovement(attack);
             
             //play attack anim
             unit.animator.Play(animationName);

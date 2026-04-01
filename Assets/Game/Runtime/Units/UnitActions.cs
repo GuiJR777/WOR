@@ -428,19 +428,40 @@ namespace WOR.Gameplay {
             }
 
             float forwardDistance = Mathf.Max(0f, attackData.attackerForwardDistance);
-            if(forwardDistance <= 0f) {
+            if(forwardDistance > 0f) {
+                float duration = attackData.attackerForwardDuration > 0f
+                    ? attackData.attackerForwardDuration
+                    : DEFAULT_ATTACK_ADVANCE_DURATION;
+
+                float clampedDuration = Mathf.Max(0.01f, duration);
+                float speed = forwardDistance / clampedDuration;
+                _attackAdvanceVelocity = new Vector3((int)dir * speed, 0f, 0f);
+                _attackAdvanceEndTime = Time.time + clampedDuration;
+                _attackAdvanceActive = true;
+            }
+
+            TryApplyAttackHop(attackData);
+        }
+
+        private void TryApplyAttackHop(AttackData attackData) {
+            if(attackData == null) {
                 return;
             }
 
-            float duration = attackData.attackerForwardDuration > 0f
-                ? attackData.attackerForwardDuration
-                : DEFAULT_ATTACK_ADVANCE_DURATION;
+            float hopVerticalForce = attackData.GetAttackerHopVerticalForce();
+            if(hopVerticalForce <= INPUT_DEADZONE) {
+                return;
+            }
 
-            float clampedDuration = Mathf.Max(0.01f, duration);
-            float speed = forwardDistance / clampedDuration;
-            _attackAdvanceVelocity = new Vector3((int)dir * speed, 0f, 0f);
-            _attackAdvanceEndTime = Time.time + clampedDuration;
-            _attackAdvanceActive = true;
+            if(attackData.attackerHopOnlyWhenGrounded && !isGrounded) {
+                return;
+            }
+
+            Vector3 velocity = GetLinearVelocity();
+            velocity.y = hopVerticalForce;
+            SetLinearVelocity(velocity);
+            yForce = velocity.y;
+            isGrounded = false;
         }
 
         private void ApplyVerticalKnockback(float verticalForce) {

@@ -396,6 +396,8 @@ namespace WOR.Gameplay {
             SerializedProperty knockbackDurationProperty = property.FindPropertyRelative("knockbackDuration");
             SerializedProperty attackerForwardDistanceProperty = property.FindPropertyRelative("attackerForwardDistance");
             SerializedProperty attackerForwardDurationProperty = property.FindPropertyRelative("attackerForwardDuration");
+            SerializedProperty attackerHopVerticalForceProperty = property.FindPropertyRelative("attackerHopVerticalForce");
+            SerializedProperty attackerHopOnlyWhenGroundedProperty = property.FindPropertyRelative("attackerHopOnlyWhenGrounded");
 
             string foldoutLabel = label;
             if(nameProperty != null && !string.IsNullOrEmpty(nameProperty.stringValue)) {
@@ -462,6 +464,12 @@ namespace WOR.Gameplay {
                 EditorGUILayout.PropertyField(attackerForwardDistanceProperty, new GUIContent("Attacker Forward Distance"));
                 if(attackerForwardDistanceProperty.floatValue > 0f && attackerForwardDurationProperty != null) {
                     EditorGUILayout.PropertyField(attackerForwardDurationProperty, new GUIContent("Attacker Forward Duration"));
+                }
+            }
+            if(attackerHopVerticalForceProperty != null) {
+                EditorGUILayout.PropertyField(attackerHopVerticalForceProperty, new GUIContent("Attacker Hop Vertical Force"));
+                if(attackerHopVerticalForceProperty.floatValue > 0f && attackerHopOnlyWhenGroundedProperty != null) {
+                    EditorGUILayout.PropertyField(attackerHopOnlyWhenGroundedProperty, new GUIContent("Attacker Hop Only When Grounded"));
                 }
             }
             EditorGUI.indentLevel--;
