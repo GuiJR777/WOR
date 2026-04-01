@@ -69,6 +69,35 @@ namespace WOR.Gameplay {
             return _state;
         }
 
+        public ControledByAI SetControledByAiState() {
+            ControledByAI aiState = new ControledByAI();
+            SetState(aiState);
+            return aiState;
+        }
+
+        public ControledByAI SetControledByAiState(float targetX, float stoppingDistance = 0.05f) {
+            ControledByAI aiState = SetControledByAiState();
+            aiState.WalkToX(targetX, stoppingDistance);
+            return aiState;
+        }
+
+        public ControledByAI SetControledByAiState(Vector3 targetPosition, float stoppingDistance = 0.05f) {
+            ControledByAI aiState = SetControledByAiState();
+            aiState.WalkToPosition(targetPosition, stoppingDistance);
+            return aiState;
+        }
+
+        public ControledByAI SetControledByAiState(Transform targetTransform, float stoppingDistance = 0.05f) {
+            ControledByAI aiState = SetControledByAiState();
+            aiState.WalkToTransform(targetTransform, stoppingDistance);
+            return aiState;
+        }
+
+        public bool TryGetControledByAiState(out ControledByAI aiState) {
+            aiState = _state as ControledByAI;
+            return aiState != null;
+        }
+
         // Compatibility wrapper kept for legacy callers during migration.
         public GameObject findClosestPlayer() {
             return _unit != null ? _unit.findClosestPlayer() : null;

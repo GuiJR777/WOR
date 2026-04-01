@@ -1553,7 +1553,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1425021530
+--- !u!1001 &1369082388
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1567,15 +1567,15 @@ PrefabInstance:
       objectReference: {fileID: 817861026}
     - target: {fileID: 832140214738992501, guid: 00cf9a5e45784f0dbb4de9a1e090ca3f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.35435855
+      value: -5.99
       objectReference: {fileID: 0}
     - target: {fileID: 832140214738992501, guid: 00cf9a5e45784f0dbb4de9a1e090ca3f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.82
+      value: 0.9999996
       objectReference: {fileID: 0}
     - target: {fileID: 832140214738992501, guid: 00cf9a5e45784f0dbb4de9a1e090ca3f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.09
+      value: 2.7142782
       objectReference: {fileID: 0}
     - target: {fileID: 832140214738992501, guid: 00cf9a5e45784f0dbb4de9a1e090ca3f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2455,6 +2455,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
+      propertyPath: agility
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
       propertyPath: comboData.Array.data[0].foldout
       value: 1
       objectReference: {fileID: 0}
@@ -2464,10 +2468,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[0].foldout
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[1].foldout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
+      propertyPath: comboData.Array.data[0].attackSequence.Array.data[3].foldout
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
@@ -2481,6 +2489,14 @@ PrefabInstance:
     - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
       propertyPath: comboData.Array.data[0].attackSequence.Array.data[1].attackerForwardDistance
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
+      propertyPath: comboData.Array.data[0].attackSequence.Array.data[3].attackerHopVerticalForce
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152878443260873810, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
+      propertyPath: comboData.Array.data[0].attackSequence.Array.data[3].attackerHopOnlyWhenGrounded
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6014252346556397565, guid: 3ce6ef991c71bac44abe252f19f73e4f, type: 3}
       propertyPath: m_Name
@@ -2504,4 +2520,4 @@ SceneRoots:
   - {fileID: 84864876}
   - {fileID: 1364016636}
   - {fileID: 312973289}
-  - {fileID: 1425021530}
+  - {fileID: 1369082388}
