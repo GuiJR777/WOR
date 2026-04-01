@@ -1,36 +1,54 @@
-﻿using UnityEngine;
+// Purpose: Moves an enemy to a destination using NavMesh pathfinding.
+using UnityEngine;
 
 namespace WOR.Gameplay {
 
-    // Purpose: Moves enemy to a target point on the ground plane.
-    //enemy moves towards the target
     public class EnemyMoveTo : State {
 
-        private string animationName = "Run";
-        private Vector2 destination;
+        private const string RUN_ANIMATION = "Run";
+        private const string IDLE_ANIMATION = "Idle";
+        private const float ARRIVAL_DISTANCE = 0.1f;
 
-        public EnemyMoveTo(Vector2 pos){
-            destination = pos;
+        private readonly Vector2 _destination;
+        private EnemyPathfindingNavigator _pathNavigator;
+
+        public EnemyMoveTo(Vector2 destination) {
+            _destination = destination;
         }
 
-        public override void FixedUpdate(){
-            Vector2 unitPos = unit.GetComponent<UnitActions>().currentPosition;
-            Vector2 moveDir = (destination - unitPos).normalized; //get vector to destination
+        public override void Enter() {
+            _pathNavigator = new EnemyPathfindingNavigator(unit);
+            _pathNavigator.SetTarget(GetWorldDestination(), ARRIVAL_DISTANCE);
+        }
 
-            //if there is a wall in front of us, go to Idle
-            Vector2 wallDistanceCheck = unit.GetWallCheckDistance();
-            if(unit.WallDetected(moveDir * wallDistanceCheck)){
+        public override void FixedUpdate() {
+            if(_pathNavigator == null) {
                 unit.stateMachine.SetState(new EnemyIdle());
                 return;
             }
 
-            //move and play 'Run' anim
-            unit.MoveToVector(moveDir, unit.settings.MoveSpeedFromStats);
-            unit.animator.Play(animationName);
-            
-            //if we've reached our destination, go to Idle
-            if(Vector2.Distance(unitPos, destination) < .1f) unit.stateMachine.SetState(new EnemyIdle());
+            if(_pathNavigator.ReachedTarget()) {
+                unit.stateMachine.SetState(new EnemyIdle());
+                return;
+            }
+
+            if(!_pathNavigator.TryGetMoveDirection(out Vector2 moveDirection)) {
+                if(_pathNavigator.IsPathBlocked) {
+                    unit.stateMachine.SetState(new EnemyIdle());
+                    return;
+                }
+
+                unit.StopMoving(false);
+                unit.animator.Play(IDLE_ANIMATION);
+                return;
+            }
+
+            unit.MoveToVector(moveDirection, unit.settings.MoveSpeedFromStats);
+            unit.animator.Play(RUN_ANIMATION);
+        }
+
+        private Vector3 GetWorldDestination() {
+            return new Vector3(_destination.x, unit.transform.position.y, _destination.y);
         }
     }
 }
-

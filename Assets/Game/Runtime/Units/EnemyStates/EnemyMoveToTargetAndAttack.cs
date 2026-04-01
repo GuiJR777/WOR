@@ -1,79 +1,114 @@
-﻿using UnityEngine;
+// Purpose: Moves an enemy into attack range using NavMesh pathfinding, then executes an attack.
+using UnityEngine;
 
 namespace WOR.Gameplay {
 
-    // Purpose: Moves enemy into attack range, then executes queued attack.
-    //enemy moves towards the target
     public class EnemyMoveToTargetAndAttack : State {
 
-        private string animationName = "Run";
-        private Vector2 maxAttackRange = new Vector2(1.2f, .1f); //the max distance from where we can attack the target
-        private float attackDistance = 1f; //the ideal x distance to stand from the target
-        private AttackData attack; //the attack this unit will execute upon arrival
-        private float pauseBeforeAttack;
+        private const string RUN_ANIMATION = "Run";
+        private const string IDLE_ANIMATION = "Idle";
+        private const float ATTACK_DISTANCE = 1f;
+        private const float ATTACK_ARRIVAL_DISTANCE = 0.1f;
+        private static readonly Vector2 MAX_ATTACK_RANGE = new Vector2(1.2f, 0.1f);
 
-        public EnemyMoveToTargetAndAttack(AttackData attack){
-            this.attack = attack;
+        private readonly AttackData _attack;
+        private EnemyPathfindingNavigator _pathNavigator;
+        private float _pauseBeforeAttack;
+
+        public EnemyMoveToTargetAndAttack(AttackData attack) {
+            _attack = attack;
         }
 
-        public override void Enter(){
-            if(!unit.target) unit.stateMachine.SetState(new EnemyIdle());
-            pauseBeforeAttack = unit.settings.enemyPauseBeforeAttack;
-            unit.TurnToTarget();
-        }
-
-        public override void Update(){
-
-            //attack when target is in range
-            if(targetInRange()){
-
-                //stop at position
-                unit.StopMoving();
-                unit.animator.Play("Idle");          
-
-                //pause before attack
-                if(pauseBeforeAttack > 0){
-                    pauseBeforeAttack -= Time.deltaTime; 
-                    return; 
-                }
-
-                //attack when close, or go to idle when there is no attack
-                unit.stateMachine.SetState(attack != null? new EnemyAttack(attack) : new EnemyIdle());
+        public override void Enter() {
+            if(unit.target == null) {
+                unit.stateMachine.SetState(new EnemyIdle());
+                return;
             }
+
+            _pauseBeforeAttack = unit.settings.enemyPauseBeforeAttack;
+            unit.TurnToTarget();
+
+            _pathNavigator = new EnemyPathfindingNavigator(unit);
+            _pathNavigator.SetTarget(GetWorldPosition(GetIdealAttackPos()), ATTACK_ARRIVAL_DISTANCE);
         }
 
-        public override void FixedUpdate(){
-            
-            //move to target when out of range
-            bool targetIsGrounded  = unit.target.GetComponent<UnitActions>().isGrounded;
-            if((unit.distanceToTarget().y > maxAttackRange.y && targetIsGrounded) || unit.distanceToTarget().x > maxAttackRange.x){
+        public override void Update() {
+            if(unit.target == null) {
+                unit.stateMachine.SetState(new EnemyIdle());
+                return;
+            }
 
-                Vector2 idealPos = getIdealAttackPos(); //get ideal attack position
-                Vector2 dirToPos = (idealPos - unit.currentPosition).normalized; //get vector to attack position
+            if(!TargetInRange()) {
+                return;
+            }
 
-                //if there is a wall in front of us, go to Idle
-                Vector2 wallDistanceCheck = unit.GetWallCheckDistance();
-                if(unit.WallDetected(dirToPos * wallDistanceCheck)){
+            unit.StopMoving();
+            unit.animator.Play(IDLE_ANIMATION);
+
+            if(_pauseBeforeAttack > 0f) {
+                _pauseBeforeAttack -= Time.deltaTime;
+                return;
+            }
+
+            unit.stateMachine.SetState(_attack != null ? new EnemyAttack(_attack) : new EnemyIdle());
+        }
+
+        public override void FixedUpdate() {
+            if(unit.target == null) {
+                unit.stateMachine.SetState(new EnemyIdle());
+                return;
+            }
+
+            if(_pathNavigator == null) {
+                unit.stateMachine.SetState(new EnemyIdle());
+                return;
+            }
+
+            bool targetIsGrounded = unit.target.GetComponent<UnitActions>().isGrounded;
+            bool shouldMoveToAttackPosition = (unit.distanceToTarget().y > MAX_ATTACK_RANGE.y && targetIsGrounded) ||
+                                              unit.distanceToTarget().x > MAX_ATTACK_RANGE.x;
+
+            if(!shouldMoveToAttackPosition) {
+                unit.StopMoving(false);
+                unit.animator.Play(IDLE_ANIMATION);
+                return;
+            }
+
+            Vector3 idealAttackWorldPosition = GetWorldPosition(GetIdealAttackPos());
+            _pathNavigator.UpdateTarget(idealAttackWorldPosition);
+
+            if(_pathNavigator.ReachedTarget()) {
+                return;
+            }
+
+            if(!_pathNavigator.TryGetMoveDirection(out Vector2 moveDirection)) {
+                if(_pathNavigator.IsPathBlocked) {
                     unit.stateMachine.SetState(new EnemyIdle());
                     return;
                 }
 
-                //move and play 'Run' anim
-                unit.MoveToVector(dirToPos, unit.settings.MoveSpeedFromStats);
-                unit.animator.Play(animationName); 
+                unit.StopMoving(false);
+                unit.animator.Play(IDLE_ANIMATION);
+                return;
             }
+
+            unit.MoveToVector(moveDirection, unit.settings.MoveSpeedFromStats);
+            unit.animator.Play(RUN_ANIMATION);
         }
 
-        //returns the ideal attack position
-        Vector2 getIdealAttackPos(){
-            Vector2 XDirToTarget = (unit.target.transform.position.x > unit.transform.position.x)? Vector2.right : Vector2.left; //check if the target is to the left or right of us
-            return unit.target.GetComponent<UnitActions>().currentPosition - XDirToTarget * attackDistance; //return ideal position to attack the target
+        private Vector2 GetIdealAttackPos() {
+            Vector2 directionToTarget = unit.target.transform.position.x > unit.transform.position.x ? Vector2.right : Vector2.left;
+            Vector2 targetPosition = unit.target.GetComponent<UnitActions>().currentPosition;
+            return targetPosition - directionToTarget * ATTACK_DISTANCE;
         }
 
-        //returns true if the target is currently in attack range
-        bool targetInRange(){
-            return (unit.distanceToTarget().x < maxAttackRange.x && unit.distanceToTarget().y < maxAttackRange.y);
+        private bool TargetInRange() {
+            Vector2 distanceToTarget = unit.distanceToTarget();
+            return distanceToTarget.x < MAX_ATTACK_RANGE.x && distanceToTarget.y < MAX_ATTACK_RANGE.y;
+        }
+
+        private Vector3 GetWorldPosition(Vector2 position2D) {
+            return new Vector3(position2D.x, unit.transform.position.y, position2D.y);
         }
     }
 }
-
