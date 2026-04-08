@@ -72,6 +72,10 @@ namespace WOR.Gameplay.Modules.Jutsu {
             currentChakraPercent = 0f;
         }
 
+        public void FillChakraToMax() {
+            currentChakraPercent = MaxChakraPercent;
+        }
+
         private void ClampConfiguration() {
             maxBars = Mathf.Max(MinBars, maxBars);
             baseGainPercentPerHit = Mathf.Clamp(baseGainPercentPerHit, 0f, PercentPerBar);
@@ -80,4 +84,3 @@ namespace WOR.Gameplay.Modules.Jutsu {
         }
     }
 }
-

@@ -228,6 +228,21 @@ namespace WOR.Gameplay {
             }
         }
 
+        public void SetConditionProgressUiEnabled(bool enabled, bool destroyExistingUi = false) {
+            showConditionProgress = enabled;
+
+            if(enabled) {
+                EnsureUi();
+                RefreshUiView();
+                return;
+            }
+
+            HideUi();
+            if(destroyExistingUi) {
+                DestroyUiRoot();
+            }
+        }
+
         private void InitializeStates() {
             for(int i = 0; i < TrackedConditions.Length; i++) {
                 CONDITIONTYPE conditionType = TrackedConditions[i];

@@ -540,8 +540,10 @@ namespace WOR.Gameplay {
             if(isEnemy) {
                 bool enemyIsBeingThrown = attackData.attackType == ATTACKTYPE.GRABTHROW;
                 bool enemyDoesFallDamage = settings != null && settings.hitOtherEnemiesWhenFalling;
+                bool enemyIsInKnockDownState = stateMachine != null && stateMachine.GetCurrentState() is UnitKnockDown;
 
-                if(!enemyIsBeingThrown) {
+                // Enemies launched/falling in knockdown can only collide with enemies, never with the player.
+                if(!enemyIsBeingThrown && !enemyIsInKnockDownState) {
                     AppendObjectsWithTag(hittableObjects, "Player");
                 }
 

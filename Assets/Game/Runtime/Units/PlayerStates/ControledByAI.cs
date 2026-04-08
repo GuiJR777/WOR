@@ -19,6 +19,9 @@ namespace WOR.Gameplay {
         private float _stoppingDistance = DefaultStoppingDistance;
         private bool _pathBlocked;
         private Vector2 _cachedMoveDirection = Vector2.zero;
+        private bool _forceAnimationActive;
+        private bool _forceAnimationLocksMovement;
+        private float _forceAnimationEndTime;
 
         private Transform _targetTransform;
         private Vector3 _targetPosition;
@@ -44,10 +47,20 @@ namespace WOR.Gameplay {
 
         public override void Enter() {
             unit.StopMoving(true);
+            _forceAnimationActive = false;
+            _forceAnimationLocksMovement = false;
+            _forceAnimationEndTime = 0f;
             PlayIdle();
         }
 
         public override void Update() {
+            if(IsForcedAnimationActive()) {
+                if(_forceAnimationLocksMovement) {
+                    unit.StopMoving(true);
+                }
+                return;
+            }
+
             if(!_hasTarget) {
                 _pathBlocked = false;
                 _cachedMoveDirection = Vector2.zero;
@@ -80,6 +93,13 @@ namespace WOR.Gameplay {
         }
 
         public override void FixedUpdate() {
+            if(IsForcedAnimationActive()) {
+                if(_forceAnimationLocksMovement) {
+                    unit.StopMoving(true);
+                }
+                return;
+            }
+
             if(!_hasTarget || _pathBlocked) {
                 unit.StopMoving(false);
                 return;
@@ -92,6 +112,17 @@ namespace WOR.Gameplay {
 
             unit.MoveToVector(_cachedMoveDirection, unit.settings.MoveSpeedFromStats);
             unit.animator.Play(RunAnimation);
+        }
+
+        public void PlayForcedAnimation(string animationName, float duration, bool lockMovement = true) {
+            if(string.IsNullOrWhiteSpace(animationName) || unit == null || unit.animator == null) {
+                return;
+            }
+
+            _forceAnimationActive = true;
+            _forceAnimationLocksMovement = lockMovement;
+            _forceAnimationEndTime = Time.time + Mathf.Max(0.01f, duration);
+            unit.animator.Play(animationName, 0, 0f);
         }
 
         public void WalkToX(float targetX, float stoppingDistance = DefaultStoppingDistance) {
@@ -254,6 +285,20 @@ namespace WOR.Gameplay {
             }
         }
 
+        private bool IsForcedAnimationActive() {
+            if(!_forceAnimationActive) {
+                return false;
+            }
+
+            if(Time.time <= _forceAnimationEndTime) {
+                return true;
+            }
+
+            _forceAnimationActive = false;
+            _forceAnimationLocksMovement = false;
+            return false;
+        }
+
         private void PlayIdle() {
             unit.animator.Play(IdleAnimation);
         }
@@ -274,4 +319,3 @@ namespace WOR.Gameplay {
         }
     }
 }
-

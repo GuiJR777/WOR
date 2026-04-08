@@ -28,6 +28,8 @@ namespace WOR.Gameplay.Modules.Jutsu {
 
         private const int MaxStyleCount = 2;
         private const int MinDamage = 0;
+        private const float MinSlowMotionTimeScale = 0.01f;
+        private const float MaxSlowMotionTimeScale = 1f;
 
         [Header("Identity")]
         public string jutsuName = "New Jutsu";
@@ -38,8 +40,28 @@ namespace WOR.Gameplay.Modules.Jutsu {
         public string uiAnimation;
 
         [Header("Player")]
+        [Tooltip("Nome do estado/clip de animacao do player que sera tocado ao usar o jutsu.")]
         public string playerAnimation;
+        [Tooltip("Quando ativo, o player entra no estado ControledByAI ao castar este jutsu.")]
         public bool switchPlayerToAiControlled;
+
+        [Header("Timing")]
+        [Min(0f)]
+        [Tooltip("Atraso, em segundos, antes de spawnar os prefabs configurados do jutsu.")]
+        public float spawnDelaySeconds;
+        [Min(0f)]
+        [Tooltip("Tempo maximo, em segundos, para manter o player em ControledByAI apos o cast. 0 = sem retorno automatico.")]
+        public float aiControlledDurationSeconds;
+        
+        [Header("Slow Motion")]
+        [Tooltip("Quando ativo, aplica slow motion ao castar este jutsu.")]
+        public bool enableSlowMotion;
+        [Range(MinSlowMotionTimeScale, MaxSlowMotionTimeScale)]
+        [Tooltip("Escala de tempo durante o slow motion. 1 = sem efeito, valores menores deixam o tempo mais lento.")]
+        public float slowMotionTimeScale = 0.25f;
+        [Min(0f)]
+        [Tooltip("Duracao do slow motion em segundos (tempo real).")]
+        public float slowMotionDurationSeconds = 0.12f;
 
         [Header("Combat")]
         [Min(MinDamage)] public int damage = 10;
@@ -91,6 +113,10 @@ namespace WOR.Gameplay.Modules.Jutsu {
             }
 
             damage = Mathf.Max(MinDamage, damage);
+            spawnDelaySeconds = Mathf.Max(0f, spawnDelaySeconds);
+            aiControlledDurationSeconds = Mathf.Max(0f, aiControlledDurationSeconds);
+            slowMotionTimeScale = Mathf.Clamp(slowMotionTimeScale, MinSlowMotionTimeScale, MaxSlowMotionTimeScale);
+            slowMotionDurationSeconds = Mathf.Max(0f, slowMotionDurationSeconds);
             if(attackData == null) {
                 attackData = CreateDefaultAttackData();
             }
