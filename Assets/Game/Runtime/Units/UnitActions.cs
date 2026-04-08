@@ -66,6 +66,14 @@ namespace WOR.Gameplay {
         public delegate void OnUnitDealDamage(GameObject recipient, AttackData attackData);
         public static event OnUnitDealDamage onUnitDealDamage;
 
+        public static void NotifyExternalDealDamage(GameObject recipient, AttackData attackData) {
+            if(recipient == null || attackData == null) {
+                return;
+            }
+
+            onUnitDealDamage?.Invoke(recipient, attackData);
+        }
+
         private sealed class GhostFrame {
             public GameObject gameObject;
             public SpriteRenderer renderer;

@@ -1,0 +1,2021 @@
+fileFormatVersion: 2
+guid: b64697e75febdfa4f93eba1955ccb7d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7913965470682698106
+    second: Dust_2_spritesheet_0
+  - first:
+      213: -4945452942506655193
+    second: Dust_2_spritesheet_1
+  - first:
+      213: -4084523073312842253
+    second: Dust_2_spritesheet_2
+  - first:
+      213: 7959535269847384325
+    second: Dust_2_spritesheet_3
+  - first:
+      213: 4547194648826674334
+    second: Dust_2_spritesheet_4
+  - first:
+      213: 8457071630133231734
+    second: Dust_2_spritesheet_5
+  - first:
+      213: -2851130216586974909
+    second: Dust_2_spritesheet_6
+  - first:
+      213: 730119644767742014
+    second: Dust_2_spritesheet_7
+  - first:
+      213: 5241889932365982155
+    second: Dust_2_spritesheet_8
+  - first:
+      213: -6562975850726153339
+    second: Dust_2_spritesheet_9
+  - first:
+      213: 3149207302710823953
+    second: Dust_2_spritesheet_10
+  - first:
+      213: 2405461278613991266
+    second: Dust_2_spritesheet_11
+  - first:
+      213: -8378324194218314560
+    second: Dust_2_spritesheet_12
+  - first:
+      213: 6985390317741076381
+    second: Dust_2_spritesheet_13
+  - first:
+      213: 7616126885557551265
+    second: Dust_2_spritesheet_14
+  - first:
+      213: 6778583392759169702
+    second: Dust_2_spritesheet_15
+  - first:
+      213: -5423485817697777802
+    second: Dust_2_spritesheet_16
+  - first:
+      213: 3767815060801644150
+    second: Dust_2_spritesheet_17
+  - first:
+      213: 7821298630222538204
+    second: Dust_2_spritesheet_18
+  - first:
+      213: 1734864691421317076
+    second: Dust_2_spritesheet_19
+  - first:
+      213: 6782282102136050623
+    second: Dust_2_spritesheet_20
+  - first:
+      213: 1704148078956308172
+    second: Dust_2_spritesheet_21
+  - first:
+      213: 5825098943417963629
+    second: Dust_2_spritesheet_22
+  - first:
+      213: -528939102395643778
+    second: Dust_2_spritesheet_23
+  - first:
+      213: -1540994674584750132
+    second: Dust_2_spritesheet_24
+  - first:
+      213: 3666414304605785073
+    second: Dust_2_spritesheet_25
+  - first:
+      213: 3355508867585195284
+    second: Dust_2_spritesheet_26
+  - first:
+      213: 8842010974504700709
+    second: Dust_2_spritesheet_27
+  - first:
+      213: -222852094260888743
+    second: Dust_2_spritesheet_28
+  - first:
+      213: -8068492475235646280
+    second: Dust_2_spritesheet_29
+  - first:
+      213: -2370709792477079029
+    second: Dust_2_spritesheet_30
+  - first:
+      213: 2743764975677338050
+    second: Dust_2_spritesheet_31
+  - first:
+      213: 5700470149321153806
+    second: Dust_2_spritesheet_32
+  - first:
+      213: 3953422872490114534
+    second: Dust_2_spritesheet_33
+  - first:
+      213: -5351237054525412181
+    second: Dust_2_spritesheet_34
+  - first:
+      213: -1725261980408790558
+    second: Dust_2_spritesheet_35
+  - first:
+      213: 706534905190667896
+    second: Dust_2_spritesheet_36
+  - first:
+      213: -6569949020772773593
+    second: Dust_2_spritesheet_37
+  - first:
+      213: -6169247436329277124
+    second: Dust_2_spritesheet_38
+  - first:
+      213: 3873423983998925737
+    second: Dust_2_spritesheet_39
+  - first:
+      213: 9110728690143096446
+    second: Dust_2_spritesheet_40
+  - first:
+      213: 6469613427267990573
+    second: Dust_2_spritesheet_41
+  - first:
+      213: 1218662544804980935
+    second: Dust_2_spritesheet_42
+  - first:
+      213: -4034638376199910163
+    second: Dust_2_spritesheet_43
+  - first:
+      213: 4420772644819190776
+    second: Dust_2_spritesheet_44
+  - first:
+      213: 8810858032552122520
+    second: Dust_2_spritesheet_45
+  - first:
+      213: 336369986310251347
+    second: Dust_2_spritesheet_46
+  - first:
+      213: 1274532162623925710
+    second: Dust_2_spritesheet_47
+  - first:
+      213: 6879142549536903736
+    second: Dust_2_spritesheet_48
+  - first:
+      213: -940379865452143518
+    second: Dust_2_spritesheet_49
+  - first:
+      213: 777119778946740840
+    second: Dust_2_spritesheet_50
+  - first:
+      213: -4314006947566274784
+    second: Dust_2_spritesheet_51
+  - first:
+      213: 6947340137073492686
+    second: Dust_2_spritesheet_52
+  - first:
+      213: 2603916146971777832
+    second: Dust_2_spritesheet_53
+  - first:
+      213: 3157659404734585887
+    second: Dust_2_spritesheet_54
+  - first:
+      213: -5964751069897601312
+    second: Dust_2_spritesheet_55
+  - first:
+      213: -4835631576487619552
+    second: Dust_2_spritesheet_56
+  - first:
+      213: 6256698631692827534
+    second: Dust_2_spritesheet_57
+  - first:
+      213: -8543507903581230293
+    second: Dust_2_spritesheet_58
+  - first:
+      213: 5564106801213967876
+    second: Dust_2_spritesheet_59
+  - first:
+      213: 1464754971653564128
+    second: Dust_2_spritesheet_60
+  - first:
+      213: 4254789550616811710
+    second: Dust_2_spritesheet_61
+  - first:
+      213: -4615460466839953146
+    second: Dust_2_spritesheet_62
+  - first:
+      213: 1069716452855699009
+    second: Dust_2_spritesheet_63
+  - first:
+      213: 916063833359586494
+    second: Dust_2_spritesheet_64
+  - first:
+      213: 1516595906397510729
+    second: Dust_2_spritesheet_65
+  - first:
+      213: -8181579245975604248
+    second: Dust_2_spritesheet_66
+  - first:
+      213: 3798789582757305044
+    second: Dust_2_spritesheet_67
+  - first:
+      213: -4042997828584825075
+    second: Dust_2_spritesheet_68
+  - first:
+      213: -1561555304391116676
+    second: Dust_2_spritesheet_69
+  - first:
+      213: 6266076651240456022
+    second: Dust_2_spritesheet_70
+  - first:
+      213: -8666425987428556682
+    second: Dust_2_spritesheet_71
+  - first:
+      213: -5516158821527719207
+    second: Dust_2_spritesheet_72
+  - first:
+      213: -5939869375949008642
+    second: Dust_2_spritesheet_73
+  - first:
+      213: 2798194234451282180
+    second: Dust_2_spritesheet_74
+  - first:
+      213: 1752118488149827478
+    second: Dust_2_spritesheet_75
+  - first:
+      213: 3972924209187764847
+    second: Dust_2_spritesheet_76
+  - first:
+      213: 5738504264970092460
+    second: Dust_2_spritesheet_77
+  - first:
+      213: 8748388900969307350
+    second: Dust_2_spritesheet_78
+  - first:
+      213: 3689247177631021174
+    second: Dust_2_spritesheet_79
+  - first:
+      213: -436626083899002286
+    second: Dust_2_spritesheet_80
+  - first:
+      213: -6973158427609993740
+    second: Dust_2_spritesheet_81
+  - first:
+      213: 1870473427242069412
+    second: Dust_2_spritesheet_82
+  - first:
+      213: 3141043622216519321
+    second: Dust_2_spritesheet_83
+  - first:
+      213: -5339437273282551481
+    second: Dust_2_spritesheet_84
+  - first:
+      213: -6076924243368948658
+    second: Dust_2_spritesheet_85
+  - first:
+      213: -8923681911189599526
+    second: Dust_2_spritesheet_86
+  - first:
+      213: 6896551513422543019
+    second: Dust_2_spritesheet_87
+  - first:
+      213: -2880947271995827764
+    second: Dust_2_spritesheet_88
+  - first:
+      213: -687205164865026665
+    second: Dust_2_spritesheet_89
+  - first:
+      213: 6237578340299005649
+    second: Dust_2_spritesheet_90
+  - first:
+      213: -8942372469164451393
+    second: Dust_2_spritesheet_91
+  - first:
+      213: -8443716782724262467
+    second: Dust_2_spritesheet_92
+  - first:
+      213: -3416860375702233365
+    second: Dust_2_spritesheet_93
+  - first:
+      213: -7295255239797148437
+    second: Dust_2_spritesheet_94
+  - first:
+      213: -5114417979234582104
+    second: Dust_2_spritesheet_95
+  - first:
+      213: 7301528410645184075
+    second: Dust_2_spritesheet_96
+  - first:
+      213: -8527842925380971307
+    second: Dust_2_spritesheet_97
+  - first:
+      213: 7807296557429690162
+    second: Dust_2_spritesheet_98
+  - first:
+      213: -6125585197207529725
+    second: Dust_2_spritesheet_99
+  - first:
+      213: 6370069802514959657
+    second: Dust_2_spritesheet_100
+  - first:
+      213: -6559237771553881363
+    second: Dust_2_spritesheet_101
+  - first:
+      213: 3696179247982748201
+    second: Dust_2_spritesheet_102
+  - first:
+      213: -5259456456897498277
+    second: Dust_2_spritesheet_103
+  - first:
+      213: -3114567284182171485
+    second: Dust_2_spritesheet_104
+  - first:
+      213: 5456952325542730968
+    second: Dust_2_spritesheet_105
+  - first:
+      213: -868315274260616273
+    second: Dust_2_spritesheet_106
+  - first:
+      213: 4397634587090285010
+    second: Dust_2_spritesheet_107
+  - first:
+      213: 3371023136878313990
+    second: Dust_2_spritesheet_108
+  - first:
+      213: 797952243793901916
+    second: Dust_2_spritesheet_109
+  - first:
+      213: -330399339294474987
+    second: Dust_2_spritesheet_110
+  - first:
+      213: 5263752137390233147
+    second: Dust_2_spritesheet_111
+  - first:
+      213: -6820814262858540496
+    second: Dust_2_spritesheet_112
+  - first:
+      213: -9087095912490074653
+    second: Dust_2_spritesheet_113
+  - first:
+      213: 7393635287701740885
+    second: Dust_2_spritesheet_114
+  - first:
+      213: -8746009562808653328
+    second: Dust_2_spritesheet_115
+  - first:
+      213: 635195021872250864
+    second: Dust_2_spritesheet_116
+  - first:
+      213: 1284316007244002013
+    second: Dust_2_spritesheet_117
+  - first:
+      213: 5570529386489656001
+    second: Dust_2_spritesheet_118
+  - first:
+      213: 814504884202391980
+    second: Dust_2_spritesheet_119
+  - first:
+      213: 123304624107654860
+    second: Dust_2_spritesheet_120
+  - first:
+      213: -7528982417110256904
+    second: Dust_2_spritesheet_121
+  - first:
+      213: -5734327195297604869
+    second: Dust_2_spritesheet_122
+  - first:
+      213: -482171837307758781
+    second: Dust_2_spritesheet_123
+  - first:
+      213: -3407286966069441973
+    second: Dust_2_spritesheet_124
+  - first:
+      213: 7090777518238466375
+    second: Dust_2_spritesheet_125
+  - first:
+      213: -5401079402782427250
+    second: Dust_2_spritesheet_126
+  - first:
+      213: -5433274835642474910
+    second: Dust_2_spritesheet_127
+  - first:
+      213: -8793310572534717494
+    second: Dust_2_spritesheet_128
+  - first:
+      213: 1342174185827101371
+    second: Dust_2_spritesheet_129
+  - first:
+      213: -6540496277801078197
+    second: Dust_2_spritesheet_130
+  - first:
+      213: 8357879119899486356
+    second: Dust_2_spritesheet_131
+  - first:
+      213: -5100192532800135913
+    second: Dust_2_spritesheet_132
+  - first:
+      213: -2188138059792121074
+    second: Dust_2_spritesheet_133
+  - first:
+      213: 7482778274406293901
+    second: Dust_2_spritesheet_134
+  - first:
+      213: 5869701488635824991
+    second: Dust_2_spritesheet_135
+  - first:
+      213: -8448373521018209607
+    second: Dust_2_spritesheet_136
+  - first:
+      213: 9060822517834110192
+    second: Dust_2_spritesheet_137
+  - first:
+      213: 1527038459986077344
+    second: Dust_2_spritesheet_138
+  - first:
+      213: 2707241109519266891
+    second: Dust_2_spritesheet_139
+  - first:
+      213: 1777409008030473448
+    second: Dust_2_spritesheet_140
+  - first:
+      213: 7110016168310418393
+    second: Dust_2_spritesheet_141
+  - first:
+      213: 2198820173224016378
+    second: Dust_2_spritesheet_142
+  - first:
+      213: 1355524671834568071
+    second: Dust_2_spritesheet_143
+  - first:
+      213: 1028109663466604210
+    second: Dust_2_spritesheet_144
+  - first:
+      213: -6575695267766350622
+    second: Dust_2_spritesheet_145
+  - first:
+      213: 7237353951887932983
+    second: Dust_2_spritesheet_146
+  - first:
+      213: 8152896644043245881
+    second: Dust_2_spritesheet_147
+  - first:
+      213: -2155964473923926270
+    second: Dust_2_spritesheet_148
+  - first:
+      213: -4505254365528455378
+    second: Dust_2_spritesheet_149
+  - first:
+      213: -4217382384138158571
+    second: Dust_2_spritesheet_150
+  - first:
+      213: -4340877441523877106
+    second: Dust_2_spritesheet_151
+  - first:
+      213: -3052303896211576049
+    second: Dust_2_spritesheet_152
+  - first:
+      213: 2703973901292432677
+    second: Dust_2_spritesheet_153
+  - first:
+      213: 2425254671377868711
+    second: Dust_2_spritesheet_154
+  - first:
+      213: 5339642591485349679
+    second: Dust_2_spritesheet_155
+  - first:
+      213: 6575186720731382609
+    second: Dust_2_spritesheet_156
+  - first:
+      213: -5918597166346213875
+    second: Dust_2_spritesheet_157
+  - first:
+      213: -2231878757120234525
+    second: Dust_2_spritesheet_158
+  - first:
+      213: -7802184103240338190
+    second: Dust_2_spritesheet_159
+  - first:
+      213: -514270853702530911
+    second: Dust_2_spritesheet_160
+  - first:
+      213: 3559014962283149578
+    second: Dust_2_spritesheet_161
+  - first:
+      213: -5859282493888568857
+    second: Dust_2_spritesheet_162
+  - first:
+      213: -7325147863407957945
+    second: Dust_2_spritesheet_163
+  - first:
+      213: -5343671298230510126
+    second: Dust_2_spritesheet_164
+  - first:
+      213: 5075829654458798327
+    second: Dust_2_spritesheet_165
+  - first:
+      213: -7483653843495429464
+    second: Dust_2_spritesheet_166
+  - first:
+      213: -7538369317773922871
+    second: Dust_2_spritesheet_167
+  - first:
+      213: 4355251626044613372
+    second: Dust_2_spritesheet_168
+  - first:
+      213: -3238915375309493958
+    second: Dust_2_spritesheet_169
+  - first:
+      213: 7579139287871314313
+    second: Dust_2_spritesheet_170
+  - first:
+      213: 5122445012912855938
+    second: Dust_2_spritesheet_171
+  - first:
+      213: -6170321151960123909
+    second: Dust_2_spritesheet_172
+  - first:
+      213: -4807085036800755177
+    second: Dust_2_spritesheet_173
+  - first:
+      213: -5740890331019840813
+    second: Dust_2_spritesheet_174
+  - first:
+      213: 4373395135412250153
+    second: Dust_2_spritesheet_175
+  - first:
+      213: -2471436168308635896
+    second: Dust_2_spritesheet_176
+  - first:
+      213: 2136449599833302325
+    second: Dust_2_spritesheet_177
+  - first:
+      213: 9193479927866836143
+    second: Dust_2_spritesheet_178
+  - first:
+      213: -6865254704333701669
+    second: Dust_2_spritesheet_179
+  - first:
+      213: -3211431232182886926
+    second: Dust_2_spritesheet_180
+  - first:
+      213: -4333764861297105846
+    second: Dust_2_spritesheet_181
+  - first:
+      213: -569065187310367770
+    second: Dust_2_spritesheet_182
+  - first:
+      213: 5515153309595978253
+    second: Dust_2_spritesheet_183
+  - first:
+      213: 3182926504952889629
+    second: Dust_2_spritesheet_184
+  - first:
+      213: -2422046250885598420
+    second: Dust_2_spritesheet_185
+  - first:
+      213: 5985522141717586065
+    second: Dust_2_spritesheet_186
+  - first:
+      213: -1436274498364235338
+    second: Dust_2_spritesheet_187
+  - first:
+      213: -7567458648191792750
+    second: Dust_2_spritesheet_188
+  - first:
+      213: 1605281827322824141
+    second: Dust_2_spritesheet_189
+  - first:
+      213: 4802460601354356411
+    second: Dust_2_spritesheet_190
+  - first:
+      213: -2853896666661588952
+    second: Dust_2_spritesheet_191
+  - first:
+      213: -892120666831466561
+    second: Dust_2_spritesheet_192
+  - first:
+      213: -1305610372001173153
+    second: Dust_2_spritesheet_193
+  - first:
+      213: -2097669788170835220
+    second: Dust_2_spritesheet_194
+  - first:
+      213: -4206309398512782581
+    second: Dust_2_spritesheet_195
+  - first:
+      213: 3110432623441807422
+    second: Dust_2_spritesheet_196
+  - first:
+      213: 1877611873267957216
+    second: Dust_2_spritesheet_197
+  - first:
+      213: 4665931987024663253
+    second: Dust_2_spritesheet_198
+  - first:
+      213: 5323636042032884903
+    second: Dust_2_spritesheet_199
+  - first:
+      213: -6406480618482727363
+    second: Dust_2_spritesheet_200
+  - first:
+      213: -160300430831181791
+    second: Dust_2_spritesheet_201
+  - first:
+      213: 4130503238039178561
+    second: Dust_2_spritesheet_202
+  - first:
+      213: 5902408370529398794
+    second: Dust_2_spritesheet_203
+  - first:
+      213: -7641434333404998610
+    second: Dust_2_spritesheet_204
+  - first:
+      213: 8991211624597562764
+    second: Dust_2_spritesheet_205
+  - first:
+      213: 3307181936842027503
+    second: Dust_2_spritesheet_206
+  - first:
+      213: 1441120044619202626
+    second: Dust_2_spritesheet_207
+  - first:
+      213: 6681083267281001288
+    second: Dust_2_spritesheet_208
+  - first:
+      213: 6711374685553840638
+    second: Dust_2_spritesheet_209
+  - first:
+      213: -2232667287859226630
+    second: Dust_2_spritesheet_210
+  - first:
+      213: -5507940888246506714
+    second: Dust_2_spritesheet_211
+  - first:
+      213: -4070577824842179733
+    second: Dust_2_spritesheet_212
+  - first:
+      213: -3757148162579960474
+    second: Dust_2_spritesheet_213
+  - first:
+      213: 8330131875921118213
+    second: Dust_2_spritesheet_214
+  - first:
+      213: 5918981212912389266
+    second: Dust_2_spritesheet_215
+  - first:
+      213: 3489643328653637445
+    second: Dust_2_spritesheet_216
+  - first:
+      213: 598236192146736019
+    second: Dust_2_spritesheet_217
+  - first:
+      213: -3419995932413872614
+    second: Dust_2_spritesheet_218
+  - first:
+      213: 5639677041458345538
+    second: Dust_2_spritesheet_219
+  - first:
+      213: -407265169126041460
+    second: Dust_2_spritesheet_220
+  - first:
+      213: -3329987996921977745
+    second: Dust_2_spritesheet_221
+  - first:
+      213: -3748223156860626229
+    second: Dust_2_spritesheet_222
+  - first:
+      213: 3503714865617969268
+    second: Dust_2_spritesheet_223
+  - first:
+      213: -673822109089498273
+    second: Dust_2_spritesheet_224
+  - first:
+      213: -8385228268174810312
+    second: Dust_2_spritesheet_225
+  - first:
+      213: 975751353650363451
+    second: Dust_2_spritesheet_226
+  - first:
+      213: 1855387640884065597
+    second: Dust_2_spritesheet_227
+  - first:
+      213: 1492809889051559599
+    second: Dust_2_spritesheet_228
+  - first:
+      213: -5087670582917800046
+    second: Dust_2_spritesheet_229
+  - first:
+      213: -378509694801355638
+    second: Dust_2_spritesheet_230
+  - first:
+      213: -964175549816404019
+    second: Dust_2_spritesheet_231
+  - first:
+      213: -7763648328104307321
+    second: Dust_2_spritesheet_232
+  - first:
+      213: 8724591266659153460
+    second: Dust_2_spritesheet_233
+  - first:
+      213: -2508820571330861430
+    second: Dust_2_spritesheet_234
+  - first:
+      213: 8043261781596191618
+    second: Dust_2_spritesheet_235
+  - first:
+      213: -8026927612007386384
+    second: Dust_2_spritesheet_236
+  - first:
+      213: 1697735212122668425
+    second: Dust_2_spritesheet_237
+  - first:
+      213: 236125303615336952
+    second: Dust_2_spritesheet_238
+  - first:
+      213: 7263991630372353891
+    second: Dust_2_spritesheet_239
+  - first:
+      213: 2193249727223530985
+    second: Dust_2_spritesheet_240
+  - first:
+      213: -7006693340711382315
+    second: Dust_2_spritesheet_241
+  - first:
+      213: -3986880818381613304
+    second: Dust_2_spritesheet_242
+  - first:
+      213: -2471039904922184190
+    second: Dust_2_spritesheet_243
+  - first:
+      213: 6679403727635116479
+    second: Dust_2_spritesheet_244
+  - first:
+      213: -2801579707988883536
+    second: Dust_2_spritesheet_245
+  - first:
+      213: 4467832591163303191
+    second: Dust_2_spritesheet_246
+  - first:
+      213: -3662676345677836241
+    second: Dust_2_spritesheet_247
+  - first:
+      213: -1408853142871183898
+    second: Dust_2_spritesheet_248
+  - first:
+      213: 7346566670557110060
+    second: Dust_2_spritesheet_249
+  - first:
+      213: -3473310772213399394
+    second: Dust_2_spritesheet_250
+  - first:
+      213: -8936512622161808930
+    second: Dust_2_spritesheet_251
+  - first:
+      213: -7632134454941991131
+    second: Dust_2_spritesheet_252
+  - first:
+      213: 5930564145538780084
+    second: Dust_2_spritesheet_253
+  - first:
+      213: -8954861547569518312
+    second: Dust_2_spritesheet_254
+  - first:
+      213: 8859509918169936380
+    second: Dust_2_spritesheet_255
+  - first:
+      213: 2724886742818364153
+    second: Dust_2_spritesheet_256
+  - first:
+      213: 5583806404399577388
+    second: Dust_2_spritesheet_257
+  - first:
+      213: -5897658718182321720
+    second: Dust_2_spritesheet_258
+  - first:
+      213: 570821310936831387
+    second: Dust_2_spritesheet_259
+  - first:
+      213: -6864636281724306903
+    second: Dust_2_spritesheet_260
+  - first:
+      213: 5854854742798134873
+    second: Dust_2_spritesheet_261
+  - first:
+      213: 1293441076238942385
+    second: Dust_2_spritesheet_262
+  - first:
+      213: 5663352521047472588
+    second: Dust_2_spritesheet_263
+  - first:
+      213: 6789816889885490564
+    second: Dust_2_spritesheet_264
+  - first:
+      213: -3662910753544552311
+    second: Dust_2_spritesheet_265
+  - first:
+      213: 9199202917749102478
+    second: Dust_2_spritesheet_266
+  - first:
+      213: -457426512972698319
+    second: Dust_2_spritesheet_267
+  - first:
+      213: -7508366926452589156
+    second: Dust_2_spritesheet_268
+  - first:
+      213: 4355985760589335985
+    second: Dust_2_spritesheet_269
+  - first:
+      213: -6836398480752013955
+    second: Dust_2_spritesheet_270
+  - first:
+      213: 5953205095629378265
+    second: Dust_2_spritesheet_271
+  - first:
+      213: 5433196010396892190
+    second: Dust_2_spritesheet_272
+  - first:
+      213: -6714707127306224418
+    second: Dust_2_spritesheet_273
+  - first:
+      213: -8414004949278219982
+    second: Dust_2_spritesheet_274
+  - first:
+      213: 5328796146679481081
+    second: Dust_2_spritesheet_275
+  - first:
+      213: -1367262799691548493
+    second: Dust_2_spritesheet_276
+  - first:
+      213: -6618749792404313275
+    second: Dust_2_spritesheet_277
+  - first:
+      213: 1832239023291351027
+    second: Dust_2_spritesheet_278
+  - first:
+      213: -2463444584408364383
+    second: Dust_2_spritesheet_279
+  - first:
+      213: -4148350896435897926
+    second: Dust_2_spritesheet_280
+  - first:
+      213: -1744053405342210011
+    second: Dust_2_spritesheet_281
+  - first:
+      213: 3279634197930202432
+    second: Dust_2_spritesheet_282
+  - first:
+      213: -1134810727767685569
+    second: Dust_2_spritesheet_283
+  - first:
+      213: -5003401408038044848
+    second: Dust_2_spritesheet_284
+  - first:
+      213: -3996612604812743909
+    second: Dust_2_spritesheet_285
+  - first:
+      213: 3496238838278213491
+    second: Dust_2_spritesheet_286
+  - first:
+      213: 8354395802751753171
+    second: Dust_2_spritesheet_287
+  - first:
+      213: 7556305888638005989
+    second: Dust_2_spritesheet_288
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68e204b9552fb2290800000000000000
+      internalID: -7913965470682698106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7220b7c30c83e5bb0800000000000000
+      internalID: -4945452942506655193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fd1d42d7ebd057c0800000000000000
+      internalID: -4084523073312842253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50142701823f57e60800000000000000
+      internalID: 7959535269847384325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9cfed7e071ea1f30800000000000000
+      internalID: 4547194648826674334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 670002217dd8d5570800000000000000
+      internalID: 8457071630133231734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34963f78c20ce68d0800000000000000
+      internalID: -2851130216586974909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e386ae5d2f7e12a00800000000000000
+      internalID: 730119644767742014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9ee5aee1feeb840800000000000000
+      internalID: 5241889932365982155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58320046c30abe4a0800000000000000
+      internalID: -6562975850726153339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c052a4b5b34bb20800000000000000
+      internalID: 3149207302710823953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f6eb8c94ae16120800000000000000
+      internalID: 2405461278613991266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c47e8e19863abb80800000000000000
+      internalID: -8378324194218314560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fe86adb7711f060800000000000000
+      internalID: 6985390317741076381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0c5f9ec0be1b960800000000000000
+      internalID: 7616126885557551265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2c5c56ead521e50800000000000000
+      internalID: 6778583392759169702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67741c73268ebb4b0800000000000000
+      internalID: -5423485817697777802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 676e276c5d7f94430800000000000000
+      internalID: 3767815060801644150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd5e9a84aa5da8c60800000000000000
+      internalID: 7821298630222538204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d70981ce3a731810800000000000000
+      internalID: 1734864691421317076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb31f4843a18f1e50800000000000000
+      internalID: 6782282102136050623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc6eada16a956a710800000000000000
+      internalID: 1704148078956308172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d645ee750a8e6d050800000000000000
+      internalID: 5825098943417963629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e78c4e550b4d8a8f0800000000000000
+      internalID: -528939102395643778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc77b9c02894d9ae0800000000000000
+      internalID: -1540994674584750132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb40717268b1e230800000000000000
+      internalID: 3666414304605785073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41db61d6989219e20800000000000000
+      internalID: 3355508867585195284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b4573622225ba70800000000000000
+      internalID: 8842010974504700709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95bb024733548ecf0800000000000000
+      internalID: -222852094260888743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b4caaca7d4f60090800000000000000
+      internalID: -8068492475235646280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a1dd9110c891fd0800000000000000
+      internalID: -2370709792477079029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c1f76255bfc31620800000000000000
+      internalID: 2743764975677338050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d510ff5632c1f40800000000000000
+      internalID: 5700470149321153806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed7da908216dd630800000000000000
+      internalID: 3953422872490114534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bacea1040469cb5b0800000000000000
+      internalID: -5351237054525412181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e14f31ae53ae08e0800000000000000
+      internalID: -1725261980408790558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 876dd4db0cd1ec900800000000000000
+      internalID: 706534905190667896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721d968bc2ad2d4a0800000000000000
+      internalID: -6569949020772773593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c39aa1a842e626aa0800000000000000
+      internalID: -6169247436329277124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9abfbb6579a21c530800000000000000
+      internalID: 3873423983998925737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7e60f4197fcf6e70800000000000000
+      internalID: 9110728690143096446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24f766722fa8c950800000000000000
+      internalID: 6469613427267990573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8ac24b02f89e010800000000000000
+      internalID: 1218662544804980935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec0275f5c51208c0800000000000000
+      internalID: -4034638376199910163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f346375c4db95d30800000000000000
+      internalID: 4420772644819190776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 91942685852791a44907af4ed280595f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":8.0},"gridSpriteSize":{"x":512.0,"y":512.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Dust_2_spritesheet_0: -7913965470682698106
+      Dust_2_spritesheet_1: -4945452942506655193
+      Dust_2_spritesheet_10: 3149207302710823953
+      Dust_2_spritesheet_11: 2405461278613991266
+      Dust_2_spritesheet_12: -8378324194218314560
+      Dust_2_spritesheet_13: 6985390317741076381
+      Dust_2_spritesheet_14: 7616126885557551265
+      Dust_2_spritesheet_15: 6778583392759169702
+      Dust_2_spritesheet_16: -5423485817697777802
+      Dust_2_spritesheet_17: 3767815060801644150
+      Dust_2_spritesheet_18: 7821298630222538204
+      Dust_2_spritesheet_19: 1734864691421317076
+      Dust_2_spritesheet_2: -4084523073312842253
+      Dust_2_spritesheet_20: 6782282102136050623
+      Dust_2_spritesheet_21: 1704148078956308172
+      Dust_2_spritesheet_22: 5825098943417963629
+      Dust_2_spritesheet_23: -528939102395643778
+      Dust_2_spritesheet_24: -1540994674584750132
+      Dust_2_spritesheet_25: 3666414304605785073
+      Dust_2_spritesheet_26: 3355508867585195284
+      Dust_2_spritesheet_27: 8842010974504700709
+      Dust_2_spritesheet_28: -222852094260888743
+      Dust_2_spritesheet_29: -8068492475235646280
+      Dust_2_spritesheet_3: 7959535269847384325
+      Dust_2_spritesheet_30: -2370709792477079029
+      Dust_2_spritesheet_31: 2743764975677338050
+      Dust_2_spritesheet_32: 5700470149321153806
+      Dust_2_spritesheet_33: 3953422872490114534
+      Dust_2_spritesheet_34: -5351237054525412181
+      Dust_2_spritesheet_35: -1725261980408790558
+      Dust_2_spritesheet_36: 706534905190667896
+      Dust_2_spritesheet_37: -6569949020772773593
+      Dust_2_spritesheet_38: -6169247436329277124
+      Dust_2_spritesheet_39: 3873423983998925737
+      Dust_2_spritesheet_4: 4547194648826674334
+      Dust_2_spritesheet_40: 9110728690143096446
+      Dust_2_spritesheet_41: 6469613427267990573
+      Dust_2_spritesheet_42: 1218662544804980935
+      Dust_2_spritesheet_43: -4034638376199910163
+      Dust_2_spritesheet_44: 4420772644819190776
+      Dust_2_spritesheet_5: 8457071630133231734
+      Dust_2_spritesheet_6: -2851130216586974909
+      Dust_2_spritesheet_7: 730119644767742014
+      Dust_2_spritesheet_8: 5241889932365982155
+      Dust_2_spritesheet_9: -6562975850726153339
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

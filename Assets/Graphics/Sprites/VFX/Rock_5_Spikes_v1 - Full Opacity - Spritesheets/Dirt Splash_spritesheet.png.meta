@@ -1,0 +1,2152 @@
+fileFormatVersion: 2
+guid: d137d1166316d2c4b86ed6132b560674
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4574954173881237577
+    second: Dirt Splash_spritesheet_0
+  - first:
+      213: -7964135489471997346
+    second: Dirt Splash_spritesheet_1
+  - first:
+      213: -1123324120203626856
+    second: Dirt Splash_spritesheet_2
+  - first:
+      213: 6953567297309128936
+    second: Dirt Splash_spritesheet_3
+  - first:
+      213: 7026650727805749139
+    second: Dirt Splash_spritesheet_4
+  - first:
+      213: -6548801397799506395
+    second: Dirt Splash_spritesheet_5
+  - first:
+      213: -2410195777327093331
+    second: Dirt Splash_spritesheet_6
+  - first:
+      213: 2665350701636461117
+    second: Dirt Splash_spritesheet_7
+  - first:
+      213: -1791771659482151578
+    second: Dirt Splash_spritesheet_8
+  - first:
+      213: 7809906924413112856
+    second: Dirt Splash_spritesheet_9
+  - first:
+      213: -8259779768748055354
+    second: Dirt Splash_spritesheet_10
+  - first:
+      213: -411545264544325900
+    second: Dirt Splash_spritesheet_11
+  - first:
+      213: 3136196128680845398
+    second: Dirt Splash_spritesheet_12
+  - first:
+      213: 3154935246673103833
+    second: Dirt Splash_spritesheet_13
+  - first:
+      213: -4061713161069404949
+    second: Dirt Splash_spritesheet_14
+  - first:
+      213: -6638436795497369895
+    second: Dirt Splash_spritesheet_15
+  - first:
+      213: -7808793369577988420
+    second: Dirt Splash_spritesheet_16
+  - first:
+      213: 5517767457654532828
+    second: Dirt Splash_spritesheet_17
+  - first:
+      213: -1527476070404481804
+    second: Dirt Splash_spritesheet_18
+  - first:
+      213: 8180648792095537565
+    second: Dirt Splash_spritesheet_19
+  - first:
+      213: 3394819072749038633
+    second: Dirt Splash_spritesheet_20
+  - first:
+      213: -4607089767487188313
+    second: Dirt Splash_spritesheet_21
+  - first:
+      213: 8557391112142554027
+    second: Dirt Splash_spritesheet_22
+  - first:
+      213: 2768011419743718320
+    second: Dirt Splash_spritesheet_23
+  - first:
+      213: -6698031980014201406
+    second: Dirt Splash_spritesheet_24
+  - first:
+      213: 4025052394035496550
+    second: Dirt Splash_spritesheet_25
+  - first:
+      213: 5913016071703976932
+    second: Dirt Splash_spritesheet_26
+  - first:
+      213: -1776997748423995974
+    second: Dirt Splash_spritesheet_27
+  - first:
+      213: -4403036422656602937
+    second: Dirt Splash_spritesheet_28
+  - first:
+      213: -534011389666626584
+    second: Dirt Splash_spritesheet_29
+  - first:
+      213: -2777960789316194869
+    second: Dirt Splash_spritesheet_30
+  - first:
+      213: -6609692304097588858
+    second: Dirt Splash_spritesheet_31
+  - first:
+      213: 3152814564542452581
+    second: Dirt Splash_spritesheet_32
+  - first:
+      213: 4753648239846727890
+    second: Dirt Splash_spritesheet_33
+  - first:
+      213: -4957270743893000611
+    second: Dirt Splash_spritesheet_34
+  - first:
+      213: -7445497079416981381
+    second: Dirt Splash_spritesheet_35
+  - first:
+      213: -5804870683530989932
+    second: Dirt Splash_spritesheet_36
+  - first:
+      213: 7739770610768802855
+    second: Dirt Splash_spritesheet_37
+  - first:
+      213: -2509639651263550177
+    second: Dirt Splash_spritesheet_38
+  - first:
+      213: -3186349545412811764
+    second: Dirt Splash_spritesheet_39
+  - first:
+      213: -5619653446229633219
+    second: Dirt Splash_spritesheet_40
+  - first:
+      213: 2671287474653766637
+    second: Dirt Splash_spritesheet_41
+  - first:
+      213: -8511124216933975977
+    second: Dirt Splash_spritesheet_42
+  - first:
+      213: 7476806833459141745
+    second: Dirt Splash_spritesheet_43
+  - first:
+      213: -1304685308441656131
+    second: Dirt Splash_spritesheet_44
+  - first:
+      213: 2046436033855692220
+    second: Dirt Splash_spritesheet_45
+  - first:
+      213: -5684965468670478761
+    second: Dirt Splash_spritesheet_46
+  - first:
+      213: -1124015789881512516
+    second: Dirt Splash_spritesheet_47
+  - first:
+      213: 6387500045752768912
+    second: Dirt Splash_spritesheet_48
+  - first:
+      213: -1877320450721885543
+    second: Dirt Splash_spritesheet_49
+  - first:
+      213: 9146505822923530150
+    second: Dirt Splash_spritesheet_50
+  - first:
+      213: 3346691440396761871
+    second: Dirt Splash_spritesheet_51
+  - first:
+      213: -1668456839043967403
+    second: Dirt Splash_spritesheet_52
+  - first:
+      213: -7343913602033993973
+    second: Dirt Splash_spritesheet_53
+  - first:
+      213: -7378053325487507780
+    second: Dirt Splash_spritesheet_54
+  - first:
+      213: 8854538852607953624
+    second: Dirt Splash_spritesheet_55
+  - first:
+      213: -1793335130674125265
+    second: Dirt Splash_spritesheet_56
+  - first:
+      213: 4956041837394285133
+    second: Dirt Splash_spritesheet_57
+  - first:
+      213: -5744098129440511080
+    second: Dirt Splash_spritesheet_58
+  - first:
+      213: 6430880037413184372
+    second: Dirt Splash_spritesheet_59
+  - first:
+      213: -2520970342832816046
+    second: Dirt Splash_spritesheet_60
+  - first:
+      213: 1926285347698679361
+    second: Dirt Splash_spritesheet_61
+  - first:
+      213: -6693680530163842063
+    second: Dirt Splash_spritesheet_62
+  - first:
+      213: -9198437485740773168
+    second: Dirt Splash_spritesheet_63
+  - first:
+      213: -5385401094932210558
+    second: Dirt Splash_spritesheet_64
+  - first:
+      213: 2996921783678339422
+    second: Dirt Splash_spritesheet_65
+  - first:
+      213: 4949863789980155813
+    second: Dirt Splash_spritesheet_66
+  - first:
+      213: -3476594252236387493
+    second: Dirt Splash_spritesheet_67
+  - first:
+      213: -4352161126474426053
+    second: Dirt Splash_spritesheet_68
+  - first:
+      213: -2752967540392566044
+    second: Dirt Splash_spritesheet_69
+  - first:
+      213: 2308028473991922371
+    second: Dirt Splash_spritesheet_70
+  - first:
+      213: -6849279560630572684
+    second: Dirt Splash_spritesheet_71
+  - first:
+      213: 4245599980918442417
+    second: Dirt Splash_spritesheet_72
+  - first:
+      213: 6487249642488830932
+    second: Dirt Splash_spritesheet_73
+  - first:
+      213: -6342039845598841530
+    second: Dirt Splash_spritesheet_74
+  - first:
+      213: 5734564639624077735
+    second: Dirt Splash_spritesheet_75
+  - first:
+      213: -6835562570738577740
+    second: Dirt Splash_spritesheet_76
+  - first:
+      213: 6990867813605884865
+    second: Dirt Splash_spritesheet_77
+  - first:
+      213: 8456237206678169322
+    second: Dirt Splash_spritesheet_78
+  - first:
+      213: 1487050977820301795
+    second: Dirt Splash_spritesheet_79
+  - first:
+      213: 2039330828130075895
+    second: Dirt Splash_spritesheet_80
+  - first:
+      213: 4609890586059945088
+    second: Dirt Splash_spritesheet_81
+  - first:
+      213: -5355534756676266320
+    second: Dirt Splash_spritesheet_82
+  - first:
+      213: 6168881559339053331
+    second: Dirt Splash_spritesheet_83
+  - first:
+      213: -6479398454940199218
+    second: Dirt Splash_spritesheet_84
+  - first:
+      213: 1821714874589358640
+    second: Dirt Splash_spritesheet_85
+  - first:
+      213: 5160167786503869233
+    second: Dirt Splash_spritesheet_86
+  - first:
+      213: -250882791546108186
+    second: Dirt Splash_spritesheet_87
+  - first:
+      213: -4419319819218355497
+    second: Dirt Splash_spritesheet_88
+  - first:
+      213: -8719447584696373900
+    second: Dirt Splash_spritesheet_89
+  - first:
+      213: -5721472527026200416
+    second: Dirt Splash_spritesheet_90
+  - first:
+      213: -6755882610638438282
+    second: Dirt Splash_spritesheet_91
+  - first:
+      213: -2500871053699192499
+    second: Dirt Splash_spritesheet_92
+  - first:
+      213: -4741142117511769065
+    second: Dirt Splash_spritesheet_93
+  - first:
+      213: -4889956014497208389
+    second: Dirt Splash_spritesheet_94
+  - first:
+      213: -5996798178152783805
+    second: Dirt Splash_spritesheet_95
+  - first:
+      213: -2568883249557224752
+    second: Dirt Splash_spritesheet_96
+  - first:
+      213: 5456868976781878999
+    second: Dirt Splash_spritesheet_97
+  - first:
+      213: -8841306163422680344
+    second: Dirt Splash_spritesheet_98
+  - first:
+      213: 8871470032537528939
+    second: Dirt Splash_spritesheet_99
+  - first:
+      213: 5883678626183122285
+    second: Dirt Splash_spritesheet_100
+  - first:
+      213: 3423904748151449860
+    second: Dirt Splash_spritesheet_101
+  - first:
+      213: -885532108943654055
+    second: Dirt Splash_spritesheet_102
+  - first:
+      213: -1122486552818547945
+    second: Dirt Splash_spritesheet_103
+  - first:
+      213: -5607754214502884254
+    second: Dirt Splash_spritesheet_104
+  - first:
+      213: -6072079138202235431
+    second: Dirt Splash_spritesheet_105
+  - first:
+      213: 8325860848968060591
+    second: Dirt Splash_spritesheet_106
+  - first:
+      213: 7719374689799479422
+    second: Dirt Splash_spritesheet_107
+  - first:
+      213: 4038186163010636444
+    second: Dirt Splash_spritesheet_108
+  - first:
+      213: -8427231435042538801
+    second: Dirt Splash_spritesheet_109
+  - first:
+      213: 930711628408611519
+    second: Dirt Splash_spritesheet_110
+  - first:
+      213: 6505355867232025537
+    second: Dirt Splash_spritesheet_111
+  - first:
+      213: 5866858438666363099
+    second: Dirt Splash_spritesheet_112
+  - first:
+      213: -2343102737090443620
+    second: Dirt Splash_spritesheet_113
+  - first:
+      213: 4088008876800458679
+    second: Dirt Splash_spritesheet_114
+  - first:
+      213: -7833732906491997939
+    second: Dirt Splash_spritesheet_115
+  - first:
+      213: 5013824145611854525
+    second: Dirt Splash_spritesheet_116
+  - first:
+      213: 3310656008065563518
+    second: Dirt Splash_spritesheet_117
+  - first:
+      213: -2390119510379725790
+    second: Dirt Splash_spritesheet_118
+  - first:
+      213: 7904870856350865702
+    second: Dirt Splash_spritesheet_119
+  - first:
+      213: 3159504988229816207
+    second: Dirt Splash_spritesheet_120
+  - first:
+      213: 5829734698970545729
+    second: Dirt Splash_spritesheet_121
+  - first:
+      213: 7343049462438638083
+    second: Dirt Splash_spritesheet_122
+  - first:
+      213: 7851509384103249317
+    second: Dirt Splash_spritesheet_123
+  - first:
+      213: 1517543728143295560
+    second: Dirt Splash_spritesheet_124
+  - first:
+      213: 4209600969386321004
+    second: Dirt Splash_spritesheet_125
+  - first:
+      213: 302390453085627964
+    second: Dirt Splash_spritesheet_126
+  - first:
+      213: -4650742204196366040
+    second: Dirt Splash_spritesheet_127
+  - first:
+      213: 7505341026658044966
+    second: Dirt Splash_spritesheet_128
+  - first:
+      213: -2274223670475052399
+    second: Dirt Splash_spritesheet_129
+  - first:
+      213: 286890194742682767
+    second: Dirt Splash_spritesheet_130
+  - first:
+      213: 5449799262454171966
+    second: Dirt Splash_spritesheet_131
+  - first:
+      213: -6050640569350553425
+    second: Dirt Splash_spritesheet_132
+  - first:
+      213: 3756752418826953489
+    second: Dirt Splash_spritesheet_133
+  - first:
+      213: 7401677748851915257
+    second: Dirt Splash_spritesheet_134
+  - first:
+      213: -1048493351838254037
+    second: Dirt Splash_spritesheet_135
+  - first:
+      213: -2959265058438393210
+    second: Dirt Splash_spritesheet_136
+  - first:
+      213: 7503930294991243814
+    second: Dirt Splash_spritesheet_137
+  - first:
+      213: -7323062429454203561
+    second: Dirt Splash_spritesheet_138
+  - first:
+      213: 3218461681039039662
+    second: Dirt Splash_spritesheet_139
+  - first:
+      213: -5735845703973276733
+    second: Dirt Splash_spritesheet_140
+  - first:
+      213: 4153562763820312824
+    second: Dirt Splash_spritesheet_141
+  - first:
+      213: 5717697302723061736
+    second: Dirt Splash_spritesheet_142
+  - first:
+      213: -6166073127151253491
+    second: Dirt Splash_spritesheet_143
+  - first:
+      213: -2767385103913864687
+    second: Dirt Splash_spritesheet_144
+  - first:
+      213: -8850304887414671008
+    second: Dirt Splash_spritesheet_145
+  - first:
+      213: -1017626537379315585
+    second: Dirt Splash_spritesheet_146
+  - first:
+      213: -242669770934165656
+    second: Dirt Splash_spritesheet_147
+  - first:
+      213: -2586088856895967751
+    second: Dirt Splash_spritesheet_148
+  - first:
+      213: -4517409656833006969
+    second: Dirt Splash_spritesheet_149
+  - first:
+      213: 4518150001537670749
+    second: Dirt Splash_spritesheet_150
+  - first:
+      213: 8935014644047834644
+    second: Dirt Splash_spritesheet_151
+  - first:
+      213: -8459752240690010065
+    second: Dirt Splash_spritesheet_152
+  - first:
+      213: 636841789380051222
+    second: Dirt Splash_spritesheet_153
+  - first:
+      213: -767111510307019281
+    second: Dirt Splash_spritesheet_154
+  - first:
+      213: 4423472206995255484
+    second: Dirt Splash_spritesheet_155
+  - first:
+      213: 1442787340437422734
+    second: Dirt Splash_spritesheet_156
+  - first:
+      213: -7596607006745947075
+    second: Dirt Splash_spritesheet_157
+  - first:
+      213: -859430576340404665
+    second: Dirt Splash_spritesheet_158
+  - first:
+      213: -3315689020503828152
+    second: Dirt Splash_spritesheet_159
+  - first:
+      213: 4031903304727480697
+    second: Dirt Splash_spritesheet_160
+  - first:
+      213: -4771210822187238777
+    second: Dirt Splash_spritesheet_161
+  - first:
+      213: -3735667034341139524
+    second: Dirt Splash_spritesheet_162
+  - first:
+      213: 6049102273465985532
+    second: Dirt Splash_spritesheet_163
+  - first:
+      213: 2244991482694684437
+    second: Dirt Splash_spritesheet_164
+  - first:
+      213: 2947809968898940435
+    second: Dirt Splash_spritesheet_165
+  - first:
+      213: 8339547857609836236
+    second: Dirt Splash_spritesheet_166
+  - first:
+      213: 2700109946242264209
+    second: Dirt Splash_spritesheet_167
+  - first:
+      213: -6289890385944900121
+    second: Dirt Splash_spritesheet_168
+  - first:
+      213: 8724997317824111111
+    second: Dirt Splash_spritesheet_169
+  - first:
+      213: 5205427420135061344
+    second: Dirt Splash_spritesheet_170
+  - first:
+      213: -2623119883563467446
+    second: Dirt Splash_spritesheet_171
+  - first:
+      213: 3415034283681200161
+    second: Dirt Splash_spritesheet_172
+  - first:
+      213: -1547715933218230827
+    second: Dirt Splash_spritesheet_173
+  - first:
+      213: -1725653336338161011
+    second: Dirt Splash_spritesheet_174
+  - first:
+      213: 2913875271434767555
+    second: Dirt Splash_spritesheet_175
+  - first:
+      213: -8170191245784799481
+    second: Dirt Splash_spritesheet_176
+  - first:
+      213: -7181785637468207036
+    second: Dirt Splash_spritesheet_177
+  - first:
+      213: -8164905687489580735
+    second: Dirt Splash_spritesheet_178
+  - first:
+      213: 7242864700421515283
+    second: Dirt Splash_spritesheet_179
+  - first:
+      213: 972322175692904987
+    second: Dirt Splash_spritesheet_180
+  - first:
+      213: 6812787896051288686
+    second: Dirt Splash_spritesheet_181
+  - first:
+      213: 5584374066583500180
+    second: Dirt Splash_spritesheet_182
+  - first:
+      213: -2843052635937573156
+    second: Dirt Splash_spritesheet_183
+  - first:
+      213: 6497762266452530727
+    second: Dirt Splash_spritesheet_184
+  - first:
+      213: -1966696740553276367
+    second: Dirt Splash_spritesheet_185
+  - first:
+      213: -2573957257231504396
+    second: Dirt Splash_spritesheet_186
+  - first:
+      213: -8413821653479325422
+    second: Dirt Splash_spritesheet_187
+  - first:
+      213: 6232389531455180238
+    second: Dirt Splash_spritesheet_188
+  - first:
+      213: -493364634514254657
+    second: Dirt Splash_spritesheet_189
+  - first:
+      213: -8447726603006082575
+    second: Dirt Splash_spritesheet_190
+  - first:
+      213: -8893069564318694086
+    second: Dirt Splash_spritesheet_191
+  - first:
+      213: 9077494291216186301
+    second: Dirt Splash_spritesheet_192
+  - first:
+      213: -5140954628114141083
+    second: Dirt Splash_spritesheet_193
+  - first:
+      213: -7873862537619905471
+    second: Dirt Splash_spritesheet_194
+  - first:
+      213: -185600109415493904
+    second: Dirt Splash_spritesheet_195
+  - first:
+      213: 5706886422178109264
+    second: Dirt Splash_spritesheet_196
+  - first:
+      213: -6156748278858194190
+    second: Dirt Splash_spritesheet_197
+  - first:
+      213: -4099905486472260429
+    second: Dirt Splash_spritesheet_198
+  - first:
+      213: 8627830898467112373
+    second: Dirt Splash_spritesheet_199
+  - first:
+      213: 595613729926518245
+    second: Dirt Splash_spritesheet_200
+  - first:
+      213: 7578611705222935929
+    second: Dirt Splash_spritesheet_201
+  - first:
+      213: 818236133977420906
+    second: Dirt Splash_spritesheet_202
+  - first:
+      213: 2199397378009195549
+    second: Dirt Splash_spritesheet_203
+  - first:
+      213: -3219842365785628557
+    second: Dirt Splash_spritesheet_204
+  - first:
+      213: 8148843027993487043
+    second: Dirt Splash_spritesheet_205
+  - first:
+      213: -6092720340548569095
+    second: Dirt Splash_spritesheet_206
+  - first:
+      213: -2094939216619577097
+    second: Dirt Splash_spritesheet_207
+  - first:
+      213: -5466914302498016234
+    second: Dirt Splash_spritesheet_208
+  - first:
+      213: 3671235489605189687
+    second: Dirt Splash_spritesheet_209
+  - first:
+      213: 6039086704762888985
+    second: Dirt Splash_spritesheet_210
+  - first:
+      213: 5937011061186447883
+    second: Dirt Splash_spritesheet_211
+  - first:
+      213: -5752143200938973811
+    second: Dirt Splash_spritesheet_212
+  - first:
+      213: 6451945173348511523
+    second: Dirt Splash_spritesheet_213
+  - first:
+      213: -7123460033002019185
+    second: Dirt Splash_spritesheet_214
+  - first:
+      213: -6238386932994106852
+    second: Dirt Splash_spritesheet_215
+  - first:
+      213: 5892006688602030853
+    second: Dirt Splash_spritesheet_216
+  - first:
+      213: -7251389456026767902
+    second: Dirt Splash_spritesheet_217
+  - first:
+      213: -56921357289329477
+    second: Dirt Splash_spritesheet_218
+  - first:
+      213: -8351723010954441386
+    second: Dirt Splash_spritesheet_219
+  - first:
+      213: -7624431776736500949
+    second: Dirt Splash_spritesheet_220
+  - first:
+      213: -1372206468045172496
+    second: Dirt Splash_spritesheet_221
+  - first:
+      213: -8984228991259115899
+    second: Dirt Splash_spritesheet_222
+  - first:
+      213: 557766251573027194
+    second: Dirt Splash_spritesheet_223
+  - first:
+      213: 3454680287929790143
+    second: Dirt Splash_spritesheet_224
+  - first:
+      213: -1129274409415633908
+    second: Dirt Splash_spritesheet_225
+  - first:
+      213: 4314009783888928934
+    second: Dirt Splash_spritesheet_226
+  - first:
+      213: 3976580474567971422
+    second: Dirt Splash_spritesheet_227
+  - first:
+      213: -6658557614041600630
+    second: Dirt Splash_spritesheet_228
+  - first:
+      213: 161131814234757717
+    second: Dirt Splash_spritesheet_229
+  - first:
+      213: 5425073084353711638
+    second: Dirt Splash_spritesheet_230
+  - first:
+      213: -3796259799556700929
+    second: Dirt Splash_spritesheet_231
+  - first:
+      213: 1390160028028800325
+    second: Dirt Splash_spritesheet_232
+  - first:
+      213: -7255776663453126684
+    second: Dirt Splash_spritesheet_233
+  - first:
+      213: -6643475405653734312
+    second: Dirt Splash_spritesheet_234
+  - first:
+      213: -5176113851389829040
+    second: Dirt Splash_spritesheet_235
+  - first:
+      213: 3341013970154423367
+    second: Dirt Splash_spritesheet_236
+  - first:
+      213: 2063982285698763865
+    second: Dirt Splash_spritesheet_237
+  - first:
+      213: 1318385260726932437
+    second: Dirt Splash_spritesheet_238
+  - first:
+      213: -2563741511603569658
+    second: Dirt Splash_spritesheet_239
+  - first:
+      213: 2903692857276466928
+    second: Dirt Splash_spritesheet_240
+  - first:
+      213: -1685258142909641997
+    second: Dirt Splash_spritesheet_241
+  - first:
+      213: -7656818442614765361
+    second: Dirt Splash_spritesheet_242
+  - first:
+      213: -8185921935944274578
+    second: Dirt Splash_spritesheet_243
+  - first:
+      213: 41953020003477770
+    second: Dirt Splash_spritesheet_244
+  - first:
+      213: 2618979616444894146
+    second: Dirt Splash_spritesheet_245
+  - first:
+      213: 4234276920421464444
+    second: Dirt Splash_spritesheet_246
+  - first:
+      213: -2818584744174495602
+    second: Dirt Splash_spritesheet_247
+  - first:
+      213: 7295741218735690141
+    second: Dirt Splash_spritesheet_248
+  - first:
+      213: -3483276421799429318
+    second: Dirt Splash_spritesheet_249
+  - first:
+      213: 8920726111621003646
+    second: Dirt Splash_spritesheet_250
+  - first:
+      213: 3975969905304553357
+    second: Dirt Splash_spritesheet_251
+  - first:
+      213: 8174570906323704386
+    second: Dirt Splash_spritesheet_252
+  - first:
+      213: -8698428640718853120
+    second: Dirt Splash_spritesheet_253
+  - first:
+      213: 532451830659021089
+    second: Dirt Splash_spritesheet_254
+  - first:
+      213: -2249212198782720513
+    second: Dirt Splash_spritesheet_255
+  - first:
+      213: 6777751124055985032
+    second: Dirt Splash_spritesheet_256
+  - first:
+      213: -7976410244988805983
+    second: Dirt Splash_spritesheet_257
+  - first:
+      213: -5665847716629062474
+    second: Dirt Splash_spritesheet_258
+  - first:
+      213: -7284957686445396514
+    second: Dirt Splash_spritesheet_259
+  - first:
+      213: 3421933381827746567
+    second: Dirt Splash_spritesheet_260
+  - first:
+      213: 4337297891792526623
+    second: Dirt Splash_spritesheet_261
+  - first:
+      213: 1993924484376717965
+    second: Dirt Splash_spritesheet_262
+  - first:
+      213: 832832222126868874
+    second: Dirt Splash_spritesheet_263
+  - first:
+      213: -7924677395470247524
+    second: Dirt Splash_spritesheet_264
+  - first:
+      213: -5652149773755415359
+    second: Dirt Splash_spritesheet_265
+  - first:
+      213: -9187835975031777543
+    second: Dirt Splash_spritesheet_266
+  - first:
+      213: 3375302319232552561
+    second: Dirt Splash_spritesheet_267
+  - first:
+      213: 6594073368793954279
+    second: Dirt Splash_spritesheet_268
+  - first:
+      213: -5411987933443890063
+    second: Dirt Splash_spritesheet_269
+  - first:
+      213: 5510783980978019929
+    second: Dirt Splash_spritesheet_270
+  - first:
+      213: -235438615009806856
+    second: Dirt Splash_spritesheet_271
+  - first:
+      213: -4976470250199275590
+    second: Dirt Splash_spritesheet_272
+  - first:
+      213: 8503814985468423130
+    second: Dirt Splash_spritesheet_273
+  - first:
+      213: -6107872236501705452
+    second: Dirt Splash_spritesheet_274
+  - first:
+      213: 7957647051389234237
+    second: Dirt Splash_spritesheet_275
+  - first:
+      213: 2563685098753410698
+    second: Dirt Splash_spritesheet_276
+  - first:
+      213: 4182016156535327634
+    second: Dirt Splash_spritesheet_277
+  - first:
+      213: -7330621867921129476
+    second: Dirt Splash_spritesheet_278
+  - first:
+      213: -6503861042354245445
+    second: Dirt Splash_spritesheet_279
+  - first:
+      213: -4509958139500075265
+    second: Dirt Splash_spritesheet_280
+  - first:
+      213: -7721708702800709477
+    second: Dirt Splash_spritesheet_281
+  - first:
+      213: 4938975093335276619
+    second: Dirt Splash_spritesheet_282
+  - first:
+      213: -1519487526759610140
+    second: Dirt Splash_spritesheet_283
+  - first:
+      213: -7913810731304969462
+    second: Dirt Splash_spritesheet_284
+  - first:
+      213: 671394357472641819
+    second: Dirt Splash_spritesheet_285
+  - first:
+      213: -5728436018563864114
+    second: Dirt Splash_spritesheet_286
+  - first:
+      213: 6159320994622577728
+    second: Dirt Splash_spritesheet_287
+  - first:
+      213: 8979860266106105363
+    second: Dirt Splash_spritesheet_288
+  - first:
+      213: 2433214022855522770
+    second: Dirt Splash_spritesheet_289
+  - first:
+      213: 2784511636738537010
+    second: Dirt Splash_spritesheet_290
+  - first:
+      213: -796165480156648607
+    second: Dirt Splash_spritesheet_291
+  - first:
+      213: -7441949207674915821
+    second: Dirt Splash_spritesheet_292
+  - first:
+      213: 5641968491663905654
+    second: Dirt Splash_spritesheet_293
+  - first:
+      213: -873786000473405182
+    second: Dirt Splash_spritesheet_294
+  - first:
+      213: 2353120449036763781
+    second: Dirt Splash_spritesheet_295
+  - first:
+      213: -8798676643923953074
+    second: Dirt Splash_spritesheet_296
+  - first:
+      213: 2331226865991004442
+    second: Dirt Splash_spritesheet_297
+  - first:
+      213: -4780384763306385882
+    second: Dirt Splash_spritesheet_298
+  - first:
+      213: -1073549361201881980
+    second: Dirt Splash_spritesheet_299
+  - first:
+      213: 3816989686102030209
+    second: Dirt Splash_spritesheet_300
+  - first:
+      213: -3922488831270123566
+    second: Dirt Splash_spritesheet_301
+  - first:
+      213: -4503903267509713481
+    second: Dirt Splash_spritesheet_302
+  - first:
+      213: 6804747041701745650
+    second: Dirt Splash_spritesheet_303
+  - first:
+      213: -2745623620603573985
+    second: Dirt Splash_spritesheet_304
+  - first:
+      213: -6325572976912693731
+    second: Dirt Splash_spritesheet_305
+  - first:
+      213: 5844723067249100097
+    second: Dirt Splash_spritesheet_306
+  - first:
+      213: 4081079168549001818
+    second: Dirt Splash_spritesheet_307
+  - first:
+      213: 7086241259022629533
+    second: Dirt Splash_spritesheet_308
+  - first:
+      213: -4937681805122716166
+    second: Dirt Splash_spritesheet_309
+  - first:
+      213: 7580304033810113130
+    second: Dirt Splash_spritesheet_310
+  - first:
+      213: -1089214372183578386
+    second: Dirt Splash_spritesheet_311
+  - first:
+      213: 5316387969410839903
+    second: Dirt Splash_spritesheet_312
+  - first:
+      213: -5146863546584600169
+    second: Dirt Splash_spritesheet_313
+  - first:
+      213: -1756314662454555671
+    second: Dirt Splash_spritesheet_314
+  - first:
+      213: -2556889431146985238
+    second: Dirt Splash_spritesheet_315
+  - first:
+      213: -6245159527141299110
+    second: Dirt Splash_spritesheet_316
+  - first:
+      213: 2317617577457589156
+    second: Dirt Splash_spritesheet_317
+  - first:
+      213: 9050540241597231690
+    second: Dirt Splash_spritesheet_318
+  - first:
+      213: -8027839419596151339
+    second: Dirt Splash_spritesheet_319
+  - first:
+      213: 637080966486299448
+    second: Dirt Splash_spritesheet_320
+  - first:
+      213: 2915176102572827545
+    second: Dirt Splash_spritesheet_321
+  - first:
+      213: -2743759603559458441
+    second: Dirt Splash_spritesheet_322
+  - first:
+      213: -7014025432829011019
+    second: Dirt Splash_spritesheet_323
+  - first:
+      213: -5553540893474814289
+    second: Dirt Splash_spritesheet_324
+  - first:
+      213: 8273506797266193950
+    second: Dirt Splash_spritesheet_325
+  - first:
+      213: -2178009683692434012
+    second: Dirt Splash_spritesheet_326
+  - first:
+      213: 5946302269698429542
+    second: Dirt Splash_spritesheet_327
+  - first:
+      213: 6669558252567476923
+    second: Dirt Splash_spritesheet_328
+  - first:
+      213: -3792761005097911241
+    second: Dirt Splash_spritesheet_329
+  - first:
+      213: -5688756272791284529
+    second: Dirt Splash_spritesheet_330
+  - first:
+      213: -6779787813711891289
+    second: Dirt Splash_spritesheet_331
+  - first:
+      213: -7457021770509235544
+    second: Dirt Splash_spritesheet_332
+  - first:
+      213: 5577110602176563220
+    second: Dirt Splash_spritesheet_333
+  - first:
+      213: 730400223007408296
+    second: Dirt Splash_spritesheet_334
+  - first:
+      213: 7837000476419126655
+    second: Dirt Splash_spritesheet_335
+  - first:
+      213: -4228546448727127916
+    second: Dirt Splash_spritesheet_336
+  - first:
+      213: 4975511134329391245
+    second: Dirt Splash_spritesheet_337
+  - first:
+      213: 6835937344052098162
+    second: Dirt Splash_spritesheet_338
+  - first:
+      213: -822548309385637113
+    second: Dirt Splash_spritesheet_339
+  - first:
+      213: 5556693822377276537
+    second: Dirt Splash_spritesheet_340
+  - first:
+      213: -4561117330721222058
+    second: Dirt Splash_spritesheet_341
+  - first:
+      213: 6511804937353073456
+    second: Dirt Splash_spritesheet_342
+  - first:
+      213: 8327132579514719449
+    second: Dirt Splash_spritesheet_343
+  - first:
+      213: -1072433425369303146
+    second: Dirt Splash_spritesheet_344
+  - first:
+      213: 747921465213563027
+    second: Dirt Splash_spritesheet_345
+  - first:
+      213: 1000358688548630980
+    second: Dirt Splash_spritesheet_346
+  - first:
+      213: 2912913267170334848
+    second: Dirt Splash_spritesheet_347
+  - first:
+      213: 8894133762178288852
+    second: Dirt Splash_spritesheet_348
+  - first:
+      213: -5319386955108954528
+    second: Dirt Splash_spritesheet_349
+  - first:
+      213: -6187224221144282694
+    second: Dirt Splash_spritesheet_350
+  - first:
+      213: 4257075434640077514
+    second: Dirt Splash_spritesheet_351
+  - first:
+      213: 5518290164799507980
+    second: Dirt Splash_spritesheet_352
+  - first:
+      213: -2175213573025681764
+    second: Dirt Splash_spritesheet_353
+  - first:
+      213: -7640367044808216472
+    second: Dirt Splash_spritesheet_354
+  - first:
+      213: 1423474876317142658
+    second: Dirt Splash_spritesheet_355
+  - first:
+      213: -5177890283018092778
+    second: Dirt Splash_spritesheet_356
+  - first:
+      213: -5311233916544682453
+    second: Dirt Splash_spritesheet_357
+  - first:
+      213: 5541685944581403325
+    second: Dirt Splash_spritesheet_358
+  - first:
+      213: -7846841721362535762
+    second: Dirt Splash_spritesheet_359
+  - first:
+      213: 8438076404663587937
+    second: Dirt Splash_spritesheet_360
+  - first:
+      213: -4140915521562843496
+    second: Dirt Splash_spritesheet_361
+  - first:
+      213: 3766583023020254215
+    second: Dirt Splash_spritesheet_362
+  - first:
+      213: 5650854075821217655
+    second: Dirt Splash_spritesheet_363
+  - first:
+      213: 5509901389876633074
+    second: Dirt Splash_spritesheet_364
+  - first:
+      213: -8170780940411913949
+    second: Dirt Splash_spritesheet_365
+  - first:
+      213: -9003637647568558327
+    second: Dirt Splash_spritesheet_366
+  - first:
+      213: 3648944682594839653
+    second: Dirt Splash_spritesheet_367
+  - first:
+      213: -68212649219143020
+    second: Dirt Splash_spritesheet_368
+  - first:
+      213: -2498906774587577769
+    second: Dirt Splash_spritesheet_369
+  - first:
+      213: 5929539112708290606
+    second: Dirt Splash_spritesheet_370
+  - first:
+      213: 3307505268385203150
+    second: Dirt Splash_spritesheet_371
+  - first:
+      213: 3494125875152890671
+    second: Dirt Splash_spritesheet_372
+  - first:
+      213: -1099057830522587141
+    second: Dirt Splash_spritesheet_373
+  - first:
+      213: -1174815769751812776
+    second: Dirt Splash_spritesheet_374
+  - first:
+      213: -2723805573452973060
+    second: Dirt Splash_spritesheet_375
+  - first:
+      213: -2373145781198926104
+    second: Dirt Splash_spritesheet_376
+  - first:
+      213: 3609440469435760434
+    second: Dirt Splash_spritesheet_377
+  - first:
+      213: -7999067391987144571
+    second: Dirt Splash_spritesheet_378
+  - first:
+      213: 8331613388728625497
+    second: Dirt Splash_spritesheet_379
+  - first:
+      213: -624993787368113381
+    second: Dirt Splash_spritesheet_380
+  - first:
+      213: -4719436801425318196
+    second: Dirt Splash_spritesheet_381
+  - first:
+      213: -2147852546915081443
+    second: Dirt Splash_spritesheet_382
+  - first:
+      213: -2225289497887842099
+    second: Dirt Splash_spritesheet_383
+  - first:
+      213: -5768134892754174780
+    second: Dirt Splash_spritesheet_384
+  - first:
+      213: -9128217724279982395
+    second: Dirt Splash_spritesheet_385
+  - first:
+      213: -4830164508112123680
+    second: Dirt Splash_spritesheet_386
+  - first:
+      213: 4087425525708737576
+    second: Dirt Splash_spritesheet_387
+  - first:
+      213: 1661444612601068289
+    second: Dirt Splash_spritesheet_388
+  - first:
+      213: -2787186460325610025
+    second: Dirt Splash_spritesheet_389
+  - first:
+      213: 6945250122535973536
+    second: Dirt Splash_spritesheet_390
+  - first:
+      213: -55312841573201726
+    second: Dirt Splash_spritesheet_391
+  - first:
+      213: -3733994235475076036
+    second: Dirt Splash_spritesheet_392
+  - first:
+      213: 2769692019118399679
+    second: Dirt Splash_spritesheet_393
+  - first:
+      213: -654917526191850681
+    second: Dirt Splash_spritesheet_394
+  - first:
+      213: 2639366505018474662
+    second: Dirt Splash_spritesheet_395
+  - first:
+      213: 6303448091943715934
+    second: Dirt Splash_spritesheet_396
+  - first:
+      213: -5691529068014842367
+    second: Dirt Splash_spritesheet_397
+  - first:
+      213: -3771098536782621502
+    second: Dirt Splash_spritesheet_398
+  - first:
+      213: -2739735006868656142
+    second: Dirt Splash_spritesheet_399
+  - first:
+      213: -6117456240192770324
+    second: Dirt Splash_spritesheet_400
+  - first:
+      213: -420795777927259659
+    second: Dirt Splash_spritesheet_401
+  - first:
+      213: -286150128595385390
+    second: Dirt Splash_spritesheet_402
+  - first:
+      213: -1514840629796197016
+    second: Dirt Splash_spritesheet_403
+  - first:
+      213: -1498567020850009317
+    second: Dirt Splash_spritesheet_404
+  - first:
+      213: 275927346191718012
+    second: Dirt Splash_spritesheet_405
+  - first:
+      213: 7909509979389287421
+    second: Dirt Splash_spritesheet_406
+  - first:
+      213: -8440091896227314190
+    second: Dirt Splash_spritesheet_407
+  - first:
+      213: -2749541476618345043
+    second: Dirt Splash_spritesheet_408
+  - first:
+      213: -7410048948581402469
+    second: Dirt Splash_spritesheet_409
+  - first:
+      213: -556199146831481120
+    second: Dirt Splash_spritesheet_410
+  - first:
+      213: -6709099179222556910
+    second: Dirt Splash_spritesheet_411
+  - first:
+      213: 3893224472633629386
+    second: Dirt Splash_spritesheet_412
+  - first:
+      213: 6841123423398246686
+    second: Dirt Splash_spritesheet_413
+  - first:
+      213: 8563600781512697775
+    second: Dirt Splash_spritesheet_414
+  - first:
+      213: -4689755039065523190
+    second: Dirt Splash_spritesheet_415
+  - first:
+      213: 2582554617078379512
+    second: Dirt Splash_spritesheet_416
+  - first:
+      213: 6721547168146867437
+    second: Dirt Splash_spritesheet_417
+  - first:
+      213: 2033109561893041725
+    second: Dirt Splash_spritesheet_418
+  - first:
+      213: 2729336728629009703
+    second: Dirt Splash_spritesheet_419
+  - first:
+      213: -6603630025049022804
+    second: Dirt Splash_spritesheet_420
+  - first:
+      213: -6570512406881743118
+    second: Dirt Splash_spritesheet_421
+  - first:
+      213: 660855500334582631
+    second: Dirt Splash_spritesheet_422
+  - first:
+      213: -3558212861214192352
+    second: Dirt Splash_spritesheet_423
+  - first:
+      213: 8731220196777318579
+    second: Dirt Splash_spritesheet_424
+  - first:
+      213: -5715690539556541977
+    second: Dirt Splash_spritesheet_425
+  - first:
+      213: -4565452657647692679
+    second: Dirt Splash_spritesheet_426
+  - first:
+      213: -2999567859060277371
+    second: Dirt Splash_spritesheet_427
+  - first:
+      213: -5677385745358439408
+    second: Dirt Splash_spritesheet_428
+  - first:
+      213: 3465092688809383338
+    second: Dirt Splash_spritesheet_429
+  - first:
+      213: -3501952202909571678
+    second: Dirt Splash_spritesheet_430
+  - first:
+      213: -8455103594001945572
+    second: Dirt Splash_spritesheet_431
+  - first:
+      213: -333552030809018865
+    second: Dirt Splash_spritesheet_432
+  - first:
+      213: -598082818945024933
+    second: Dirt Splash_spritesheet_433
+  - first:
+      213: 4540304910709714542
+    second: Dirt Splash_spritesheet_434
+  - first:
+      213: 6246607700786726279
+    second: Dirt Splash_spritesheet_435
+  - first:
+      213: 2542182992676439504
+    second: Dirt Splash_spritesheet_436
+  - first:
+      213: -5768346340417228526
+    second: Dirt Splash_spritesheet_437
+  - first:
+      213: -6918252949603516563
+    second: Dirt Splash_spritesheet_438
+  - first:
+      213: 2883014881025800593
+    second: Dirt Splash_spritesheet_439
+  - first:
+      213: -651995362879242847
+    second: Dirt Splash_spritesheet_440
+  - first:
+      213: -1522249939263231142
+    second: Dirt Splash_spritesheet_441
+  - first:
+      213: -7346575914476113199
+    second: Dirt Splash_spritesheet_442
+  - first:
+      213: -1999208367450559559
+    second: Dirt Splash_spritesheet_443
+  - first:
+      213: -3940102588118527943
+    second: Dirt Splash_spritesheet_444
+  - first:
+      213: 5448726061256967200
+    second: Dirt Splash_spritesheet_445
+  - first:
+      213: -6794710858871737484
+    second: Dirt Splash_spritesheet_446
+  - first:
+      213: -350991194833035419
+    second: Dirt Splash_spritesheet_447
+  - first:
+      213: 1181822162314914247
+    second: Dirt Splash_spritesheet_448
+  - first:
+      213: -8321377061618698161
+    second: Dirt Splash_spritesheet_449
+  - first:
+      213: 3163796141154839036
+    second: Dirt Splash_spritesheet_450
+  - first:
+      213: 2274409558424685827
+    second: Dirt Splash_spritesheet_451
+  - first:
+      213: 759093552304678800
+    second: Dirt Splash_spritesheet_452
+  - first:
+      213: 8946987501610698749
+    second: Dirt Splash_spritesheet_453
+  - first:
+      213: 7186453220965595721
+    second: Dirt Splash_spritesheet_454
+  - first:
+      213: 4602072587453173811
+    second: Dirt Splash_spritesheet_455
+  - first:
+      213: -4752461406446969899
+    second: Dirt Splash_spritesheet_456
+  - first:
+      213: 7251915765312614285
+    second: Dirt Splash_spritesheet_457
+  - first:
+      213: -4782648213339975561
+    second: Dirt Splash_spritesheet_458
+  - first:
+      213: -7135598619294179250
+    second: Dirt Splash_spritesheet_459
+  - first:
+      213: 5665981804129104630
+    second: Dirt Splash_spritesheet_460
+  - first:
+      213: 7098360155208464568
+    second: Dirt Splash_spritesheet_461
+  - first:
+      213: 1606080806183419578
+    second: Dirt Splash_spritesheet_462
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940c1edf4908d7f30800000000000000
+      internalID: 4574954173881237577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a90f6d7f4b97190800000000000000
+      internalID: -7964135489471997346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89672af0aa62960f0800000000000000
+      internalID: -1123324120203626856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e832e58d98008060800000000000000
+      internalID: 6953567297309128936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3970a9fab9da38160800000000000000
+      internalID: 7026650727805749139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e249363dbfd15a0800000000000000
+      internalID: -6548801397799506395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9a545d5b34d8ed0800000000000000
+      internalID: -2410195777327093331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3221ec675a3df420800000000000000
+      internalID: 2665350701636461117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66544fd3b295227e0800000000000000
+      internalID: -1791771659482151578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 812d18618fc526c60800000000000000
+      internalID: 7809906924413112856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c460d0001e5f5d80800000000000000
+      internalID: -8259779768748055354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe57d923c5e94af0800000000000000
+      internalID: -411545264544325900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6502af343c1068b20800000000000000
+      internalID: 3136196128680845398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db4f4b24e498cb20800000000000000
+      internalID: 3154935246673103833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: becddee5665e1a7c0800000000000000
+      internalID: -4061713161069404949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de2f7c08e88fd3a0800000000000000
+      internalID: -6638436795497369895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbed0e99dc791a390800000000000000
+      internalID: -7808793369577988420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda65b2b44c039c40800000000000000
+      internalID: 5517767457654532828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fc91ac5b905dcae0800000000000000
+      internalID: -1527476070404481804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d993515cbb0878170800000000000000
+      internalID: 8180648792095537565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92c6debc5f1dc1f20800000000000000
+      internalID: 3394819072749038633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2d69014445010c0800000000000000
+      internalID: -4607089767487188313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba38753a0e5f1c670800000000000000
+      internalID: 8557391112142554027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb8c0088b3f96620800000000000000
+      internalID: 2768011419743718320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c51c01e66fcb03a0800000000000000
+      internalID: -6698031980014201406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66642d4a3dbdbd730800000000000000
+      internalID: 4025052394035496550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb5719e9c04f0250800000000000000
+      internalID: 5913016071703976932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Splash_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abdc48676f5d657e0800000000000000
+      internalID: -1776997748423995974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 39001d989d5e70649a73e30920720ffe
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":8.0},"gridSpriteSize":{"x":512.0,"y":512.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Dirt Splash_spritesheet_0: 4574954173881237577
+      Dirt Splash_spritesheet_1: -7964135489471997346
+      Dirt Splash_spritesheet_10: -8259779768748055354
+      Dirt Splash_spritesheet_11: -411545264544325900
+      Dirt Splash_spritesheet_12: 3136196128680845398
+      Dirt Splash_spritesheet_13: 3154935246673103833
+      Dirt Splash_spritesheet_14: -4061713161069404949
+      Dirt Splash_spritesheet_15: -6638436795497369895
+      Dirt Splash_spritesheet_16: -7808793369577988420
+      Dirt Splash_spritesheet_17: 5517767457654532828
+      Dirt Splash_spritesheet_18: -1527476070404481804
+      Dirt Splash_spritesheet_19: 8180648792095537565
+      Dirt Splash_spritesheet_2: -1123324120203626856
+      Dirt Splash_spritesheet_20: 3394819072749038633
+      Dirt Splash_spritesheet_21: -4607089767487188313
+      Dirt Splash_spritesheet_22: 8557391112142554027
+      Dirt Splash_spritesheet_23: 2768011419743718320
+      Dirt Splash_spritesheet_24: -6698031980014201406
+      Dirt Splash_spritesheet_25: 4025052394035496550
+      Dirt Splash_spritesheet_26: 5913016071703976932
+      Dirt Splash_spritesheet_27: -1776997748423995974
+      Dirt Splash_spritesheet_3: 6953567297309128936
+      Dirt Splash_spritesheet_4: 7026650727805749139
+      Dirt Splash_spritesheet_5: -6548801397799506395
+      Dirt Splash_spritesheet_6: -2410195777327093331
+      Dirt Splash_spritesheet_7: 2665350701636461117
+      Dirt Splash_spritesheet_8: -1791771659482151578
+      Dirt Splash_spritesheet_9: 7809906924413112856
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

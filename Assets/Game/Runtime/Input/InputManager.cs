@@ -20,6 +20,9 @@ namespace WOR.Gameplay {
         private InputAction grab;
         private InputAction jump;
         private InputAction dash;
+        private InputAction jutsu1;
+        private InputAction jutsu2;
+        private InputAction jutsu3;
         private InputStateModel inputStateModel;
 
         void Awake(){
@@ -51,6 +54,11 @@ namespace WOR.Gameplay {
             jump = playerInput.Player.Jump;
             dash = playerInput.Player.Dash;
 
+            InputActionMap playerMap = playerInput.asset.FindActionMap("Player", throwIfNotFound: true);
+            jutsu1 = EnsureJutsuAction(playerMap, "Jutsu1", "<Keyboard>/1", "<Keyboard>/numpad1", "<Gamepad>/rightTrigger");
+            jutsu2 = EnsureJutsuAction(playerMap, "Jutsu2", "<Keyboard>/2", "<Keyboard>/numpad2", "<Gamepad>/leftTrigger");
+            jutsu3 = EnsureJutsuAction(playerMap, "Jutsu3", "<Keyboard>/3", "<Keyboard>/numpad3", null);
+
             move.Enable();
             punch.Enable();
             kick.Enable();
@@ -58,6 +66,9 @@ namespace WOR.Gameplay {
             grab.Enable();
             jump.Enable();
             dash.Enable();
+            jutsu1.Enable();
+            jutsu2.Enable();
+            jutsu3.Enable();
         }
 
         void OnDisable(){
@@ -72,6 +83,9 @@ namespace WOR.Gameplay {
             grab.Disable();
             jump.Disable();
             dash.Disable();
+            jutsu1?.Disable();
+            jutsu2?.Disable();
+            jutsu3?.Disable();
         }
 
         void Update() {
@@ -119,6 +133,21 @@ namespace WOR.Gameplay {
             return Instance?.inputStateModel?.DashPressedThisFrame ?? false;
         }
 
+        //get Jutsu Slot 1 key state
+        public static bool JutsuSlot1KeyDown(int playerId) {
+            return Instance != null && Instance.jutsu1 != null && Instance.jutsu1.WasPressedThisFrame();
+        }
+
+        //get Jutsu Slot 2 key state
+        public static bool JutsuSlot2KeyDown(int playerId) {
+            return Instance != null && Instance.jutsu2 != null && Instance.jutsu2.WasPressedThisFrame();
+        }
+
+        //get Jutsu Slot 3 key state
+        public static bool JutsuSlot3KeyDown(int playerId) {
+            return Instance != null && Instance.jutsu3 != null && Instance.jutsu3.WasPressedThisFrame();
+        }
+
         //returns the directional input as a vector2
         public static Vector2 GetInputVector(int playerId){
             return Instance?.inputStateModel?.Move ?? Vector2.zero;
@@ -138,6 +167,37 @@ namespace WOR.Gameplay {
                 }
             } else if (change == InputDeviceChange.Removed) {
             }
+        }
+
+        private static InputAction EnsureJutsuAction(
+            InputActionMap playerMap,
+            string actionName,
+            string keyboardBinding,
+            string numpadBinding,
+            string gamepadBinding) {
+            InputAction action = playerMap.FindAction(actionName, throwIfNotFound: false);
+            if(action != null) {
+                return action;
+            }
+
+            action = playerMap.AddAction(actionName, InputActionType.Button);
+            if(!string.IsNullOrWhiteSpace(keyboardBinding)) {
+                action.AddBinding(keyboardBinding);
+            }
+            if(!string.IsNullOrWhiteSpace(numpadBinding)) {
+                action.AddBinding(numpadBinding);
+            }
+
+            if(actionName == "Jutsu3") {
+                action
+                    .AddCompositeBinding("OneModifier")
+                    .With("Modifier", "<Gamepad>/leftTrigger")
+                    .With("Binding", "<Gamepad>/rightTrigger");
+            } else if(!string.IsNullOrWhiteSpace(gamepadBinding)) {
+                action.AddBinding(gamepadBinding);
+            }
+
+            return action;
         }
     }
 }

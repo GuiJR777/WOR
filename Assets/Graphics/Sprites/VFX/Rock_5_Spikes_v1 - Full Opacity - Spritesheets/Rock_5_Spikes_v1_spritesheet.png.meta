@@ -1,0 +1,2215 @@
+fileFormatVersion: 2
+guid: 6195a8ac24c36de4eac3fd302fa7d586
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2444737489680513823
+    second: Rock_5_Spikes_v1_spritesheet_0
+  - first:
+      213: -2032732545275717519
+    second: Rock_5_Spikes_v1_spritesheet_1
+  - first:
+      213: -685403123710845376
+    second: Rock_5_Spikes_v1_spritesheet_2
+  - first:
+      213: 1510575679284510093
+    second: Rock_5_Spikes_v1_spritesheet_3
+  - first:
+      213: -4531344464333482433
+    second: Rock_5_Spikes_v1_spritesheet_4
+  - first:
+      213: -8878433121170360056
+    second: Rock_5_Spikes_v1_spritesheet_5
+  - first:
+      213: -2132617899918903715
+    second: Rock_5_Spikes_v1_spritesheet_6
+  - first:
+      213: -1701953620005378427
+    second: Rock_5_Spikes_v1_spritesheet_7
+  - first:
+      213: 2328427830516837953
+    second: Rock_5_Spikes_v1_spritesheet_8
+  - first:
+      213: 5264113125039947533
+    second: Rock_5_Spikes_v1_spritesheet_9
+  - first:
+      213: 5754231065289276914
+    second: Rock_5_Spikes_v1_spritesheet_10
+  - first:
+      213: 6318723439503889007
+    second: Rock_5_Spikes_v1_spritesheet_11
+  - first:
+      213: -8992782604893669919
+    second: Rock_5_Spikes_v1_spritesheet_12
+  - first:
+      213: 3971543227765826379
+    second: Rock_5_Spikes_v1_spritesheet_13
+  - first:
+      213: 8902378785254084539
+    second: Rock_5_Spikes_v1_spritesheet_14
+  - first:
+      213: -5000119867598221201
+    second: Rock_5_Spikes_v1_spritesheet_15
+  - first:
+      213: 8016524995093969160
+    second: Rock_5_Spikes_v1_spritesheet_16
+  - first:
+      213: -689890102503257261
+    second: Rock_5_Spikes_v1_spritesheet_17
+  - first:
+      213: -8676393959710536323
+    second: Rock_5_Spikes_v1_spritesheet_18
+  - first:
+      213: 1571274955855168658
+    second: Rock_5_Spikes_v1_spritesheet_19
+  - first:
+      213: -1787534181321685158
+    second: Rock_5_Spikes_v1_spritesheet_20
+  - first:
+      213: -6633481818754027395
+    second: Rock_5_Spikes_v1_spritesheet_21
+  - first:
+      213: 7509942984259960509
+    second: Rock_5_Spikes_v1_spritesheet_22
+  - first:
+      213: -6857936934356627464
+    second: Rock_5_Spikes_v1_spritesheet_23
+  - first:
+      213: -2073697802484843837
+    second: Rock_5_Spikes_v1_spritesheet_24
+  - first:
+      213: 2333166070499483456
+    second: Rock_5_Spikes_v1_spritesheet_25
+  - first:
+      213: 6351769658270934200
+    second: Rock_5_Spikes_v1_spritesheet_26
+  - first:
+      213: 1699283055809301718
+    second: Rock_5_Spikes_v1_spritesheet_27
+  - first:
+      213: 1792021439453549223
+    second: Rock_5_Spikes_v1_spritesheet_28
+  - first:
+      213: -1758628485398208400
+    second: Rock_5_Spikes_v1_spritesheet_29
+  - first:
+      213: -7087685919798637543
+    second: Rock_5_Spikes_v1_spritesheet_30
+  - first:
+      213: 8435138796355990767
+    second: Rock_5_Spikes_v1_spritesheet_31
+  - first:
+      213: -7358140033698292732
+    second: Rock_5_Spikes_v1_spritesheet_32
+  - first:
+      213: 2190656661709334657
+    second: Rock_5_Spikes_v1_spritesheet_33
+  - first:
+      213: 5583284528781168653
+    second: Rock_5_Spikes_v1_spritesheet_34
+  - first:
+      213: -1363477463023590781
+    second: Rock_5_Spikes_v1_spritesheet_35
+  - first:
+      213: -5705234675321314467
+    second: Rock_5_Spikes_v1_spritesheet_36
+  - first:
+      213: 6907957815971026626
+    second: Rock_5_Spikes_v1_spritesheet_37
+  - first:
+      213: -4245030700858527275
+    second: Rock_5_Spikes_v1_spritesheet_38
+  - first:
+      213: 7340566488563573004
+    second: Rock_5_Spikes_v1_spritesheet_39
+  - first:
+      213: 8201601234299788906
+    second: Rock_5_Spikes_v1_spritesheet_40
+  - first:
+      213: -8245982051955050606
+    second: Rock_5_Spikes_v1_spritesheet_41
+  - first:
+      213: -8169011405100651905
+    second: Rock_5_Spikes_v1_spritesheet_42
+  - first:
+      213: -3260178525410868017
+    second: Rock_5_Spikes_v1_spritesheet_43
+  - first:
+      213: -990288672889185320
+    second: Rock_5_Spikes_v1_spritesheet_44
+  - first:
+      213: 6974829238506642896
+    second: Rock_5_Spikes_v1_spritesheet_45
+  - first:
+      213: -9134383973598624087
+    second: Rock_5_Spikes_v1_spritesheet_46
+  - first:
+      213: -6606835384564224963
+    second: Rock_5_Spikes_v1_spritesheet_47
+  - first:
+      213: -6088166055754067651
+    second: Rock_5_Spikes_v1_spritesheet_48
+  - first:
+      213: -8626257831484800963
+    second: Rock_5_Spikes_v1_spritesheet_49
+  - first:
+      213: 729362507570000218
+    second: Rock_5_Spikes_v1_spritesheet_50
+  - first:
+      213: -3826515204158216184
+    second: Rock_5_Spikes_v1_spritesheet_51
+  - first:
+      213: -260830289995407263
+    second: Rock_5_Spikes_v1_spritesheet_52
+  - first:
+      213: 6695029614431166514
+    second: Rock_5_Spikes_v1_spritesheet_53
+  - first:
+      213: -5554970083402311997
+    second: Rock_5_Spikes_v1_spritesheet_54
+  - first:
+      213: -3826765034093216849
+    second: Rock_5_Spikes_v1_spritesheet_55
+  - first:
+      213: -100551787808127717
+    second: Rock_5_Spikes_v1_spritesheet_56
+  - first:
+      213: 910224064359645216
+    second: Rock_5_Spikes_v1_spritesheet_57
+  - first:
+      213: -4876859339947730231
+    second: Rock_5_Spikes_v1_spritesheet_58
+  - first:
+      213: -8398144422602971800
+    second: Rock_5_Spikes_v1_spritesheet_59
+  - first:
+      213: 1518362885731209269
+    second: Rock_5_Spikes_v1_spritesheet_60
+  - first:
+      213: 2967446194468038021
+    second: Rock_5_Spikes_v1_spritesheet_61
+  - first:
+      213: -1317913782552830357
+    second: Rock_5_Spikes_v1_spritesheet_62
+  - first:
+      213: 928061229859880674
+    second: Rock_5_Spikes_v1_spritesheet_63
+  - first:
+      213: -6406738488336746661
+    second: Rock_5_Spikes_v1_spritesheet_64
+  - first:
+      213: 5062112920902825310
+    second: Rock_5_Spikes_v1_spritesheet_65
+  - first:
+      213: 2195304889746052110
+    second: Rock_5_Spikes_v1_spritesheet_66
+  - first:
+      213: -4940879978663239437
+    second: Rock_5_Spikes_v1_spritesheet_67
+  - first:
+      213: -4960307776348139202
+    second: Rock_5_Spikes_v1_spritesheet_68
+  - first:
+      213: 2143734397044010283
+    second: Rock_5_Spikes_v1_spritesheet_69
+  - first:
+      213: 6492933203261871561
+    second: Rock_5_Spikes_v1_spritesheet_70
+  - first:
+      213: -2428495494207039867
+    second: Rock_5_Spikes_v1_spritesheet_71
+  - first:
+      213: 1958859494931063125
+    second: Rock_5_Spikes_v1_spritesheet_72
+  - first:
+      213: 3492248350752854284
+    second: Rock_5_Spikes_v1_spritesheet_73
+  - first:
+      213: -7899596169777771803
+    second: Rock_5_Spikes_v1_spritesheet_74
+  - first:
+      213: 726213041154145276
+    second: Rock_5_Spikes_v1_spritesheet_75
+  - first:
+      213: -7924763444739315142
+    second: Rock_5_Spikes_v1_spritesheet_76
+  - first:
+      213: -2121195240722684173
+    second: Rock_5_Spikes_v1_spritesheet_77
+  - first:
+      213: 4631113589259507816
+    second: Rock_5_Spikes_v1_spritesheet_78
+  - first:
+      213: -4982924529089672444
+    second: Rock_5_Spikes_v1_spritesheet_79
+  - first:
+      213: 330167833004934679
+    second: Rock_5_Spikes_v1_spritesheet_80
+  - first:
+      213: 914040742044340879
+    second: Rock_5_Spikes_v1_spritesheet_81
+  - first:
+      213: -7112661681772578571
+    second: Rock_5_Spikes_v1_spritesheet_82
+  - first:
+      213: 7614043166459946012
+    second: Rock_5_Spikes_v1_spritesheet_83
+  - first:
+      213: -3130099301525944046
+    second: Rock_5_Spikes_v1_spritesheet_84
+  - first:
+      213: -569351342610621496
+    second: Rock_5_Spikes_v1_spritesheet_85
+  - first:
+      213: 948723962959596793
+    second: Rock_5_Spikes_v1_spritesheet_86
+  - first:
+      213: -5140016640223496928
+    second: Rock_5_Spikes_v1_spritesheet_87
+  - first:
+      213: 2549703838251268584
+    second: Rock_5_Spikes_v1_spritesheet_88
+  - first:
+      213: -6751218771583154514
+    second: Rock_5_Spikes_v1_spritesheet_89
+  - first:
+      213: -8280973704365979945
+    second: Rock_5_Spikes_v1_spritesheet_90
+  - first:
+      213: -5901377927663398815
+    second: Rock_5_Spikes_v1_spritesheet_91
+  - first:
+      213: 8274290417354285662
+    second: Rock_5_Spikes_v1_spritesheet_92
+  - first:
+      213: -6110280007932371635
+    second: Rock_5_Spikes_v1_spritesheet_93
+  - first:
+      213: -325203356450227897
+    second: Rock_5_Spikes_v1_spritesheet_94
+  - first:
+      213: -8005097449625573273
+    second: Rock_5_Spikes_v1_spritesheet_95
+  - first:
+      213: -1435031797735368700
+    second: Rock_5_Spikes_v1_spritesheet_96
+  - first:
+      213: -1286066325016419173
+    second: Rock_5_Spikes_v1_spritesheet_97
+  - first:
+      213: 611463662570083285
+    second: Rock_5_Spikes_v1_spritesheet_98
+  - first:
+      213: 1284607290021913623
+    second: Rock_5_Spikes_v1_spritesheet_99
+  - first:
+      213: 1440051622906754982
+    second: Rock_5_Spikes_v1_spritesheet_100
+  - first:
+      213: -2674330831941680924
+    second: Rock_5_Spikes_v1_spritesheet_101
+  - first:
+      213: 1792163070802424930
+    second: Rock_5_Spikes_v1_spritesheet_102
+  - first:
+      213: 1170878545264196431
+    second: Rock_5_Spikes_v1_spritesheet_103
+  - first:
+      213: -5231298149096392130
+    second: Rock_5_Spikes_v1_spritesheet_104
+  - first:
+      213: 2952164475782150037
+    second: Rock_5_Spikes_v1_spritesheet_105
+  - first:
+      213: 8530716980815303155
+    second: Rock_5_Spikes_v1_spritesheet_106
+  - first:
+      213: 2440945240520408595
+    second: Rock_5_Spikes_v1_spritesheet_107
+  - first:
+      213: 6360372749370506215
+    second: Rock_5_Spikes_v1_spritesheet_108
+  - first:
+      213: -4932494997195644067
+    second: Rock_5_Spikes_v1_spritesheet_109
+  - first:
+      213: 7136573375154043461
+    second: Rock_5_Spikes_v1_spritesheet_110
+  - first:
+      213: -4254846916329971897
+    second: Rock_5_Spikes_v1_spritesheet_111
+  - first:
+      213: -5183184647646742473
+    second: Rock_5_Spikes_v1_spritesheet_112
+  - first:
+      213: 7336664277516683194
+    second: Rock_5_Spikes_v1_spritesheet_113
+  - first:
+      213: 8722732616174321581
+    second: Rock_5_Spikes_v1_spritesheet_114
+  - first:
+      213: 5483964590627462353
+    second: Rock_5_Spikes_v1_spritesheet_115
+  - first:
+      213: -1246327447799676387
+    second: Rock_5_Spikes_v1_spritesheet_116
+  - first:
+      213: -5071157745500776917
+    second: Rock_5_Spikes_v1_spritesheet_117
+  - first:
+      213: -7920509223223384436
+    second: Rock_5_Spikes_v1_spritesheet_118
+  - first:
+      213: 8525170261797972226
+    second: Rock_5_Spikes_v1_spritesheet_119
+  - first:
+      213: 7474407397464058945
+    second: Rock_5_Spikes_v1_spritesheet_120
+  - first:
+      213: -4021718891178740375
+    second: Rock_5_Spikes_v1_spritesheet_121
+  - first:
+      213: 5419323647773975061
+    second: Rock_5_Spikes_v1_spritesheet_122
+  - first:
+      213: 3682548181596841664
+    second: Rock_5_Spikes_v1_spritesheet_123
+  - first:
+      213: -5775456842265223950
+    second: Rock_5_Spikes_v1_spritesheet_124
+  - first:
+      213: 8991308315639301848
+    second: Rock_5_Spikes_v1_spritesheet_125
+  - first:
+      213: -6650925717189863540
+    second: Rock_5_Spikes_v1_spritesheet_126
+  - first:
+      213: -4076885681249919106
+    second: Rock_5_Spikes_v1_spritesheet_127
+  - first:
+      213: -8811861927354263027
+    second: Rock_5_Spikes_v1_spritesheet_128
+  - first:
+      213: -2402987125985912322
+    second: Rock_5_Spikes_v1_spritesheet_129
+  - first:
+      213: -1643211783844682423
+    second: Rock_5_Spikes_v1_spritesheet_130
+  - first:
+      213: 5887793646255740441
+    second: Rock_5_Spikes_v1_spritesheet_131
+  - first:
+      213: -7824381337865577677
+    second: Rock_5_Spikes_v1_spritesheet_132
+  - first:
+      213: -7925817509906934103
+    second: Rock_5_Spikes_v1_spritesheet_133
+  - first:
+      213: 8070743989083575728
+    second: Rock_5_Spikes_v1_spritesheet_134
+  - first:
+      213: -8994218805766234264
+    second: Rock_5_Spikes_v1_spritesheet_135
+  - first:
+      213: -1945964130158767580
+    second: Rock_5_Spikes_v1_spritesheet_136
+  - first:
+      213: -5427659123199191498
+    second: Rock_5_Spikes_v1_spritesheet_137
+  - first:
+      213: -7329610795842318875
+    second: Rock_5_Spikes_v1_spritesheet_138
+  - first:
+      213: -2784923635300149111
+    second: Rock_5_Spikes_v1_spritesheet_139
+  - first:
+      213: 2572382900900314058
+    second: Rock_5_Spikes_v1_spritesheet_140
+  - first:
+      213: 8369614835128413240
+    second: Rock_5_Spikes_v1_spritesheet_141
+  - first:
+      213: 5218594718872837169
+    second: Rock_5_Spikes_v1_spritesheet_142
+  - first:
+      213: 4585428666797896555
+    second: Rock_5_Spikes_v1_spritesheet_143
+  - first:
+      213: -4630066263031345566
+    second: Rock_5_Spikes_v1_spritesheet_144
+  - first:
+      213: 5219232997980037067
+    second: Rock_5_Spikes_v1_spritesheet_145
+  - first:
+      213: 4563123784966052451
+    second: Rock_5_Spikes_v1_spritesheet_146
+  - first:
+      213: 3997826399103420890
+    second: Rock_5_Spikes_v1_spritesheet_147
+  - first:
+      213: -2741935490332611295
+    second: Rock_5_Spikes_v1_spritesheet_148
+  - first:
+      213: -1488920110178953578
+    second: Rock_5_Spikes_v1_spritesheet_149
+  - first:
+      213: 2475636745091868905
+    second: Rock_5_Spikes_v1_spritesheet_150
+  - first:
+      213: -1713779443732023115
+    second: Rock_5_Spikes_v1_spritesheet_151
+  - first:
+      213: 8797157696105006018
+    second: Rock_5_Spikes_v1_spritesheet_152
+  - first:
+      213: 1459954992727384665
+    second: Rock_5_Spikes_v1_spritesheet_153
+  - first:
+      213: -6709399587649578015
+    second: Rock_5_Spikes_v1_spritesheet_154
+  - first:
+      213: -9010567478547439126
+    second: Rock_5_Spikes_v1_spritesheet_155
+  - first:
+      213: -2101960450229436350
+    second: Rock_5_Spikes_v1_spritesheet_156
+  - first:
+      213: -9139509930403110135
+    second: Rock_5_Spikes_v1_spritesheet_157
+  - first:
+      213: 7016671851146038758
+    second: Rock_5_Spikes_v1_spritesheet_158
+  - first:
+      213: -632117294717517029
+    second: Rock_5_Spikes_v1_spritesheet_159
+  - first:
+      213: 7323494185509551104
+    second: Rock_5_Spikes_v1_spritesheet_160
+  - first:
+      213: 3046435154727269681
+    second: Rock_5_Spikes_v1_spritesheet_161
+  - first:
+      213: 9219289480842591578
+    second: Rock_5_Spikes_v1_spritesheet_162
+  - first:
+      213: 3398061398355374389
+    second: Rock_5_Spikes_v1_spritesheet_163
+  - first:
+      213: -866712464915830461
+    second: Rock_5_Spikes_v1_spritesheet_164
+  - first:
+      213: 565839336660186571
+    second: Rock_5_Spikes_v1_spritesheet_165
+  - first:
+      213: 1156406511599223777
+    second: Rock_5_Spikes_v1_spritesheet_166
+  - first:
+      213: 8786405260647612348
+    second: Rock_5_Spikes_v1_spritesheet_167
+  - first:
+      213: 6794319798172926091
+    second: Rock_5_Spikes_v1_spritesheet_168
+  - first:
+      213: 3135320400760035820
+    second: Rock_5_Spikes_v1_spritesheet_169
+  - first:
+      213: 1506092302700424230
+    second: Rock_5_Spikes_v1_spritesheet_170
+  - first:
+      213: -1167946271087287398
+    second: Rock_5_Spikes_v1_spritesheet_171
+  - first:
+      213: -8877240683958668104
+    second: Rock_5_Spikes_v1_spritesheet_172
+  - first:
+      213: -6597840086949131205
+    second: Rock_5_Spikes_v1_spritesheet_173
+  - first:
+      213: 1093518430949502561
+    second: Rock_5_Spikes_v1_spritesheet_174
+  - first:
+      213: -8703813926013818535
+    second: Rock_5_Spikes_v1_spritesheet_175
+  - first:
+      213: 5749371213749051521
+    second: Rock_5_Spikes_v1_spritesheet_176
+  - first:
+      213: -8318787322012287703
+    second: Rock_5_Spikes_v1_spritesheet_177
+  - first:
+      213: 7175617404376488092
+    second: Rock_5_Spikes_v1_spritesheet_178
+  - first:
+      213: 6669631160633305895
+    second: Rock_5_Spikes_v1_spritesheet_179
+  - first:
+      213: -932485063716049201
+    second: Rock_5_Spikes_v1_spritesheet_180
+  - first:
+      213: -8573757241467936697
+    second: Rock_5_Spikes_v1_spritesheet_181
+  - first:
+      213: 8802420594263726041
+    second: Rock_5_Spikes_v1_spritesheet_182
+  - first:
+      213: -7217054282326896314
+    second: Rock_5_Spikes_v1_spritesheet_183
+  - first:
+      213: 6629006339382819847
+    second: Rock_5_Spikes_v1_spritesheet_184
+  - first:
+      213: -2217899306566677553
+    second: Rock_5_Spikes_v1_spritesheet_185
+  - first:
+      213: 6259872118760428178
+    second: Rock_5_Spikes_v1_spritesheet_186
+  - first:
+      213: 8038006057480903395
+    second: Rock_5_Spikes_v1_spritesheet_187
+  - first:
+      213: -4442905215635295570
+    second: Rock_5_Spikes_v1_spritesheet_188
+  - first:
+      213: -3982872158320896617
+    second: Rock_5_Spikes_v1_spritesheet_189
+  - first:
+      213: -3948536435600571332
+    second: Rock_5_Spikes_v1_spritesheet_190
+  - first:
+      213: 8348260888343568433
+    second: Rock_5_Spikes_v1_spritesheet_191
+  - first:
+      213: -4028477218329221008
+    second: Rock_5_Spikes_v1_spritesheet_192
+  - first:
+      213: 5322144332465713382
+    second: Rock_5_Spikes_v1_spritesheet_193
+  - first:
+      213: 5255101356670832560
+    second: Rock_5_Spikes_v1_spritesheet_194
+  - first:
+      213: -6005403183639978818
+    second: Rock_5_Spikes_v1_spritesheet_195
+  - first:
+      213: -7845870557118352029
+    second: Rock_5_Spikes_v1_spritesheet_196
+  - first:
+      213: 7783909338363950494
+    second: Rock_5_Spikes_v1_spritesheet_197
+  - first:
+      213: 8740514290210432681
+    second: Rock_5_Spikes_v1_spritesheet_198
+  - first:
+      213: 4030451658250408034
+    second: Rock_5_Spikes_v1_spritesheet_199
+  - first:
+      213: -3767212152171105311
+    second: Rock_5_Spikes_v1_spritesheet_200
+  - first:
+      213: 3278793590732371184
+    second: Rock_5_Spikes_v1_spritesheet_201
+  - first:
+      213: -3367796364676604272
+    second: Rock_5_Spikes_v1_spritesheet_202
+  - first:
+      213: 5296245223454835461
+    second: Rock_5_Spikes_v1_spritesheet_203
+  - first:
+      213: 3261313748748865514
+    second: Rock_5_Spikes_v1_spritesheet_204
+  - first:
+      213: 3452079509303681760
+    second: Rock_5_Spikes_v1_spritesheet_205
+  - first:
+      213: -6100200686550668201
+    second: Rock_5_Spikes_v1_spritesheet_206
+  - first:
+      213: -2686783937958585182
+    second: Rock_5_Spikes_v1_spritesheet_207
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e44386b43c821ed0800000000000000
+      internalID: -2444737489680513823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 178177b15884ac3e0800000000000000
+      internalID: -2032732545275717519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04e954b8d75fc76f0800000000000000
+      internalID: -685403123710845376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8df812b394a6f410800000000000000
+      internalID: 1510575679284510093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f365870c73e6d11c0800000000000000
+      internalID: -4531344464333482433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809f392cd1879c480800000000000000
+      internalID: -8878433121170360056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d56b1b1b15b6762e0800000000000000
+      internalID: -2132617899918903715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3584
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586a36f23327168e0800000000000000
+      internalID: -1701953620005378427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ee61b76cc305020800000000000000
+      internalID: 2328427830516837953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f3a7b2ff2ed0940800000000000000
+      internalID: 5264113125039947533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdb51aaaa22bdf40800000000000000
+      internalID: 5754231065289276914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62509d7d7d90b750800000000000000
+      internalID: 6318723439503889007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5300dddd7333380800000000000000
+      internalID: -8992782604893669919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4327150681cd1730800000000000000
+      internalID: 3971543227765826379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf0b0f965a9b8b70800000000000000
+      internalID: 8902378785254084539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 3072
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f605f61e8710c9ab0800000000000000
+      internalID: -5000119867598221201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809bd99720b604f60800000000000000
+      internalID: 8016524995093969160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b4c326b940d66f0800000000000000
+      internalID: -689890102503257261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7dcb14c9a1479780800000000000000
+      internalID: -8676393959710536323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29407345f3a4ec510800000000000000
+      internalID: 1571274955855168658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57c37202276137e0800000000000000
+      internalID: -1787534181321685158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7077297e6321f3a0800000000000000
+      internalID: -6633481818754027395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe7044da5da83860800000000000000
+      internalID: 7509942984259960509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2560
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff44af61b6b3d0a0800000000000000
+      internalID: -6857936934356627464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3caf167e5deb833e0800000000000000
+      internalID: -2073697802484843837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f9d12fd22116020800000000000000
+      internalID: 2333166070499483456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b4e750e9d4062850800000000000000
+      internalID: 6351769658270934200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc8a52afe0159710800000000000000
+      internalID: 1699283055809301718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a25380310a8ed810800000000000000
+      internalID: 1792021439453549223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 070e4fbc5b81897e0800000000000000
+      internalID: -1758628485398208400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c4dd6453b73ad90800000000000000
+      internalID: -7087685919798637543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe43ae34b02af0570800000000000000
+      internalID: 8435138796355990767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c15dbdf92a2e990800000000000000
+      internalID: -7358140033698292732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 188270290a6c66e10800000000000000
+      internalID: 2190656661709334657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d009fe982bfcb7d40800000000000000
+      internalID: 5583284528781168653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3826a3da874f31de0800000000000000
+      internalID: -1363477463023590781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d536b395a4fe2d0b0800000000000000
+      internalID: -5705234675321314467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c61650a80ffddf50800000000000000
+      internalID: 6907957815971026626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d133b6911f9615c0800000000000000
+      internalID: -4245030700858527275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01e7f0545eeed560800000000000000
+      internalID: 7340566488563573004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6e18df5ed0f1d170800000000000000
+      internalID: 8201601234299788906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297f8f84303609d80800000000000000
+      internalID: -8245982051955050606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a6cd88867d1ae80800000000000000
+      internalID: -8169011405100651905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4478087e481c2d0800000000000000
+      internalID: -3260178525410868017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dbd853e2b9c142f0800000000000000
+      internalID: -990288672889185320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd523afc329bc060800000000000000
+      internalID: 6974829238506642896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a602ab0c262c3180800000000000000
+      internalID: -9134383973598624087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3c6195e83ecf44a0800000000000000
+      internalID: -6606835384564224963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3110319a3d728ba0800000000000000
+      internalID: -6088166055754067651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30ca65c430694880800000000000000
+      internalID: -8626257831484800963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51b23816573f1a00800000000000000
+      internalID: 729362507570000218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 808a48012bc75eac0800000000000000
+      internalID: -3826515204158216184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1606922bb38516cf0800000000000000
+      internalID: -260830289995407263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 230e3e866f589ec50800000000000000
+      internalID: 6695029614431166514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c612e00428c8e2b0800000000000000
+      internalID: -5554970083402311997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fabfcfff97994eac0800000000000000
+      internalID: -3826765034093216849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b158a268ea4ca9ef0800000000000000
+      internalID: -100551787808127717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0204b26c6f3c1ac00800000000000000
+      internalID: 910224064359645216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca9eded44ae15cb0800000000000000
+      internalID: -4876859339947730231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8656256942cc37b80800000000000000
+      internalID: -8398144422602971800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 530552cfffe421510800000000000000
+      internalID: 1518362885731209269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5852a57779c7e2920800000000000000
+      internalID: 2967446194468038021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ed85ab564d5bde0800000000000000
+      internalID: -1317913782552830357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rock_5_Spikes_v1_spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee3c9f75c221ec00800000000000000
+      internalID: 928061229859880674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0ebb5e8c5537e3549bd6087c25de50b1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":8.0},"gridSpriteSize":{"x":512.0,"y":512.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Rock_5_Spikes_v1_spritesheet_0: -2444737489680513823
+      Rock_5_Spikes_v1_spritesheet_1: -2032732545275717519
+      Rock_5_Spikes_v1_spritesheet_10: 5754231065289276914
+      Rock_5_Spikes_v1_spritesheet_11: 6318723439503889007
+      Rock_5_Spikes_v1_spritesheet_12: -8992782604893669919
+      Rock_5_Spikes_v1_spritesheet_13: 3971543227765826379
+      Rock_5_Spikes_v1_spritesheet_14: 8902378785254084539
+      Rock_5_Spikes_v1_spritesheet_15: -5000119867598221201
+      Rock_5_Spikes_v1_spritesheet_16: 8016524995093969160
+      Rock_5_Spikes_v1_spritesheet_17: -689890102503257261
+      Rock_5_Spikes_v1_spritesheet_18: -8676393959710536323
+      Rock_5_Spikes_v1_spritesheet_19: 1571274955855168658
+      Rock_5_Spikes_v1_spritesheet_2: -685403123710845376
+      Rock_5_Spikes_v1_spritesheet_20: -1787534181321685158
+      Rock_5_Spikes_v1_spritesheet_21: -6633481818754027395
+      Rock_5_Spikes_v1_spritesheet_22: 7509942984259960509
+      Rock_5_Spikes_v1_spritesheet_23: -6857936934356627464
+      Rock_5_Spikes_v1_spritesheet_24: -2073697802484843837
+      Rock_5_Spikes_v1_spritesheet_25: 2333166070499483456
+      Rock_5_Spikes_v1_spritesheet_26: 6351769658270934200
+      Rock_5_Spikes_v1_spritesheet_27: 1699283055809301718
+      Rock_5_Spikes_v1_spritesheet_28: 1792021439453549223
+      Rock_5_Spikes_v1_spritesheet_29: -1758628485398208400
+      Rock_5_Spikes_v1_spritesheet_3: 1510575679284510093
+      Rock_5_Spikes_v1_spritesheet_30: -7087685919798637543
+      Rock_5_Spikes_v1_spritesheet_31: 8435138796355990767
+      Rock_5_Spikes_v1_spritesheet_32: -7358140033698292732
+      Rock_5_Spikes_v1_spritesheet_33: 2190656661709334657
+      Rock_5_Spikes_v1_spritesheet_34: 5583284528781168653
+      Rock_5_Spikes_v1_spritesheet_35: -1363477463023590781
+      Rock_5_Spikes_v1_spritesheet_36: -5705234675321314467
+      Rock_5_Spikes_v1_spritesheet_37: 6907957815971026626
+      Rock_5_Spikes_v1_spritesheet_38: -4245030700858527275
+      Rock_5_Spikes_v1_spritesheet_39: 7340566488563573004
+      Rock_5_Spikes_v1_spritesheet_4: -4531344464333482433
+      Rock_5_Spikes_v1_spritesheet_40: 8201601234299788906
+      Rock_5_Spikes_v1_spritesheet_41: -8245982051955050606
+      Rock_5_Spikes_v1_spritesheet_42: -8169011405100651905
+      Rock_5_Spikes_v1_spritesheet_43: -3260178525410868017
+      Rock_5_Spikes_v1_spritesheet_44: -990288672889185320
+      Rock_5_Spikes_v1_spritesheet_45: 6974829238506642896
+      Rock_5_Spikes_v1_spritesheet_46: -9134383973598624087
+      Rock_5_Spikes_v1_spritesheet_47: -6606835384564224963
+      Rock_5_Spikes_v1_spritesheet_48: -6088166055754067651
+      Rock_5_Spikes_v1_spritesheet_49: -8626257831484800963
+      Rock_5_Spikes_v1_spritesheet_5: -8878433121170360056
+      Rock_5_Spikes_v1_spritesheet_50: 729362507570000218
+      Rock_5_Spikes_v1_spritesheet_51: -3826515204158216184
+      Rock_5_Spikes_v1_spritesheet_52: -260830289995407263
+      Rock_5_Spikes_v1_spritesheet_53: 6695029614431166514
+      Rock_5_Spikes_v1_spritesheet_54: -5554970083402311997
+      Rock_5_Spikes_v1_spritesheet_55: -3826765034093216849
+      Rock_5_Spikes_v1_spritesheet_56: -100551787808127717
+      Rock_5_Spikes_v1_spritesheet_57: 910224064359645216
+      Rock_5_Spikes_v1_spritesheet_58: -4876859339947730231
+      Rock_5_Spikes_v1_spritesheet_59: -8398144422602971800
+      Rock_5_Spikes_v1_spritesheet_6: -2132617899918903715
+      Rock_5_Spikes_v1_spritesheet_60: 1518362885731209269
+      Rock_5_Spikes_v1_spritesheet_61: 2967446194468038021
+      Rock_5_Spikes_v1_spritesheet_62: -1317913782552830357
+      Rock_5_Spikes_v1_spritesheet_63: 928061229859880674
+      Rock_5_Spikes_v1_spritesheet_7: -1701953620005378427
+      Rock_5_Spikes_v1_spritesheet_8: 2328427830516837953
+      Rock_5_Spikes_v1_spritesheet_9: 5264113125039947533
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

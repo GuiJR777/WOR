@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: 20da865a24f268a4e9e16b3f26fe19a3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6139238976905084079
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_0
+  - first:
+      213: 7350042421075451174
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_1
+  - first:
+      213: 8840603692437562481
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_2
+  - first:
+      213: -1962651416608381577
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_3
+  - first:
+      213: -3266573844405120272
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_4
+  - first:
+      213: -6003210917729252445
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_5
+  - first:
+      213: 658650027464073012
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_6
+  - first:
+      213: -4175827080552030878
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_7
+  - first:
+      213: 8799643485418221031
+    second: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1095
+        width: 341
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15307567daa0dcaa0800000000000000
+      internalID: -6139238976905084079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1093
+        width: 332
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d1148c3a8900660800000000000000
+      internalID: 7350042421075451174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1092
+        width: 341
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1746fbff73220ba70800000000000000
+      internalID: 8840603692437562481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 580
+        width: 354
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 775e3276fe243c4e0800000000000000
+      internalID: -1962651416608381577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 583
+        width: 331
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f296a3456ccaa2d0800000000000000
+      internalID: -3266573844405120272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 580
+        width: 295
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab40090a7f40bca0800000000000000
+      internalID: -6003210917729252445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 65
+        width: 331
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f1c46d5bef32900800000000000000
+      internalID: 658650027464073012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 67
+        width: 301
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d5d3c056b7c06c0800000000000000
+      internalID: -4175827080552030878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 69
+        width: 303
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7edee62a02d9e1a70800000000000000
+      internalID: 8799643485418221031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_0: -6139238976905084079
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_1: 7350042421075451174
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_2: 8840603692437562481
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_3: -1962651416608381577
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_4: -3266573844405120272
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_5: -6003210917729252445
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_6: 658650027464073012
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_7: -4175827080552030878
+      Tornado_Hand_Drawn_v1_No Wind Lines_spritesheet_8: 8799643485418221031
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
