@@ -44,6 +44,7 @@ namespace WOR.Gameplay {
 
         public bool isPlayer => gameObject.CompareTag("Player");
         public bool isEnemy => gameObject.CompareTag("Enemy");
+        public bool isAlly => gameObject.CompareTag("Ally");
 
         public delegate void OnHealthChange(HealthSystem hs);
 	    public static event OnHealthChange onHealthChange;
@@ -133,7 +134,7 @@ namespace WOR.Gameplay {
                 //show effect on destroy
                 if(showEffectOnDestroy) CreateEffect(showEffectOnDestroy);
 
-                if(isEnemy || isPlayer) {
+                if(isEnemy || isPlayer || isAlly) {
 
                     //send event
                     if(onUnitDeath != null) onUnitDeath(gameObject);

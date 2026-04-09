@@ -541,10 +541,18 @@ namespace WOR.Gameplay {
                 bool enemyIsBeingThrown = attackData.attackType == ATTACKTYPE.GRABTHROW;
                 bool enemyDoesFallDamage = settings != null && settings.hitOtherEnemiesWhenFalling;
                 bool enemyIsInKnockDownState = stateMachine != null && stateMachine.GetCurrentState() is UnitKnockDown;
+                bool enemyUsesAllyFaction = settings != null && settings.faction == UNITFACTION.ALLY;
 
                 // Enemies launched/falling in knockdown can only collide with enemies, never with the player.
                 if(!enemyIsBeingThrown && !enemyIsInKnockDownState) {
-                    AppendObjectsWithTag(hittableObjects, "Player");
+                    if(enemyUsesAllyFaction) {
+                        // Ally AI units attack Enemy-tagged units only.
+                        AppendObjectsWithTag(hittableObjects, "Enemy");
+                    } else {
+                        // Enemy AI units can target both player and ally units.
+                        AppendObjectsWithTag(hittableObjects, "Player");
+                        AppendObjectsWithTag(hittableObjects, "Ally");
+                    }
                 }
 
                 if(enemyIsBeingThrown || enemyDoesFallDamage) {

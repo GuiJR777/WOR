@@ -78,18 +78,21 @@ namespace WOR.Gameplay {
 
         //event
         public void OnUnitDeath(GameObject unit){
+            if(unit == null) {
+                return;
+            }
 
             //update total enemies left in this level (debug)
             totalEnemiesLeft = EnemyManager.GetTotalEnemyCount();
 
             //if the player is dead...
-            if(unit.GetComponent<UnitSettings>()?.unitType == UNITTYPE.PLAYER){
+            if(unit.CompareTag("Player")){
                 OnPlayerDeath();
                 return;
             }
 
             //if an enemy is dead...
-            if(unit.GetComponent<UnitSettings>()?.unitType == UNITTYPE.ENEMY){
+            if(unit.CompareTag("Enemy")){
 
                 //show slow motion effect on last enemy destroy
                 if(triggerSlowMotionOnLastEnemyKill && totalEnemiesLeft == 0) StartCoroutine(StartSlowMotionEffectRoutine());
