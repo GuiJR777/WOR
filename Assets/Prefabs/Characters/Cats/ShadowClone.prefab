@@ -173,7 +173,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_Size: {x: 0.18, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 1
 --- !u!95 &2127746360777496547
 Animator:
@@ -293,7 +293,7 @@ MonoBehaviour:
   maxHp: 10
   currentHp: 10
   invulnerable: 0
-  showSmallHealthBar: 0
+  showSmallHealthBar: 1
   smallHealthBarOffset: {x: 0, y: 0}
   showLargeHealthBar: 0
   playSFXOnHit: 
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AI_Active: 1
   delayBeforeStart: 1
-  decisionInterval: 1
+  decisionInterval: 0.3
   randomizeAmount: 1
   targetSpotted: 0
 --- !u!114 &8676888500498933177
@@ -372,7 +372,7 @@ MonoBehaviour:
   shadowPrefab: {fileID: 7064653722739863417, guid: d464de87f8d55fd49bde925ac20a3c56, type: 3}
   shadow: {fileID: 0}
   weaponBone: {fileID: 0}
-  hitEffect: {fileID: 574761907970971008, guid: bd22f0cbfdad0a0409ad336e57c368ca, type: 3}
+  hitEffect: {fileID: 1612766048550860380, guid: d15147994d9228045b52bed55488ce17, type: 3}
   hitBox: {fileID: 564797257967973577}
   spriteRenderer: {fileID: 5911762619473831274}
   useMaterialTint: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
   unitPortrait: {fileID: 21300000, guid: 5d96b704716877b47b2b16dc37e5f2f4, type: 3}
   loadRandomNameFromList: 0
   unitNamesList: {fileID: 0}
-  enemyPauseBeforeAttack: 0.3
+  enemyPauseBeforeAttack: 0.1
   enableFOV: 0
   viewDistance: 5
   viewAngle: 45

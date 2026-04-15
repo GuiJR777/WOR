@@ -1,16 +1,31 @@
 using UnityEngine;
 
-public class CloneSpawner : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+public class CloneSpawner : MonoBehaviour {
+
+    [Header("Clone Spawn")]
+    [SerializeField] private GameObject clonePrefab;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private bool useSpawnerRotation = true;
+    [SerializeField] private bool destroySpawnerAfterSpawn = true;
+
+    public void SpawnCloneFromAnimationEvent() {
+        SpawnClone();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public GameObject SpawnClone() {
+        if(clonePrefab == null) {
+            Debug.LogWarning("CloneSpawner: clonePrefab is not assigned.", this);
+            return null;
+        }
+
+        Transform origin = spawnPoint != null ? spawnPoint : transform;
+        Quaternion rotation = useSpawnerRotation ? transform.rotation : origin.rotation;
+
+        GameObject clone = Instantiate(clonePrefab, origin.position, rotation);
+        if(destroySpawnerAfterSpawn) {
+            Destroy(this);
+        }
+
+        return clone;
     }
 }

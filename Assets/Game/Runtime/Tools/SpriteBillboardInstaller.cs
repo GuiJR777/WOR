@@ -53,7 +53,16 @@ namespace WOR.Gameplay {
                     continue;
                 }
 
-                if(spriteRenderer.GetComponent<SpriteBillboard>() != null) {
+                SpriteBillboard existingBillboard = spriteRenderer.GetComponent<SpriteBillboard>();
+                bool ignoredByMarker = spriteRenderer.GetComponentInParent<SpriteBillboardIgnore>() != null;
+                if(ignoredByMarker) {
+                    if(existingBillboard != null) {
+                        Object.Destroy(existingBillboard);
+                    }
+                    continue;
+                }
+
+                if(existingBillboard != null) {
                     continue;
                 }
 

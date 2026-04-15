@@ -15,7 +15,6 @@ namespace WOR.Gameplay.Modules.Jutsu {
         private const int SlotThreeBarCost = 3;
         private const float ForwardSpawnDistance = 1.2f;
         private const float AroundSpawnRadius = 0.9f;
-        private const float AiStateStoppingDistance = 0.15f;
         private const float DefaultForcedAnimationDuration = 0.35f;
         private const float MinSlowMotionTimeScale = 0.01f;
         private const float MaxSlowMotionTimeScale = 1f;
@@ -138,14 +137,9 @@ namespace WOR.Gameplay.Modules.Jutsu {
             _aiControlCastVersion++;
             int castVersion = _aiControlCastVersion;
 
-            ControledByAI aiState;
-            GameObject closestEnemy = UnitTargetingService.FindClosestHostile(_unitActions);
-            if(closestEnemy != null) {
-                aiState = _stateMachine.SetControledByAiState(closestEnemy.transform, AiStateStoppingDistance);
-            } else {
-                // Keep AI-controlled state even when no enemy exists yet.
-                aiState = _stateMachine.SetControledByAiState();
-            }
+            // For jutsu casting, enter AI-controlled mode without a movement target.
+            // This prevents navigation from overriding the cast pose/animation.
+            ControledByAI aiState = _stateMachine.SetControledByAiState();
 
             ScheduleReturnToIdleFromAiControl(jutsu, castVersion);
             return aiState;
@@ -162,7 +156,7 @@ namespace WOR.Gameplay.Modules.Jutsu {
             }
 
             if(aiState != null) {
-                float duration = ResolveAnimationDuration(animationName);
+                float duration = ResolveForcedAnimationDuration(jutsu, animationName);
                 aiState.PlayForcedAnimation(animationName, duration, true);
                 return;
             }
@@ -191,6 +185,12 @@ namespace WOR.Gameplay.Modules.Jutsu {
             }
 
             return DefaultForcedAnimationDuration;
+        }
+
+        private float ResolveForcedAnimationDuration(JutsuDefinition jutsu, string animationName) {
+            float animationDuration = ResolveAnimationDuration(animationName);
+            float aiDuration = jutsu != null ? Mathf.Max(0f, jutsu.aiControlledDurationSeconds) : 0f;
+            return Mathf.Max(animationDuration, aiDuration, DefaultForcedAnimationDuration);
         }
 
         private void SpawnJutsuObjectsWithDelay(JutsuDefinition jutsu) {
